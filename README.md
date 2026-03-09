@@ -1,5 +1,5 @@
 
-  # Pasar Malam Marketplace Platform (Copy)
+  # Pasar Malam Marketplace Platform
 
   This is a code bundle for Pasar Malam Marketplace Platform (Copy). The original project is available at https://www.figma.com/design/glsTDbbH8VPLp70uxXri4T/Pasar-Malam-Marketplace-Platform--Copy-.
 
