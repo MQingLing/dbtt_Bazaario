@@ -24,7 +24,7 @@ export default function CustomerNav({ user, onLogout }: CustomerNavProps) {
       <div className="hidden md:block bg-gradient-to-r from-orange-500 to-pink-500 text-white p-4 shadow-lg">
         <div className="container mx-auto flex items-center justify-between">
           <div className="flex items-center gap-8">
-            <h1 className="text-2xl font-bold">Pasar Malam</h1>
+            <h1 className="text-2xl font-bold">Bazaario</h1>
             <nav className="flex gap-4">
               {navItems.map((item) => (
                 <Link
@@ -90,7 +90,7 @@ export default function CustomerNav({ user, onLogout }: CustomerNavProps) {
       {/* Mobile Top Bar */}
       <div className="md:hidden bg-gradient-to-r from-orange-500 to-pink-500 text-white p-4 shadow-lg">
         <div className="flex items-center justify-between">
-          <h1 className="text-xl font-bold">Pasar Malam</h1>
+          <h1 className="text-xl font-bold">Bazaario</h1>
           <div className="text-right">
             <div className="text-sm font-medium">{user.name}</div>
             <div className="text-xs text-white/80">${user.walletBalance?.toFixed(2)}</div>
