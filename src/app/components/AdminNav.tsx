@@ -24,7 +24,10 @@ export default function AdminNav({ user, onLogout }: AdminNavProps) {
       <div className="bg-gradient-to-r from-purple-600 to-pink-600 text-white p-4 shadow-lg">
         <div className="container mx-auto flex items-center justify-between">
           <div className="flex items-center gap-8">
-            <h1 className="text-2xl font-bold">Admin Portal</h1>
+            <div>
+              <h1 className="text-2xl font-bold">Bazaario</h1>
+              <p className="text-xs">Admin Portal</p>
+            </div>
             <nav className="hidden md:flex gap-4">
               {navItems.map((item) => {
                 const Icon = item.icon;

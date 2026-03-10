@@ -27,7 +27,10 @@ export default function VendorNav({ user, onLogout }: VendorNavProps) {
       <div className="bg-gradient-to-r from-orange-500 to-pink-500 text-white p-4 shadow-lg">
         <div className="container mx-auto flex items-center justify-between">
           <div className="flex items-center gap-8">
-            <h1 className="text-2xl font-bold">Vendor Portal</h1>
+            <div>
+              <h1 className="text-2xl font-bold">Bazaario</h1>
+              <p className="text-xs">Vendor Portal</p>
+            </div>
             <nav className="hidden md:flex gap-4">
               {navItems.map((item) => {
                 const Icon = item.icon;
