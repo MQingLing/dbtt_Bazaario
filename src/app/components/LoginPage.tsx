@@ -6,7 +6,7 @@ import { Label } from './ui/label';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card';
 import { User } from '../App';
 import { Sparkles, ShoppingBag } from 'lucide-react';
-import logoImage from 'figma:asset/app_logo.png';
+import logoImage from '../../assets/app_logo.png';
 
 interface LoginPageProps {
   onLogin: (user: User) => void;
