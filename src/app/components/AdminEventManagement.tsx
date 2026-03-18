@@ -9,82 +9,54 @@ import { Input } from './ui/input';
 import { Label } from './ui/label';
 import { Textarea } from './ui/textarea';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from './ui/dialog';
-import { Plus, MapPin, Calendar, Users, Edit, Trash2, Layout } from 'lucide-react';
+import { Plus, MapPin, Calendar, Edit, Trash2, Layout, Train, Clock } from 'lucide-react';
+import { pasarMalamEvents, PasarMalamEvent, EventStatus, getEventStatus } from '../data/pasarMalamData';
 
 interface AdminEventManagementProps {
   user: User;
   onLogout: () => void;
 }
 
-export default function AdminEventManagement({ user, onLogout }: AdminEventManagementProps) {
-  const [events, setEvents] = useState([
-    {
-      id: '1',
-      name: 'Geylang Serai Pasar Malam',
-      location: 'Geylang Serai',
-      address: '1 Geylang Serai, Singapore 402001',
-      startDate: '2026-03-05',
-      endDate: '2026-03-15',
-      startTime: '18:00',
-      endTime: '00:00',
-      vendors: 45,
-      status: 'ongoing',
-      revenue: 12500
-    },
-    {
-      id: '2',
-      name: 'Toa Payoh Night Bazaar',
-      location: 'Toa Payoh Central',
-      address: 'Toa Payoh Central, Singapore 310177',
-      startDate: '2026-03-10',
-      endDate: '2026-03-20',
-      startTime: '17:30',
-      endTime: '23:30',
-      vendors: 38,
-      status: 'upcoming',
-      revenue: 0
-    },
-    {
-      id: '3',
-      name: 'Chinatown Street Market',
-      location: 'Chinatown',
-      address: 'Chinatown Street, Singapore 058357',
-      startDate: '2026-03-12',
-      endDate: '2026-03-25',
-      startTime: '18:00',
-      endTime: '01:00',
-      vendors: 52,
-      status: 'upcoming',
-      revenue: 0
-    }
-  ]);
+const STATUS_COLORS: Record<EventStatus, string> = {
+  ongoing: 'bg-green-500',
+  upcoming: 'bg-blue-500',
+  completed: 'bg-gray-400',
+};
 
+const EMPTY_EVENT: PasarMalamEvent = {
+  id: '',
+  name: '',
+  region: 'Eastern Singapore',
+  area: '',
+  startDate: '',
+  endDate: '',
+  openingHours: '',
+  venue: '',
+  address: '',
+  nearestMrt: '',
+  description: '',
+};
+
+export default function AdminEventManagement({ user, onLogout }: AdminEventManagementProps) {
+  const [events, setEvents] = useState<PasarMalamEvent[]>(pasarMalamEvents);
+  const [filterStatus, setFilterStatus] = useState<EventStatus | 'all'>('all');
   const [isDialogOpen, setIsDialogOpen] = useState(false);
-  const [editingEvent, setEditingEvent] = useState<any>(null);
+  const [editingEvent, setEditingEvent] = useState<PasarMalamEvent | null>(null);
+
+  const displayed = filterStatus === 'all' ? events : events.filter(e => getEventStatus(e) === filterStatus);
 
   const handleAddNew = () => {
-    setEditingEvent({
-      id: '',
-      name: '',
-      location: '',
-      address: '',
-      startDate: '',
-      endDate: '',
-      startTime: '18:00',
-      endTime: '00:00',
-      vendors: 0,
-      status: 'upcoming',
-      revenue: 0
-    });
+    setEditingEvent({ ...EMPTY_EVENT });
     setIsDialogOpen(true);
   };
 
-  const handleEdit = (event: any) => {
-    setEditingEvent(event);
+  const handleEdit = (event: PasarMalamEvent) => {
+    setEditingEvent({ ...event });
     setIsDialogOpen(true);
   };
 
   const handleSave = () => {
+    if (!editingEvent) return;
     if (editingEvent.id) {
       setEvents(events.map(e => e.id === editingEvent.id ? editingEvent : e));
     } else {
@@ -105,12 +77,12 @@ export default function AdminEventManagement({ user, onLogout }: AdminEventManag
       <AdminNav user={user} onLogout={onLogout} />
 
       <div className="container mx-auto px-4 py-6 max-w-7xl">
-        <div className="flex items-center justify-between mb-6">
+        <div className="flex items-center justify-between mb-4">
           <div>
             <h1 className="text-3xl font-bold text-gray-900 mb-2">Event Management</h1>
-            <p className="text-gray-600">Create and manage Pasar Malam events</p>
+            <p className="text-gray-600">Create and manage Pasar Malam events ({events.length} total)</p>
           </div>
-          <Button 
+          <Button
             onClick={handleAddNew}
             className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700"
           >
@@ -119,18 +91,36 @@ export default function AdminEventManagement({ user, onLogout }: AdminEventManag
           </Button>
         </div>
 
+        {/* Filter tabs */}
+        <div className="flex gap-2 mb-6 flex-wrap">
+          {(['all', 'ongoing', 'upcoming', 'completed'] as const).map(s => (
+            <Button
+              key={s}
+              size="sm"
+              variant={filterStatus === s ? 'default' : 'outline'}
+              onClick={() => setFilterStatus(s)}
+              className={filterStatus === s ? 'bg-purple-600 hover:bg-purple-700' : ''}
+            >
+              {s === 'all' ? `All (${events.length})` : `${s.charAt(0).toUpperCase() + s.slice(1)} (${events.filter(e => getEventStatus(e) === s).length})`}
+            </Button>
+          ))}
+        </div>
+
         <div className="grid md:grid-cols-2 gap-6">
-          {events.map((event) => (
+          {displayed.map((event) => {
+            const status = getEventStatus(event);
+            return (
             <Card key={event.id}>
               <CardContent className="p-6">
-                <div className="flex items-start justify-between mb-4">
-                  <div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">{event.name}</h3>
-                    <Badge className={event.status === 'ongoing' ? 'bg-green-500' : 'bg-blue-500'}>
-                      {event.status}
-                    </Badge>
+                <div className="flex items-start justify-between mb-3">
+                  <div className="flex-1 min-w-0 mr-2">
+                    <h3 className="text-lg font-bold text-gray-900 mb-1 leading-tight">{event.name}</h3>
+                    <div className="flex items-center gap-2 flex-wrap">
+                      <Badge className={STATUS_COLORS[status]}>{status}</Badge>
+                      <Badge variant="outline" className="text-xs">{event.region}</Badge>
+                    </div>
                   </div>
-                  <div className="flex gap-2">
+                  <div className="flex gap-2 shrink-0">
                     <Button size="sm" variant="outline" onClick={() => handleEdit(event)}>
                       <Edit className="w-4 h-4" />
                     </Button>
@@ -140,37 +130,41 @@ export default function AdminEventManagement({ user, onLogout }: AdminEventManag
                   </div>
                 </div>
 
-                <div className="space-y-3">
+                <div className="space-y-2">
                   <div className="flex items-start gap-2 text-sm">
                     <MapPin className="w-4 h-4 text-gray-500 mt-0.5 flex-shrink-0" />
                     <div>
-                      <p className="font-medium text-gray-900">{event.location}</p>
-                      <p className="text-gray-600">{event.address}</p>
+                      <p className="font-medium text-gray-900">{event.area}</p>
+                      <p className="text-gray-500 text-xs">{event.venue}</p>
+                      <p className="text-gray-500 text-xs">{event.address}</p>
                     </div>
                   </div>
+
+                  {event.nearestMrt && (
+                    <div className="flex items-center gap-2 text-sm">
+                      <Train className="w-4 h-4 text-gray-500" />
+                      <p className="text-gray-700">{event.nearestMrt}</p>
+                    </div>
+                  )}
 
                   <div className="flex items-center gap-2 text-sm">
                     <Calendar className="w-4 h-4 text-gray-500" />
                     <p className="text-gray-700">
-                      {new Date(event.startDate).toLocaleDateString()} - {new Date(event.endDate).toLocaleDateString()}
+                      {new Date(event.startDate).toLocaleDateString('en-SG', { day: 'numeric', month: 'short', year: 'numeric' })} –{' '}
+                      {new Date(event.endDate).toLocaleDateString('en-SG', { day: 'numeric', month: 'short', year: 'numeric' })}
                     </p>
                   </div>
 
-                  <div className="flex items-center gap-2 text-sm">
-                    <Users className="w-4 h-4 text-gray-500" />
-                    <p className="text-gray-700">{event.vendors} vendors registered</p>
-                  </div>
+                  {event.openingHours && (
+                    <div className="flex items-center gap-2 text-sm">
+                      <Clock className="w-4 h-4 text-gray-500" />
+                      <p className="text-gray-700">{event.openingHours}</p>
+                    </div>
+                  )}
 
-                  <div className="pt-3 border-t grid grid-cols-2 gap-4">
-                    <div>
-                      <p className="text-sm text-gray-600">Operating Hours</p>
-                      <p className="font-medium">{event.startTime} - {event.endTime}</p>
-                    </div>
-                    <div>
-                      <p className="text-sm text-gray-600">Revenue</p>
-                      <p className="font-medium text-green-600">${event.revenue.toFixed(2)}</p>
-                    </div>
-                  </div>
+                  {event.description && (
+                    <p className="text-xs text-gray-500 pt-1 line-clamp-2">{event.description}</p>
+                  )}
 
                   <div className="pt-3 border-t">
                     <Link to={`/admin/events/${event.id}/stalls`}>
@@ -183,7 +177,8 @@ export default function AdminEventManagement({ user, onLogout }: AdminEventManag
                 </div>
               </CardContent>
             </Card>
-          ))}
+            );
+          })}
         </div>
 
         {/* Edit/Add Dialog */}
@@ -203,16 +198,42 @@ export default function AdminEventManagement({ user, onLogout }: AdminEventManag
                     id="name"
                     value={editingEvent.name}
                     onChange={(e) => setEditingEvent({ ...editingEvent, name: e.target.value })}
-                    placeholder="e.g., Geylang Serai Pasar Malam"
+                    placeholder="e.g., Geylang Serai Ramadan Bazaar"
                   />
                 </div>
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <Label htmlFor="region">Region</Label>
+                    <select
+                      id="region"
+                      value={editingEvent.region}
+                      onChange={(e) => setEditingEvent({ ...editingEvent, region: e.target.value as PasarMalamEvent['region'] })}
+                      className="w-full h-10 px-3 rounded-md border border-gray-200"
+                    >
+                      <option>Eastern Singapore</option>
+                      <option>Northern Singapore</option>
+                      <option>Western Singapore</option>
+                      <option>Central Singapore</option>
+                      <option>City & CBD</option>
+                    </select>
+                  </div>
+                  <div>
+                    <Label htmlFor="area">Area / Street</Label>
+                    <Input
+                      id="area"
+                      value={editingEvent.area}
+                      onChange={(e) => setEditingEvent({ ...editingEvent, area: e.target.value })}
+                      placeholder="e.g., Geylang Road / Sims Avenue"
+                    />
+                  </div>
+                </div>
                 <div>
-                  <Label htmlFor="location">Location Name</Label>
+                  <Label htmlFor="venue">Venue</Label>
                   <Input
-                    id="location"
-                    value={editingEvent.location}
-                    onChange={(e) => setEditingEvent({ ...editingEvent, location: e.target.value })}
-                    placeholder="e.g., Geylang Serai"
+                    id="venue"
+                    value={editingEvent.venue}
+                    onChange={(e) => setEditingEvent({ ...editingEvent, venue: e.target.value })}
+                    placeholder="e.g., Wisma Geylang Serai"
                   />
                 </div>
                 <div>
@@ -222,6 +243,15 @@ export default function AdminEventManagement({ user, onLogout }: AdminEventManag
                     value={editingEvent.address}
                     onChange={(e) => setEditingEvent({ ...editingEvent, address: e.target.value })}
                     placeholder="Enter complete address"
+                  />
+                </div>
+                <div>
+                  <Label htmlFor="nearestMrt">Nearest MRT Station</Label>
+                  <Input
+                    id="nearestMrt"
+                    value={editingEvent.nearestMrt}
+                    onChange={(e) => setEditingEvent({ ...editingEvent, nearestMrt: e.target.value })}
+                    placeholder="e.g., (CC9|EW8) Paya Lebar"
                   />
                 </div>
                 <div className="grid grid-cols-2 gap-4">
@@ -244,44 +274,29 @@ export default function AdminEventManagement({ user, onLogout }: AdminEventManag
                     />
                   </div>
                 </div>
-                <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <Label htmlFor="startTime">Start Time</Label>
-                    <Input
-                      id="startTime"
-                      type="time"
-                      value={editingEvent.startTime}
-                      onChange={(e) => setEditingEvent({ ...editingEvent, startTime: e.target.value })}
-                    />
-                  </div>
-                  <div>
-                    <Label htmlFor="endTime">End Time</Label>
-                    <Input
-                      id="endTime"
-                      type="time"
-                      value={editingEvent.endTime}
-                      onChange={(e) => setEditingEvent({ ...editingEvent, endTime: e.target.value })}
-                    />
-                  </div>
+                <div>
+                  <Label htmlFor="openingHours">Opening Hours</Label>
+                  <Input
+                    id="openingHours"
+                    value={editingEvent.openingHours}
+                    onChange={(e) => setEditingEvent({ ...editingEvent, openingHours: e.target.value })}
+                    placeholder="e.g., 10:00am – 11:59pm"
+                  />
                 </div>
                 <div>
-                  <Label htmlFor="status">Status</Label>
-                  <select
-                    id="status"
-                    value={editingEvent.status}
-                    onChange={(e) => setEditingEvent({ ...editingEvent, status: e.target.value })}
-                    className="w-full h-10 px-3 rounded-md border border-gray-200"
-                  >
-                    <option value="upcoming">Upcoming</option>
-                    <option value="ongoing">Ongoing</option>
-                    <option value="completed">Completed</option>
-                  </select>
+                  <Label htmlFor="description">Description</Label>
+                  <Textarea
+                    id="description"
+                    value={editingEvent.description}
+                    onChange={(e) => setEditingEvent({ ...editingEvent, description: e.target.value })}
+                    placeholder="Brief description of the event"
+                  />
                 </div>
                 <div className="flex justify-end gap-3">
                   <Button variant="outline" onClick={() => setIsDialogOpen(false)}>
                     Cancel
                   </Button>
-                  <Button 
+                  <Button
                     onClick={handleSave}
                     className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700"
                   >

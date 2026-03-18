@@ -1,13 +1,18 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { Link } from 'react-router';
 import { User } from '../App';
 import { MapPin, Calendar, DollarSign, Users, Gavel, Search, Filter } from 'lucide-react';
 import VendorNavBar from './VendorNavBar';
+import { pasarMalamEvents, getEventStatus } from '../data/pasarMalamData';
+import { getEventVendors } from '../data/vendors';
 
 interface VendorApplyEventsProps {
   user: User;
   onLogout: () => void;
 }
+
+type AppStatus = 'open' | 'closing-soon' | 'closed';
+type PricingModel = 'fixed' | 'bidding';
 
 interface EventListing {
   id: string;
@@ -18,97 +23,70 @@ interface EventListing {
   imageUrl: string;
   totalStalls: number;
   availableStalls: number;
-  pricingModel: 'fixed' | 'bidding';
+  pricingModel: PricingModel;
   minPrice?: number;
   minBid?: number;
   categories: string[];
   applicationDeadline: string;
-  status: 'open' | 'closing-soon' | 'closed';
+  status: AppStatus;
 }
 
-const mockEvents: EventListing[] = [
-  {
-    id: '1',
-    name: 'Chinatown CNY Night Market',
-    date: '2026-01-25',
-    time: '6:00 PM - 11:00 PM',
-    location: 'Chinatown Complex',
-    imageUrl: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&auto=format&fit=crop',
-    totalStalls: 120,
-    availableStalls: 45,
-    pricingModel: 'bidding',
-    minBid: 150,
-    categories: ['Food Stall', 'Non-Food Stall', 'Premium Corner'],
-    applicationDeadline: '2026-01-10',
-    status: 'open'
-  },
-  {
-    id: '2',
-    name: 'Geylang Serai Ramadan Bazaar',
-    date: '2026-03-15',
-    time: '5:00 PM - 12:00 AM',
-    location: 'Geylang Serai Market',
-    imageUrl: 'https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?w=800&auto=format&fit=crop',
-    totalStalls: 200,
-    availableStalls: 120,
-    pricingModel: 'fixed',
-    minPrice: 200,
-    categories: ['Food Stall', 'Clothing', 'Religious Items', 'Premium Corner'],
-    applicationDeadline: '2026-02-20',
-    status: 'open'
-  },
-  {
-    id: '3',
-    name: 'Marina Bay Countdown Market',
-    date: '2026-12-31',
-    time: '4:00 PM - 2:00 AM',
-    location: 'Marina Bay',
-    imageUrl: 'https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=800&auto=format&fit=crop',
-    totalStalls: 150,
-    availableStalls: 8,
-    pricingModel: 'bidding',
-    minBid: 300,
-    categories: ['Food Stall', 'Beverages', 'Premium Corner'],
-    applicationDeadline: '2026-11-30',
-    status: 'closing-soon'
-  },
-  {
-    id: '4',
-    name: 'Bugis Street Night Festival',
-    date: '2026-04-10',
-    time: '6:00 PM - 11:00 PM',
-    location: 'Bugis Street',
-    imageUrl: 'https://images.unsplash.com/photo-1523942839745-7848c839b661?w=800&auto=format&fit=crop',
-    totalStalls: 80,
-    availableStalls: 60,
-    pricingModel: 'fixed',
-    minPrice: 120,
-    categories: ['Food Stall', 'Fashion', 'Accessories', 'Art & Crafts'],
-    applicationDeadline: '2026-03-20',
-    status: 'open'
-  },
-  {
-    id: '5',
-    name: 'Sentosa Beach Night Market',
-    date: '2026-06-01',
-    time: '5:00 PM - 10:00 PM',
-    location: 'Siloso Beach, Sentosa',
-    imageUrl: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800&auto=format&fit=crop',
-    totalStalls: 100,
-    availableStalls: 85,
-    pricingModel: 'bidding',
-    minBid: 180,
-    categories: ['Food Stall', 'Beverages', 'Beach Items', 'Premium Corner'],
-    applicationDeadline: '2026-05-10',
-    status: 'open'
-  }
+const EVENT_IMAGES = [
+  'https://images.unsplash.com/photo-1763621470208-efe14b618119?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzaW5nYXBvcmUlMjBuaWdodCUyMG1hcmtldCUyMGZvb2QlMjBzdGFsbHN8ZW58MXx8fHwxNzcyNzE4OTUzfDA&ixlib=rb-4.1.0&q=80&w=800',
+  'https://images.unsplash.com/photo-1771804359368-0f91f81ee83b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhc2lhbiUyMHN0cmVldCUyMGZvb2QlMjBjb2xvcmZ1bHxlbnwxfHx8fDE3NzI3MTg5NTR8MA&ixlib=rb-4.1.0&q=80&w=800',
+  'https://images.unsplash.com/photo-1768900318217-4c7677ffc2c4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxuaWdodCUyMG1hcmtldCUyMGxhbnRlcm5zJTIwYXNpYXxlbnwxfHx8fDE3NzI3MTg5NTR8MA&ixlib=rb-4.1.0&q=80&w=800',
 ];
+
+// Deterministic pricing model from event id
+function eventPricingModel(id: string): PricingModel {
+  return parseInt(id) % 2 === 0 ? 'fixed' : 'bidding';
+}
+
+function eventAppStatus(eventStatus: string, endDate: string): AppStatus {
+  if (eventStatus === 'completed') return 'closed';
+  const daysLeft = (new Date(endDate).getTime() - Date.now()) / 86400000;
+  if (daysLeft < 7) return 'closing-soon';
+  return 'open';
+}
 
 export default function VendorApplyEvents({ user, onLogout }: VendorApplyEventsProps) {
   const [searchQuery, setSearchQuery] = useState('');
   const [filterModel, setFilterModel] = useState<'all' | 'fixed' | 'bidding'>('all');
 
-  const filteredEvents = mockEvents.filter(event => {
+  const allListings = useMemo<EventListing[]>(() =>
+    pasarMalamEvents
+      .filter(e => getEventStatus(e) !== 'completed')
+      .map(e => {
+        const status = getEventStatus(e);
+        const vendors = getEventVendors(e.id);
+        const totalStalls = vendors.length + 5 + (parseInt(e.id) % 10);
+        const availableStalls = Math.max(1, Math.floor(totalStalls * (0.3 + (parseInt(e.id) % 5) * 0.1)));
+        const pricingModel = eventPricingModel(e.id);
+        // Application deadline = 2 weeks before start, or 1 week from now if already ongoing
+        const deadlineDate = new Date(e.startDate);
+        deadlineDate.setDate(deadlineDate.getDate() - 14);
+        const deadline = deadlineDate < new Date()
+          ? new Date(Date.now() + 7 * 86400000).toISOString().slice(0, 10)
+          : deadlineDate.toISOString().slice(0, 10);
+        return {
+          id: e.id,
+          name: e.name,
+          date: e.startDate,
+          time: e.openingHours || '5:00 PM – 11:00 PM',
+          location: e.area,
+          imageUrl: EVENT_IMAGES[parseInt(e.id) % EVENT_IMAGES.length],
+          totalStalls,
+          availableStalls,
+          pricingModel,
+          ...(pricingModel === 'fixed' ? { minPrice: 100 + (parseInt(e.id) % 10) * 20 } : { minBid: 120 + (parseInt(e.id) % 8) * 25 }),
+          categories: ['Food Stall', 'Non-Food Stall', 'Premium Corner', 'Games'],
+          applicationDeadline: deadline,
+          status: eventAppStatus(status, e.endDate),
+        };
+      }),
+  []);
+
+  const filteredEvents = allListings.filter(event => {
     const matchesSearch = event.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
                          event.location.toLowerCase().includes(searchQuery.toLowerCase());
     const matchesFilter = filterModel === 'all' || event.pricingModel === filterModel;

@@ -5,42 +5,30 @@ import { Card, CardContent } from './ui/card';
 import { Badge } from './ui/badge';
 import { Button } from './ui/button';
 import { Calendar, MapPin, TrendingUp, Sparkles, Clock, Users, ChevronRight, Gift, Wallet } from 'lucide-react';
+import { pasarMalamEvents, getEventStatus } from '../data/pasarMalamData';
+import { getEventVendors } from '../data/vendors';
 
 interface CustomerHomeProps {
   user: User;
   onLogout: () => void;
 }
 
+const EVENT_IMAGES = [
+  'https://images.unsplash.com/photo-1763621470208-efe14b618119?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzaW5nYXBvcmUlMjBuaWdodCUyMG1hcmtldCUyMGZvb2QlMjBzdGFsbHN8ZW58MXx8fHwxNzcyNzE4OTUzfDA&ixlib=rb-4.1.0&q=80&w=1080',
+  'https://images.unsplash.com/photo-1771804359368-0f91f81ee83b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhc2lhbiUyMHN0cmVldCUyMGZvb2QlMjBjb2xvcmZ1bHxlbnwxfHx8fDE3NzI3MTg5NTR8MA&ixlib=rb-4.1.0&q=80&w=1080',
+  'https://images.unsplash.com/photo-1768900318217-4c7677ffc2c4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxuaWdodCUyMG1hcmtldCUyMGxhbnRlcm5zJTIwYXNpYXxlbnwxfHx8fDE3NzI3MTg5NTR8MA&ixlib=rb-4.1.0&q=80&w=1080',
+];
+
 export default function CustomerHome({ user, onLogout }: CustomerHomeProps) {
-  const featuredEvents = [
-    {
-      id: '1',
-      name: 'Geylang Serai Pasar Malam',
-      location: 'Geylang Serai',
-      date: 'Mar 5 - Mar 15, 2026',
-      image: 'https://images.unsplash.com/photo-1763621470208-efe14b618119?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzaW5nYXBvcmUlMjBuaWdodCUyMG1hcmtldCUyMGZvb2QlMjBzdGFsbHN8ZW58MXx8fHwxNzcyNzE4OTUzfDA&ixlib=rb-4.1.0&q=80&w=1080',
-      vendors: 45,
-      status: 'ongoing'
-    },
-    {
-      id: '2',
-      name: 'Toa Payoh Night Bazaar',
-      location: 'Toa Payoh Central',
-      date: 'Mar 10 - Mar 20, 2026',
-      image: 'https://images.unsplash.com/photo-1771804359368-0f91f81ee83b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhc2lhbiUyMHN0cmVldCUyMGZvb2QlMjBjb2xvcmZ1bHxlbnwxfHx8fDE3NzI3MTg5NTR8MA&ixlib=rb-4.1.0&q=80&w=1080',
-      vendors: 38,
-      status: 'upcoming'
-    },
-    {
-      id: '3',
-      name: 'Chinatown Street Market',
-      location: 'Chinatown',
-      date: 'Mar 12 - Mar 25, 2026',
-      image: 'https://images.unsplash.com/photo-1768900318217-4c7677ffc2c4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxuaWdodCUyMG1hcmtldCUyMGxhbnRlcm5zJTIwYXNpYXxlbnwxfHx8fDE3NzI3MTg5NTR8MA&ixlib=rb-4.1.0&q=80&w=1080',
-      vendors: 52,
-      status: 'upcoming'
-    }
-  ];
+  // Featured events: explicitly marked ones first, then top ongoing/upcoming
+  const featuredEvents = (() => {
+    const featured = pasarMalamEvents.filter(e => e.featured);
+    if (featured.length >= 3) return featured.slice(0, 3);
+    const others = pasarMalamEvents
+      .filter(e => !e.featured && (getEventStatus(e) === 'ongoing' || getEventStatus(e) === 'upcoming'))
+      .slice(0, 3 - featured.length);
+    return [...featured, ...others];
+  })();
 
   const quickActions = [
     { icon: Calendar, label: 'Browse Events', link: '/customer/events', color: 'bg-orange-500' },
@@ -111,45 +99,52 @@ export default function CustomerHome({ user, onLogout }: CustomerHomeProps) {
           </div>
 
           <div className="grid md:grid-cols-3 gap-4">
-            {featuredEvents.map((event) => (
-              <Link key={event.id} to={`/customer/events/${event.id}`}>
-                <Card className="overflow-hidden hover:shadow-lg transition-shadow cursor-pointer">
-                  <div className="relative h-40">
-                    <img src={event.image} alt={event.name} className="w-full h-full object-cover" />
-                    <Badge 
-                      className={`absolute top-3 right-3 ${
-                        event.status === 'ongoing' 
-                          ? 'bg-green-500 hover:bg-green-600' 
-                          : 'bg-blue-500 hover:bg-blue-600'
-                      }`}
-                    >
-                      {event.status === 'ongoing' ? 'Live Now' : 'Upcoming'}
-                    </Badge>
-                  </div>
-                  <CardContent className="p-4">
-                    <h4 className="font-bold text-gray-900 mb-2">{event.name}</h4>
-                    <div className="space-y-1 text-sm text-gray-600">
-                      <div className="flex items-center gap-2">
-                        <MapPin className="w-4 h-4" />
-                        <span>{event.location}</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <Clock className="w-4 h-4" />
-                        <span>{event.date}</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <Users className="w-4 h-4" />
-                        <span>{event.vendors} vendors</span>
-                      </div>
+            {featuredEvents.map((event) => {
+              const status = getEventStatus(event);
+              const vendors = getEventVendors(event.id);
+              const image = EVENT_IMAGES[parseInt(event.id) % EVENT_IMAGES.length];
+              return (
+                <Link key={event.id} to={`/customer/events/${event.id}`}>
+                  <Card className="overflow-hidden hover:shadow-lg transition-shadow cursor-pointer">
+                    <div className="relative h-40">
+                      <img src={image} alt={event.name} className="w-full h-full object-cover" />
+                      <Badge
+                        className={`absolute top-3 right-3 ${
+                          status === 'ongoing'
+                            ? 'bg-green-500 hover:bg-green-600'
+                            : status === 'upcoming'
+                            ? 'bg-blue-500 hover:bg-blue-600'
+                            : 'bg-gray-500 hover:bg-gray-600'
+                        }`}
+                      >
+                        {status === 'ongoing' ? 'Live Now' : status === 'upcoming' ? 'Upcoming' : 'Past'}
+                      </Badge>
                     </div>
-                  </CardContent>
-                </Card>
-              </Link>
-            ))}
+                    <CardContent className="p-4">
+                      <h4 className="font-bold text-gray-900 mb-2">{event.name}</h4>
+                      <div className="space-y-1 text-sm text-gray-600">
+                        <div className="flex items-center gap-2">
+                          <MapPin className="w-4 h-4" />
+                          <span>{event.area}</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <Clock className="w-4 h-4" />
+                          <span>{new Date(event.startDate).toLocaleDateString('en-SG', { day: 'numeric', month: 'short' })} – {new Date(event.endDate).toLocaleDateString('en-SG', { day: 'numeric', month: 'short', year: 'numeric' })}</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <Users className="w-4 h-4" />
+                          <span>{vendors.length} vendors</span>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </Link>
+              );
+            })}
           </div>
         </div>
 
-        {/* Trending Vendors */}
+        {/* Trending Vendors — top-rated from ongoing events */}
         <div>
           <div className="flex items-center gap-2 mb-4">
             <TrendingUp className="w-5 h-5 text-orange-500" />
@@ -157,24 +152,34 @@ export default function CustomerHome({ user, onLogout }: CustomerHomeProps) {
           </div>
 
           <div className="grid md:grid-cols-4 gap-4">
-            {[
-              { id: '1', name: "Wong's Satay", type: 'Food', image: 'https://images.unsplash.com/photo-1722704689022-98d1b7795589?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzYXRheSUyMGZvb2QlMjBzdGFsbHxlbnwxfHx8fDE3NzI3MTg5NTR8MA&ixlib=rb-4.1.0&q=80&w=1080' },
-              { id: '2', name: 'Bubble Tea Paradise', type: 'Drinks', image: 'https://images.unsplash.com/photo-1670468642364-6cacadfb7bb0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxidWJibGUlMjB0ZWElMjBkcmlua3N8ZW58MXx8fHwxNzcyNzE0OTA5fDA&ixlib=rb-4.1.0&q=80&w=1080' },
-              { id: '3', name: 'Golden Snacks', type: 'Food', image: 'https://images.unsplash.com/photo-1738599935343-991708a2895b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmcmllZCUyMHNuYWNrcyUyMGZvb2R8ZW58MXx8fHwxNzcyNzE4OTU1fDA&ixlib=rb-4.1.0&q=80&w=1080' },
-              { id: '4', name: 'Artisan Crafts', type: 'Products', image: 'https://images.unsplash.com/photo-1724709166740-96947d362a17?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhcnRpc2FuJTIwaGFuZGljcmFmdHMlMjBtYXJrZXR8ZW58MXx8fHwxNzcyNzE4OTU2fDA&ixlib=rb-4.1.0&q=80&w=1080' },
-            ].map((vendor) => (
-              <Link key={vendor.id} to={`/customer/vendor/${vendor.id}`}>
-                <Card className="overflow-hidden hover:shadow-lg transition-shadow cursor-pointer">
-                  <div className="relative h-32">
-                    <img src={vendor.image} alt={vendor.name} className="w-full h-full object-cover" />
-                  </div>
-                  <CardContent className="p-3">
-                    <h4 className="font-bold text-sm text-gray-900">{vendor.name}</h4>
-                    <p className="text-xs text-gray-500">{vendor.type}</p>
-                  </CardContent>
-                </Card>
-              </Link>
-            ))}
+            {(() => {
+              const VENDOR_IMAGES_MAP: Record<string, string> = {
+                'Hot Food': 'https://images.unsplash.com/photo-1722704689022-98d1b7795589?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzYXRheSUyMGZvb2QlMjBzdGFsbHxlbnwxfHx8fDE3NzI3MTg5NTR8MA&ixlib=rb-4.1.0&q=80&w=400',
+                'Drinks': 'https://images.unsplash.com/photo-1670468642364-6cacadfb7bb0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxidWJibGUlMjB0ZWElMjBkcmlua3N8ZW58MXx8fHwxNzcyNzE0OTA5fDA&ixlib=rb-4.1.0&q=80&w=400',
+                'Desserts': 'https://images.unsplash.com/photo-1563805042-7684c019e1cb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400',
+                'Snacks': 'https://images.unsplash.com/photo-1738599935343-991708a2895b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmcmllZCUyMHNuYWNrcyUyMGZvb2R8ZW58MXx8fHwxNzcyNzE4OTU1fDA&ixlib=rb-4.1.0&q=80&w=400',
+                'Trendy Food': 'https://images.unsplash.com/photo-1513104890138-7c749659a591?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400',
+                'Household Items': 'https://images.unsplash.com/photo-1724709166740-96947d362a17?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhcnRpc2FuJTIwaGFuZGljcmFmdHMlMjBtYXJrZXR8ZW58MXx8fHwxNzcyNzE4OTU2fDA&ixlib=rb-4.1.0&q=80&w=400',
+                'Games & Entertainment': 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400',
+              };
+              const ongoingEvent = pasarMalamEvents.find(e => getEventStatus(e) === 'ongoing') || pasarMalamEvents[0];
+              const trendingVendors = getEventVendors(ongoingEvent.id)
+                .sort((a, b) => b.rating - a.rating)
+                .slice(0, 4);
+              return trendingVendors.map(vendor => (
+                <Link key={vendor.id} to={`/customer/vendor/${vendor.id}`}>
+                  <Card className="overflow-hidden hover:shadow-lg transition-shadow cursor-pointer">
+                    <div className="relative h-32">
+                      <img src={VENDOR_IMAGES_MAP[vendor.category] || VENDOR_IMAGES_MAP['Hot Food']} alt={vendor.name} className="w-full h-full object-cover" />
+                    </div>
+                    <CardContent className="p-3">
+                      <h4 className="font-bold text-sm text-gray-900">{vendor.name}</h4>
+                      <p className="text-xs text-gray-500">{vendor.category}</p>
+                    </CardContent>
+                  </Card>
+                </Link>
+              ));
+            })()}
           </div>
         </div>
       </div>
