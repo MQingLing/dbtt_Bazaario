@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import VendorNav from './VendorNav';
 import { User } from '../App';
+import { PRODUCTS } from '../data/mockData';
 import { Card, CardContent } from './ui/card';
 import { Badge } from './ui/badge';
 import { Button } from './ui/button';
@@ -17,13 +18,7 @@ interface VendorProductManagementProps {
 }
 
 export default function VendorProductManagement({ user, onLogout }: VendorProductManagementProps) {
-  const [products, setProducts] = useState([
-    { id: '1', name: 'Chicken Satay (10 sticks)', description: 'Tender marinated chicken skewers', price: 8.00, category: 'Satay', inStock: true, image: 'https://images.unsplash.com/photo-1722704689022-98d1b7795589?w=400' },
-    { id: '2', name: 'Beef Satay (10 sticks)', description: 'Premium beef marinated in spices', price: 10.00, category: 'Satay', inStock: true, image: 'https://images.unsplash.com/photo-1771804359368-0f91f81ee83b?w=400' },
-    { id: '3', name: 'Lamb Satay (10 sticks)', description: 'Succulent lamb with Malay spices', price: 12.00, category: 'Satay', inStock: false, image: 'https://images.unsplash.com/photo-1763621470208-efe14b618119?w=400' },
-    { id: '4', name: 'Mixed Platter', description: 'Assorted satay with rice', price: 25.00, category: 'Platters', inStock: true, image: 'https://images.unsplash.com/photo-1771804359368-0f91f81ee83b?w=400' },
-    { id: '5', name: 'Satay Sauce', description: 'Homemade peanut sauce', price: 2.00, category: 'Extras', inStock: true, image: 'https://images.unsplash.com/photo-1738599935343-991708a2895b?w=400' },
-  ]);
+  const [products, setProducts] = useState(PRODUCTS.map(p => ({ ...p })));
 
   const [editingProduct, setEditingProduct] = useState<any>(null);
   const [isDialogOpen, setIsDialogOpen] = useState(false);

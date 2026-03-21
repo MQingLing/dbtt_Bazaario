@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link, useParams, useNavigate } from 'react-router';
 import CustomerNav from './CustomerNav';
 import { User } from '../App';
+import { PRODUCTS } from '../data/mockData';
 import { Card, CardContent } from './ui/card';
 import { Badge } from './ui/badge';
 import { Button } from './ui/button';
@@ -31,68 +32,7 @@ export default function MenuProductPage({ user, onLogout }: MenuProductPageProps
   const [cart, setCart] = useState<{ [key: string]: number }>({});
   const [searchQuery, setSearchQuery] = useState('');
 
-  const menuItems: MenuItem[] = [
-    {
-      id: '1',
-      name: 'Chicken Satay (10 sticks)',
-      description: 'Tender marinated chicken skewers grilled to perfection with our secret sauce',
-      price: 8.00,
-      image: 'https://images.unsplash.com/photo-1722704689022-98d1b7795589?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzYXRheSUyMGZvb2QlMjBzdGFsbHxlbnwxfHx8fDE3NzI3MTg5NTR8MA&ixlib=rb-4.1.0&q=80&w=1080',
-      category: 'Satay',
-      popular: true,
-      inStock: true
-    },
-    {
-      id: '2',
-      name: 'Beef Satay (10 sticks)',
-      description: 'Premium beef marinated in aromatic spices',
-      price: 10.00,
-      image: 'https://images.unsplash.com/photo-1771804359368-0f91f81ee83b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhc2lhbiUyMHN0cmVldCUyMGZvb2QlMjBjb2xvcmZ1bHxlbnwxfHx8fDE3NzI3MTg5NTR8MA&ixlib=rb-4.1.0&q=80&w=1080',
-      category: 'Satay',
-      popular: true,
-      inStock: true
-    },
-    {
-      id: '3',
-      name: 'Lamb Satay (10 sticks)',
-      description: 'Succulent lamb with traditional Malay spices',
-      price: 12.00,
-      image: 'https://images.unsplash.com/photo-1763621470208-efe14b618119?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzaW5nYXBvcmUlMjBuaWdodCUyMG1hcmtldCUyMGZvb2QlMjBzdGFsbHN8ZW58MXx8fHwxNzcyNzE4OTUzfDA&ixlib=rb-4.1.0&q=80&w=1080',
-      category: 'Satay',
-      popular: false,
-      inStock: false
-    },
-    {
-      id: '4',
-      name: 'Mixed Satay Platter (30 sticks)',
-      description: 'Assorted chicken, beef, and lamb satay with extra sauce and rice',
-      price: 25.00,
-      image: 'https://images.unsplash.com/photo-1771804359368-0f91f81ee83b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhc2lhbiUyMHN0cmVldCUyMGZvb2QlMjBjb2xvcmZ1bHxlbnwxfHx8fDE3NzI3MTg5NTR8MA&ixlib=rb-4.1.0&q=80&w=1080',
-      category: 'Platters',
-      popular: true,
-      inStock: true
-    },
-    {
-      id: '5',
-      name: 'Satay Sauce (Extra)',
-      description: 'Our famous homemade peanut sauce',
-      price: 2.00,
-      image: 'https://images.unsplash.com/photo-1738599935343-991708a2895b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmcmllZCUyMHNuYWNrcyUyMGZvb2R8ZW58MXx8fHwxNzcyNzE4OTU1fDA&ixlib=rb-4.1.0&q=80&w=1080',
-      category: 'Extras',
-      popular: false,
-      inStock: true
-    },
-    {
-      id: '6',
-      name: 'Ketupat (Rice Cakes)',
-      description: 'Traditional compressed rice cakes, perfect with satay',
-      price: 3.00,
-      image: 'https://images.unsplash.com/photo-1763621470208-efe14b618119?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzaW5nYXBvcmUlMjBuaWdodCUyMG1hcmtldCUyMGZvb2QlMjBzdGFsbHN8ZW58MXx8fHwxNzcyNzE4OTUzfDA&ixlib=rb-4.1.0&q=80&w=1080',
-      category: 'Extras',
-      popular: true,
-      inStock: true
-    }
-  ];
+  const menuItems: MenuItem[] = PRODUCTS;
 
   const categories = ['All', ...Array.from(new Set(menuItems.map(item => item.category)))];
   const [activeCategory, setActiveCategory] = useState('All');

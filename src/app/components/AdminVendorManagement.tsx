@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import AdminNav from './AdminNav';
 import { User } from '../App';
+import { ADMIN_VENDORS, AdminVendor } from '../data/mockData';
 import { Card, CardContent } from './ui/card';
 import { Badge } from './ui/badge';
 import { Button } from './ui/button';
@@ -16,80 +17,7 @@ interface AdminVendorManagementProps {
 export default function AdminVendorManagement({ user, onLogout }: AdminVendorManagementProps) {
   const [searchQuery, setSearchQuery] = useState('');
 
-  const [vendors, setVendors] = useState([
-    {
-      id: '1',
-      name: "Wong's Satay",
-      owner: 'Wong Li Ming',
-      email: 'wong@email.com',
-      phone: '+65 9123 4567',
-      category: 'Food',
-      status: 'active',
-      joined: 'Jan 15, 2026',
-      totalRevenue: 12500,
-      events: 3
-    },
-    {
-      id: '2',
-      name: 'Bubble Tea Paradise',
-      owner: 'Sarah Tan',
-      email: 'sarah@email.com',
-      phone: '+65 8234 5678',
-      category: 'Drinks',
-      status: 'pending',
-      joined: 'Mar 3, 2026',
-      totalRevenue: 0,
-      events: 0
-    },
-    {
-      id: '3',
-      name: 'Artisan Crafts',
-      owner: 'Kumar Rajan',
-      email: 'kumar@email.com',
-      phone: '+65 9345 6789',
-      category: 'Products',
-      status: 'active',
-      joined: 'Feb 28, 2026',
-      totalRevenue: 8750,
-      events: 2
-    },
-    {
-      id: '4',
-      name: 'Golden Snacks',
-      owner: 'Lim Wei Jie',
-      email: 'lim@email.com',
-      phone: '+65 8456 7890',
-      category: 'Food',
-      status: 'active',
-      joined: 'Jan 20, 2026',
-      totalRevenue: 9200,
-      events: 2
-    },
-    {
-      id: '5',
-      name: 'Fashion Hub',
-      owner: 'Lisa Chen',
-      email: 'lisa@email.com',
-      phone: '+65 9567 8901',
-      category: 'Products',
-      status: 'suspended',
-      joined: 'Feb 10, 2026',
-      totalRevenue: 5300,
-      events: 1
-    },
-    {
-      id: '6',
-      name: 'Spice Junction',
-      owner: 'Ahmad Ali',
-      email: 'ahmad@email.com',
-      phone: '+65 8678 9012',
-      category: 'Food',
-      status: 'pending',
-      joined: 'Mar 4, 2026',
-      totalRevenue: 0,
-      events: 0
-    }
-  ]);
+  const [vendors, setVendors] = useState<AdminVendor[]>(ADMIN_VENDORS);
 
   const approveVendor = (id: string) => {
     setVendors(vendors.map(v => v.id === id ? { ...v, status: 'active' } : v));

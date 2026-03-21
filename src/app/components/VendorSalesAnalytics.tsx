@@ -12,21 +12,20 @@ interface VendorSalesAnalyticsProps {
 
 export default function VendorSalesAnalytics({ user, onLogout }: VendorSalesAnalyticsProps) {
   const salesData = [
-    { id: 1, date: 'Mon', sales: 245, orders: 15 },
-    { id: 2, date: 'Tue', sales: 312, orders: 18 },
-    { id: 3, date: 'Wed', sales: 289, orders: 16 },
-    { id: 4, date: 'Thu', sales: 425, orders: 24 },
-    { id: 5, date: 'Fri', sales: 512, orders: 32 },
-    { id: 6, date: 'Sat', sales: 678, orders: 42 },
-    { id: 7, date: 'Sun', sales: 589, orders: 38 }
+    { id: 1, date: 'Mon', sales: 460, orders: 38 },
+    { id: 2, date: 'Tue', sales: 520, orders: 43 },
+    { id: 3, date: 'Wed', sales: 490, orders: 41 },
+    { id: 4, date: 'Thu', sales: 580, orders: 48 },
+    { id: 5, date: 'Fri', sales: 800, orders: 67 },
+    { id: 6, date: 'Sat', sales: 960, orders: 80 },
+    { id: 7, date: 'Sun', sales: 839, orders: 70 }
   ];
 
   const productData = [
-    { name: 'Chicken Satay', value: 360, count: 45 },
-    { name: 'Beef Satay', value: 320, count: 32 },
-    { name: 'Mixed Platter', value: 450, count: 18 },
-    { name: 'Lamb Satay', value: 216, count: 18 },
-    { name: 'Extras', value: 120, count: 60 }
+    { name: 'Chicken Satay', value: 880, count: 110 },
+    { name: 'Beef Satay', value: 620, count: 62 },
+    { name: 'Mixed Satay Platter', value: 500, count: 20 },
+    { name: 'Satay Sauce', value: 180, count: 90 },
   ];
 
   const hourlyData = [
@@ -41,10 +40,10 @@ export default function VendorSalesAnalytics({ user, onLogout }: VendorSalesAnal
   const COLORS = ['#f97316', '#ec4899', '#8b5cf6', '#06b6d4', '#10b981'];
 
   const stats = [
-    { label: 'Total Revenue', value: '$4,532.00', change: '+12.5%', positive: true, icon: DollarSign, color: 'text-green-600' },
-    { label: 'Total Orders', value: '185', change: '+8.3%', positive: true, icon: ShoppingBag, color: 'text-blue-600' },
-    { label: 'Avg Order Value', value: '$24.50', change: '-2.1%', positive: false, icon: TrendingUp, color: 'text-orange-600' },
-    { label: 'Customers', value: '342', change: '+15.2%', positive: true, icon: Users, color: 'text-purple-600' },
+    { label: 'Total Revenue', value: '$4,649.00', change: '+12.3%', positive: true, icon: DollarSign, color: 'text-green-600' },
+    { label: 'Total Orders', value: '387', change: '+11.8%', positive: true, icon: ShoppingBag, color: 'text-blue-600' },
+    { label: 'Avg Order Value', value: '$12.01', change: '+0.4%', positive: true, icon: TrendingUp, color: 'text-orange-600' },
+    { label: 'Customers', value: '156', change: '+9.5%', positive: true, icon: Users, color: 'text-purple-600' },
   ];
 
   return (
@@ -230,7 +229,7 @@ export default function VendorSalesAnalytics({ user, onLogout }: VendorSalesAnal
                       <TrendingUp className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
                       <div>
                         <p className="font-medium text-green-900">Revenue Growth</p>
-                        <p className="text-sm text-green-700 mt-1">Your revenue increased by 12.5% this week compared to last week</p>
+                        <p className="text-sm text-green-700 mt-1">Your revenue increased by 12.3% this week compared to last week</p>
                       </div>
                     </div>
                   </div>
@@ -240,7 +239,7 @@ export default function VendorSalesAnalytics({ user, onLogout }: VendorSalesAnal
                       <ShoppingBag className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
                       <div>
                         <p className="font-medium text-blue-900">Order Volume</p>
-                        <p className="text-sm text-blue-700 mt-1">185 orders this week. Weekend shows 45% higher orders than weekdays</p>
+                        <p className="text-sm text-blue-700 mt-1">387 orders this week. Weekend shows higher orders than weekdays</p>
                       </div>
                     </div>
                   </div>
@@ -260,7 +259,7 @@ export default function VendorSalesAnalytics({ user, onLogout }: VendorSalesAnal
                       <DollarSign className="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" />
                       <div>
                         <p className="font-medium text-orange-900">Average Order Value</p>
-                        <p className="text-sm text-orange-700 mt-1">$24.50 per order. Consider bundling items to increase this metric</p>
+                        <p className="text-sm text-orange-700 mt-1">$12.01 per order. Consider bundling items to increase this metric</p>
                       </div>
                     </div>
                   </div>

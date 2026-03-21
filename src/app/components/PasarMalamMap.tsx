@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link, useParams } from 'react-router';
 import CustomerNav from './CustomerNav';
 import { User } from '../App';
+import { MAP_STALLS, MapStall } from '../data/mockData';
 import { Card, CardContent } from './ui/card';
 import { Button } from './ui/button';
 import { Badge } from './ui/badge';
@@ -13,50 +14,12 @@ interface EventDetailsProps {
   onLogout: () => void;
 }
 
-interface Stall {
-  id: string;
-  number: string;
-  vendorName: string;
-  category: string;
-  x: number;
-  y: number;
-  rating: number;
-}
-
 export default function PasarMalamMap({ user, onLogout }: EventDetailsProps) {
   const { eventId } = useParams();
-  const [selectedStall, setSelectedStall] = useState<Stall | null>(null);
+  const [selectedStall, setSelectedStall] = useState<MapStall | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
 
-  const stalls: Stall[] = [
-    { id: '1', number: 'A01', vendorName: "Wong's Satay", category: 'Food', x: 10, y: 15, rating: 4.9 },
-    { id: '2', number: 'A02', vendorName: 'Noodle House', category: 'Food', x: 25, y: 15, rating: 4.7 },
-    { id: '3', number: 'A03', vendorName: 'Fried Delights', category: 'Food', x: 40, y: 15, rating: 4.6 },
-    { id: '4', number: 'A04', vendorName: 'Sweet Treats', category: 'Desserts', x: 55, y: 15, rating: 4.8 },
-    { id: '5', number: 'A05', vendorName: 'Golden Snacks', category: 'Food', x: 70, y: 15, rating: 4.6 },
-    { id: '6', number: 'A06', vendorName: 'Tea Corner', category: 'Drinks', x: 85, y: 15, rating: 4.5 },
-    
-    { id: '7', number: 'B01', vendorName: 'Fruit Paradise', category: 'Drinks', x: 10, y: 35, rating: 4.7 },
-    { id: '8', number: 'B02', vendorName: 'Bubble Tea Paradise', category: 'Drinks', x: 25, y: 35, rating: 4.9 },
-    { id: '9', number: 'B03', vendorName: 'Grilled Perfection', category: 'Food', x: 40, y: 35, rating: 4.8 },
-    { id: '10', number: 'B04', vendorName: 'Dumpling Master', category: 'Food', x: 55, y: 35, rating: 4.6 },
-    { id: '11', number: 'B05', vendorName: 'Spice Route', category: 'Food', x: 70, y: 35, rating: 4.7 },
-    { id: '12', number: 'B06', vendorName: 'Fresh Juice Bar', category: 'Drinks', x: 85, y: 35, rating: 4.5 },
-    
-    { id: '13', number: 'C01', vendorName: 'Fashion Finds', category: 'Products', x: 10, y: 55, rating: 4.4 },
-    { id: '14', number: 'C02', vendorName: 'Accessories Hub', category: 'Products', x: 25, y: 55, rating: 4.6 },
-    { id: '15', number: 'C03', vendorName: 'Artisan Crafts', category: 'Products', x: 40, y: 55, rating: 4.8 },
-    { id: '16', number: 'C04', vendorName: 'Tech Gadgets', category: 'Products', x: 55, y: 55, rating: 4.5 },
-    { id: '17', number: 'C05', vendorName: 'Home Decor', category: 'Products', x: 70, y: 55, rating: 4.7 },
-    { id: '18', number: 'C06', vendorName: 'Gift Corner', category: 'Products', x: 85, y: 55, rating: 4.6 },
-    
-    { id: '19', number: 'D01', vendorName: 'Toy Paradise', category: 'Products', x: 10, y: 75, rating: 4.5 },
-    { id: '20', number: 'D02', vendorName: 'Book Nook', category: 'Products', x: 25, y: 75, rating: 4.4 },
-    { id: '21', number: 'D03', vendorName: 'Plant Shop', category: 'Products', x: 40, y: 75, rating: 4.7 },
-    { id: '22', number: 'D04', vendorName: 'Snack Haven', category: 'Food', x: 55, y: 75, rating: 4.8 },
-    { id: '23', number: 'D05', vendorName: 'Ice Cream Joy', category: 'Desserts', x: 70, y: 75, rating: 4.9 },
-    { id: '24', number: 'D06', vendorName: 'Coffee & More', category: 'Drinks', x: 85, y: 75, rating: 4.6 },
-  ];
+  const stalls: MapStall[] = MAP_STALLS;
 
   const filteredStalls = stalls.filter(stall =>
     stall.vendorName.toLowerCase().includes(searchQuery.toLowerCase()) ||

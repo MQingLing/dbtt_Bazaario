@@ -1,6 +1,7 @@
 import { Link } from 'react-router';
 import VendorNav from './VendorNav';
 import { User } from '../App';
+import { VENDOR_STATS, ORDERS } from '../data/mockData';
 import { Card, CardContent } from './ui/card';
 import { Badge } from './ui/badge';
 import { Button } from './ui/button';
@@ -12,27 +13,21 @@ interface VendorDashboardProps {
 }
 
 export default function VendorDashboard({ user, onLogout }: VendorDashboardProps) {
-  const stats = {
-    todaySales: 285.50,
-    todayOrders: 23,
-    totalRevenue: 4532.00,
-    totalCustomers: 342,
-    pendingOrders: 5,
-    completedOrders: 18
-  };
+  const stats = VENDOR_STATS;
 
-  const recentOrders = [
-    { id: '#1245', customer: 'Sarah Tan', items: '2x Chicken Satay, 1x Satay Sauce', amount: 18.00, time: '5 mins ago', status: 'pending' },
-    { id: '#1244', customer: 'Mike Chen', items: '1x Mixed Platter', amount: 25.00, time: '12 mins ago', status: 'preparing' },
-    { id: '#1243', customer: 'Priya Kumar', items: '3x Beef Satay', amount: 30.00, time: '18 mins ago', status: 'ready' },
-    { id: '#1242', customer: 'John Lim', items: '1x Chicken Satay, 2x Sauce', amount: 12.00, time: '25 mins ago', status: 'completed' },
-    { id: '#1241', customer: 'Lisa Wong', items: '2x Mixed Platter', amount: 50.00, time: '32 mins ago', status: 'completed' },
-  ];
+  const recentOrders = ORDERS.map(o => ({
+    id: o.id,
+    customer: o.customer,
+    items: o.items.map(i => `${i.qty}x ${i.name}`).join(', '),
+    amount: o.total,
+    time: o.time,
+    status: o.status
+  }));
 
   const popularItems = [
-    { name: 'Chicken Satay', sold: 45, revenue: 360.00 },
-    { name: 'Mixed Platter', sold: 18, revenue: 450.00 },
-    { name: 'Beef Satay', sold: 32, revenue: 320.00 },
+    { name: 'Chicken Satay (10 sticks)', sold: 18, revenue: 144.00 },
+    { name: 'Mixed Satay Platter (30 sticks)', sold: 3, revenue: 75.00 },
+    { name: 'Beef Satay (10 sticks)', sold: 2, revenue: 20.00 },
   ];
 
   const getStatusBadge = (status: string) => {

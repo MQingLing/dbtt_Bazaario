@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import VendorNav from './VendorNav';
 import { User } from '../App';
+import { ORDERS } from '../data/mockData';
 import { Card, CardContent } from './ui/card';
 import { Badge } from './ui/badge';
 import { Button } from './ui/button';
@@ -16,14 +17,7 @@ interface VendorOrderManagementProps {
 export default function VendorOrderManagement({ user, onLogout }: VendorOrderManagementProps) {
   const [searchQuery, setSearchQuery] = useState('');
 
-  const orders = [
-    { id: '#1245', customer: 'Sarah Tan', phone: '+65 9123 4567', items: [{ name: 'Chicken Satay', qty: 2, price: 8 }, { name: 'Satay Sauce', qty: 1, price: 2 }], total: 18.00, time: '5 mins ago', status: 'pending', pickupTime: '7:30 PM' },
-    { id: '#1244', customer: 'Mike Chen', phone: '+65 8234 5678', items: [{ name: 'Mixed Platter', qty: 1, price: 25 }], total: 25.00, time: '12 mins ago', status: 'preparing', pickupTime: '7:45 PM' },
-    { id: '#1243', customer: 'Priya Kumar', phone: '+65 9345 6789', items: [{ name: 'Beef Satay', qty: 3, price: 10 }], total: 30.00, time: '18 mins ago', status: 'ready', pickupTime: '7:15 PM' },
-    { id: '#1242', customer: 'John Lim', phone: '+65 8456 7890', items: [{ name: 'Chicken Satay', qty: 1, price: 8 }, { name: 'Satay Sauce', qty: 2, price: 2 }], total: 12.00, time: '25 mins ago', status: 'completed', pickupTime: '7:00 PM' },
-    { id: '#1241', customer: 'Lisa Wong', phone: '+65 9567 8901', items: [{ name: 'Mixed Platter', qty: 2, price: 25 }], total: 50.00, time: '32 mins ago', status: 'completed', pickupTime: '6:45 PM' },
-    { id: '#1240', customer: 'David Ng', phone: '+65 8678 9012', items: [{ name: 'Lamb Satay', qty: 1, price: 12 }], total: 12.00, time: '15 mins ago', status: 'cancelled', pickupTime: '8:00 PM' },
-  ];
+  const orders = ORDERS;
 
   const getStatusConfig = (status: string) => {
     switch (status) {

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import AdminNav from './AdminNav';
 import { User } from '../App';
+import { APPLICATIONS, VendorApplication, ApplicationStatus } from '../data/mockData';
 import { Card, CardContent } from './ui/card';
 import { Badge } from './ui/badge';
 import { Button } from './ui/button';
@@ -17,138 +18,6 @@ interface AdminApplicationManagementProps {
   onLogout: () => void;
 }
 
-type ApplicationStatus = 
-  | 'submitted' 
-  | 'under-review' 
-  | 'approved' 
-  | 'paid' 
-  | 'waitlisted' 
-  | 'rejected';
-
-interface VendorApplication {
-  id: string;
-  applicationId: string;
-  vendorName: string;
-  vendorEmail: string;
-  vendorPhone: string;
-  vendorRating: number;
-  eventId: string;
-  eventName: string;
-  eventDate: string;
-  stallCategory: string;
-  stallSize: string;
-  bidAmount?: number;
-  fixedPrice?: number;
-  notes: string;
-  submittedDate: string;
-  status: ApplicationStatus;
-  pricingModel: 'fixed' | 'bidding';
-  documents: string[];
-  previousEvents: number;
-}
-
-const mockApplications: VendorApplication[] = [
-  {
-    id: '1',
-    applicationId: 'APP001',
-    vendorName: 'Satay King',
-    vendorEmail: 'satayking@example.com',
-    vendorPhone: '+65 9123 4567',
-    vendorRating: 4.8,
-    eventId: 'EVT001',
-    eventName: 'Chinatown CNY Night Market',
-    eventDate: '2026-01-25',
-    stallCategory: 'Food Stall',
-    stallSize: 'Medium (4m x 3m)',
-    bidAmount: 225,
-    notes: 'Specializing in authentic Malaysian satay. Have participated in 5 previous events.',
-    submittedDate: '2025-12-15',
-    status: 'under-review',
-    pricingModel: 'bidding',
-    documents: ['food-license.pdf', 'insurance.pdf', 'menu-photos.pdf'],
-    previousEvents: 5
-  },
-  {
-    id: '2',
-    applicationId: 'APP002',
-    vendorName: 'Nasi Lemak Express',
-    vendorEmail: 'nasilemak@example.com',
-    vendorPhone: '+65 9234 5678',
-    vendorRating: 4.6,
-    eventId: 'EVT001',
-    eventName: 'Chinatown CNY Night Market',
-    eventDate: '2026-01-25',
-    stallCategory: 'Food Stall',
-    stallSize: 'Large (5m x 4m)',
-    bidAmount: 300,
-    notes: 'Award-winning nasi lemak. Featured in food blogs.',
-    submittedDate: '2025-12-18',
-    status: 'approved',
-    pricingModel: 'bidding',
-    documents: ['food-license.pdf', 'insurance.pdf'],
-    previousEvents: 8
-  },
-  {
-    id: '3',
-    applicationId: 'APP003',
-    vendorName: 'Henna Art Studio',
-    vendorEmail: 'hennaart@example.com',
-    vendorPhone: '+65 9345 6789',
-    vendorRating: 4.9,
-    eventId: 'EVT002',
-    eventName: 'Geylang Serai Ramadan Bazaar',
-    eventDate: '2026-03-15',
-    stallCategory: 'Non-Food Stall',
-    stallSize: 'Small (3m x 2m)',
-    fixedPrice: 120,
-    notes: 'Professional henna artist with 10 years experience.',
-    submittedDate: '2026-01-20',
-    status: 'paid',
-    pricingModel: 'fixed',
-    documents: ['business-reg.pdf', 'insurance.pdf', 'portfolio.pdf'],
-    previousEvents: 12
-  },
-  {
-    id: '4',
-    applicationId: 'APP004',
-    vendorName: 'Street Fashion SG',
-    vendorEmail: 'fashion@example.com',
-    vendorPhone: '+65 9456 7890',
-    vendorRating: 4.3,
-    eventId: 'EVT003',
-    eventName: 'Bugis Street Night Festival',
-    eventDate: '2026-04-10',
-    stallCategory: 'Fashion',
-    stallSize: 'Medium (4m x 3m)',
-    fixedPrice: 180,
-    notes: 'Trendy streetwear and accessories.',
-    submittedDate: '2026-02-01',
-    status: 'waitlisted',
-    pricingModel: 'fixed',
-    documents: ['business-reg.pdf'],
-    previousEvents: 3
-  },
-  {
-    id: '5',
-    applicationId: 'APP005',
-    vendorName: 'Bubble Tea Paradise',
-    vendorEmail: 'bubbletea@example.com',
-    vendorPhone: '+65 9567 8901',
-    vendorRating: 4.7,
-    eventId: 'EVT004',
-    eventName: 'Marina Bay Countdown Market',
-    eventDate: '2026-12-31',
-    stallCategory: 'Beverages',
-    stallSize: 'Medium (4m x 3m)',
-    bidAmount: 280,
-    notes: 'Popular bubble tea brand with 3 outlets.',
-    submittedDate: '2026-02-05',
-    status: 'rejected',
-    pricingModel: 'bidding',
-    documents: ['food-license.pdf', 'insurance.pdf'],
-    previousEvents: 6
-  }
-];
 
 const getStatusConfig = (status: ApplicationStatus) => {
   switch (status) {
@@ -170,7 +39,7 @@ const getStatusConfig = (status: ApplicationStatus) => {
 };
 
 export default function AdminApplicationManagement({ user, onLogout }: AdminApplicationManagementProps) {
-  const [applications, setApplications] = useState<VendorApplication[]>(mockApplications);
+  const [applications, setApplications] = useState(APPLICATIONS);
   const [searchQuery, setSearchQuery] = useState('');
   const [filterStatus, setFilterStatus] = useState<ApplicationStatus | 'all'>('all');
   const [filterEvent, setFilterEvent] = useState<string>('all');

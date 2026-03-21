@@ -1,6 +1,7 @@
 import { Link, useParams } from 'react-router';
 import CustomerNav from './CustomerNav';
 import { User } from '../App';
+import { PRODUCTS } from '../data/mockData';
 import { Card, CardContent } from './ui/card';
 import { Badge } from './ui/badge';
 import { Button } from './ui/button';
@@ -29,36 +30,13 @@ export default function VendorStorePage({ user, onLogout }: VendorStorePageProps
     currentPromo: '20% OFF on orders above $20'
   };
 
-  const featuredItems = [
-    {
-      id: '1',
-      name: 'Chicken Satay (10 sticks)',
-      price: 8.00,
-      image: 'https://images.unsplash.com/photo-1722704689022-98d1b7795589?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzYXRheSUyMGZvb2QlMjBzdGFsbHxlbnwxfHx8fDE3NzI3MTg5NTR8MA&ixlib=rb-4.1.0&q=80&w=1080',
-      popular: true
-    },
-    {
-      id: '2',
-      name: 'Beef Satay (10 sticks)',
-      price: 10.00,
-      image: 'https://images.unsplash.com/photo-1771804359368-0f91f81ee83b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhc2lhbiUyMHN0cmVldCUyMGZvb2QlMjBjb2xvcmZ1bHxlbnwxfHx8fDE3NzI3MTg5NTR8MA&ixlib=rb-4.1.0&q=80&w=1080',
-      popular: false
-    },
-    {
-      id: '3',
-      name: 'Mixed Satay Platter',
-      price: 25.00,
-      image: 'https://images.unsplash.com/photo-1763621470208-efe14b618119?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzaW5nYXBvcmUlMjBuaWdodCUyMG1hcmtldCUyMGZvb2QlMjBzdGFsbHN8ZW58MXx8fHwxNzcyNzE4OTUzfDA&ixlib=rb-4.1.0&q=80&w=1080',
-      popular: true
-    },
-    {
-      id: '4',
-      name: 'Satay Sauce (Extra)',
-      price: 2.00,
-      image: 'https://images.unsplash.com/photo-1771804359368-0f91f81ee83b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhc2lhbiUyMHN0cmVldCUyMGZvb2QlMjBjb2xvcmZ1bHxlbnwxfHx8fDE3NzI3MTg5NTR8MA&ixlib=rb-4.1.0&q=80&w=1080',
-      popular: false
-    }
-  ];
+  const featuredItems = PRODUCTS.filter(p => p.popular).map(p => ({
+    id: p.id,
+    name: p.name,
+    price: p.price,
+    image: p.image,
+    popular: p.popular
+  }));
 
   return (
     <div className="min-h-screen bg-gray-50 pb-20 md:pb-8">
