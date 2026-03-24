@@ -3,8 +3,22 @@ import AdminNav from './AdminNav';
 import { User } from '../App';
 import { Card, CardContent } from './ui/card';
 import { Badge } from './ui/badge';
-import { DollarSign, Calendar, Users, TrendingUp, MapPin, ShoppingBag } from 'lucide-react';
-import { LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/tabs';
+import { DollarSign, Calendar, Users, TrendingUp, MapPin, ShoppingBag, ArrowUp } from 'lucide-react';
+import { LineChart, Line, BarChart, Bar, PieChart, Pie, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import {
+  adminStats as pyStats,
+  adminRevenueData,
+  adminCategoryData,
+  adminPaymentData,
+  adminHourlyData,
+  adminPerformance,
+  adminTopVendors,
+  sentimentSummary,
+  sentimentByVendor,
+  predictions,
+  mlResults,
+} from '../data/analyticsData';
 
 interface AdminDashboardProps {
   user: User;
@@ -220,6 +234,227 @@ export default function AdminDashboard({ user, onLogout }: AdminDashboardProps) 
               </div>
             </CardContent>
           </Card>
+        </div>
+
+        {/* ── Analytics Section ── */}
+        <div className="mt-6">
+          <Tabs defaultValue="analytics" className="space-y-6">
+            <TabsList className="grid w-full grid-cols-2 md:grid-cols-4">
+              <TabsTrigger value="analytics">Analytics</TabsTrigger>
+              <TabsTrigger value="vendors-rank">Vendors</TabsTrigger>
+              <TabsTrigger value="reviews">Reviews</TabsTrigger>
+              <TabsTrigger value="forecast">Forecast</TabsTrigger>
+            </TabsList>
+
+            {/* Analytics */}
+            <TabsContent value="analytics" className="space-y-6">
+              <div className="grid lg:grid-cols-2 gap-6">
+                <Card>
+                  <CardContent className="p-6">
+                    <h3 className="font-bold mb-4">Revenue by Category</h3>
+                    <ResponsiveContainer width="100%" height={300}>
+                      <BarChart data={adminCategoryData} layout="vertical" id="admin-cat-chart">
+                        <CartesianGrid key="grid" strokeDasharray="3 3" stroke="#e5e7eb" />
+                        <XAxis key="xaxis" type="number" stroke="#6b7280" />
+                        <YAxis key="yaxis" type="category" dataKey="name" stroke="#6b7280" width={110} tick={{ fontSize: 11 }} />
+                        <Tooltip key="tooltip" contentStyle={{ backgroundColor: '#fff', border: '1px solid #e5e7eb', borderRadius: '8px' }} />
+                        <Bar key="rev-bar" dataKey="revenue" fill="#f97316" radius={[0, 4, 4, 0]} name="Revenue ($)" />
+                      </BarChart>
+                    </ResponsiveContainer>
+                  </CardContent>
+                </Card>
+                <Card>
+                  <CardContent className="p-6">
+                    <h3 className="font-bold mb-4">Payment Methods</h3>
+                    <ResponsiveContainer width="100%" height={300}>
+                      <PieChart id="admin-pay-pie">
+                        <Pie key="pay-pie" data={adminPaymentData} cx="50%" cy="50%" outerRadius={90} dataKey="value"
+                          label={({ name, percent }: any) => `${name} ${(percent * 100).toFixed(0)}%`}>
+                          {adminPaymentData.map((_: any, i: number) => (
+                            <Cell key={`cell-${i}`} fill={['#f97316', '#ec4899', '#8b5cf6'][i % 3]} />
+                          ))}
+                        </Pie>
+                        <Tooltip key="tooltip" />
+                        <Legend key="legend" />
+                      </PieChart>
+                    </ResponsiveContainer>
+                  </CardContent>
+                </Card>
+              </div>
+              <Card>
+                <CardContent className="p-6">
+                  <h3 className="font-bold mb-4">Orders by Hour</h3>
+                  <ResponsiveContainer width="100%" height={250}>
+                    <BarChart data={adminHourlyData} id="admin-hour-chart">
+                      <CartesianGrid key="grid" strokeDasharray="3 3" stroke="#e5e7eb" />
+                      <XAxis key="xaxis" dataKey="hour" stroke="#6b7280" />
+                      <YAxis key="yaxis" stroke="#6b7280" />
+                      <Tooltip key="tooltip" contentStyle={{ backgroundColor: '#fff', border: '1px solid #e5e7eb', borderRadius: '8px' }} />
+                      <Bar key="hour-bar" dataKey="orders" fill="#8b5cf6" name="Orders" radius={[4, 4, 0, 0]} />
+                    </BarChart>
+                  </ResponsiveContainer>
+                </CardContent>
+              </Card>
+            </TabsContent>
+
+            {/* Vendors Ranking */}
+            <TabsContent value="vendors-rank" className="space-y-6">
+              <div className="grid lg:grid-cols-2 gap-6">
+                <Card>
+                  <CardContent className="p-6">
+                    <h3 className="font-bold mb-4">Top Vendors by Revenue</h3>
+                    <div className="space-y-3">
+                      {adminTopVendors.slice(0, 10).map((vendor: any, idx: number) => (
+                        <div key={idx} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                          <div className="flex items-center gap-3">
+                            <span className="text-sm font-bold text-gray-400 w-6">#{idx + 1}</span>
+                            <p className="font-medium text-gray-900">{vendor.name}</p>
+                          </div>
+                          <p className="font-bold text-green-600">${vendor.revenue.toLocaleString(undefined, { maximumFractionDigits: 0 })}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+                <Card>
+                  <CardContent className="p-6">
+                    <h3 className="font-bold mb-4">Vendor Sentiment Ranking</h3>
+                    <div className="space-y-3">
+                      {sentimentByVendor.slice(0, 10).map((vendor: any, index: number) => (
+                        <div key={index} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                          <div className="flex items-center gap-3">
+                            <span className="text-sm font-bold text-gray-400 w-6">#{index + 1}</span>
+                            <div>
+                              <p className="font-medium text-gray-900">{vendor.vendor}</p>
+                              <p className="text-xs text-gray-500">{vendor.totalReviews} reviews</p>
+                            </div>
+                          </div>
+                          <div className="flex items-center gap-2">
+                            <div className="w-20 bg-gray-200 rounded-full h-2">
+                              <div className={`h-2 rounded-full ${vendor.positivePct >= 70 ? 'bg-green-500' : vendor.positivePct >= 50 ? 'bg-yellow-500' : 'bg-red-500'}`} style={{ width: `${vendor.positivePct}%` }} />
+                            </div>
+                            <span className={`text-sm font-bold w-12 text-right ${vendor.positivePct >= 70 ? 'text-green-600' : 'text-red-600'}`}>{vendor.positivePct}%</span>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+            </TabsContent>
+
+            {/* Reviews */}
+            <TabsContent value="reviews" className="space-y-6">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <Card><CardContent className="p-5 text-center">
+                  <p className="text-sm text-gray-600 mb-1">Total Reviews</p>
+                  <p className="text-3xl font-bold">{sentimentSummary.totalReviews}</p>
+                </CardContent></Card>
+                <Card><CardContent className="p-5 text-center">
+                  <p className="text-sm text-gray-600 mb-1">Avg Rating</p>
+                  <p className="text-3xl font-bold">{sentimentSummary.avgRating} <span className="text-base text-gray-400">/ 5</span></p>
+                </CardContent></Card>
+                <Card><CardContent className="p-5 text-center">
+                  <p className="text-sm text-gray-600 mb-1">Positive</p>
+                  <p className="text-3xl font-bold text-green-600">{sentimentSummary.positivePct}%</p>
+                </CardContent></Card>
+                <Card><CardContent className="p-5 text-center">
+                  <p className="text-sm text-gray-600 mb-1">Negative</p>
+                  <p className="text-3xl font-bold text-red-500">{sentimentSummary.negativePct}%</p>
+                </CardContent></Card>
+              </div>
+              <Card>
+                <CardContent className="p-6">
+                  <h3 className="font-bold mb-4">All Vendors — Customer Sentiment</h3>
+                  <div className="space-y-3">
+                    {sentimentByVendor.map((vendor: any, index: number) => (
+                      <div key={index} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                        <div className="flex items-center gap-3 flex-1">
+                          <span className="text-sm font-bold text-gray-400 w-6">#{index + 1}</span>
+                          <div>
+                            <p className="font-medium text-gray-900">{vendor.vendor}</p>
+                            <p className="text-xs text-gray-500">{vendor.totalReviews} reviews &middot; Avg {vendor.avgRating}/5</p>
+                          </div>
+                        </div>
+                        <div className="flex items-center gap-3">
+                          <div className="w-32 bg-gray-200 rounded-full h-2.5">
+                            <div className={`h-2.5 rounded-full ${vendor.positivePct >= 70 ? 'bg-green-500' : vendor.positivePct >= 50 ? 'bg-yellow-500' : 'bg-red-500'}`} style={{ width: `${vendor.positivePct}%` }} />
+                          </div>
+                          <span className={`text-sm font-bold w-14 text-right ${vendor.positivePct >= 70 ? 'text-green-600' : 'text-red-600'}`}>{vendor.positivePct}%</span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            </TabsContent>
+
+            {/* Forecast */}
+            <TabsContent value="forecast" className="space-y-6">
+              <Card>
+                <CardContent className="p-6">
+                  <h3 className="font-bold mb-2">Demand Forecast — Orders by Hour</h3>
+                  <p className="text-sm text-gray-500 mb-6">Current vs predicted orders per hour across all events</p>
+                  <ResponsiveContainer width="100%" height={300}>
+                    <BarChart data={predictions.demandForecast} id="admin-demand-chart">
+                      <CartesianGrid key="grid" strokeDasharray="3 3" stroke="#e5e7eb" />
+                      <XAxis key="xaxis" dataKey="hour" stroke="#6b7280" />
+                      <YAxis key="yaxis" stroke="#6b7280" />
+                      <Tooltip key="tooltip" contentStyle={{ backgroundColor: '#fff', border: '1px solid #e5e7eb', borderRadius: '8px' }} />
+                      <Legend key="legend" />
+                      <Bar key="current-bar" dataKey="currentOrders" fill="#e5e7eb" name="Current Avg" radius={[4, 4, 0, 0]} />
+                      <Bar key="predicted-bar" dataKey="predictedOrders" fill="#8b5cf6" name="Predicted" radius={[4, 4, 0, 0]} />
+                    </BarChart>
+                  </ResponsiveContainer>
+                </CardContent>
+              </Card>
+              <div className="grid lg:grid-cols-2 gap-6">
+                <Card>
+                  <CardContent className="p-6">
+                    <h3 className="font-bold mb-2">Cashless Adoption by Category</h3>
+                    <p className="text-sm text-gray-500 mb-4">Current vs predicted cashless rate</p>
+                    <div className="space-y-3">
+                      {predictions.cashlessByCategory.map((cat: any, i: number) => (
+                        <div key={i} className="p-3 bg-gray-50 rounded-lg">
+                          <div className="flex items-center justify-between mb-2">
+                            <p className="font-medium text-gray-900">{cat.category}</p>
+                            <div className="flex items-center gap-2 text-sm">
+                              <span className="text-gray-500">{cat.currentPct}%</span>
+                              <ArrowUp className="w-3 h-3 text-green-500" />
+                              <span className="font-bold text-green-600">{cat.predictedPct}%</span>
+                            </div>
+                          </div>
+                          <div className="w-full bg-gray-200 rounded-full h-2">
+                            <div className="bg-purple-500 h-2 rounded-full" style={{ width: `${cat.predictedPct}%` }} />
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+                <Card>
+                  <CardContent className="p-6">
+                    <h3 className="font-bold mb-2">Vendor Revenue Forecast</h3>
+                    <p className="text-sm text-gray-500 mb-4">Projected revenue for top vendors</p>
+                    <div className="space-y-3">
+                      {predictions.adminVendorForecast.map((v: any, i: number) => (
+                        <div key={i} className="p-3 bg-gray-50 rounded-lg">
+                          <div className="flex items-center justify-between mb-1">
+                            <p className="font-medium text-gray-900">{v.vendor}</p>
+                            <Badge className="bg-green-100 text-green-800 border-green-200">{v.growth}</Badge>
+                          </div>
+                          <div className="flex items-center justify-between text-sm">
+                            <span className="text-gray-500">Current: ${v.currentRevenue.toLocaleString(undefined, { maximumFractionDigits: 0 })}</span>
+                            <span className="font-bold text-green-600">Projected: ${v.predictedRevenue.toLocaleString(undefined, { maximumFractionDigits: 0 })}</span>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+            </TabsContent>
+          </Tabs>
         </div>
       </div>
     </div>

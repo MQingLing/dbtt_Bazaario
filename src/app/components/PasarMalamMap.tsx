@@ -160,16 +160,24 @@ export default function PasarMalamMap({ user, onLogout }: EventDetailsProps) {
                     <span className="text-sm text-gray-500">rating</span>
                   </div>
                   <div className="space-y-3">
-                    <Link to={`/customer/vendor/${selectedStall.id}`}>
-                      <Button className="w-full bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600">
-                        View Vendor Page
-                      </Button>
-                    </Link>
-                    <Link to={`/customer/vendor/${selectedStall.id}/menu`}>
-                      <Button variant="outline" className="w-full">
-                        View Menu
-                      </Button>
-                    </Link>
+                    {selectedStall.id === '1' ? (
+                      <>
+                        <Link to={`/customer/vendor/${selectedStall.id}`}>
+                          <Button className="w-full bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600">
+                            View Vendor Page
+                          </Button>
+                        </Link>
+                        <Link to={`/customer/vendor/${selectedStall.id}/menu`}>
+                          <Button variant="outline" className="w-full">
+                            View Menu
+                          </Button>
+                        </Link>
+                      </>
+                    ) : (
+                      <div className="p-3 bg-gray-50 rounded-lg text-center">
+                        <p className="text-sm text-gray-500">Vendor page coming soon</p>
+                      </div>
+                    )}
                   </div>
                 </CardContent>
               </Card>

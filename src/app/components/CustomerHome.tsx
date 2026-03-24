@@ -71,15 +71,15 @@ export default function CustomerHome({ user, onLogout }: CustomerHomeProps) {
         </Card>
 
         {/* Quick Actions */}
-        <div className="grid grid-cols-3 gap-4 mb-6">
+        <div className="grid grid-cols-3 gap-3 md:gap-4 mb-6">
           {quickActions.map((action, index) => (
-            <Link key={index} to={action.link}>
-              <Card className="hover:shadow-lg transition-shadow cursor-pointer">
-                <CardContent className="p-4 text-center">
-                  <div className={`${action.color} w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3`}>
+            <Link key={index} to={action.link} className="block h-full">
+              <Card className="hover:shadow-lg transition-shadow cursor-pointer h-full">
+                <CardContent className="p-4 text-center h-full flex flex-col items-center justify-center">
+                  <div className={`${action.color} w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3 flex-shrink-0`}>
                     <action.icon className="w-6 h-6 text-white" />
                   </div>
-                  <p className="text-sm font-medium text-gray-700">{action.label}</p>
+                  <p className="text-sm font-medium text-gray-700 leading-tight">{action.label}</p>
                 </CardContent>
               </Card>
             </Link>

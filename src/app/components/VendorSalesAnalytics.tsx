@@ -1,9 +1,11 @@
 import VendorNav from './VendorNav';
 import { User } from '../App';
 import { Card, CardContent } from './ui/card';
+import { Badge } from './ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/tabs';
 import { LineChart, Line, BarChart, Bar, PieChart, Pie, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
-import { TrendingUp, DollarSign, ShoppingBag, Users, ArrowUp, ArrowDown } from 'lucide-react';
+import { TrendingUp, DollarSign, ShoppingBag, Users, ArrowUp, ArrowDown, Star, ThumbsUp, ThumbsDown } from 'lucide-react';
+import { vendorOwnReviews, vendorOwnSentiment, mlResults, predictions } from '../data/analyticsData';
 
 interface VendorSalesAnalyticsProps {
   user: User;
@@ -79,11 +81,13 @@ export default function VendorSalesAnalytics({ user, onLogout }: VendorSalesAnal
         </div>
 
         <Tabs defaultValue="revenue" className="space-y-6">
-          <TabsList className="grid w-full grid-cols-4">
+          <TabsList className="grid w-full grid-cols-3 md:grid-cols-6">
             <TabsTrigger value="revenue">Revenue</TabsTrigger>
             <TabsTrigger value="products">Products</TabsTrigger>
             <TabsTrigger value="hourly">Peak Hours</TabsTrigger>
             <TabsTrigger value="trends">Trends</TabsTrigger>
+            <TabsTrigger value="reviews">Reviews</TabsTrigger>
+            <TabsTrigger value="insights">Insights</TabsTrigger>
           </TabsList>
 
           <TabsContent value="revenue" className="space-y-6">
@@ -266,6 +270,141 @@ export default function VendorSalesAnalytics({ user, onLogout }: VendorSalesAnal
                 </div>
               </CardContent>
             </Card>
+          </TabsContent>
+
+          {/* ── Reviews Tab ── */}
+          <TabsContent value="reviews" className="space-y-6">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              <Card><CardContent className="p-4 text-center">
+                <p className="text-sm text-gray-600 mb-1">Total Reviews</p>
+                <p className="text-2xl font-bold">{vendorOwnSentiment.totalReviews}</p>
+              </CardContent></Card>
+              <Card><CardContent className="p-4 text-center">
+                <p className="text-sm text-gray-600 mb-1">Average Rating</p>
+                <div className="flex items-center justify-center gap-1">
+                  <Star className="w-5 h-5 fill-yellow-500 text-yellow-500" />
+                  <p className="text-2xl font-bold">{vendorOwnSentiment.avgRating}</p>
+                </div>
+              </CardContent></Card>
+              <Card><CardContent className="p-4 text-center">
+                <p className="text-sm text-gray-600 mb-1">Positive</p>
+                <p className="text-2xl font-bold text-green-600">{vendorOwnSentiment.positivePct}%</p>
+              </CardContent></Card>
+              <Card><CardContent className="p-4 text-center">
+                <p className="text-sm text-gray-600 mb-1">Negative</p>
+                <p className="text-2xl font-bold text-red-500">{vendorOwnSentiment.negativePct}%</p>
+              </CardContent></Card>
+            </div>
+            <Card>
+              <CardContent className="p-6">
+                <h3 className="text-xl font-bold mb-6">Recent Customer Reviews</h3>
+                <div className="space-y-4">
+                  {vendorOwnReviews.slice(0, 10).map((review: any) => (
+                    <div key={review.id} className="p-4 bg-gray-50 rounded-lg">
+                      <div className="flex items-start justify-between mb-2">
+                        <div className="flex items-center gap-3">
+                          <div className="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center text-white font-bold text-sm">
+                            {review.customer[0]}
+                          </div>
+                          <div>
+                            <p className="font-medium text-gray-900">{review.customer}</p>
+                            <div className="flex items-center gap-1">
+                              {[...Array(5)].map((_, i) => (
+                                <Star key={i} className={`w-3 h-3 ${i < review.rating ? 'fill-yellow-500 text-yellow-500' : 'text-gray-300'}`} />
+                              ))}
+                            </div>
+                          </div>
+                        </div>
+                        <Badge className={review.sentiment === 'POSITIVE' ? 'bg-green-100 text-green-800 border-green-200' : 'bg-red-100 text-red-800 border-red-200'}>
+                          {review.sentiment === 'POSITIVE'
+                            ? <><ThumbsUp className="w-3 h-3 mr-1" /> Positive</>
+                            : <><ThumbsDown className="w-3 h-3 mr-1" /> Negative</>}
+                        </Badge>
+                      </div>
+                      <p className="text-sm text-gray-600 ml-11">{review.content}</p>
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+          </TabsContent>
+
+          {/* ── Insights Tab ── */}
+          <TabsContent value="insights" className="space-y-6">
+            <Card>
+              <CardContent className="p-6">
+                <h3 className="text-xl font-bold mb-2">Revenue Forecast — Next 7 Days</h3>
+                <p className="text-sm text-gray-500 mb-6">Predicted vs actual daily revenue based on historical trends</p>
+                <ResponsiveContainer width="100%" height={300}>
+                  <BarChart data={predictions.vendorForecast} id="vendor-forecast-chart">
+                    <CartesianGrid key="grid" strokeDasharray="3 3" stroke="#e5e7eb" />
+                    <XAxis key="xaxis" dataKey="day" stroke="#6b7280" />
+                    <YAxis key="yaxis" stroke="#6b7280" />
+                    <Tooltip key="tooltip" contentStyle={{ backgroundColor: '#fff', border: '1px solid #e5e7eb', borderRadius: '8px' }} />
+                    <Legend key="legend" />
+                    <Bar key="actual-bar" dataKey="actual" fill="#e5e7eb" name="Current Avg ($)" radius={[4, 4, 0, 0]} />
+                    <Bar key="predicted-bar" dataKey="predicted" fill="#f97316" name="Predicted ($)" radius={[4, 4, 0, 0]} />
+                  </BarChart>
+                </ResponsiveContainer>
+                <div className="mt-4 p-3 bg-orange-50 rounded-lg text-sm text-orange-800">
+                  Forecast accuracy: R&sup2; = {mlResults.regression.r2Score} (margin: &plusmn;${mlResults.regression.mae}/day). Weekends consistently show higher predicted revenue.
+                </div>
+              </CardContent>
+            </Card>
+
+            <div className="grid md:grid-cols-2 gap-6">
+              <Card>
+                <CardContent className="p-6">
+                  <h3 className="font-bold mb-4">Sentiment Trend</h3>
+                  <ResponsiveContainer width="100%" height={220}>
+                    <LineChart data={predictions.sentimentTrend} id="vendor-sent-trend">
+                      <CartesianGrid key="grid" strokeDasharray="3 3" stroke="#e5e7eb" />
+                      <XAxis key="xaxis" dataKey="week" stroke="#6b7280" />
+                      <YAxis key="yaxis" stroke="#6b7280" domain={[0, 100]} />
+                      <Tooltip key="tooltip" contentStyle={{ backgroundColor: '#fff', border: '1px solid #e5e7eb', borderRadius: '8px' }} />
+                      <Legend key="legend" />
+                      <Line key="pos-line" type="monotone" dataKey="positive" stroke="#10b981" strokeWidth={2} name="Positive %" />
+                      <Line key="neg-line" type="monotone" dataKey="negative" stroke="#ef4444" strokeWidth={2} name="Negative %" />
+                    </LineChart>
+                  </ResponsiveContainer>
+                  <div className="mt-4 space-y-2">
+                    {predictions.sentimentTrend.map((w: any, i: number) => (
+                      <div key={i} className="flex items-center justify-between text-sm">
+                        <span className="text-gray-600">{w.week}</span>
+                        <div className="flex gap-3">
+                          <span className="text-green-600 font-medium">{w.positive}% pos</span>
+                          <span className="text-gray-400">|</span>
+                          <span className="text-gray-500">{w.reviews} reviews</span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card>
+                <CardContent className="p-6">
+                  <h3 className="font-bold mb-4">Predicted Trends</h3>
+                  <div className="space-y-4">
+                    <div className="p-4 bg-blue-50 rounded-lg">
+                      <p className="text-sm text-blue-800 mb-1">Cashless Adoption</p>
+                      <p className="text-2xl font-bold text-blue-900">{mlResults.classification.accuracy}%</p>
+                      <p className="text-xs text-blue-700 mt-1">of transactions predicted cashless based on time, category &amp; region</p>
+                    </div>
+                    <div className="p-4 bg-green-50 rounded-lg">
+                      <p className="text-sm text-green-800 mb-1">Revenue Forecast</p>
+                      <p className="text-2xl font-bold text-green-900">R&sup2; = {mlResults.regression.r2Score}</p>
+                      <p className="text-xs text-green-700 mt-1">Daily revenue predicted within &plusmn;${mlResults.regression.mae} margin</p>
+                    </div>
+                    <div className="p-4 bg-purple-50 rounded-lg">
+                      <p className="text-sm text-purple-800 mb-1">Sentiment Detection</p>
+                      <p className="text-2xl font-bold text-purple-900">{mlResults.sentimentAnalysis.accuracy}%</p>
+                      <p className="text-xs text-purple-700 mt-1">accuracy auto-classifying reviews as positive or negative</p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
           </TabsContent>
         </Tabs>
       </div>

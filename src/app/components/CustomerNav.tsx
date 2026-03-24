@@ -79,10 +79,10 @@ export default function CustomerNav({ user, onLogout }: CustomerNavProps) {
           })}
           <button
             onClick={onLogout}
-            className="flex flex-col items-center justify-center gap-1 text-gray-500"
+            className="flex flex-col items-center justify-center gap-1 text-gray-500 active:text-red-500"
           >
-            <User className="w-5 h-5" />
-            <span className="text-xs">Profile</span>
+            <LogOut className="w-5 h-5" />
+            <span className="text-xs">Logout</span>
           </button>
         </div>
       </div>

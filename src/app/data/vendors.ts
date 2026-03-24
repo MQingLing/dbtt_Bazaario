@@ -178,8 +178,8 @@ const GAMES_ITEMS: VendorItem[] = [
 // ─────────────────────────────────────────────────────────────────────────────
 const VENDOR_NAMES: Record<VendorCategory, string[]> = {
   'Hot Food': [
-    "Ali's Kitchen", 'Kampung Wok', 'Uncle Razali Grill', 'Mak Cik Stall',
-    'Nasi Lemak Bros', 'The Satay Corner', 'Abang Burger', 'Wok This Way',
+    "Wong's Satay", 'Kampung Wok', 'Uncle Razali Grill', 'Mak Cik Stall',
+    'Nasi Lemak Bros', "Ali's Kitchen", 'Abang Burger', 'Wok This Way',
     'Spice Route', 'The Murtabak House', 'Grill Street', 'Mama Zubaidah',
     'Kedai Makan Pak Long', 'Taman Selera', 'Village BBQ',
   ],
