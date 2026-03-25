@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { Link } from 'react-router';
-import { Button } from './ui/button';
-import { Input } from './ui/input';
-import { Label } from './ui/label';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card';
+import { Button } from './shared/button';
+import { Input } from './shared/input';
+import { Label } from './shared/label';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './shared/card';
 import { User } from '../App';
 import { Sparkles, ShoppingBag } from 'lucide-react';
 import logoImage from '../../assets/app_logo.png';
