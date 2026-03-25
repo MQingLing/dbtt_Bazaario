@@ -1,14 +1,15 @@
 import { useState } from 'react';
 import AdminNav from './AdminNav';
 import { User } from '../../App';
-import { APPLICATIONS, VendorApplication, ApplicationStatus } from '../../data/mockData';
+import { VendorApplication, ApplicationStatus } from '../../data/mockData';
+import { getApplications, updateApplicationStatus } from '../../services/dataStore';
 import { Card, CardContent } from '../shared/card';
 import { Badge } from '../shared/badge';
 import { Button } from '../shared/button';
 import { Input } from '../shared/input';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '../shared/dialog';
 import { 
-  Search, Filter, Calendar, MapPin, DollarSign, 
+  Search, Filter, Calendar, DollarSign,
   CheckCircle, XCircle, Clock, FileText, User as UserIcon,
   Mail, Phone, TrendingUp 
 } from 'lucide-react';
@@ -39,7 +40,7 @@ const getStatusConfig = (status: ApplicationStatus) => {
 };
 
 export default function AdminApplicationManagement({ user, onLogout }: AdminApplicationManagementProps) {
-  const [applications, setApplications] = useState(APPLICATIONS);
+  const [applications, setApplications] = useState<VendorApplication[]>(() => getApplications());
   const [searchQuery, setSearchQuery] = useState('');
   const [filterStatus, setFilterStatus] = useState<ApplicationStatus | 'all'>('all');
   const [filterEvent, setFilterEvent] = useState<string>('all');
@@ -75,34 +76,18 @@ export default function AdminApplicationManagement({ user, onLogout }: AdminAppl
     setIsReviewDialogOpen(true);
   };
 
-  const handleApprove = () => {
-    if (selectedApplication) {
-      setApplications(applications.map(app =>
-        app.id === selectedApplication.id ? { ...app, status: 'approved' as ApplicationStatus } : app
-      ));
-      setIsReviewDialogOpen(false);
-      setSelectedApplication(null);
-    }
+  const applyStatus = (status: ApplicationStatus) => {
+    if (!selectedApplication) return;
+    updateApplicationStatus(selectedApplication.id, status);
+    setApplications(getApplications());
+    setIsReviewDialogOpen(false);
+    setSelectedApplication(null);
   };
 
-  const handleReject = () => {
-    if (selectedApplication && confirm('Are you sure you want to reject this application?')) {
-      setApplications(applications.map(app =>
-        app.id === selectedApplication.id ? { ...app, status: 'rejected' as ApplicationStatus } : app
-      ));
-      setIsReviewDialogOpen(false);
-      setSelectedApplication(null);
-    }
-  };
-
-  const handleWaitlist = () => {
-    if (selectedApplication) {
-      setApplications(applications.map(app =>
-        app.id === selectedApplication.id ? { ...app, status: 'waitlisted' as ApplicationStatus } : app
-      ));
-      setIsReviewDialogOpen(false);
-      setSelectedApplication(null);
-    }
+  const handleApprove  = () => applyStatus('approved');
+  const handleWaitlist = () => applyStatus('waitlisted');
+  const handleReject   = () => {
+    if (confirm('Are you sure you want to reject this application?')) applyStatus('rejected');
   };
 
   return (

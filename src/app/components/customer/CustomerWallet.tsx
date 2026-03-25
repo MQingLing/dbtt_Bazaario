@@ -16,6 +16,7 @@ interface CustomerWalletProps {
 
 export default function CustomerWallet({ user, onLogout }: CustomerWalletProps) {
   const [topUpAmount, setTopUpAmount] = useState('');
+  const [topUpMessage, setTopUpMessage] = useState('');
 
   const quickTopUpAmounts = [10, 20, 50, 100];
 
@@ -29,13 +30,17 @@ export default function CustomerWallet({ user, onLogout }: CustomerWalletProps) 
     { id: '7', type: 'refund', vendor: 'Order #1234', amount: 10.00, date: 'Mar 2, 2026', time: '2:00 PM', status: 'completed' },
   ];
 
-  const handleTopUp = (amount: number) => {
-    alert(`Top up of $${amount.toFixed(2)} initiated! (Demo only)`);
+  const showTopUpSuccess = (amount: number) => {
+    setTopUpMessage(`$${amount.toFixed(2)} top-up initiated successfully!`);
+    setTimeout(() => setTopUpMessage(''), 3000);
   };
 
+  const handleTopUp = (amount: number) => showTopUpSuccess(amount);
+
   const handleCustomTopUp = () => {
-    if (topUpAmount && parseFloat(topUpAmount) > 0) {
-      alert(`Top up of $${parseFloat(topUpAmount).toFixed(2)} initiated! (Demo only)`);
+    const amount = parseFloat(topUpAmount);
+    if (topUpAmount && amount > 0) {
+      showTopUpSuccess(amount);
       setTopUpAmount('');
     }
   };
@@ -86,7 +91,13 @@ export default function CustomerWallet({ user, onLogout }: CustomerWalletProps) 
             <Card className="mb-6">
               <CardContent className="p-6">
                 <h3 className="text-xl font-bold mb-4">Top Up Wallet</h3>
-                
+
+                {topUpMessage && (
+                  <div className="mb-4 px-4 py-3 bg-green-50 border border-green-200 rounded-lg text-sm text-green-700 font-medium">
+                    ✓ {topUpMessage}
+                  </div>
+                )}
+
                 <div className="mb-6">
                   <p className="text-sm text-gray-600 mb-3">Quick Top Up</p>
                   <div className="grid grid-cols-4 gap-3">

@@ -135,18 +135,18 @@ export default function PasarMalamMap({ user, onLogout }: EventDetailsProps) {
                       </g>
                     ))}
                     
-                    {/* Pathways */}
-                    <rect x="5" y="5" width="90" height="85" fill="none" stroke="#cbd5e1" strokeWidth="0.5" strokeDasharray="1,1" />
+                    {/* Venue boundary — stalls span x=7→94, y=14→82; 3px padding each side */}
+                    <rect x="4" y="6" width="92" height="78" fill="none" stroke="#cbd5e1" strokeWidth="0.5" strokeDasharray="1,1" />
                   </svg>
                 </div>
               </CardContent>
             </Card>
           </div>
 
-          {/* Stall Details */}
-          <div>
+          {/* Stall Details + Quick Stats — sticky together so they never overlap */}
+          <div className="sticky top-6 space-y-4">
             {selectedStall ? (
-              <Card className="sticky top-6">
+              <Card>
                 <CardContent className="p-6">
                   <Badge className="mb-3">{selectedStall.category}</Badge>
                   <h3 className="text-xl font-bold mb-2">{selectedStall.vendorName}</h3>
@@ -160,24 +160,16 @@ export default function PasarMalamMap({ user, onLogout }: EventDetailsProps) {
                     <span className="text-sm text-gray-500">rating</span>
                   </div>
                   <div className="space-y-3">
-                    {selectedStall.id === '1' ? (
-                      <>
-                        <Link to={`/customer/vendor/${selectedStall.id}`}>
-                          <Button className="w-full bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600">
-                            View Vendor Page
-                          </Button>
-                        </Link>
-                        <Link to={`/customer/vendor/${selectedStall.id}/menu`}>
-                          <Button variant="outline" className="w-full">
-                            View Menu
-                          </Button>
-                        </Link>
-                      </>
-                    ) : (
-                      <div className="p-3 bg-gray-50 rounded-lg text-center">
-                        <p className="text-sm text-gray-500">Vendor page coming soon</p>
-                      </div>
-                    )}
+                    <Link to={`/customer/vendor/${selectedStall.id}`}>
+                      <Button className="w-full bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600">
+                        View Vendor Page
+                      </Button>
+                    </Link>
+                    <Link to={`/customer/vendor/${selectedStall.id}/menu`}>
+                      <Button variant="outline" className="w-full">
+                        View Menu
+                      </Button>
+                    </Link>
                   </div>
                 </CardContent>
               </Card>
@@ -192,7 +184,7 @@ export default function PasarMalamMap({ user, onLogout }: EventDetailsProps) {
             )}
 
             {/* Quick Stats */}
-            <Card className="mt-4">
+            <Card>
               <CardContent className="p-4">
                 <h4 className="font-bold mb-3">Quick Stats</h4>
                 <div className="space-y-2 text-sm">

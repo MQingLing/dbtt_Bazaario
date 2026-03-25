@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import CustomerNav from './CustomerNav';
 import { User } from '../../App';
 import { Card, CardContent } from '../shared/card';
@@ -63,8 +64,11 @@ export default function LoyaltyRewards({ user, onLogout }: LoyaltyRewardsProps) 
     { vendor: 'Spice Junction', stamps: 1, date: 'Mar 2, 2026' },
   ];
 
+  const [redeemedId, setRedeemedId] = useState<string | null>(null);
+
   const handleRedeem = (rewardId: string) => {
-    alert('Reward redeemed successfully! (Demo only)');
+    setRedeemedId(rewardId);
+    setTimeout(() => setRedeemedId(null), 2500);
   };
 
   return (
@@ -161,13 +165,17 @@ export default function LoyaltyRewards({ user, onLogout }: LoyaltyRewardsProps) 
                             <span>{reward.stampsRequired} stamps</span>
                           </div>
                           {reward.available ? (
-                            <Button 
-                              size="sm" 
+                            redeemedId === reward.id ? (
+                              <span className="text-sm font-medium text-green-600">✓ Redeemed!</span>
+                            ) : (
+                            <Button
+                              size="sm"
                               onClick={() => handleRedeem(reward.id)}
                               className="bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600"
                             >
                               Redeem
                             </Button>
+                            )
                           ) : (
                             <Button size="sm" variant="outline" disabled>
                               {currentStamps}/{reward.stampsRequired}

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { User } from '../../App';
 import AdminNav from './AdminNav';
-import { getUsers, addUser, StoredUser } from '../../services/authStore';
+import { getAllUsers, addUser, StoredUser, hashPassword } from '../../services/authStore';
 import { Button } from '../shared/button';
 import { Input } from '../shared/input';
 import { Label } from '../shared/label';

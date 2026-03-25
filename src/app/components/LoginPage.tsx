@@ -6,7 +6,7 @@ import { Label } from './shared/label';
 import { Badge } from './shared/badge';
 import { User } from '../App';
 import { ShoppingBag, Store, Shield, Eye, EyeOff, MapPin, Star, Zap } from 'lucide-react';
-import { authenticate, getUsers } from '../services/authStore';
+import { authenticate, getAllUsers } from '../services/authStore';
 import logoImage from '../../assets/app_logo.png';
 
 interface LoginPageProps {
@@ -36,34 +36,32 @@ export default function LoginPage({ onLogin }: LoginPageProps) {
   const handleEmailChange = (val: string) => {
     setEmail(val);
     setError('');
-    const match = getUsers().find((u) => u.email.toLowerCase() === val.toLowerCase());
+    const match = getAllUsers().find((u) => u.email.toLowerCase() === val.toLowerCase());
     setDetectedRole(match?.role ?? null);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
     setError('');
 
-    setTimeout(() => {
-      const stored = authenticate(email, password);
-      if (!stored) {
-        setError('Invalid email or password. Please try again.');
-        setIsLoading(false);
-        return;
-      }
-      onLogin({
-        id:                stored.id,
-        name:              stored.name,
-        email:             stored.email,
-        role:              stored.role,
-        isDefaultPassword: stored.isDefaultPassword,
-        walletBalance:     stored.role === 'customer' ? 150.00 : undefined,
-        loyaltyStamps:     stored.role === 'customer' ? 8 : undefined,
-        qrCode:            stored.role === 'customer' ? `QR-${stored.id}` : undefined,
-      });
+    const stored = await authenticate(email, password);
+    if (!stored) {
+      setError('Invalid email or password. Please try again.');
       setIsLoading(false);
-    }, 400);
+      return;
+    }
+    onLogin({
+      id:                stored.id,
+      name:              stored.name,
+      email:             stored.email,
+      role:              stored.role,
+      isDefaultPassword: stored.isDefaultPassword,
+      walletBalance:     stored.role === 'customer' ? 150.00 : undefined,
+      loyaltyStamps:     stored.role === 'customer' ? 8 : undefined,
+      qrCode:            stored.role === 'customer' ? `QR-${stored.id}` : undefined,
+    });
+    setIsLoading(false);
   };
 
   const autofill = (acc: typeof DEMO_ACCOUNTS[0]) => {

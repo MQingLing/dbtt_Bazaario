@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { User } from '../App';
-import { updatePassword } from '../services/authStore';
+import { updatePassword, hashPassword } from '../services/authStore';
 import { Input } from './shared/input';
 import { Label } from './shared/label';
 import { Button } from './shared/button';
@@ -27,17 +27,16 @@ export default function ChangePasswordPage({ user, onPasswordChanged }: ChangePa
     return '';
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const err = validate();
     if (err) { setError(err); return; }
 
     setIsLoading(true);
-    setTimeout(() => {
-      updatePassword(user.id, newPassword);
-      onPasswordChanged({ ...user, isDefaultPassword: false });
-      setIsLoading(false);
-    }, 300);
+    const hashed = await hashPassword(newPassword);
+    updatePassword(user.id, hashed);
+    onPasswordChanged({ ...user, isDefaultPassword: false });
+    setIsLoading(false);
   };
 
   const strength = (() => {

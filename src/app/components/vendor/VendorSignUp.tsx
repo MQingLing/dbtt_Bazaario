@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 import { Button } from '../shared/button';
 import { Input } from '../shared/input';
 import { Label } from '../shared/label';
-import { addUser, emailExists } from '../../services/authStore';
+import { addUser, emailExists, hashPassword } from '../../services/authStore';
 import { User } from '../../App';
 import { ArrowLeft, Store, Eye, EyeOff } from 'lucide-react';
 
@@ -43,7 +43,7 @@ export default function VendorSignUp({ onSignUp }: VendorSignUpProps) {
     setError('');
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
 
@@ -54,20 +54,18 @@ export default function VendorSignUp({ onSignUp }: VendorSignUpProps) {
     if (emailExists(form.email))                 return setError('An account with this email already exists.');
 
     setIsLoading(true);
-    setTimeout(() => {
-      const id = `vendor-${Date.now()}`;
-      addUser({
-        id,
-        name:              form.businessName,
-        email:             form.email,
-        password:          form.password,
-        role:              'vendor',
-        isDefaultPassword: false,
-        createdAt:         new Date().toISOString(),
-      });
-      setIsLoading(false);
-      onSignUp({ id, name: form.businessName, email: form.email, role: 'vendor' });
-    }, 400);
+    const id = `vendor-${Date.now()}`;
+    addUser({
+      id,
+      name:              form.businessName,
+      email:             form.email,
+      passwordHash:      await hashPassword(form.password),
+      role:              'vendor',
+      isDefaultPassword: false,
+      createdAt:         new Date().toISOString(),
+    });
+    setIsLoading(false);
+    onSignUp({ id, name: form.businessName, email: form.email, role: 'vendor' });
   };
 
   return (

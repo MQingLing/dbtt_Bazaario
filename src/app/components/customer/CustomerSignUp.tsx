@@ -6,7 +6,7 @@ import { Label } from '../shared/label';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../shared/card';
 import { Checkbox } from '../shared/checkbox';
 import { User } from '../../App';
-import { addUser, emailExists } from '../../services/authStore';
+import { addUser, emailExists, hashPassword } from '../../services/authStore';
 import { Sparkles, ArrowLeft } from 'lucide-react';
 
 interface CustomerSignUpProps {
@@ -25,7 +25,7 @@ export default function CustomerSignUp({ onSignUp }: CustomerSignUpProps) {
 
   const [signUpError, setSignUpError] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSignUpError('');
 
@@ -47,7 +47,7 @@ export default function CustomerSignUp({ onSignUp }: CustomerSignUpProps) {
       id,
       name:              formData.name,
       email:             formData.email,
-      password:          formData.password,
+      passwordHash:      await hashPassword(formData.password),
       role:              'customer',
       isDefaultPassword: false,
       createdAt:         new Date().toISOString(),
