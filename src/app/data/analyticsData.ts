@@ -780,23 +780,42 @@ export const mlResults = {
   "classification": {
     "model": "Logistic Regression",
     "task": "Predict cashless payment adoption",
-    "accuracy": 84.8,
+    "accuracy": 87.5,
     "topFeatures": [
-      "amount",
-      "vendor_category_Household Items",
-      "vendor_category_Trendy Food"
+      "amount_bucket",
+      "hour_encoded",
+      "is_weekend",
+      "category_encoded"
     ]
   },
   "regression": {
     "model": "Linear Regression",
+    "task": "Predict admin daily revenue",
+    "r2Score": 0.8238,
+    "mae": 1961.92
+  },
+  "demandForecast": {
+    "model": "Linear Regression",
+    "task": "Predict hourly orders",
+    "r2Score": 0.9773,
+    "mae": 2.581
+  },
+  "vendorRevenueForecast": {
+    "model": "Linear Regression",
     "task": "Predict vendor daily revenue",
-    "r2Score": 0.873,
-    "mae": 6.72
+    "r2ByVendor": {
+      "Everyday Essentials": 0.8972,
+      "Casa Living": 0.915,
+      "Home & More": 0.8024,
+      "The Linen Store": 0.7899,
+      "Street Fusion": 0.7227
+    },
+    "overallR2": 0.8873
   },
   "sentimentAnalysis": {
-    "model": "Keyword-based NLP + Hugging Face (distilbert)",
+    "model": "Keyword-based NLP",
     "task": "Analyse customer review sentiment",
-    "accuracy": 85.2
+    "accuracy": 100.0
   }
 };
 
@@ -808,37 +827,37 @@ export const predictions = {
   "vendorForecast": [
     {
       "day": "Mon",
-      "predicted": 11.0,
+      "predicted": 244.33,
       "actual": 10.25
     },
     {
       "day": "Tue",
-      "predicted": 11.07,
+      "predicted": 245.46,
       "actual": 9.91
     },
     {
       "day": "Wed",
-      "predicted": 10.33,
+      "predicted": 246.59,
       "actual": 9.77
     },
     {
       "day": "Thu",
-      "predicted": 11.27,
+      "predicted": 247.72,
       "actual": 10.48
     },
     {
       "day": "Fri",
-      "predicted": 11.05,
+      "predicted": 248.85,
       "actual": 10.02
     },
     {
       "day": "Sat",
-      "predicted": 14.88,
+      "predicted": 448.53,
       "actual": 13.75
     },
     {
       "day": "Sun",
-      "predicted": 16.14,
+      "predicted": 449.65,
       "actual": 14.59
     }
   ],
@@ -920,37 +939,37 @@ export const predictions = {
     {
       "hour": "6PM",
       "currentOrders": 8,
-      "predictedOrders": 8,
+      "predictedOrders": 5,
       "revenue": 79.32
     },
     {
       "hour": "7PM",
       "currentOrders": 26,
-      "predictedOrders": 28,
+      "predictedOrders": 38,
       "revenue": 242.35
     },
     {
       "hour": "8PM",
       "currentOrders": 40,
-      "predictedOrders": 44,
+      "predictedOrders": 57,
       "revenue": 368.8
     },
     {
       "hour": "9PM",
       "currentOrders": 50,
-      "predictedOrders": 54,
+      "predictedOrders": 62,
       "revenue": 447.98
     },
     {
       "hour": "10PM",
       "currentOrders": 34,
-      "predictedOrders": 36,
+      "predictedOrders": 53,
       "revenue": 312.35
     },
     {
       "hour": "11PM",
       "currentOrders": 8,
-      "predictedOrders": 8,
+      "predictedOrders": 30,
       "revenue": 72.59
     }
   ],

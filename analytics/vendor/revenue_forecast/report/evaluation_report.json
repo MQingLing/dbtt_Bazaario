@@ -1,0 +1,27 @@
+{
+  "model": "Multiple Linear Regression",
+  "task": "Vendor daily revenue forecast",
+  "vendors": {
+    "Everyday Essentials": {
+      "r2": 0.8972,
+      "mae": 22.8601
+    },
+    "Casa Living": {
+      "r2": 0.915,
+      "mae": 18.5969
+    },
+    "Home & More": {
+      "r2": 0.8024,
+      "mae": 30.7989
+    },
+    "The Linen Store": {
+      "r2": 0.7899,
+      "mae": 28.1642
+    },
+    "Street Fusion": {
+      "r2": 0.7227,
+      "mae": 29.4281
+    }
+  },
+  "overall_r2": 0.8873
+}

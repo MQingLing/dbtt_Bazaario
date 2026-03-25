@@ -6,6 +6,7 @@ import { Label } from '../shared/label';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../shared/card';
 import { Checkbox } from '../shared/checkbox';
 import { User } from '../../App';
+import { addUser, emailExists } from '../../services/authStore';
 import { Sparkles, ArrowLeft } from 'lucide-react';
 
 interface CustomerSignUpProps {
@@ -22,18 +23,44 @@ export default function CustomerSignUp({ onSignUp }: CustomerSignUpProps) {
     agreeToTerms: false
   });
 
+  const [signUpError, setSignUpError] = useState('');
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
-    // Mock sign up
+    setSignUpError('');
+
+    if (formData.password !== formData.confirmPassword) {
+      setSignUpError('Passwords do not match.');
+      return;
+    }
+    if (formData.password.length < 8) {
+      setSignUpError('Password must be at least 8 characters.');
+      return;
+    }
+    if (emailExists(formData.email)) {
+      setSignUpError('An account with this email already exists.');
+      return;
+    }
+
+    const id = Date.now().toString();
+    addUser({
+      id,
+      name:              formData.name,
+      email:             formData.email,
+      password:          formData.password,
+      role:              'customer',
+      isDefaultPassword: false,
+      createdAt:         new Date().toISOString(),
+    });
+
     onSignUp({
-      id: Date.now().toString(),
-      name: formData.name,
-      email: formData.email,
-      role: 'customer',
+      id,
+      name:          formData.name,
+      email:         formData.email,
+      role:          'customer',
       walletBalance: 0,
       loyaltyStamps: 0,
-      qrCode: `CUSTOMER-QR-${Date.now()}`
+      qrCode:        `CUSTOMER-QR-${id}`,
     });
   };
 
@@ -132,8 +159,12 @@ export default function CustomerSignUp({ onSignUp }: CustomerSignUpProps) {
                 </label>
               </div>
 
-              <Button 
-                type="submit" 
+              {signUpError && (
+                <p className="text-sm text-red-500 bg-red-50 rounded-lg px-3 py-2">{signUpError}</p>
+              )}
+
+              <Button
+                type="submit"
                 className="w-full h-11 bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600"
                 disabled={!formData.agreeToTerms}
               >

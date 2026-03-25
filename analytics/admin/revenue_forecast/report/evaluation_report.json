@@ -1,0 +1,9 @@
+{
+  "model": "Multiple Linear Regression",
+  "task": "Admin daily revenue forecast",
+  "train_samples": 292,
+  "test_samples": 73,
+  "r2": 0.8238,
+  "mae": 1961.92,
+  "rmse": 2443.12
+}

@@ -1,0 +1,45 @@
+{
+  "model": "Logistic Regression",
+  "task": "Cashless payment prediction",
+  "accuracy": 0.875,
+  "precision": 0.8968,
+  "recall": 0.953,
+  "f1": 0.924,
+  "cashless_by_category": [
+    {
+      "category": "Hot Food",
+      "current_pct": 92.0,
+      "predicted_pct": 99.0
+    },
+    {
+      "category": "Household Items",
+      "current_pct": 91.4,
+      "predicted_pct": 100.0
+    },
+    {
+      "category": "Trendy Food",
+      "current_pct": 84.5,
+      "predicted_pct": 93.6
+    },
+    {
+      "category": "Desserts",
+      "current_pct": 74.8,
+      "predicted_pct": 87.1
+    },
+    {
+      "category": "Games",
+      "current_pct": 75.2,
+      "predicted_pct": 79.1
+    },
+    {
+      "category": "Drinks",
+      "current_pct": 69.9,
+      "predicted_pct": 70.3
+    },
+    {
+      "category": "Snacks",
+      "current_pct": 58.4,
+      "predicted_pct": 59.8
+    }
+  ]
+}

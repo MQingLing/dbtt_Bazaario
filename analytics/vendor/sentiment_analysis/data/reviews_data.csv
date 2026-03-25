@@ -1,0 +1,801 @@
+id,week,text,true_label,rating
+1,1,"Great value, highly recommend the murtabak.",POSITIVE,5
+2,1,"Love the rojak here, always fresh.",POSITIVE,5
+3,1,The rojak was tough and cold.,NEGATIVE,2
+4,1,"Poor quality rojak, not worth the wait.",NEGATIVE,2
+5,1,"Disappointing ice cream, expected better.",NEGATIVE,1
+6,1,The nasi lemak was tough and cold.,NEGATIVE,1
+7,1,"Disappointing kueh, expected better.",NEGATIVE,1
+8,1,"The nasi lemak was crispy, so happy!",POSITIVE,4
+9,1,Amazing bubble tea! Best I've had.,POSITIVE,4
+10,1,The kueh was tough and cold.,NEGATIVE,1
+11,1,Overpriced for the portion size.,NEGATIVE,2
+12,1,Overpriced for the portion size.,NEGATIVE,1
+13,1,"Too long a queue, bubble tea was lukewarm.",NEGATIVE,1
+14,1,Amazing murtabak! Best I've had.,POSITIVE,4
+15,1,Overpriced for the portion size.,NEGATIVE,1
+16,1,The nasi lemak was tough and cold.,NEGATIVE,2
+17,1,"Great value, highly recommend the satay.",POSITIVE,5
+18,1,"Perfectly juicy kueh, will come back.",POSITIVE,4
+19,1,Amazing kueh! Best I've had.,POSITIVE,4
+20,1,Overpriced for the portion size.,NEGATIVE,1
+21,1,Overpriced for the portion size.,NEGATIVE,2
+22,1,"Disappointing satay, expected better.",NEGATIVE,1
+23,1,"Poor quality ice cream, not worth the wait.",NEGATIVE,2
+24,1,"Perfectly tender kueh, will come back.",POSITIVE,4
+25,1,The kueh was tough and cold.,NEGATIVE,1
+26,1,"Great value, highly recommend the satay.",POSITIVE,4
+27,1,"Disappointing ice cream, expected better.",NEGATIVE,2
+28,1,"Perfectly tender satay, will come back.",POSITIVE,5
+29,1,"Love the ice cream here, always delicious.",POSITIVE,5
+30,1,"Poor quality bubble tea, not worth the wait.",NEGATIVE,2
+31,1,The murtabak was tough and cold.,NEGATIVE,1
+32,1,"Poor quality ice cream, not worth the wait.",NEGATIVE,1
+33,1,"Disappointing nasi lemak, expected better.",NEGATIVE,2
+34,1,"The bubble tea was crispy, so pleased!",POSITIVE,5
+35,1,"Love the nasi lemak here, always delicious.",POSITIVE,4
+36,1,"Too long a queue, bubble tea was lukewarm.",NEGATIVE,1
+37,1,"Love the kueh here, always delicious.",POSITIVE,4
+38,1,"Great value, highly recommend the kueh.",POSITIVE,5
+39,1,Overpriced for the portion size.,NEGATIVE,2
+40,1,"Great value, highly recommend the murtabak.",POSITIVE,5
+41,1,The rojak was tough and cold.,NEGATIVE,1
+42,1,"The bubble tea was fresh, so pleased!",POSITIVE,4
+43,1,"The nasi lemak was fresh, so happy!",POSITIVE,5
+44,1,The rojak was tough and cold.,NEGATIVE,2
+45,1,"Poor quality kueh, not worth the wait.",NEGATIVE,1
+46,1,"The satay was juicy, so satisfied!",POSITIVE,5
+47,1,"Poor quality fried chicken, not worth the wait.",NEGATIVE,2
+48,1,"The nasi lemak was fresh, so pleased!",POSITIVE,5
+49,1,"Perfectly fresh bubble tea, will come back.",POSITIVE,4
+50,1,"Great value, highly recommend the nasi lemak.",POSITIVE,5
+51,1,Overpriced for the portion size.,NEGATIVE,2
+52,1,"Perfectly delicious satay, will come back.",POSITIVE,4
+53,1,"Disappointing murtabak, expected better.",NEGATIVE,1
+54,1,"Great value, highly recommend the murtabak.",POSITIVE,4
+55,1,Amazing satay! Best I've had.,POSITIVE,4
+56,1,Overpriced for the portion size.,NEGATIVE,2
+57,1,The murtabak was tough and cold.,NEGATIVE,2
+58,1,"Disappointing rojak, expected better.",NEGATIVE,2
+59,1,"Love the bubble tea here, always tender.",POSITIVE,5
+60,1,"Too long a queue, bubble tea was lukewarm.",NEGATIVE,2
+61,1,"The rojak was fresh, so satisfied!",POSITIVE,5
+62,1,The satay was tough and cold.,NEGATIVE,2
+63,1,"Love the ice cream here, always fresh.",POSITIVE,4
+64,1,"The fried chicken was fresh, so satisfied!",POSITIVE,5
+65,1,"Love the fried chicken here, always delicious.",POSITIVE,4
+66,1,"Too long a queue, murtabak was lukewarm.",NEGATIVE,2
+67,1,"The rojak was tender, so happy!",POSITIVE,4
+68,1,"Love the kueh here, always fresh.",POSITIVE,5
+69,1,Amazing satay! Best I've had.,POSITIVE,5
+70,1,"Disappointing fried chicken, expected better.",NEGATIVE,2
+71,1,"Great value, highly recommend the kueh.",POSITIVE,5
+72,1,"Great value, highly recommend the satay.",POSITIVE,5
+73,1,"Love the kueh here, always juicy.",POSITIVE,4
+74,1,Amazing nasi lemak! Best I've had.,POSITIVE,5
+75,1,"Love the rojak here, always tender.",POSITIVE,5
+76,1,Overpriced for the portion size.,NEGATIVE,2
+77,1,Overpriced for the portion size.,NEGATIVE,1
+78,1,"Great value, highly recommend the satay.",POSITIVE,4
+79,1,"Disappointing fried chicken, expected better.",NEGATIVE,1
+80,1,"Love the murtabak here, always delicious.",POSITIVE,4
+81,1,"Too long a queue, nasi lemak was lukewarm.",NEGATIVE,1
+82,1,"Perfectly delicious bubble tea, will come back.",POSITIVE,5
+83,1,"Too long a queue, ice cream was lukewarm.",NEGATIVE,1
+84,1,Overpriced for the portion size.,NEGATIVE,2
+85,1,"Disappointing fried chicken, expected better.",NEGATIVE,1
+86,1,The bubble tea was tough and cold.,NEGATIVE,2
+87,1,"Poor quality bubble tea, not worth the wait.",NEGATIVE,2
+88,1,Overpriced for the portion size.,NEGATIVE,2
+89,1,"Perfectly crispy nasi lemak, will come back.",POSITIVE,4
+90,1,"The ice cream was delicious, so happy!",POSITIVE,5
+91,1,Overpriced for the portion size.,NEGATIVE,1
+92,1,Amazing satay! Best I've had.,POSITIVE,4
+93,1,"Perfectly crispy ice cream, will come back.",POSITIVE,4
+94,1,"The nasi lemak was juicy, so pleased!",POSITIVE,5
+95,1,"Perfectly juicy rojak, will come back.",POSITIVE,5
+96,1,Overpriced for the portion size.,NEGATIVE,2
+97,1,"Love the bubble tea here, always tender.",POSITIVE,5
+98,1,Amazing nasi lemak! Best I've had.,POSITIVE,4
+99,1,The nasi lemak was tough and cold.,NEGATIVE,2
+100,1,Amazing bubble tea! Best I've had.,POSITIVE,5
+101,1,"Poor quality ice cream, not worth the wait.",NEGATIVE,2
+102,1,The nasi lemak was tough and cold.,NEGATIVE,2
+103,1,"Love the satay here, always fresh.",POSITIVE,5
+104,1,"The fried chicken was crispy, so happy!",POSITIVE,4
+105,1,The satay was tough and cold.,NEGATIVE,2
+106,1,"Great value, highly recommend the bubble tea.",POSITIVE,4
+107,1,"The murtabak was juicy, so happy!",POSITIVE,4
+108,1,The fried chicken was tough and cold.,NEGATIVE,1
+109,1,Amazing rojak! Best I've had.,POSITIVE,4
+110,1,"The ice cream was tender, so pleased!",POSITIVE,4
+111,1,The nasi lemak was tough and cold.,NEGATIVE,2
+112,1,Amazing satay! Best I've had.,POSITIVE,5
+113,1,"The satay was delicious, so pleased!",POSITIVE,5
+114,1,"Poor quality ice cream, not worth the wait.",NEGATIVE,2
+115,1,"Great value, highly recommend the kueh.",POSITIVE,5
+116,1,Amazing ice cream! Best I've had.,POSITIVE,5
+117,1,"Love the nasi lemak here, always tender.",POSITIVE,4
+118,1,"The fried chicken was fresh, so pleased!",POSITIVE,5
+119,1,"The fried chicken was juicy, so pleased!",POSITIVE,4
+120,1,The murtabak was tough and cold.,NEGATIVE,2
+121,1,"Great value, highly recommend the satay.",POSITIVE,5
+122,1,Amazing nasi lemak! Best I've had.,POSITIVE,5
+123,1,Amazing kueh! Best I've had.,POSITIVE,4
+124,1,"The nasi lemak was juicy, so satisfied!",POSITIVE,5
+125,1,"Love the ice cream here, always tender.",POSITIVE,4
+126,1,"Perfectly fresh ice cream, will come back.",POSITIVE,4
+127,1,"Perfectly crispy fried chicken, will come back.",POSITIVE,5
+128,1,"The bubble tea was juicy, so pleased!",POSITIVE,5
+129,1,"Love the nasi lemak here, always crispy.",POSITIVE,5
+130,1,"Love the kueh here, always delicious.",POSITIVE,5
+131,1,"Poor quality ice cream, not worth the wait.",NEGATIVE,1
+132,1,"Poor quality ice cream, not worth the wait.",NEGATIVE,2
+133,1,"The ice cream was delicious, so satisfied!",POSITIVE,5
+134,1,"Too long a queue, nasi lemak was lukewarm.",NEGATIVE,1
+135,1,Amazing satay! Best I've had.,POSITIVE,4
+136,1,"Love the rojak here, always crispy.",POSITIVE,5
+137,1,"The nasi lemak was delicious, so happy!",POSITIVE,4
+138,1,"Poor quality satay, not worth the wait.",NEGATIVE,1
+139,1,The nasi lemak was tough and cold.,NEGATIVE,1
+140,1,The kueh was tough and cold.,NEGATIVE,2
+141,1,"Poor quality ice cream, not worth the wait.",NEGATIVE,2
+142,1,"Perfectly tender bubble tea, will come back.",POSITIVE,5
+143,1,"Perfectly fresh nasi lemak, will come back.",POSITIVE,5
+144,1,"Too long a queue, nasi lemak was lukewarm.",NEGATIVE,1
+145,1,"The kueh was crispy, so satisfied!",POSITIVE,4
+146,1,"Great value, highly recommend the rojak.",POSITIVE,5
+147,1,"Love the ice cream here, always fresh.",POSITIVE,4
+148,1,"Poor quality kueh, not worth the wait.",NEGATIVE,1
+149,1,"Great value, highly recommend the nasi lemak.",POSITIVE,4
+150,1,Amazing murtabak! Best I've had.,POSITIVE,5
+151,1,"Too long a queue, fried chicken was lukewarm.",NEGATIVE,2
+152,1,The nasi lemak was tough and cold.,NEGATIVE,2
+153,1,Amazing fried chicken! Best I've had.,POSITIVE,5
+154,1,"Poor quality nasi lemak, not worth the wait.",NEGATIVE,1
+155,1,"The murtabak was crispy, so pleased!",POSITIVE,5
+156,1,"Love the rojak here, always crispy.",POSITIVE,4
+157,1,The kueh was tough and cold.,NEGATIVE,2
+158,1,"Great value, highly recommend the satay.",POSITIVE,4
+159,1,Overpriced for the portion size.,NEGATIVE,2
+160,1,Amazing satay! Best I've had.,POSITIVE,4
+161,1,Overpriced for the portion size.,NEGATIVE,2
+162,1,The bubble tea was tough and cold.,NEGATIVE,1
+163,1,"Great value, highly recommend the ice cream.",POSITIVE,5
+164,1,Overpriced for the portion size.,NEGATIVE,1
+165,1,Amazing bubble tea! Best I've had.,POSITIVE,4
+166,1,"Perfectly juicy satay, will come back.",POSITIVE,4
+167,1,"Disappointing ice cream, expected better.",NEGATIVE,2
+168,1,"Poor quality bubble tea, not worth the wait.",NEGATIVE,2
+169,1,"Great value, highly recommend the nasi lemak.",POSITIVE,5
+170,1,"Too long a queue, murtabak was lukewarm.",NEGATIVE,1
+171,1,"The bubble tea was crispy, so pleased!",POSITIVE,4
+172,1,The kueh was tough and cold.,NEGATIVE,2
+173,1,"Perfectly crispy kueh, will come back.",POSITIVE,4
+174,1,"Love the murtabak here, always juicy.",POSITIVE,4
+175,1,"The satay was delicious, so satisfied!",POSITIVE,4
+176,1,"The bubble tea was juicy, so satisfied!",POSITIVE,4
+177,1,The kueh was tough and cold.,NEGATIVE,2
+178,1,"Too long a queue, ice cream was lukewarm.",NEGATIVE,1
+179,1,"The ice cream was fresh, so pleased!",POSITIVE,5
+180,1,Overpriced for the portion size.,NEGATIVE,2
+181,1,"Love the ice cream here, always crispy.",POSITIVE,5
+182,1,Amazing satay! Best I've had.,POSITIVE,4
+183,1,"Perfectly fresh kueh, will come back.",POSITIVE,5
+184,1,"Love the bubble tea here, always delicious.",POSITIVE,4
+185,1,"Perfectly juicy nasi lemak, will come back.",POSITIVE,5
+186,1,"Love the murtabak here, always tender.",POSITIVE,4
+187,1,"Perfectly tender nasi lemak, will come back.",POSITIVE,5
+188,1,Amazing satay! Best I've had.,POSITIVE,5
+189,1,Amazing ice cream! Best I've had.,POSITIVE,5
+190,1,"Great value, highly recommend the bubble tea.",POSITIVE,5
+191,1,"Great value, highly recommend the nasi lemak.",POSITIVE,4
+192,1,The rojak was tough and cold.,NEGATIVE,2
+193,1,"The kueh was fresh, so pleased!",POSITIVE,4
+194,1,"Love the rojak here, always delicious.",POSITIVE,5
+195,1,"Poor quality rojak, not worth the wait.",NEGATIVE,1
+196,1,"Disappointing bubble tea, expected better.",NEGATIVE,1
+197,1,"Disappointing rojak, expected better.",NEGATIVE,1
+198,1,"Disappointing rojak, expected better.",NEGATIVE,1
+199,1,"Great value, highly recommend the ice cream.",POSITIVE,5
+200,1,Amazing rojak! Best I've had.,POSITIVE,5
+201,2,Overpriced for the portion size.,NEGATIVE,2
+202,2,The ice cream was tough and cold.,NEGATIVE,2
+203,2,Overpriced for the portion size.,NEGATIVE,2
+204,2,"The ice cream was juicy, so pleased!",POSITIVE,5
+205,2,"Great value, highly recommend the bubble tea.",POSITIVE,4
+206,2,"The kueh was fresh, so pleased!",POSITIVE,5
+207,2,"Great value, highly recommend the fried chicken.",POSITIVE,5
+208,2,"Poor quality rojak, not worth the wait.",NEGATIVE,2
+209,2,"Great value, highly recommend the ice cream.",POSITIVE,5
+210,2,The ice cream was tough and cold.,NEGATIVE,2
+211,2,"Great value, highly recommend the bubble tea.",POSITIVE,5
+212,2,Amazing murtabak! Best I've had.,POSITIVE,5
+213,2,"The bubble tea was delicious, so pleased!",POSITIVE,5
+214,2,"Great value, highly recommend the fried chicken.",POSITIVE,4
+215,2,"Poor quality ice cream, not worth the wait.",NEGATIVE,2
+216,2,Amazing nasi lemak! Best I've had.,POSITIVE,5
+217,2,"Poor quality kueh, not worth the wait.",NEGATIVE,1
+218,2,"Great value, highly recommend the murtabak.",POSITIVE,4
+219,2,"Love the fried chicken here, always crispy.",POSITIVE,4
+220,2,"Disappointing satay, expected better.",NEGATIVE,2
+221,2,"Love the fried chicken here, always juicy.",POSITIVE,4
+222,2,"Poor quality fried chicken, not worth the wait.",NEGATIVE,2
+223,2,"Love the satay here, always crispy.",POSITIVE,4
+224,2,The satay was tough and cold.,NEGATIVE,1
+225,2,"Great value, highly recommend the bubble tea.",POSITIVE,5
+226,2,"Too long a queue, ice cream was lukewarm.",NEGATIVE,1
+227,2,"Poor quality ice cream, not worth the wait.",NEGATIVE,2
+228,2,"Poor quality fried chicken, not worth the wait.",NEGATIVE,2
+229,2,"Great value, highly recommend the satay.",POSITIVE,5
+230,2,Overpriced for the portion size.,NEGATIVE,2
+231,2,The nasi lemak was tough and cold.,NEGATIVE,2
+232,2,"Poor quality fried chicken, not worth the wait.",NEGATIVE,1
+233,2,"Perfectly juicy murtabak, will come back.",POSITIVE,5
+234,2,"Love the ice cream here, always tender.",POSITIVE,5
+235,2,Overpriced for the portion size.,NEGATIVE,2
+236,2,"Perfectly crispy ice cream, will come back.",POSITIVE,5
+237,2,"Great value, highly recommend the nasi lemak.",POSITIVE,5
+238,2,"Poor quality nasi lemak, not worth the wait.",NEGATIVE,1
+239,2,"Perfectly juicy kueh, will come back.",POSITIVE,5
+240,2,"Too long a queue, bubble tea was lukewarm.",NEGATIVE,1
+241,2,"Poor quality rojak, not worth the wait.",NEGATIVE,2
+242,2,Amazing nasi lemak! Best I've had.,POSITIVE,5
+243,2,Overpriced for the portion size.,NEGATIVE,2
+244,2,Overpriced for the portion size.,NEGATIVE,2
+245,2,"Poor quality nasi lemak, not worth the wait.",NEGATIVE,1
+246,2,"Too long a queue, rojak was lukewarm.",NEGATIVE,1
+247,2,"Love the bubble tea here, always delicious.",POSITIVE,5
+248,2,Amazing ice cream! Best I've had.,POSITIVE,5
+249,2,"Poor quality rojak, not worth the wait.",NEGATIVE,2
+250,2,"Too long a queue, nasi lemak was lukewarm.",NEGATIVE,1
+251,2,"Perfectly tender rojak, will come back.",POSITIVE,4
+252,2,The kueh was tough and cold.,NEGATIVE,1
+253,2,"Too long a queue, rojak was lukewarm.",NEGATIVE,2
+254,2,"Poor quality ice cream, not worth the wait.",NEGATIVE,2
+255,2,Overpriced for the portion size.,NEGATIVE,2
+256,2,"Love the nasi lemak here, always tender.",POSITIVE,4
+257,2,"Love the murtabak here, always delicious.",POSITIVE,4
+258,2,"Too long a queue, murtabak was lukewarm.",NEGATIVE,2
+259,2,Amazing fried chicken! Best I've had.,POSITIVE,4
+260,2,Amazing rojak! Best I've had.,POSITIVE,5
+261,2,"Love the bubble tea here, always fresh.",POSITIVE,4
+262,2,"Poor quality murtabak, not worth the wait.",NEGATIVE,1
+263,2,"Poor quality nasi lemak, not worth the wait.",NEGATIVE,2
+264,2,"Love the fried chicken here, always fresh.",POSITIVE,5
+265,2,"Too long a queue, satay was lukewarm.",NEGATIVE,2
+266,2,"Poor quality murtabak, not worth the wait.",NEGATIVE,2
+267,2,"Disappointing fried chicken, expected better.",NEGATIVE,2
+268,2,"Great value, highly recommend the fried chicken.",POSITIVE,4
+269,2,"Disappointing murtabak, expected better.",NEGATIVE,1
+270,2,The kueh was tough and cold.,NEGATIVE,1
+271,2,"Poor quality rojak, not worth the wait.",NEGATIVE,1
+272,2,"Great value, highly recommend the murtabak.",POSITIVE,5
+273,2,Amazing kueh! Best I've had.,POSITIVE,4
+274,2,"The kueh was fresh, so happy!",POSITIVE,5
+275,2,"Disappointing rojak, expected better.",NEGATIVE,2
+276,2,The ice cream was tough and cold.,NEGATIVE,2
+277,2,"Too long a queue, satay was lukewarm.",NEGATIVE,2
+278,2,"Great value, highly recommend the kueh.",POSITIVE,5
+279,2,The kueh was tough and cold.,NEGATIVE,2
+280,2,The bubble tea was tough and cold.,NEGATIVE,1
+281,2,"The fried chicken was delicious, so pleased!",POSITIVE,5
+282,2,"Perfectly juicy bubble tea, will come back.",POSITIVE,4
+283,2,"Perfectly tender nasi lemak, will come back.",POSITIVE,4
+284,2,"Great value, highly recommend the bubble tea.",POSITIVE,5
+285,2,Amazing nasi lemak! Best I've had.,POSITIVE,4
+286,2,"Disappointing satay, expected better.",NEGATIVE,2
+287,2,"Great value, highly recommend the satay.",POSITIVE,4
+288,2,"Great value, highly recommend the satay.",POSITIVE,5
+289,2,"Love the kueh here, always juicy.",POSITIVE,4
+290,2,"The bubble tea was juicy, so satisfied!",POSITIVE,4
+291,2,Amazing fried chicken! Best I've had.,POSITIVE,4
+292,2,"Too long a queue, rojak was lukewarm.",NEGATIVE,1
+293,2,"Great value, highly recommend the fried chicken.",POSITIVE,4
+294,2,"Love the fried chicken here, always juicy.",POSITIVE,4
+295,2,"The ice cream was fresh, so satisfied!",POSITIVE,5
+296,2,The murtabak was tough and cold.,NEGATIVE,2
+297,2,"Great value, highly recommend the ice cream.",POSITIVE,4
+298,2,The rojak was tough and cold.,NEGATIVE,1
+299,2,Amazing satay! Best I've had.,POSITIVE,4
+300,2,"Love the satay here, always tender.",POSITIVE,4
+301,2,"Great value, highly recommend the murtabak.",POSITIVE,4
+302,2,"Poor quality ice cream, not worth the wait.",NEGATIVE,2
+303,2,"Poor quality kueh, not worth the wait.",NEGATIVE,1
+304,2,The bubble tea was tough and cold.,NEGATIVE,1
+305,2,Overpriced for the portion size.,NEGATIVE,1
+306,2,"The murtabak was delicious, so satisfied!",POSITIVE,5
+307,2,"Perfectly juicy rojak, will come back.",POSITIVE,4
+308,2,"Perfectly fresh nasi lemak, will come back.",POSITIVE,5
+309,2,"Poor quality rojak, not worth the wait.",NEGATIVE,1
+310,2,Amazing fried chicken! Best I've had.,POSITIVE,4
+311,2,"Poor quality fried chicken, not worth the wait.",NEGATIVE,2
+312,2,"The nasi lemak was crispy, so pleased!",POSITIVE,5
+313,2,"Too long a queue, satay was lukewarm.",NEGATIVE,2
+314,2,"The rojak was crispy, so pleased!",POSITIVE,4
+315,2,Amazing bubble tea! Best I've had.,POSITIVE,5
+316,2,Amazing bubble tea! Best I've had.,POSITIVE,5
+317,2,Overpriced for the portion size.,NEGATIVE,2
+318,2,Amazing rojak! Best I've had.,POSITIVE,5
+319,2,"Perfectly fresh fried chicken, will come back.",POSITIVE,5
+320,2,"Poor quality fried chicken, not worth the wait.",NEGATIVE,1
+321,2,Amazing bubble tea! Best I've had.,POSITIVE,4
+322,2,"Perfectly tender bubble tea, will come back.",POSITIVE,4
+323,2,"Love the nasi lemak here, always fresh.",POSITIVE,4
+324,2,"The rojak was juicy, so satisfied!",POSITIVE,4
+325,2,"Perfectly delicious satay, will come back.",POSITIVE,4
+326,2,"The satay was juicy, so happy!",POSITIVE,4
+327,2,Amazing kueh! Best I've had.,POSITIVE,4
+328,2,Overpriced for the portion size.,NEGATIVE,2
+329,2,"Disappointing satay, expected better.",NEGATIVE,2
+330,2,"The bubble tea was fresh, so happy!",POSITIVE,4
+331,2,"Love the satay here, always delicious.",POSITIVE,4
+332,2,Amazing murtabak! Best I've had.,POSITIVE,4
+333,2,"Too long a queue, bubble tea was lukewarm.",NEGATIVE,2
+334,2,"Too long a queue, fried chicken was lukewarm.",NEGATIVE,2
+335,2,"Love the nasi lemak here, always juicy.",POSITIVE,5
+336,2,Amazing bubble tea! Best I've had.,POSITIVE,5
+337,2,"Poor quality rojak, not worth the wait.",NEGATIVE,1
+338,2,"Poor quality nasi lemak, not worth the wait.",NEGATIVE,1
+339,2,"Disappointing murtabak, expected better.",NEGATIVE,2
+340,2,"Disappointing fried chicken, expected better.",NEGATIVE,2
+341,2,"Perfectly fresh nasi lemak, will come back.",POSITIVE,5
+342,2,"Poor quality ice cream, not worth the wait.",NEGATIVE,1
+343,2,"The rojak was delicious, so happy!",POSITIVE,4
+344,2,"Too long a queue, ice cream was lukewarm.",NEGATIVE,1
+345,2,Overpriced for the portion size.,NEGATIVE,1
+346,2,"Poor quality bubble tea, not worth the wait.",NEGATIVE,1
+347,2,"Perfectly crispy ice cream, will come back.",POSITIVE,5
+348,2,Amazing bubble tea! Best I've had.,POSITIVE,4
+349,2,The bubble tea was tough and cold.,NEGATIVE,1
+350,2,"Great value, highly recommend the ice cream.",POSITIVE,4
+351,2,"Too long a queue, ice cream was lukewarm.",NEGATIVE,2
+352,2,"Perfectly crispy rojak, will come back.",POSITIVE,5
+353,2,"Poor quality fried chicken, not worth the wait.",NEGATIVE,1
+354,2,"Perfectly fresh fried chicken, will come back.",POSITIVE,5
+355,2,"Love the satay here, always crispy.",POSITIVE,5
+356,2,"Too long a queue, ice cream was lukewarm.",NEGATIVE,2
+357,2,"Poor quality bubble tea, not worth the wait.",NEGATIVE,1
+358,2,"Perfectly tender murtabak, will come back.",POSITIVE,5
+359,2,"Too long a queue, ice cream was lukewarm.",NEGATIVE,1
+360,2,Overpriced for the portion size.,NEGATIVE,1
+361,2,"The rojak was tender, so satisfied!",POSITIVE,5
+362,2,"Perfectly delicious rojak, will come back.",POSITIVE,5
+363,2,The fried chicken was tough and cold.,NEGATIVE,1
+364,2,"The kueh was crispy, so happy!",POSITIVE,4
+365,2,"The kueh was tender, so happy!",POSITIVE,5
+366,2,The nasi lemak was tough and cold.,NEGATIVE,2
+367,2,"Great value, highly recommend the satay.",POSITIVE,5
+368,2,"Poor quality rojak, not worth the wait.",NEGATIVE,1
+369,2,"Great value, highly recommend the murtabak.",POSITIVE,4
+370,2,"Disappointing bubble tea, expected better.",NEGATIVE,2
+371,2,"Poor quality fried chicken, not worth the wait.",NEGATIVE,2
+372,2,Amazing rojak! Best I've had.,POSITIVE,4
+373,2,"Great value, highly recommend the bubble tea.",POSITIVE,5
+374,2,"Perfectly tender bubble tea, will come back.",POSITIVE,5
+375,2,The nasi lemak was tough and cold.,NEGATIVE,1
+376,2,"Perfectly tender rojak, will come back.",POSITIVE,5
+377,2,"Perfectly delicious bubble tea, will come back.",POSITIVE,4
+378,2,"Great value, highly recommend the bubble tea.",POSITIVE,5
+379,2,Amazing murtabak! Best I've had.,POSITIVE,4
+380,2,"The rojak was juicy, so pleased!",POSITIVE,4
+381,2,"Love the nasi lemak here, always juicy.",POSITIVE,5
+382,2,"Too long a queue, ice cream was lukewarm.",NEGATIVE,1
+383,2,"Perfectly fresh murtabak, will come back.",POSITIVE,5
+384,2,"Perfectly crispy kueh, will come back.",POSITIVE,4
+385,2,"Love the rojak here, always fresh.",POSITIVE,5
+386,2,Overpriced for the portion size.,NEGATIVE,1
+387,2,Amazing nasi lemak! Best I've had.,POSITIVE,5
+388,2,"Great value, highly recommend the satay.",POSITIVE,5
+389,2,"The satay was delicious, so pleased!",POSITIVE,4
+390,2,"Poor quality rojak, not worth the wait.",NEGATIVE,1
+391,2,The kueh was tough and cold.,NEGATIVE,2
+392,2,"The nasi lemak was crispy, so pleased!",POSITIVE,4
+393,2,"Disappointing nasi lemak, expected better.",NEGATIVE,2
+394,2,"Too long a queue, murtabak was lukewarm.",NEGATIVE,1
+395,2,"The kueh was delicious, so satisfied!",POSITIVE,5
+396,2,Amazing nasi lemak! Best I've had.,POSITIVE,4
+397,2,The nasi lemak was tough and cold.,NEGATIVE,2
+398,2,"Poor quality satay, not worth the wait.",NEGATIVE,2
+399,2,"Too long a queue, rojak was lukewarm.",NEGATIVE,2
+400,2,"Great value, highly recommend the satay.",POSITIVE,5
+401,3,"Great value, highly recommend the rojak.",POSITIVE,4
+402,3,"Disappointing kueh, expected better.",NEGATIVE,1
+403,3,"Perfectly tender murtabak, will come back.",POSITIVE,4
+404,3,"Love the bubble tea here, always juicy.",POSITIVE,4
+405,3,"Love the bubble tea here, always delicious.",POSITIVE,5
+406,3,Amazing ice cream! Best I've had.,POSITIVE,5
+407,3,"Perfectly fresh fried chicken, will come back.",POSITIVE,4
+408,3,"Love the kueh here, always tender.",POSITIVE,5
+409,3,"The fried chicken was juicy, so satisfied!",POSITIVE,5
+410,3,Amazing ice cream! Best I've had.,POSITIVE,5
+411,3,"The ice cream was crispy, so happy!",POSITIVE,4
+412,3,"Love the murtabak here, always juicy.",POSITIVE,5
+413,3,"Great value, highly recommend the kueh.",POSITIVE,4
+414,3,"Great value, highly recommend the nasi lemak.",POSITIVE,5
+415,3,"Great value, highly recommend the bubble tea.",POSITIVE,4
+416,3,Amazing kueh! Best I've had.,POSITIVE,4
+417,3,"Perfectly juicy murtabak, will come back.",POSITIVE,4
+418,3,"The fried chicken was crispy, so satisfied!",POSITIVE,5
+419,3,Amazing rojak! Best I've had.,POSITIVE,4
+420,3,"Disappointing kueh, expected better.",NEGATIVE,2
+421,3,"Great value, highly recommend the bubble tea.",POSITIVE,5
+422,3,"The bubble tea was delicious, so satisfied!",POSITIVE,5
+423,3,The murtabak was tough and cold.,NEGATIVE,2
+424,3,Overpriced for the portion size.,NEGATIVE,2
+425,3,"Love the kueh here, always juicy.",POSITIVE,4
+426,3,"Too long a queue, satay was lukewarm.",NEGATIVE,1
+427,3,"The murtabak was fresh, so satisfied!",POSITIVE,5
+428,3,"Love the satay here, always fresh.",POSITIVE,5
+429,3,"Perfectly tender kueh, will come back.",POSITIVE,5
+430,3,"Love the rojak here, always fresh.",POSITIVE,4
+431,3,"Disappointing fried chicken, expected better.",NEGATIVE,2
+432,3,"The rojak was crispy, so happy!",POSITIVE,5
+433,3,"Love the bubble tea here, always crispy.",POSITIVE,5
+434,3,"The kueh was juicy, so satisfied!",POSITIVE,4
+435,3,"Poor quality rojak, not worth the wait.",NEGATIVE,1
+436,3,"Too long a queue, satay was lukewarm.",NEGATIVE,2
+437,3,Amazing satay! Best I've had.,POSITIVE,5
+438,3,"Perfectly fresh bubble tea, will come back.",POSITIVE,5
+439,3,"Great value, highly recommend the rojak.",POSITIVE,5
+440,3,"Great value, highly recommend the murtabak.",POSITIVE,4
+441,3,"Great value, highly recommend the fried chicken.",POSITIVE,4
+442,3,"Too long a queue, kueh was lukewarm.",NEGATIVE,2
+443,3,"Too long a queue, satay was lukewarm.",NEGATIVE,2
+444,3,"Great value, highly recommend the murtabak.",POSITIVE,4
+445,3,Amazing fried chicken! Best I've had.,POSITIVE,5
+446,3,"Too long a queue, nasi lemak was lukewarm.",NEGATIVE,2
+447,3,"Great value, highly recommend the fried chicken.",POSITIVE,4
+448,3,"Too long a queue, ice cream was lukewarm.",NEGATIVE,1
+449,3,Overpriced for the portion size.,NEGATIVE,2
+450,3,Amazing kueh! Best I've had.,POSITIVE,4
+451,3,"Perfectly juicy kueh, will come back.",POSITIVE,5
+452,3,"Perfectly fresh nasi lemak, will come back.",POSITIVE,4
+453,3,Amazing murtabak! Best I've had.,POSITIVE,5
+454,3,Overpriced for the portion size.,NEGATIVE,2
+455,3,"Love the rojak here, always crispy.",POSITIVE,4
+456,3,"The kueh was fresh, so pleased!",POSITIVE,4
+457,3,"The fried chicken was fresh, so happy!",POSITIVE,5
+458,3,Overpriced for the portion size.,NEGATIVE,1
+459,3,"Too long a queue, kueh was lukewarm.",NEGATIVE,1
+460,3,"Too long a queue, satay was lukewarm.",NEGATIVE,1
+461,3,"Love the murtabak here, always fresh.",POSITIVE,5
+462,3,"Love the kueh here, always crispy.",POSITIVE,4
+463,3,"Perfectly juicy ice cream, will come back.",POSITIVE,4
+464,3,Overpriced for the portion size.,NEGATIVE,2
+465,3,"Great value, highly recommend the fried chicken.",POSITIVE,5
+466,3,"Disappointing satay, expected better.",NEGATIVE,1
+467,3,"Love the kueh here, always fresh.",POSITIVE,5
+468,3,"Love the nasi lemak here, always tender.",POSITIVE,5
+469,3,The ice cream was tough and cold.,NEGATIVE,1
+470,3,"Great value, highly recommend the ice cream.",POSITIVE,5
+471,3,Amazing kueh! Best I've had.,POSITIVE,5
+472,3,"The satay was juicy, so satisfied!",POSITIVE,5
+473,3,"Disappointing rojak, expected better.",NEGATIVE,2
+474,3,"Disappointing bubble tea, expected better.",NEGATIVE,2
+475,3,"Love the bubble tea here, always delicious.",POSITIVE,4
+476,3,"Love the ice cream here, always crispy.",POSITIVE,5
+477,3,"Great value, highly recommend the kueh.",POSITIVE,4
+478,3,The bubble tea was tough and cold.,NEGATIVE,1
+479,3,"Disappointing kueh, expected better.",NEGATIVE,1
+480,3,Amazing nasi lemak! Best I've had.,POSITIVE,5
+481,3,Amazing satay! Best I've had.,POSITIVE,4
+482,3,Amazing kueh! Best I've had.,POSITIVE,4
+483,3,Overpriced for the portion size.,NEGATIVE,1
+484,3,"Great value, highly recommend the bubble tea.",POSITIVE,5
+485,3,The murtabak was tough and cold.,NEGATIVE,1
+486,3,Amazing nasi lemak! Best I've had.,POSITIVE,4
+487,3,Overpriced for the portion size.,NEGATIVE,2
+488,3,"Great value, highly recommend the fried chicken.",POSITIVE,4
+489,3,"Disappointing ice cream, expected better.",NEGATIVE,1
+490,3,Overpriced for the portion size.,NEGATIVE,1
+491,3,"Disappointing kueh, expected better.",NEGATIVE,2
+492,3,"Perfectly crispy fried chicken, will come back.",POSITIVE,4
+493,3,"Great value, highly recommend the rojak.",POSITIVE,5
+494,3,The fried chicken was tough and cold.,NEGATIVE,1
+495,3,"The ice cream was tender, so satisfied!",POSITIVE,4
+496,3,Amazing fried chicken! Best I've had.,POSITIVE,4
+497,3,"Love the fried chicken here, always tender.",POSITIVE,5
+498,3,"Love the ice cream here, always tender.",POSITIVE,4
+499,3,"The murtabak was tender, so happy!",POSITIVE,5
+500,3,"Great value, highly recommend the nasi lemak.",POSITIVE,4
+501,3,Overpriced for the portion size.,NEGATIVE,2
+502,3,"Great value, highly recommend the fried chicken.",POSITIVE,5
+503,3,"The kueh was crispy, so satisfied!",POSITIVE,4
+504,3,"The nasi lemak was crispy, so pleased!",POSITIVE,5
+505,3,"Disappointing rojak, expected better.",NEGATIVE,2
+506,3,"The murtabak was crispy, so satisfied!",POSITIVE,5
+507,3,"Love the kueh here, always crispy.",POSITIVE,5
+508,3,Overpriced for the portion size.,NEGATIVE,1
+509,3,The fried chicken was tough and cold.,NEGATIVE,2
+510,3,"The kueh was tender, so pleased!",POSITIVE,5
+511,3,"Great value, highly recommend the rojak.",POSITIVE,4
+512,3,"Poor quality murtabak, not worth the wait.",NEGATIVE,1
+513,3,The rojak was tough and cold.,NEGATIVE,1
+514,3,"Perfectly delicious kueh, will come back.",POSITIVE,5
+515,3,"Disappointing ice cream, expected better.",NEGATIVE,1
+516,3,"Great value, highly recommend the rojak.",POSITIVE,4
+517,3,"Perfectly tender kueh, will come back.",POSITIVE,5
+518,3,"Love the kueh here, always juicy.",POSITIVE,4
+519,3,"Too long a queue, fried chicken was lukewarm.",NEGATIVE,2
+520,3,"Perfectly delicious bubble tea, will come back.",POSITIVE,4
+521,3,"Great value, highly recommend the nasi lemak.",POSITIVE,5
+522,3,"Love the murtabak here, always juicy.",POSITIVE,5
+523,3,"Great value, highly recommend the murtabak.",POSITIVE,4
+524,3,"The rojak was delicious, so pleased!",POSITIVE,4
+525,3,Amazing bubble tea! Best I've had.,POSITIVE,4
+526,3,The ice cream was tough and cold.,NEGATIVE,1
+527,3,Amazing fried chicken! Best I've had.,POSITIVE,5
+528,3,"The kueh was juicy, so happy!",POSITIVE,4
+529,3,The ice cream was tough and cold.,NEGATIVE,2
+530,3,"Love the kueh here, always tender.",POSITIVE,5
+531,3,Amazing rojak! Best I've had.,POSITIVE,5
+532,3,"Poor quality rojak, not worth the wait.",NEGATIVE,1
+533,3,"Love the kueh here, always delicious.",POSITIVE,5
+534,3,"Disappointing ice cream, expected better.",NEGATIVE,1
+535,3,"Disappointing fried chicken, expected better.",NEGATIVE,1
+536,3,"Poor quality murtabak, not worth the wait.",NEGATIVE,1
+537,3,Amazing murtabak! Best I've had.,POSITIVE,4
+538,3,"Love the rojak here, always delicious.",POSITIVE,4
+539,3,Amazing ice cream! Best I've had.,POSITIVE,4
+540,3,"Disappointing bubble tea, expected better.",NEGATIVE,2
+541,3,"Great value, highly recommend the rojak.",POSITIVE,5
+542,3,Overpriced for the portion size.,NEGATIVE,2
+543,3,The satay was tough and cold.,NEGATIVE,1
+544,3,Amazing bubble tea! Best I've had.,POSITIVE,5
+545,3,"Poor quality kueh, not worth the wait.",NEGATIVE,2
+546,3,"Love the murtabak here, always juicy.",POSITIVE,5
+547,3,"Disappointing bubble tea, expected better.",NEGATIVE,2
+548,3,Overpriced for the portion size.,NEGATIVE,1
+549,3,Overpriced for the portion size.,NEGATIVE,1
+550,3,The kueh was tough and cold.,NEGATIVE,2
+551,3,The murtabak was tough and cold.,NEGATIVE,2
+552,3,The nasi lemak was tough and cold.,NEGATIVE,1
+553,3,The bubble tea was tough and cold.,NEGATIVE,1
+554,3,"The fried chicken was delicious, so happy!",POSITIVE,4
+555,3,"Perfectly crispy nasi lemak, will come back.",POSITIVE,5
+556,3,"Great value, highly recommend the murtabak.",POSITIVE,5
+557,3,"Perfectly crispy kueh, will come back.",POSITIVE,4
+558,3,"Too long a queue, bubble tea was lukewarm.",NEGATIVE,2
+559,3,The kueh was tough and cold.,NEGATIVE,1
+560,3,"Disappointing bubble tea, expected better.",NEGATIVE,2
+561,3,Overpriced for the portion size.,NEGATIVE,2
+562,3,"Disappointing murtabak, expected better.",NEGATIVE,1
+563,3,"Great value, highly recommend the murtabak.",POSITIVE,5
+564,3,"Great value, highly recommend the ice cream.",POSITIVE,4
+565,3,The kueh was tough and cold.,NEGATIVE,2
+566,3,Amazing rojak! Best I've had.,POSITIVE,5
+567,3,"Perfectly delicious kueh, will come back.",POSITIVE,4
+568,3,"The satay was delicious, so pleased!",POSITIVE,5
+569,3,"Poor quality nasi lemak, not worth the wait.",NEGATIVE,1
+570,3,"Disappointing rojak, expected better.",NEGATIVE,1
+571,3,The nasi lemak was tough and cold.,NEGATIVE,2
+572,3,"Great value, highly recommend the fried chicken.",POSITIVE,4
+573,3,Amazing rojak! Best I've had.,POSITIVE,4
+574,3,"Great value, highly recommend the satay.",POSITIVE,4
+575,3,"Great value, highly recommend the satay.",POSITIVE,4
+576,3,"Great value, highly recommend the kueh.",POSITIVE,5
+577,3,"Too long a queue, ice cream was lukewarm.",NEGATIVE,1
+578,3,Amazing bubble tea! Best I've had.,POSITIVE,4
+579,3,"The bubble tea was delicious, so satisfied!",POSITIVE,4
+580,3,Amazing murtabak! Best I've had.,POSITIVE,4
+581,3,Amazing kueh! Best I've had.,POSITIVE,5
+582,3,"The satay was tender, so satisfied!",POSITIVE,5
+583,3,"Love the nasi lemak here, always juicy.",POSITIVE,4
+584,3,"Disappointing rojak, expected better.",NEGATIVE,1
+585,3,"Disappointing rojak, expected better.",NEGATIVE,1
+586,3,"Great value, highly recommend the nasi lemak.",POSITIVE,5
+587,3,"Love the ice cream here, always delicious.",POSITIVE,5
+588,3,"Disappointing nasi lemak, expected better.",NEGATIVE,1
+589,3,Amazing rojak! Best I've had.,POSITIVE,5
+590,3,"Great value, highly recommend the fried chicken.",POSITIVE,4
+591,3,Overpriced for the portion size.,NEGATIVE,2
+592,3,"The nasi lemak was delicious, so satisfied!",POSITIVE,4
+593,3,"The kueh was juicy, so pleased!",POSITIVE,4
+594,3,Overpriced for the portion size.,NEGATIVE,1
+595,3,"Disappointing murtabak, expected better.",NEGATIVE,2
+596,3,"The ice cream was juicy, so satisfied!",POSITIVE,5
+597,3,The nasi lemak was tough and cold.,NEGATIVE,1
+598,3,"Disappointing ice cream, expected better.",NEGATIVE,1
+599,3,Amazing bubble tea! Best I've had.,POSITIVE,4
+600,3,"Great value, highly recommend the ice cream.",POSITIVE,4
+601,4,"Great value, highly recommend the kueh.",POSITIVE,5
+602,4,The bubble tea was tough and cold.,NEGATIVE,2
+603,4,"Disappointing murtabak, expected better.",NEGATIVE,1
+604,4,Overpriced for the portion size.,NEGATIVE,1
+605,4,The satay was tough and cold.,NEGATIVE,2
+606,4,"Poor quality satay, not worth the wait.",NEGATIVE,2
+607,4,"Disappointing rojak, expected better.",NEGATIVE,1
+608,4,Amazing satay! Best I've had.,POSITIVE,5
+609,4,Amazing bubble tea! Best I've had.,POSITIVE,5
+610,4,The fried chicken was tough and cold.,NEGATIVE,1
+611,4,"The rojak was delicious, so satisfied!",POSITIVE,5
+612,4,"Poor quality bubble tea, not worth the wait.",NEGATIVE,2
+613,4,Overpriced for the portion size.,NEGATIVE,2
+614,4,"Too long a queue, bubble tea was lukewarm.",NEGATIVE,2
+615,4,"Perfectly juicy satay, will come back.",POSITIVE,4
+616,4,Overpriced for the portion size.,NEGATIVE,2
+617,4,"Disappointing kueh, expected better.",NEGATIVE,2
+618,4,"Poor quality rojak, not worth the wait.",NEGATIVE,1
+619,4,"Love the rojak here, always juicy.",POSITIVE,5
+620,4,"Too long a queue, nasi lemak was lukewarm.",NEGATIVE,1
+621,4,The murtabak was tough and cold.,NEGATIVE,1
+622,4,"Perfectly crispy nasi lemak, will come back.",POSITIVE,4
+623,4,"Great value, highly recommend the ice cream.",POSITIVE,4
+624,4,"Great value, highly recommend the murtabak.",POSITIVE,5
+625,4,"Love the kueh here, always tender.",POSITIVE,5
+626,4,"Great value, highly recommend the murtabak.",POSITIVE,5
+627,4,"Love the bubble tea here, always tender.",POSITIVE,5
+628,4,"The ice cream was fresh, so pleased!",POSITIVE,5
+629,4,"Great value, highly recommend the ice cream.",POSITIVE,4
+630,4,"Love the rojak here, always tender.",POSITIVE,4
+631,4,"Poor quality murtabak, not worth the wait.",NEGATIVE,2
+632,4,"Poor quality fried chicken, not worth the wait.",NEGATIVE,1
+633,4,"The nasi lemak was fresh, so satisfied!",POSITIVE,5
+634,4,"Great value, highly recommend the bubble tea.",POSITIVE,4
+635,4,The ice cream was tough and cold.,NEGATIVE,2
+636,4,"Love the murtabak here, always crispy.",POSITIVE,4
+637,4,The kueh was tough and cold.,NEGATIVE,1
+638,4,The nasi lemak was tough and cold.,NEGATIVE,1
+639,4,"Disappointing fried chicken, expected better.",NEGATIVE,2
+640,4,"Too long a queue, murtabak was lukewarm.",NEGATIVE,2
+641,4,"Love the satay here, always fresh.",POSITIVE,5
+642,4,Amazing rojak! Best I've had.,POSITIVE,4
+643,4,"The nasi lemak was fresh, so pleased!",POSITIVE,4
+644,4,"Great value, highly recommend the nasi lemak.",POSITIVE,5
+645,4,"Perfectly crispy ice cream, will come back.",POSITIVE,4
+646,4,"The bubble tea was delicious, so satisfied!",POSITIVE,5
+647,4,"Love the kueh here, always crispy.",POSITIVE,5
+648,4,"Poor quality kueh, not worth the wait.",NEGATIVE,1
+649,4,"Love the satay here, always tender.",POSITIVE,5
+650,4,Amazing bubble tea! Best I've had.,POSITIVE,5
+651,4,"The kueh was crispy, so satisfied!",POSITIVE,5
+652,4,"Great value, highly recommend the ice cream.",POSITIVE,4
+653,4,"Too long a queue, bubble tea was lukewarm.",NEGATIVE,2
+654,4,Overpriced for the portion size.,NEGATIVE,2
+655,4,"Perfectly tender kueh, will come back.",POSITIVE,4
+656,4,"Perfectly juicy nasi lemak, will come back.",POSITIVE,4
+657,4,The fried chicken was tough and cold.,NEGATIVE,2
+658,4,"Too long a queue, nasi lemak was lukewarm.",NEGATIVE,1
+659,4,Amazing nasi lemak! Best I've had.,POSITIVE,4
+660,4,"Love the rojak here, always juicy.",POSITIVE,5
+661,4,"Great value, highly recommend the fried chicken.",POSITIVE,5
+662,4,Overpriced for the portion size.,NEGATIVE,2
+663,4,"Disappointing rojak, expected better.",NEGATIVE,2
+664,4,"The kueh was crispy, so pleased!",POSITIVE,4
+665,4,"The satay was tender, so pleased!",POSITIVE,5
+666,4,Overpriced for the portion size.,NEGATIVE,1
+667,4,"The kueh was fresh, so satisfied!",POSITIVE,5
+668,4,"Poor quality nasi lemak, not worth the wait.",NEGATIVE,1
+669,4,"Perfectly crispy kueh, will come back.",POSITIVE,5
+670,4,"Disappointing satay, expected better.",NEGATIVE,2
+671,4,"The satay was delicious, so satisfied!",POSITIVE,4
+672,4,"Perfectly juicy kueh, will come back.",POSITIVE,4
+673,4,Amazing ice cream! Best I've had.,POSITIVE,5
+674,4,"Great value, highly recommend the fried chicken.",POSITIVE,4
+675,4,"Love the ice cream here, always delicious.",POSITIVE,4
+676,4,The nasi lemak was tough and cold.,NEGATIVE,2
+677,4,"Too long a queue, satay was lukewarm.",NEGATIVE,2
+678,4,"Poor quality satay, not worth the wait.",NEGATIVE,1
+679,4,"Disappointing fried chicken, expected better.",NEGATIVE,2
+680,4,"The fried chicken was delicious, so happy!",POSITIVE,5
+681,4,"Disappointing murtabak, expected better.",NEGATIVE,2
+682,4,Amazing nasi lemak! Best I've had.,POSITIVE,5
+683,4,"The murtabak was delicious, so satisfied!",POSITIVE,5
+684,4,Amazing bubble tea! Best I've had.,POSITIVE,5
+685,4,"The murtabak was delicious, so pleased!",POSITIVE,5
+686,4,"Poor quality murtabak, not worth the wait.",NEGATIVE,1
+687,4,"The bubble tea was fresh, so happy!",POSITIVE,5
+688,4,Amazing nasi lemak! Best I've had.,POSITIVE,5
+689,4,"The rojak was tender, so satisfied!",POSITIVE,4
+690,4,Overpriced for the portion size.,NEGATIVE,1
+691,4,"Love the murtabak here, always tender.",POSITIVE,4
+692,4,Amazing ice cream! Best I've had.,POSITIVE,4
+693,4,"Disappointing satay, expected better.",NEGATIVE,1
+694,4,"Poor quality ice cream, not worth the wait.",NEGATIVE,2
+695,4,"Great value, highly recommend the murtabak.",POSITIVE,5
+696,4,"Disappointing kueh, expected better.",NEGATIVE,1
+697,4,"Love the murtabak here, always tender.",POSITIVE,4
+698,4,"Too long a queue, ice cream was lukewarm.",NEGATIVE,2
+699,4,"Love the ice cream here, always fresh.",POSITIVE,5
+700,4,"The bubble tea was tender, so satisfied!",POSITIVE,4
+701,4,The fried chicken was tough and cold.,NEGATIVE,1
+702,4,"Poor quality nasi lemak, not worth the wait.",NEGATIVE,1
+703,4,"The satay was delicious, so pleased!",POSITIVE,4
+704,4,The bubble tea was tough and cold.,NEGATIVE,1
+705,4,"Perfectly delicious ice cream, will come back.",POSITIVE,4
+706,4,"Great value, highly recommend the murtabak.",POSITIVE,5
+707,4,"Love the kueh here, always delicious.",POSITIVE,5
+708,4,The kueh was tough and cold.,NEGATIVE,1
+709,4,"Perfectly juicy nasi lemak, will come back.",POSITIVE,5
+710,4,Overpriced for the portion size.,NEGATIVE,2
+711,4,"Love the nasi lemak here, always tender.",POSITIVE,4
+712,4,"Poor quality kueh, not worth the wait.",NEGATIVE,1
+713,4,The kueh was tough and cold.,NEGATIVE,2
+714,4,Overpriced for the portion size.,NEGATIVE,1
+715,4,"Too long a queue, nasi lemak was lukewarm.",NEGATIVE,2
+716,4,"Disappointing satay, expected better.",NEGATIVE,1
+717,4,"The murtabak was juicy, so pleased!",POSITIVE,5
+718,4,"Great value, highly recommend the kueh.",POSITIVE,4
+719,4,"Great value, highly recommend the satay.",POSITIVE,4
+720,4,"Perfectly juicy rojak, will come back.",POSITIVE,5
+721,4,"Great value, highly recommend the fried chicken.",POSITIVE,5
+722,4,"Great value, highly recommend the nasi lemak.",POSITIVE,5
+723,4,Amazing kueh! Best I've had.,POSITIVE,4
+724,4,The murtabak was tough and cold.,NEGATIVE,2
+725,4,"The murtabak was tender, so happy!",POSITIVE,5
+726,4,Amazing fried chicken! Best I've had.,POSITIVE,5
+727,4,"Love the satay here, always tender.",POSITIVE,5
+728,4,"The satay was fresh, so happy!",POSITIVE,4
+729,4,Overpriced for the portion size.,NEGATIVE,1
+730,4,Amazing fried chicken! Best I've had.,POSITIVE,4
+731,4,"Disappointing bubble tea, expected better.",NEGATIVE,1
+732,4,"Great value, highly recommend the fried chicken.",POSITIVE,4
+733,4,"Poor quality satay, not worth the wait.",NEGATIVE,2
+734,4,Amazing rojak! Best I've had.,POSITIVE,4
+735,4,"Great value, highly recommend the satay.",POSITIVE,4
+736,4,Amazing fried chicken! Best I've had.,POSITIVE,4
+737,4,"Love the fried chicken here, always delicious.",POSITIVE,4
+738,4,"Perfectly crispy satay, will come back.",POSITIVE,5
+739,4,"Too long a queue, murtabak was lukewarm.",NEGATIVE,2
+740,4,The nasi lemak was tough and cold.,NEGATIVE,1
+741,4,"Poor quality fried chicken, not worth the wait.",NEGATIVE,1
+742,4,"The satay was delicious, so happy!",POSITIVE,4
+743,4,"Love the rojak here, always tender.",POSITIVE,4
+744,4,"Perfectly juicy fried chicken, will come back.",POSITIVE,4
+745,4,"Disappointing rojak, expected better.",NEGATIVE,1
+746,4,"Great value, highly recommend the fried chicken.",POSITIVE,5
+747,4,Overpriced for the portion size.,NEGATIVE,1
+748,4,"Love the rojak here, always crispy.",POSITIVE,5
+749,4,"The kueh was delicious, so happy!",POSITIVE,5
+750,4,"Great value, highly recommend the ice cream.",POSITIVE,5
+751,4,Amazing nasi lemak! Best I've had.,POSITIVE,5
+752,4,Amazing satay! Best I've had.,POSITIVE,5
+753,4,"Too long a queue, nasi lemak was lukewarm.",NEGATIVE,2
+754,4,Overpriced for the portion size.,NEGATIVE,2
+755,4,Amazing ice cream! Best I've had.,POSITIVE,5
+756,4,Amazing ice cream! Best I've had.,POSITIVE,4
+757,4,"Too long a queue, kueh was lukewarm.",NEGATIVE,2
+758,4,"Perfectly crispy ice cream, will come back.",POSITIVE,4
+759,4,"Too long a queue, nasi lemak was lukewarm.",NEGATIVE,2
+760,4,Amazing nasi lemak! Best I've had.,POSITIVE,4
+761,4,Overpriced for the portion size.,NEGATIVE,2
+762,4,"Disappointing murtabak, expected better.",NEGATIVE,2
+763,4,Overpriced for the portion size.,NEGATIVE,1
+764,4,"Great value, highly recommend the murtabak.",POSITIVE,5
+765,4,"The murtabak was delicious, so satisfied!",POSITIVE,4
+766,4,"Love the satay here, always crispy.",POSITIVE,4
+767,4,Overpriced for the portion size.,NEGATIVE,2
+768,4,"Perfectly delicious fried chicken, will come back.",POSITIVE,4
+769,4,"Disappointing bubble tea, expected better.",NEGATIVE,2
+770,4,"The ice cream was fresh, so satisfied!",POSITIVE,4
+771,4,"Poor quality nasi lemak, not worth the wait.",NEGATIVE,1
+772,4,"Love the murtabak here, always fresh.",POSITIVE,4
+773,4,Overpriced for the portion size.,NEGATIVE,2
+774,4,"Poor quality fried chicken, not worth the wait.",NEGATIVE,2
+775,4,"Love the ice cream here, always crispy.",POSITIVE,5
+776,4,The murtabak was tough and cold.,NEGATIVE,1
+777,4,The ice cream was tough and cold.,NEGATIVE,2
+778,4,Amazing bubble tea! Best I've had.,POSITIVE,4
+779,4,"The ice cream was juicy, so satisfied!",POSITIVE,4
+780,4,Overpriced for the portion size.,NEGATIVE,1
+781,4,"Poor quality murtabak, not worth the wait.",NEGATIVE,2
+782,4,"Too long a queue, nasi lemak was lukewarm.",NEGATIVE,1
+783,4,"Love the fried chicken here, always delicious.",POSITIVE,4
+784,4,"The kueh was crispy, so happy!",POSITIVE,5
+785,4,"Disappointing satay, expected better.",NEGATIVE,1
+786,4,Overpriced for the portion size.,NEGATIVE,1
+787,4,Overpriced for the portion size.,NEGATIVE,1
+788,4,Amazing rojak! Best I've had.,POSITIVE,5
+789,4,Amazing satay! Best I've had.,POSITIVE,4
+790,4,"Poor quality ice cream, not worth the wait.",NEGATIVE,1
+791,4,"Disappointing murtabak, expected better.",NEGATIVE,1
+792,4,Amazing rojak! Best I've had.,POSITIVE,5
+793,4,"Poor quality bubble tea, not worth the wait.",NEGATIVE,2
+794,4,Overpriced for the portion size.,NEGATIVE,2
+795,4,"The kueh was crispy, so happy!",POSITIVE,5
+796,4,Amazing nasi lemak! Best I've had.,POSITIVE,4
+797,4,"Poor quality fried chicken, not worth the wait.",NEGATIVE,1
+798,4,"Love the ice cream here, always tender.",POSITIVE,4
+799,4,"Poor quality ice cream, not worth the wait.",NEGATIVE,2
+800,4,"Great value, highly recommend the nasi lemak.",POSITIVE,4

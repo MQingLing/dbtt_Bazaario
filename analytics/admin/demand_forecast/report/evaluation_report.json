@@ -1,0 +1,9 @@
+{
+  "model": "Multiple Linear Regression",
+  "task": "Admin hourly demand forecast",
+  "train_samples": 432,
+  "test_samples": 108,
+  "r2": 0.9773,
+  "mae": 2.581,
+  "rmse": 3.1578
+}
