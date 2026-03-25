@@ -14,9 +14,9 @@ interface LoginPageProps {
 }
 
 const DEMO_ACCOUNTS = [
-  { label: 'Customer', email: 'customer@bazaario.com', password: 'Customer@123', icon: ShoppingBag, color: 'text-orange-500' },
-  { label: 'Vendor',   email: 'vendor@bazaario.com',   password: 'Vendor@123',   icon: Store,       color: 'text-pink-500'   },
-  { label: 'Admin',    email: 'admin@bazaario.com',     password: 'Admin@123',    icon: Shield,      color: 'text-purple-500' },
+  { label: 'Customer', email: 'customer@bazaario.com', password: import.meta.env.VITE_DEMO_CUSTOMER_PW ?? '', icon: ShoppingBag, color: 'text-orange-500' },
+  { label: 'Vendor',   email: 'vendor@bazaario.com',   password: import.meta.env.VITE_DEMO_VENDOR_PW   ?? '', icon: Store,       color: 'text-pink-500'   },
+  { label: 'Admin',    email: 'admin@bazaario.com',     password: import.meta.env.VITE_DEMO_ADMIN_PW    ?? '', icon: Shield,      color: 'text-purple-500' },
 ];
 
 const ROLE_COLORS: Record<string, string> = {

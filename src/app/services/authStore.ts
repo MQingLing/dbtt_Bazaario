@@ -10,11 +10,11 @@ export interface StoredUser {
 
 const STORAGE_KEY = 'bazaario_users_v2';
 
-// Demo credentials — not real accounts, hashed before storage
+// Demo credentials loaded from .env (never committed to source control)
 const DEMO_SEED = [
-  { id: 'admin-001',    name: 'Super Admin',      email: 'admin@bazaario.com',    pw: 'Admin@123',    role: 'admin'    as const, isDefaultPassword: true  },
-  { id: 'vendor-001',   name: 'The Satay Corner',  email: 'vendor@bazaario.com',   pw: 'Vendor@123',   role: 'vendor'   as const, isDefaultPassword: false },
-  { id: 'customer-001', name: 'Alex Tan',           email: 'customer@bazaario.com', pw: 'Customer@123', role: 'customer' as const, isDefaultPassword: false },
+  { id: 'admin-001',    name: 'Super Admin',      email: 'admin@bazaario.com',    pw: import.meta.env.VITE_DEMO_ADMIN_PW    ?? '',  role: 'admin'    as const, isDefaultPassword: true  },
+  { id: 'vendor-001',   name: 'The Satay Corner',  email: 'vendor@bazaario.com',   pw: import.meta.env.VITE_DEMO_VENDOR_PW   ?? '',  role: 'vendor'   as const, isDefaultPassword: false },
+  { id: 'customer-001', name: 'Alex Tan',           email: 'customer@bazaario.com', pw: import.meta.env.VITE_DEMO_CUSTOMER_PW ?? '',  role: 'customer' as const, isDefaultPassword: false },
 ];
 
 export async function hashPassword(password: string): Promise<string> {
