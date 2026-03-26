@@ -84,7 +84,7 @@ export default function App() {
       {currentUser && showTour && currentUser.role && (
         <GuidedTour role={currentUser.role as 'customer' | 'vendor' | 'admin'} onDismiss={() => setShowTour(false)} />
       )}
-      <BrowserRouter>
+      <BrowserRouter basename={import.meta.env.BASE_URL}>
         <Routes>
           <Route path="/" element={!currentUser ? <LoginPage onLogin={handleLogin} /> : <Navigate to={getHomeRoute(currentUser.role)} />} />
           <Route path="/signup" element={<CustomerSignUp onSignUp={handleLogin} />} />
