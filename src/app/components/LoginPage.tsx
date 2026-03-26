@@ -64,6 +64,7 @@ export default function LoginPage({ onLogin }: LoginPageProps) {
       vendorCategory:             stored.vendorCategory,
       verificationStatus:         stored.verificationStatus,
       verificationRejectionReason: stored.verificationRejectionReason,
+      profilePic:                 stored.profilePic,
     });
     setIsLoading(false);
   };
