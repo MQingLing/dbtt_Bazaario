@@ -7,8 +7,9 @@ import { Button } from '../shared/button';
 import { Badge } from '../shared/badge';
 import { Input } from '../shared/input';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '../shared/tabs';
-import { Wallet, Plus, ArrowUpRight, ArrowDownRight, CreditCard, QrCode, TrendingUp } from 'lucide-react';
+import { Wallet, Plus, ArrowUpRight, ArrowDownRight, CreditCard, QrCode, TrendingUp, X, BarChart2, ShoppingBag, PiggyBank } from 'lucide-react';
 import { updateUser } from '../../services/authStore';
+import paynowLogo from '../../../assets/paynow_logo.png';
 
 interface CustomerWalletProps {
   user: User;
@@ -21,6 +22,7 @@ export default function CustomerWallet({ user, onLogout, onUserUpdate }: Custome
   const [customAmount,   setCustomAmount]   = useState('');
   const [paymentMethod,  setPaymentMethod]  = useState<'card' | 'paynow' | null>(null);
   const [topUpMessage,   setTopUpMessage]   = useState('');
+  const [showStats,      setShowStats]      = useState(false);
 
   const quickTopUpAmounts = [10, 20, 50, 100];
 
@@ -29,13 +31,32 @@ export default function CustomerWallet({ user, onLogout, onUserUpdate }: Custome
   const canConfirm = resolvedAmount !== null && resolvedAmount > 0 && paymentMethod !== null;
 
   const transactions = [
-    { id: '1', type: 'spent', vendor: "Wong's Satay", amount: 15.00, date: 'Mar 5, 2026', time: '7:30 PM', status: 'completed' },
-    { id: '2', type: 'topup', vendor: 'Credit Card', amount: 50.00, date: 'Mar 5, 2026', time: '6:00 PM', status: 'completed' },
+    { id: '1', type: 'spent', vendor: "Wong's Satay",      amount: 15.00, date: 'Mar 5, 2026', time: '7:30 PM', status: 'completed' },
+    { id: '2', type: 'topup', vendor: 'Credit Card',        amount: 50.00, date: 'Mar 5, 2026', time: '6:00 PM', status: 'completed' },
     { id: '3', type: 'spent', vendor: 'Bubble Tea Paradise', amount: 8.50, date: 'Mar 4, 2026', time: '8:15 PM', status: 'completed' },
-    { id: '4', type: 'spent', vendor: 'Golden Snacks', amount: 12.00, date: 'Mar 4, 2026', time: '7:45 PM', status: 'completed' },
-    { id: '5', type: 'topup', vendor: 'PayNow', amount: 100.00, date: 'Mar 3, 2026', time: '5:00 PM', status: 'completed' },
-    { id: '6', type: 'spent', vendor: 'Artisan Crafts', amount: 35.00, date: 'Mar 3, 2026', time: '8:30 PM', status: 'completed' },
+    { id: '4', type: 'spent', vendor: 'Golden Snacks',      amount: 12.00, date: 'Mar 4, 2026', time: '7:45 PM', status: 'completed' },
+    { id: '5', type: 'topup', vendor: 'PayNow',             amount: 100.00, date: 'Mar 3, 2026', time: '5:00 PM', status: 'completed' },
+    { id: '6', type: 'spent', vendor: 'Artisan Crafts',     amount: 35.00, date: 'Mar 3, 2026', time: '8:30 PM', status: 'completed' },
   ];
+
+  const now = new Date();
+  const spentTxns = transactions.filter(t => t.type === 'spent');
+  const thisMonthSpent = spentTxns
+    .filter(t => {
+      const d = new Date(t.date);
+      return d.getMonth() === now.getMonth() && d.getFullYear() === now.getFullYear();
+    })
+    .reduce((sum, t) => sum + t.amount, 0);
+  const totalSpent  = spentTxns.reduce((sum, t) => sum + t.amount, 0);
+  const totalTopUp  = transactions.filter(t => t.type === 'topup').reduce((sum, t) => sum + t.amount, 0);
+  const avgPerVisit = spentTxns.length ? totalSpent / spentTxns.length : 0;
+
+  // Vendor breakdown sorted by amount desc
+  const vendorMap: Record<string, number> = {};
+  spentTxns.forEach(t => { vendorMap[t.vendor] = (vendorMap[t.vendor] ?? 0) + t.amount; });
+  const vendorBreakdown = Object.entries(vendorMap)
+    .sort((a, b) => b[1] - a[1]);
+  const maxVendorAmount = vendorBreakdown[0]?.[1] ?? 1;
 
   const handleConfirmTopUp = () => {
     if (!canConfirm || resolvedAmount === null) return;
@@ -80,11 +101,11 @@ export default function CustomerWallet({ user, onLogout, onUserUpdate }: Custome
             <div className="grid grid-cols-2 gap-4 pt-4 border-t border-white/20">
               <div>
                 <p className="text-white/80 text-sm mb-1">This Month</p>
-                <p className="text-xl font-bold">$85.50</p>
+                <p className="text-xl font-bold">${thisMonthSpent.toFixed(2)}</p>
               </div>
               <div>
                 <p className="text-white/80 text-sm mb-1">Total Spent</p>
-                <p className="text-xl font-bold">$342.50</p>
+                <p className="text-xl font-bold">${totalSpent.toFixed(2)}</p>
               </div>
             </div>
           </CardContent>
@@ -162,9 +183,7 @@ export default function CustomerWallet({ user, onLogout, onUserUpdate }: Custome
                       }`}
                       onClick={() => setPaymentMethod(paymentMethod === 'paynow' ? null : 'paynow')}
                     >
-                      <div className="w-5 h-5 mr-3 bg-orange-500 rounded flex items-center justify-center text-white text-xs font-bold">
-                        PN
-                      </div>
+                      <img src={paynowLogo} alt="PayNow" className="w-5 h-5 mr-3 object-contain self-center flex-shrink-0" />
                       <div className="text-left">
                         <p className="font-medium">PayNow</p>
                         <p className="text-xs text-gray-500">Instant bank transfer</p>
@@ -282,7 +301,7 @@ export default function CustomerWallet({ user, onLogout, onUserUpdate }: Custome
                       Payment QR Code
                     </Button>
                   </Link>
-                  <Button variant="outline" className="w-full justify-start">
+                  <Button variant="outline" className="w-full justify-start" onClick={() => setShowStats(true)}>
                     <TrendingUp className="w-5 h-5 mr-3 text-green-500" />
                     Spending Stats
                   </Button>
@@ -303,6 +322,85 @@ export default function CustomerWallet({ user, onLogout, onUserUpdate }: Custome
           </div>
         </div>
       </div>
+
+      {/* Spending Stats Modal */}
+      {showStats && (
+        <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
+          <div className="bg-white rounded-2xl shadow-2xl w-full max-w-md max-h-[90vh] overflow-y-auto">
+            {/* Header */}
+            <div className="flex items-center justify-between p-6 border-b">
+              <div className="flex items-center gap-2">
+                <BarChart2 className="w-5 h-5 text-green-500" />
+                <h2 className="text-xl font-bold text-gray-900">Spending Stats</h2>
+              </div>
+              <button onClick={() => setShowStats(false)} className="text-gray-400 hover:text-gray-600">
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            <div className="p-6 space-y-6">
+              {/* Summary cards */}
+              <div className="grid grid-cols-3 gap-3">
+                <div className="bg-orange-50 rounded-xl p-3 text-center">
+                  <ShoppingBag className="w-5 h-5 text-orange-500 mx-auto mb-1" />
+                  <p className="text-xs text-gray-500 mb-0.5">Total Spent</p>
+                  <p className="font-bold text-gray-900">${totalSpent.toFixed(2)}</p>
+                </div>
+                <div className="bg-green-50 rounded-xl p-3 text-center">
+                  <PiggyBank className="w-5 h-5 text-green-500 mx-auto mb-1" />
+                  <p className="text-xs text-gray-500 mb-0.5">Total Topped Up</p>
+                  <p className="font-bold text-gray-900">${totalTopUp.toFixed(2)}</p>
+                </div>
+                <div className="bg-purple-50 rounded-xl p-3 text-center">
+                  <TrendingUp className="w-5 h-5 text-purple-500 mx-auto mb-1" />
+                  <p className="text-xs text-gray-500 mb-0.5">Avg per Visit</p>
+                  <p className="font-bold text-gray-900">${avgPerVisit.toFixed(2)}</p>
+                </div>
+              </div>
+
+              {/* This month */}
+              <div>
+                <h3 className="font-semibold text-gray-700 mb-2 text-sm">This Month</h3>
+                <div className="bg-gradient-to-r from-orange-500 to-pink-500 rounded-xl p-4 text-white">
+                  <p className="text-white/80 text-sm mb-1">Spent so far</p>
+                  <p className="text-3xl font-bold">${thisMonthSpent.toFixed(2)}</p>
+                  <p className="text-white/70 text-xs mt-1">{spentTxns.filter(t => {
+                    const d = new Date(t.date);
+                    return d.getMonth() === new Date().getMonth();
+                  }).length} transaction{spentTxns.length !== 1 ? 's' : ''} this month</p>
+                </div>
+              </div>
+
+              {/* Top vendors */}
+              <div>
+                <h3 className="font-semibold text-gray-700 mb-3 text-sm">Top Vendors</h3>
+                <div className="space-y-3">
+                  {vendorBreakdown.map(([vendor, amount]) => (
+                    <div key={vendor}>
+                      <div className="flex justify-between text-sm mb-1">
+                        <span className="text-gray-700 font-medium">{vendor}</span>
+                        <span className="font-bold text-gray-900">${amount.toFixed(2)}</span>
+                      </div>
+                      <div className="h-2 bg-gray-100 rounded-full overflow-hidden">
+                        <div
+                          className="h-full bg-gradient-to-r from-orange-400 to-pink-500 rounded-full transition-all"
+                          style={{ width: `${(amount / maxVendorAmount) * 100}%` }}
+                        />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Visits count */}
+              <div className="pt-2 border-t text-sm text-gray-500 flex justify-between">
+                <span>Total stall visits</span>
+                <span className="font-semibold text-gray-700">{spentTxns.length}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

@@ -254,12 +254,16 @@ const CONCERT_TIMES = [
 ];
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Stall label generator
+// Stall label generator — sequential row-major layout (A01, A02 … A06, B01 …)
+// Consumes one rng() call to keep downstream RNG sequence unchanged.
 // ─────────────────────────────────────────────────────────────────────────────
+const STALLS_PER_ROW = 6;
+
 function stallLabel(rng: () => number, index: number): string {
-  const row = String.fromCharCode(65 + Math.floor(rng() * 6)); // A–F
-  const num = String(1 + (index % 30)).padStart(2, '0');
-  return `${row}${num}`;
+  rng(); // consume to maintain RNG parity with old code
+  const row = String.fromCharCode(65 + Math.floor(index / STALLS_PER_ROW)); // A, B, C…
+  const col = (index % STALLS_PER_ROW) + 1;                                 // 1–6
+  return `${row}${String(col).padStart(2, '0')}`;
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -278,8 +282,9 @@ export function getEventVendors(eventId: string): Vendor[] {
     'Games & Entertainment',
   ];
 
-  // between 12 and 20 vendors
-  const count = 12 + Math.floor(rng() * 9);
+  // Round up to the nearest complete row so every grid cell is occupied.
+  const raw   = 12 + Math.floor(rng() * 9);                         // 12–20
+  const count = Math.ceil(raw / STALLS_PER_ROW) * STALLS_PER_ROW;  // 12, 18, or 24
   const vendors: Vendor[] = [];
 
   for (let i = 0; i < count; i++) {

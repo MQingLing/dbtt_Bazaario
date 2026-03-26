@@ -20,14 +20,22 @@ const EVENT_IMAGES = [
 ];
 
 export default function CustomerHome({ user, onLogout }: CustomerHomeProps) {
-  // Featured events: explicitly marked ones first, then top ongoing/upcoming
+  const STATUS_ORDER = { ongoing: 0, upcoming: 1, completed: 2 };
+
+  // Featured events: live first, then upcoming, then past
   const featuredEvents = (() => {
     const featured = pasarMalamEvents.filter(e => e.featured);
-    if (featured.length >= 3) return featured.slice(0, 3);
-    const others = pasarMalamEvents
-      .filter(e => !e.featured && (getEventStatus(e) === 'ongoing' || getEventStatus(e) === 'upcoming'))
-      .slice(0, 3 - featured.length);
-    return [...featured, ...others];
+    const pool = featured.length >= 3
+      ? featured
+      : [
+          ...featured,
+          ...pasarMalamEvents
+            .filter(e => !e.featured && (getEventStatus(e) === 'ongoing' || getEventStatus(e) === 'upcoming'))
+            .slice(0, 3 - featured.length),
+        ];
+    return pool
+      .slice(0, 3)
+      .sort((a, b) => STATUS_ORDER[getEventStatus(a)] - STATUS_ORDER[getEventStatus(b)]);
   })();
 
   const quickActions = [
@@ -98,15 +106,15 @@ export default function CustomerHome({ user, onLogout }: CustomerHomeProps) {
             </Link>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-4">
+          <div className="grid md:grid-cols-3 gap-4 items-stretch">
             {featuredEvents.map((event) => {
               const status = getEventStatus(event);
               const vendors = getEventVendors(event.id);
               const image = EVENT_IMAGES[parseInt(event.id) % EVENT_IMAGES.length];
               return (
-                <Link key={event.id} to={`/customer/events/${event.id}`}>
-                  <Card className="overflow-hidden hover:shadow-lg transition-shadow cursor-pointer">
-                    <div className="relative h-40">
+                <Link key={event.id} to={`/customer/events/${event.id}`} className="flex">
+                  <Card className="overflow-hidden hover:shadow-lg transition-shadow cursor-pointer flex flex-col w-full">
+                    <div className="relative h-44 shrink-0">
                       <img src={image} alt={event.name} className="w-full h-full object-cover" />
                       <Badge
                         className={`absolute top-3 right-3 ${
@@ -120,19 +128,19 @@ export default function CustomerHome({ user, onLogout }: CustomerHomeProps) {
                         {status === 'ongoing' ? 'Live Now' : status === 'upcoming' ? 'Upcoming' : 'Past'}
                       </Badge>
                     </div>
-                    <CardContent className="p-4">
-                      <h4 className="font-bold text-gray-900 mb-2">{event.name}</h4>
-                      <div className="space-y-1 text-sm text-gray-600">
+                    <CardContent className="p-4 flex flex-col flex-1">
+                      <h4 className="font-bold text-gray-900 mb-2 line-clamp-2">{event.name}</h4>
+                      <div className="space-y-1 text-sm text-gray-600 mt-auto">
                         <div className="flex items-center gap-2">
-                          <MapPin className="w-4 h-4" />
-                          <span>{event.area}</span>
+                          <MapPin className="w-4 h-4 shrink-0" />
+                          <span className="truncate">{event.area}</span>
                         </div>
                         <div className="flex items-center gap-2">
-                          <Clock className="w-4 h-4" />
+                          <Clock className="w-4 h-4 shrink-0" />
                           <span>{new Date(event.startDate).toLocaleDateString('en-SG', { day: 'numeric', month: 'short' })} – {new Date(event.endDate).toLocaleDateString('en-SG', { day: 'numeric', month: 'short', year: 'numeric' })}</span>
                         </div>
                         <div className="flex items-center gap-2">
-                          <Users className="w-4 h-4" />
+                          <Users className="w-4 h-4 shrink-0" />
                           <span>{vendors.length} vendors</span>
                         </div>
                       </div>

@@ -3,7 +3,8 @@ import CustomerNav from './CustomerNav';
 import { User } from '../../App';
 import { Card, CardContent } from '../shared/card';
 import { Badge } from '../shared/badge';
-import { Wallet, CheckCircle2, Sparkles } from 'lucide-react';
+import { Wallet, CheckCircle2, Sparkles, Ticket } from 'lucide-react';
+import { getActiveVouchers } from '../../services/dataStore';
 
 function getMemberStatus(stamps: number): { label: string; className: string } {
   if (stamps >= 50) return { label: 'Gold Member',   className: 'bg-yellow-500 text-white' };
@@ -18,7 +19,8 @@ interface QRCodePaymentProps {
 }
 
 export default function QRCodePayment({ user, onLogout }: QRCodePaymentProps) {
-  const memberStatus = getMemberStatus(user.loyaltyStamps ?? 0);
+  const memberStatus   = getMemberStatus(user.loyaltyStamps ?? 0);
+  const activeVouchers = getActiveVouchers(user.id);
 
   return (
     <div className="min-h-screen bg-gray-50 pb-20 md:pb-8">
@@ -119,6 +121,41 @@ export default function QRCodePayment({ user, onLogout }: QRCodePaymentProps) {
                 <p className="text-sm text-gray-600">Wallet Balance</p>
               </div>
             </div>
+          </CardContent>
+        </Card>
+
+        {/* Active Vouchers */}
+        <Card className="mt-6">
+          <CardContent className="p-6">
+            <div className="flex items-center gap-2 mb-4">
+              <Ticket className="w-5 h-5 text-orange-500" />
+              <h3 className="font-bold text-lg">Active Vouchers</h3>
+            </div>
+            {activeVouchers.length === 0 ? (
+              <div className="text-center py-4 text-gray-400">
+                <Ticket className="w-8 h-8 mx-auto mb-2 opacity-30" />
+                <p className="text-sm">No active vouchers</p>
+                <p className="text-xs mt-1">Earn stamps to unlock vouchers</p>
+              </div>
+            ) : (
+              <div className="space-y-3">
+                {activeVouchers.map(v => (
+                  <div key={v.id} className="flex items-center justify-between p-3 bg-orange-50 border border-orange-200 rounded-lg">
+                    <div className="flex items-center gap-3">
+                      <div className="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center shrink-0">
+                        <Ticket className="w-4 h-4 text-white" />
+                      </div>
+                      <div>
+                        <p className="font-medium text-sm">{v.name}</p>
+                        <p className="text-xs text-gray-400 font-mono">{v.id}</p>
+                      </div>
+                    </div>
+                    <Badge className="bg-orange-500 text-white">${v.discount} off</Badge>
+                  </div>
+                ))}
+                <p className="text-xs text-gray-400 mt-2 text-center">Show this page to the vendor to apply a voucher at their stall.</p>
+              </div>
+            )}
           </CardContent>
         </Card>
 

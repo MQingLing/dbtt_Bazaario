@@ -6,7 +6,7 @@ import { Card, CardContent } from '../shared/card';
 import { Badge } from '../shared/badge';
 import { Button } from '../shared/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '../shared/tabs';
-import { MapPin, Clock, Users, Star, Map, ArrowLeft, Calendar, Share2, Train, Music, ShoppingBag, Gamepad2, Check } from 'lucide-react';
+import { MapPin, Clock, Users, Star, Map, ArrowLeft, Calendar, Share2, Train, Music, ShoppingBag, Gamepad2, Check, Search } from 'lucide-react';
 import { pasarMalamEvents, getEventStatus } from '../../data/pasarMalamData';
 import { getEventVendors, getEventConcert } from '../../data/vendors';
 
@@ -43,7 +43,9 @@ const CATEGORY_ICONS: Record<string, React.ReactNode> = {
 
 export default function EventDetails({ user, onLogout }: EventDetailsProps) {
   const { id } = useParams();
-  const [copied, setCopied] = useState(false);
+  const [copied,          setCopied]          = useState(false);
+  const [vendorSearch,    setVendorSearch]    = useState('');
+  const [activeCategory,  setActiveCategory]  = useState<string | null>(null);
 
   const handleShare = () => {
     navigator.clipboard.writeText(window.location.href);
@@ -196,50 +198,126 @@ export default function EventDetails({ user, onLogout }: EventDetailsProps) {
               </TabsContent>
 
               <TabsContent value="vendors" className="mt-6">
-                <div className="grid md:grid-cols-2 gap-4">
-                  {vendors.map((vendor) => (
-                    <Link key={vendor.id} to={`/customer/vendor/${vendor.id}`}>
-                      <Card className="overflow-hidden hover:shadow-lg transition-shadow cursor-pointer">
-                        <div className="relative h-32">
-                          <img
-                            src={VENDOR_IMAGES[vendor.category] || VENDOR_IMAGES['Hot Food']}
-                            alt={vendor.name}
-                            className="w-full h-full object-cover"
-                          />
-                          <Badge className="absolute top-2 right-2 bg-white text-gray-900 text-xs">
-                            Stall {vendor.stall}
-                          </Badge>
-                          <Badge className="absolute top-2 left-2 bg-black/50 text-white text-xs border-0">
-                            {CATEGORY_ICONS[vendor.category]}
-                            <span className="ml-1">{vendor.category}</span>
-                          </Badge>
+                {(() => {
+                  const CATEGORY_ORDER = ['Hot Food', 'Snacks', 'Trendy Food', 'Drinks', 'Desserts', 'Household Items', 'Games & Entertainment'];
+                  const allCategories = [...new Set(vendors.map(v => v.category))].sort(
+                    (a, b) => CATEGORY_ORDER.indexOf(a) - CATEGORY_ORDER.indexOf(b),
+                  );
+                  const filtered = vendors
+                    .filter(v =>
+                      (!activeCategory || v.category === activeCategory) &&
+                      (!vendorSearch || v.name.toLowerCase().includes(vendorSearch.toLowerCase()) ||
+                        v.category.toLowerCase().includes(vendorSearch.toLowerCase()) ||
+                        v.stall.toLowerCase().includes(vendorSearch.toLowerCase()))
+                    )
+                    .sort((a, b) => CATEGORY_ORDER.indexOf(a.category) - CATEGORY_ORDER.indexOf(b.category));
+
+                  return (
+                    <>
+                      {/* Search */}
+                      <div className="relative mb-4">
+                        <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+                        <input
+                          type="text"
+                          placeholder="Search vendors, categories or stall number…"
+                          value={vendorSearch}
+                          onChange={e => setVendorSearch(e.target.value)}
+                          className="w-full pl-9 pr-4 py-2.5 text-sm border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 bg-white"
+                        />
+                      </div>
+
+                      {/* Category pill filters */}
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        <button
+                          onClick={() => setActiveCategory(null)}
+                          className={`px-3 py-1.5 rounded-full text-xs font-medium border transition-colors ${
+                            activeCategory === null
+                              ? 'bg-gray-800 text-white border-gray-800'
+                              : 'bg-gray-100 text-gray-600 border-gray-200 hover:bg-gray-200'
+                          }`}
+                        >
+                          All ({vendors.length})
+                        </button>
+                        {allCategories.map(cat => {
+                          const isActive = activeCategory === cat;
+                          const colors: Record<string, { idle: string; active: string }> = {
+                            'Hot Food':             { idle: 'bg-orange-50 text-orange-600 border-orange-200 hover:bg-orange-100',   active: 'bg-orange-500 text-white border-orange-500'   },
+                            'Snacks':               { idle: 'bg-orange-50 text-orange-600 border-orange-200 hover:bg-orange-100',   active: 'bg-orange-500 text-white border-orange-500'   },
+                            'Trendy Food':          { idle: 'bg-orange-50 text-orange-600 border-orange-200 hover:bg-orange-100',   active: 'bg-orange-500 text-white border-orange-500'   },
+                            'Drinks':               { idle: 'bg-blue-50 text-blue-600 border-blue-200 hover:bg-blue-100',           active: 'bg-blue-500 text-white border-blue-500'         },
+                            'Desserts':             { idle: 'bg-pink-50 text-pink-600 border-pink-200 hover:bg-pink-100',           active: 'bg-pink-500 text-white border-pink-500'         },
+                            'Household Items':      { idle: 'bg-purple-50 text-purple-600 border-purple-200 hover:bg-purple-100',   active: 'bg-purple-500 text-white border-purple-500'   },
+                            'Games & Entertainment':{ idle: 'bg-emerald-50 text-emerald-600 border-emerald-200 hover:bg-emerald-100', active: 'bg-emerald-500 text-white border-emerald-500' },
+                          };
+                          const scheme = colors[cat] ?? { idle: 'bg-gray-100 text-gray-600 border-gray-200 hover:bg-gray-200', active: 'bg-gray-700 text-white border-gray-700' };
+                          return (
+                            <button
+                              key={cat}
+                              onClick={() => setActiveCategory(isActive ? null : cat)}
+                              className={`px-3 py-1.5 rounded-full text-xs font-medium border transition-colors ${isActive ? scheme.active : scheme.idle}`}
+                            >
+                              {cat} ({vendors.filter(v => v.category === cat).length})
+                            </button>
+                          );
+                        })}
+                      </div>
+
+                      {/* Vendor grid */}
+                      {filtered.length === 0 ? (
+                        <div className="py-12 text-center text-gray-400">
+                          <Search className="w-10 h-10 mx-auto mb-3 opacity-30" />
+                          <p className="font-medium">No vendors found</p>
+                          <p className="text-sm mt-1">Try a different search or category</p>
                         </div>
-                        <CardContent className="p-4">
-                          <h4 className="font-bold text-gray-900">{vendor.name}</h4>
-                          <div className="flex items-center justify-between mt-2">
-                            <span className="text-xs text-gray-500">{vendor.items.length} items</span>
-                            <div className="flex items-center gap-1">
-                              <Star className="w-4 h-4 fill-yellow-500 text-yellow-500" />
-                              <span className="text-sm font-medium">{vendor.rating}</span>
-                            </div>
-                          </div>
-                          <div className="mt-2 flex flex-wrap gap-1">
-                            {vendor.items.slice(0, 2).map((item, i) => (
-                              <span key={i} className="text-xs bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full">
-                                {item.name} — ${item.price}
-                              </span>
-                            ))}
-                            {vendor.items.length > 2 && (
-                              <span className="text-xs bg-gray-100 text-gray-500 px-2 py-0.5 rounded-full">
-                                +{vendor.items.length - 2} more
-                              </span>
-                            )}
-                          </div>
-                        </CardContent>
-                      </Card>
-                    </Link>
-                  ))}
-                </div>
+                      ) : (
+                        <div className="grid md:grid-cols-2 gap-4">
+                          {filtered.map((vendor) => (
+                            <Link key={vendor.id} to={`/customer/vendor/${vendor.id}`}>
+                              <Card className="overflow-hidden hover:shadow-lg transition-shadow cursor-pointer">
+                                <div className="relative h-32">
+                                  <img
+                                    src={VENDOR_IMAGES[vendor.category] || VENDOR_IMAGES['Hot Food']}
+                                    alt={vendor.name}
+                                    className="w-full h-full object-cover"
+                                  />
+                                  <Badge className="absolute top-2 right-2 bg-white text-gray-900 text-xs">
+                                    Stall {vendor.stall}
+                                  </Badge>
+                                  <Badge className="absolute top-2 left-2 bg-black/50 text-white text-xs border-0 flex items-center gap-1">
+                                    {CATEGORY_ICONS[vendor.category]}
+                                    <span>{vendor.category}</span>
+                                  </Badge>
+                                </div>
+                                <CardContent className="p-4">
+                                  <h4 className="font-bold text-gray-900">{vendor.name}</h4>
+                                  <div className="flex items-center justify-between mt-2">
+                                    <span className="text-xs text-gray-500">{vendor.items.length} items</span>
+                                    <div className="flex items-center gap-1">
+                                      <Star className="w-4 h-4 fill-yellow-500 text-yellow-500" />
+                                      <span className="text-sm font-medium">{vendor.rating}</span>
+                                    </div>
+                                  </div>
+                                  <div className="mt-2 flex flex-wrap gap-1">
+                                    {vendor.items.slice(0, 2).map((item, i) => (
+                                      <span key={i} className="text-xs bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full">
+                                        {item.name} — ${item.price}
+                                      </span>
+                                    ))}
+                                    {vendor.items.length > 2 && (
+                                      <span className="text-xs bg-gray-100 text-gray-500 px-2 py-0.5 rounded-full">
+                                        +{vendor.items.length - 2} more
+                                      </span>
+                                    )}
+                                  </div>
+                                </CardContent>
+                              </Card>
+                            </Link>
+                          ))}
+                        </div>
+                      )}
+                    </>
+                  );
+                })()}
               </TabsContent>
 
               {concert && (
