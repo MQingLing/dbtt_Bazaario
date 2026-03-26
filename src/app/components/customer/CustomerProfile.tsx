@@ -29,9 +29,27 @@ export default function CustomerProfile({ user, onLogout, onUserUpdate }: Custom
     if (!file) return;
     const reader = new FileReader();
     reader.onload = () => {
-      const dataUrl = reader.result as string;
-      updateUser(user.id, { profilePic: dataUrl });
-      onUserUpdate({ ...user, profilePic: dataUrl });
+      const img = new Image();
+      img.onload = () => {
+        const SIZE = 200;
+        const canvas = document.createElement('canvas');
+        canvas.width = SIZE;
+        canvas.height = SIZE;
+        const ctx = canvas.getContext('2d')!;
+        // Centre-crop to square
+        const side = Math.min(img.width, img.height);
+        const sx = (img.width - side) / 2;
+        const sy = (img.height - side) / 2;
+        ctx.drawImage(img, sx, sy, side, side, 0, 0, SIZE, SIZE);
+        const dataUrl = canvas.toDataURL('image/jpeg', 0.8);
+        try {
+          updateUser(user.id, { profilePic: dataUrl });
+          onUserUpdate({ ...user, profilePic: dataUrl });
+        } catch {
+          setProfileMsg({ type: 'err', text: 'Image too large to save. Please choose a smaller photo.' });
+        }
+      };
+      img.src = reader.result as string;
     };
     reader.readAsDataURL(file);
   };
