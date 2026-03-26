@@ -1,10 +1,11 @@
 import { Link } from 'react-router';
+import { useRef, useEffect, useState } from 'react';
 import CustomerNav from './CustomerNav';
 import { User } from '../../App';
 import { Card, CardContent } from '../shared/card';
 import { Badge } from '../shared/badge';
 import { Button } from '../shared/button';
-import { Calendar, MapPin, TrendingUp, Sparkles, Clock, Users, ChevronRight, Gift, Wallet } from 'lucide-react';
+import { Calendar, MapPin, TrendingUp, Sparkles, Clock, Users, ChevronRight, Gift, Wallet, Star } from 'lucide-react';
 import { pasarMalamEvents, getEventStatus } from '../../data/pasarMalamData';
 import { getEventVendors } from '../../data/vendors';
 
@@ -18,6 +19,125 @@ const EVENT_IMAGES = [
   'https://images.unsplash.com/photo-1771804359368-0f91f81ee83b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhc2lhbiUyMHN0cmVldCUyMGZvb2QlMjBjb2xvcmZ1bHxlbnwxfHx8fDE3NzI3MTg5NTR8MA&ixlib=rb-4.1.0&q=80&w=1080',
   'https://images.unsplash.com/photo-1768900318217-4c7677ffc2c4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxuaWdodCUyMG1hcmtldCUyMGxhbnRlcm5zJTIwYXNpYXxlbnwxfHx8fDE3NzI3MTg5NTR8MA&ixlib=rb-4.1.0&q=80&w=1080',
 ];
+
+// ── Vendor images by category (reused for promo cards) ───────────────────────
+const PROMO_IMAGES: Record<string, string> = {
+  'Hot Food':              'https://images.unsplash.com/photo-1722704689022-98d1b7795589?w=800&q=80',
+  'Drinks':                'https://images.unsplash.com/photo-1670468642364-6cacadfb7bb0?w=800&q=80',
+  'Desserts':              'https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=800&q=80',
+  'Snacks':                'https://images.unsplash.com/photo-1738599935343-991708a2895b?w=800&q=80',
+  'Trendy Food':           'https://images.unsplash.com/photo-1513104890138-7c749659a591?w=800&q=80',
+  'Household Items':       'https://images.unsplash.com/photo-1724709166740-96947d362a17?w=800&q=80',
+  'Games & Entertainment': 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800&q=80',
+};
+
+const PROMO_TAGLINES: Record<string, string[]> = {
+  'Hot Food':              ['Freshly grilled, right for you', 'Bold flavours, every bite'],
+  'Drinks':                ['Sip something special tonight', 'Refreshing drinks, only here'],
+  'Desserts':              ['Sweet treats you can\'t resist', 'End your night on a sweet note'],
+  'Snacks':                ['Crispy, crunchy, irresistible', 'The perfect market snack'],
+  'Trendy Food':           ['Trending now at the bazaar', 'Try something new tonight'],
+  'Household Items':       ['Unique finds, one-of-a-kind', 'Take home something special'],
+  'Games & Entertainment': ['Win big, play all night', 'Fun for the whole family'],
+};
+
+/** Pick promoted vendors: growth-tier eligible = top-rated stalls (rating ≥ 4.5) */
+function getPromotedVendors() {
+  const results: { vendorId: string; vendorName: string; category: string; rating: number; stall: string; eventId: string; eventName: string; tagline: string }[] = [];
+  for (const event of pasarMalamEvents) {
+    if (getEventStatus(event) === 'completed') continue;
+    for (const v of getEventVendors(event.id)) {
+      if (v.rating < 4.5) continue; // growth+ threshold
+      const pool = PROMO_TAGLINES[v.category] ?? PROMO_TAGLINES['Hot Food'];
+      const tagline = pool[parseInt(v.id.replace(/\D/g, '')) % pool.length];
+      results.push({ vendorId: v.id, vendorName: v.name, category: v.category, rating: v.rating, stall: v.stall, eventId: event.id, eventName: event.name, tagline });
+    }
+  }
+  // Deduplicate by name, cap at 8
+  const seen = new Set<string>();
+  return results.filter(r => seen.has(r.vendorName) ? false : (seen.add(r.vendorName), true)).slice(0, 8);
+}
+
+function PromoCarousel() {
+  const slides = useRef(getPromotedVendors()).current;
+  const [active, setActive] = useState(0);
+  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  const go = (idx: number) => setActive((idx + slides.length) % slides.length);
+
+  const resetTimer = () => {
+    if (timerRef.current) clearInterval(timerRef.current);
+    timerRef.current = setInterval(() => setActive(a => (a + 1) % slides.length), 3500);
+  };
+
+  useEffect(() => {
+    resetTimer();
+    return () => { if (timerRef.current) clearInterval(timerRef.current); };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [slides.length]);
+
+  if (slides.length === 0) return null;
+
+  return (
+    <div className="mb-6">
+      <div className="flex items-center gap-2 mb-3">
+        <Sparkles className="w-5 h-5 text-orange-500" />
+        <h3 className="text-xl font-bold text-gray-900">Featured Partners</h3>
+      </div>
+
+      <div className="relative rounded-2xl overflow-hidden shadow-lg" style={{ height: 200 }}>
+        {/* Sliding track — all slides rendered side-by-side */}
+        <div
+          className="flex h-full"
+          style={{
+            width: `${slides.length * 100}%`,
+            transform: `translateX(-${(active / slides.length) * 100}%)`,
+            transition: 'transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
+          }}
+        >
+          {slides.map((s) => {
+            const img = PROMO_IMAGES[s.category] ?? PROMO_IMAGES['Hot Food'];
+            return (
+              <div key={s.vendorId} className="relative h-full flex-shrink-0" style={{ width: `${100 / slides.length}%` }}>
+                <img src={img} alt={s.vendorName} className="w-full h-full object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent" />
+                <div className="absolute inset-0 flex flex-col justify-center px-6 text-white">
+                  <Badge className="bg-orange-500 w-fit mb-2 text-[10px]">{s.category}</Badge>
+                  <h4 className="text-2xl font-extrabold leading-tight mb-1">{s.vendorName}</h4>
+                  <p className="text-sm text-white/80 mb-3">{s.tagline}</p>
+                  <div className="flex items-center gap-3">
+                    <Link to={`/customer/vendor/${s.vendorId}`}>
+                      <Button size="sm" className="bg-white text-gray-900 hover:bg-gray-100 font-semibold text-xs">
+                        Visit Stall →
+                      </Button>
+                    </Link>
+                    <span className="flex items-center gap-1 text-xs text-white/70">
+                      <Star className="w-3.5 h-3.5 fill-yellow-400 text-yellow-400" />
+                      {s.rating.toFixed(1)} · Stall {s.stall}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+
+
+        {/* Dots */}
+        <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5">
+          {slides.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => { go(i); resetTimer(); }}
+              className={`rounded-full transition-all duration-300 ${i === active ? 'w-5 h-2 bg-white' : 'w-2 h-2 bg-white/40'}`}
+            />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export default function CustomerHome({ user, onLogout }: CustomerHomeProps) {
   const STATUS_ORDER = { ongoing: 0, upcoming: 1, completed: 2 };
@@ -77,6 +197,9 @@ export default function CustomerHome({ user, onLogout }: CustomerHomeProps) {
             </div>
           </CardContent>
         </Card>
+
+        {/* Promo Carousel */}
+        <PromoCarousel />
 
         {/* Quick Actions */}
         <div className="grid grid-cols-3 gap-3 md:gap-4 mb-6">

@@ -6,12 +6,6 @@ import { Badge } from '../shared/badge';
 import { Wallet, CheckCircle2, Sparkles, Ticket } from 'lucide-react';
 import { getActiveVouchers } from '../../services/dataStore';
 
-function getMemberStatus(stamps: number): { label: string; className: string } {
-  if (stamps >= 50) return { label: 'Gold Member',   className: 'bg-yellow-500 text-white' };
-  if (stamps >= 20) return { label: 'Silver Member', className: 'bg-gray-400 text-white' };
-  if (stamps >= 10) return { label: 'Member',        className: 'bg-gradient-to-r from-orange-500 to-pink-500 text-white' };
-  return               { label: 'New Member',       className: 'bg-gray-100 text-gray-600' };
-}
 
 interface QRCodePaymentProps {
   user: User;
@@ -19,7 +13,6 @@ interface QRCodePaymentProps {
 }
 
 export default function QRCodePayment({ user, onLogout }: QRCodePaymentProps) {
-  const memberStatus   = getMemberStatus(user.loyaltyStamps ?? 0);
   const activeVouchers = getActiveVouchers(user.id);
 
   return (
@@ -102,12 +95,14 @@ export default function QRCodePayment({ user, onLogout }: QRCodePaymentProps) {
         <Card>
           <CardContent className="p-6">
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-pink-500 rounded-full flex items-center justify-center text-white font-bold text-xl">
-                {user.name.split(' ').map(n => n[0]).join('')}
+              <div className="w-12 h-12 rounded-full overflow-hidden ring-2 ring-orange-200 shrink-0 bg-gradient-to-r from-orange-500 to-pink-500 flex items-center justify-center">
+                {user.profilePic
+                  ? <img src={user.profilePic} alt="Profile" className="w-full h-full object-cover" />
+                  : <span className="text-white font-bold text-xl">{user.name.split(' ').map(n => n[0]).join('')}</span>
+                }
               </div>
               <div>
                 <p className="font-bold text-lg">{user.name}</p>
-                <Badge className={memberStatus.className}>{memberStatus.label}</Badge>
               </div>
             </div>
 

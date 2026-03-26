@@ -170,7 +170,7 @@ export default function CustomerWallet({ user, onLogout, onUserUpdate }: Custome
                       }`}
                       onClick={() => setPaymentMethod(paymentMethod === 'card' ? null : 'card')}
                     >
-                      <CreditCard className="w-5 h-5 mr-3 text-blue-600" />
+                      <CreditCard className="w-5 h-5 mr-3 text-blue-600 self-center flex-shrink-0" />
                       <div className="text-left">
                         <p className="font-medium">Credit/Debit Card</p>
                         <p className="text-xs text-gray-500">Visa, Mastercard, Amex</p>

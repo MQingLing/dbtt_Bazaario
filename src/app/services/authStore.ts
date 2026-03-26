@@ -13,6 +13,7 @@ export interface StoredUser {
   walletBalance?: number;
   loyaltyStamps?: number;
   qrCode?: string;
+  profilePic?: string;
   // Vendor fields
   vendorTier?: VendorTier;
   vendorCategory?: string;

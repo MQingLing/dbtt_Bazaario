@@ -9,6 +9,7 @@ import PasarMalamMap from './components/customer/PasarMalamMap';
 import VendorStorePage from './components/customer/VendorStorePage';
 import MenuProductPage from './components/customer/MenuProductPage';
 import CustomerWallet from './components/customer/CustomerWallet';
+import CustomerProfile from './components/customer/CustomerProfile';
 import QRCodePayment from './components/customer/QRCodePayment';
 import LoyaltyRewards from './components/customer/LoyaltyRewards';
 import PreOrderCheckout from './components/customer/PreOrderCheckout';
@@ -47,6 +48,7 @@ export interface User {
   vendorCategory?: string;
   verificationStatus?: VendorVerificationStatus;
   verificationRejectionReason?: string;
+  profilePic?: string;
 }
 
 export default function App() {
@@ -101,6 +103,7 @@ export default function App() {
           <Route path="/customer/qr-payment" element={currentUser?.role === 'customer' ? <QRCodePayment user={currentUser} onLogout={handleLogout} /> : <Navigate to="/" />} />
           <Route path="/customer/loyalty" element={currentUser?.role === 'customer' ? <LoyaltyRewards user={currentUser} onLogout={handleLogout} onUserUpdate={handleUserUpdate} /> : <Navigate to="/" />} />
           <Route path="/customer/checkout" element={currentUser?.role === 'customer' ? <PreOrderCheckout user={currentUser} onLogout={handleLogout} onUserUpdate={handleUserUpdate} /> : <Navigate to="/" />} />
+          <Route path="/customer/profile" element={currentUser?.role === 'customer' ? <CustomerProfile user={currentUser} onLogout={handleLogout} onUserUpdate={handleUserUpdate} /> : <Navigate to="/" />} />
 
           {/* Vendor verification gate */}
           <Route path="/vendor/verification" element={currentUser?.role === 'vendor' ? <VendorDocumentSubmission user={currentUser} onLogout={handleLogout} onUserUpdate={handleUserUpdate} /> : <Navigate to="/" />} />
