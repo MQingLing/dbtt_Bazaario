@@ -133,7 +133,7 @@ export default function VendorSalesAnalytics({ user, onLogout }: VendorSalesAnal
             {/* Sales Trend */}
             <Card>
               <CardContent className="p-6">
-                <h3 className="text-xl font-bold mb-6">Weekly Sales Trend</h3>
+                <h3 className="text-xl font-bold mb-6">Your Sales This Week</h3>
                 <ResponsiveContainer width="100%" height={300}>
                   <LineChart data={salesData} id="vendor-sales-chart">
                     <CartesianGrid key="grid" strokeDasharray="3 3" stroke="#e5e7eb" />
@@ -153,7 +153,7 @@ export default function VendorSalesAnalytics({ user, onLogout }: VendorSalesAnal
             {/* Orders Trend */}
             <Card>
               <CardContent className="p-6">
-                <h3 className="text-xl font-bold mb-6">Weekly Orders</h3>
+                <h3 className="text-xl font-bold mb-6">Orders This Week</h3>
                 <ResponsiveContainer width="100%" height={300}>
                   <BarChart data={salesData} id="vendor-orders-chart">
                     <CartesianGrid key="grid" strokeDasharray="3 3" stroke="#e5e7eb" />
@@ -176,7 +176,7 @@ export default function VendorSalesAnalytics({ user, onLogout }: VendorSalesAnal
               {/* Product Revenue Distribution */}
               <Card>
                 <CardContent className="p-6">
-                  <h3 className="text-xl font-bold mb-6">Revenue by Product</h3>
+                  <h3 className="text-xl font-bold mb-6">Which Items Earn the Most</h3>
                   <ResponsiveContainer width="100%" height={300}>
                     <PieChart id="vendor-revenue-pie">
                       <Pie
@@ -229,7 +229,7 @@ export default function VendorSalesAnalytics({ user, onLogout }: VendorSalesAnal
           <TabsContent value="hourly" className="space-y-6">
             <Card>
               <CardContent className="p-6">
-                <h3 className="text-xl font-bold mb-6">Orders by Hour</h3>
+                <h3 className="text-xl font-bold mb-6">When Are You Busiest?</h3>
                 <ResponsiveContainer width="100%" height={300}>
                   <BarChart data={hourlyData} id="vendor-hourly-chart">
                     <CartesianGrid key="grid" strokeDasharray="3 3" stroke="#e5e7eb" />
@@ -247,7 +247,7 @@ export default function VendorSalesAnalytics({ user, onLogout }: VendorSalesAnal
 
             <Card>
               <CardContent className="p-6">
-                <h3 className="font-bold mb-4">Peak Hours Insights</h3>
+                <h3 className="font-bold mb-4">Your Busiest &amp; Slowest Hours</h3>
                 <div className="space-y-3">
                   <div className="p-4 bg-orange-50 rounded-lg">
                     <p className="font-medium text-orange-900">Busiest Hour: 8:00 PM - 9:00 PM</p>
@@ -265,7 +265,7 @@ export default function VendorSalesAnalytics({ user, onLogout }: VendorSalesAnal
           <TabsContent value="trends" className="space-y-6">
             <Card>
               <CardContent className="p-6">
-                <h3 className="text-xl font-bold mb-6">Business Insights</h3>
+                <h3 className="text-xl font-bold mb-6">How Your Stall Is Doing</h3>
                 <div className="space-y-4">
                   <div className="p-4 border-l-4 border-green-500 bg-green-50">
                     <div className="flex items-start gap-3">
@@ -380,7 +380,7 @@ export default function VendorSalesAnalytics({ user, onLogout }: VendorSalesAnal
                   {/* Sentiment breakdown bar */}
                   <Card>
                     <CardContent className="p-5">
-                      <h3 className="font-bold text-gray-900 mb-3">Sentiment Breakdown</h3>
+                      <h3 className="font-bold text-gray-900 mb-3">Customer Feedback</h3>
                       <div className="flex rounded-full overflow-hidden h-4 mb-2">
                         <div className="bg-green-500 transition-all" style={{ width: `${positivePct}%` }} />
                         <div className="bg-yellow-400 transition-all" style={{ width: `${100 - Number(positivePct) - Number(negativePct)}%` }} />
@@ -440,8 +440,8 @@ export default function VendorSalesAnalytics({ user, onLogout }: VendorSalesAnal
           <TabsContent value="insights" className="space-y-6">
             <Card>
               <CardContent className="p-6">
-                <h3 className="text-xl font-bold mb-2">Revenue Forecast — Next 7 Days</h3>
-                <p className="text-sm text-gray-500 mb-6">Predicted vs actual daily revenue based on historical trends</p>
+                <h3 className="text-xl font-bold mb-2">Expected Revenue This Week</h3>
+                <p className="text-sm text-gray-500 mb-6">What you're likely to earn each day based on your past sales</p>
                 <ResponsiveContainer width="100%" height={300}>
                   <BarChart data={predictions.vendorForecast} id="vendor-forecast-chart">
                     <CartesianGrid key="grid" strokeDasharray="3 3" stroke="#e5e7eb" />
@@ -454,7 +454,7 @@ export default function VendorSalesAnalytics({ user, onLogout }: VendorSalesAnal
                   </BarChart>
                 </ResponsiveContainer>
                 <div className="mt-4 p-3 bg-orange-50 rounded-lg text-sm text-orange-800">
-                  Forecast accuracy: R&sup2; = {mlResults.regression.r2Score} (margin: &plusmn;${mlResults.regression.mae}/day). Weekends consistently show higher predicted revenue.
+                  This forecast is <strong>{Math.round(mlResults.revenueForecast.r2Score * 100)}% accurate</strong> based on your past sales patterns. Predictions may vary by ~${mlResults.revenueForecast.mae} per day. Weekends consistently show higher revenue.
                 </div>
               </CardContent>
             </Card>
@@ -462,7 +462,7 @@ export default function VendorSalesAnalytics({ user, onLogout }: VendorSalesAnal
             <div className="grid md:grid-cols-2 gap-6">
               <Card>
                 <CardContent className="p-6">
-                  <h3 className="font-bold mb-4">Sentiment Trend</h3>
+                  <h3 className="font-bold mb-4">Customer Satisfaction Trend</h3>
                   <ResponsiveContainer width="100%" height={220}>
                     <LineChart data={predictions.sentimentTrend} id="vendor-sent-trend">
                       <CartesianGrid key="grid" strokeDasharray="3 3" stroke="#e5e7eb" />
@@ -470,8 +470,8 @@ export default function VendorSalesAnalytics({ user, onLogout }: VendorSalesAnal
                       <YAxis key="yaxis" stroke="#6b7280" domain={[0, 100]} />
                       <Tooltip key="tooltip" contentStyle={{ backgroundColor: '#fff', border: '1px solid #e5e7eb', borderRadius: '8px' }} />
                       <Legend key="legend" />
-                      <Line key="pos-line" type="monotone" dataKey="positive" stroke="#10b981" strokeWidth={2} name="Positive %" />
-                      <Line key="neg-line" type="monotone" dataKey="negative" stroke="#ef4444" strokeWidth={2} name="Negative %" />
+                      <Line key="pos-line" type="monotone" dataKey="positive" stroke="#10b981" strokeWidth={2} name="Happy customers %" />
+                      <Line key="neg-line" type="monotone" dataKey="negative" stroke="#ef4444" strokeWidth={2} name="Unhappy customers %" />
                     </LineChart>
                   </ResponsiveContainer>
                   <div className="mt-4 space-y-2">
@@ -479,7 +479,7 @@ export default function VendorSalesAnalytics({ user, onLogout }: VendorSalesAnal
                       <div key={i} className="flex items-center justify-between text-sm">
                         <span className="text-gray-600">{w.week}</span>
                         <div className="flex gap-3">
-                          <span className="text-green-600 font-medium">{w.positive}% pos</span>
+                          <span className="text-green-600 font-medium">{w.positive}% happy</span>
                           <span className="text-gray-400">|</span>
                           <span className="text-gray-500">{w.reviews} reviews</span>
                         </div>
@@ -491,22 +491,22 @@ export default function VendorSalesAnalytics({ user, onLogout }: VendorSalesAnal
 
               <Card>
                 <CardContent className="p-6">
-                  <h3 className="font-bold mb-4">Predicted Trends</h3>
+                  <h3 className="font-bold mb-4">What the data tells us</h3>
                   <div className="space-y-4">
                     <div className="p-4 bg-blue-50 rounded-lg">
-                      <p className="text-sm text-blue-800 mb-1">Cashless Adoption</p>
-                      <p className="text-2xl font-bold text-blue-900">{mlResults.classification.accuracy}%</p>
-                      <p className="text-xs text-blue-700 mt-1">of transactions predicted cashless based on time, category &amp; region</p>
+                      <p className="text-sm text-blue-800 mb-1">Cashless Payments</p>
+                      <p className="text-2xl font-bold text-blue-900">{mlResults.cashlessAdoption.accuracy}%</p>
+                      <p className="text-xs text-blue-700 mt-1">of your customers are expected to pay via wallet or QR code</p>
                     </div>
                     <div className="p-4 bg-green-50 rounded-lg">
                       <p className="text-sm text-green-800 mb-1">Revenue Forecast</p>
-                      <p className="text-2xl font-bold text-green-900">R&sup2; = {mlResults.regression.r2Score}</p>
-                      <p className="text-xs text-green-700 mt-1">Daily revenue predicted within &plusmn;${mlResults.regression.mae} margin</p>
+                      <p className="text-2xl font-bold text-green-900">{Math.round(mlResults.revenueForecast.r2Score * 100)}% reliable</p>
+                      <p className="text-xs text-green-700 mt-1">Our daily revenue predictions are typically within ${mlResults.revenueForecast.mae} of your actual earnings</p>
                     </div>
                     <div className="p-4 bg-purple-50 rounded-lg">
-                      <p className="text-sm text-purple-800 mb-1">Sentiment Detection</p>
-                      <p className="text-2xl font-bold text-purple-900">{mlResults.sentimentAnalysis.accuracy}%</p>
-                      <p className="text-xs text-purple-700 mt-1">accuracy auto-classifying reviews as positive or negative</p>
+                      <p className="text-sm text-purple-800 mb-1">Review Analysis</p>
+                      <p className="text-2xl font-bold text-purple-900">{mlResults.sentimentAnalysis.accuracy}% accurate</p>
+                      <p className="text-xs text-purple-700 mt-1">We automatically detect whether customer reviews are positive or negative</p>
                     </div>
                   </div>
                 </CardContent>

@@ -240,10 +240,10 @@ export default function AdminDashboard({ user, onLogout }: AdminDashboardProps) 
         <div className="mt-6">
           <Tabs defaultValue="analytics" className="space-y-6">
             <TabsList className="grid w-full grid-cols-2 md:grid-cols-4">
-              <TabsTrigger value="analytics">Analytics</TabsTrigger>
-              <TabsTrigger value="vendors-rank">Vendors</TabsTrigger>
-              <TabsTrigger value="reviews">Reviews</TabsTrigger>
-              <TabsTrigger value="forecast">Forecast</TabsTrigger>
+              <TabsTrigger value="analytics">Performance</TabsTrigger>
+              <TabsTrigger value="vendors-rank">Vendor Rankings</TabsTrigger>
+              <TabsTrigger value="reviews">Customer Reviews</TabsTrigger>
+              <TabsTrigger value="forecast">Predictions</TabsTrigger>
             </TabsList>
 
             {/* Analytics */}
@@ -251,7 +251,7 @@ export default function AdminDashboard({ user, onLogout }: AdminDashboardProps) 
               <div className="grid lg:grid-cols-2 gap-6">
                 <Card>
                   <CardContent className="p-6">
-                    <h3 className="font-bold mb-4">Revenue by Category</h3>
+                    <h3 className="font-bold mb-4">Which Vendor Types Earn Most</h3>
                     <ResponsiveContainer width="100%" height={300}>
                       <BarChart data={adminCategoryData} layout="vertical" id="admin-cat-chart">
                         <CartesianGrid key="grid" strokeDasharray="3 3" stroke="#e5e7eb" />
@@ -265,7 +265,7 @@ export default function AdminDashboard({ user, onLogout }: AdminDashboardProps) 
                 </Card>
                 <Card>
                   <CardContent className="p-6">
-                    <h3 className="font-bold mb-4">Payment Methods</h3>
+                    <h3 className="font-bold mb-4">How Customers Pay</h3>
                     <ResponsiveContainer width="100%" height={300}>
                       <PieChart id="admin-pay-pie">
                         <Pie key="pay-pie" data={adminPaymentData} cx="50%" cy="50%" outerRadius={90} dataKey="value"
@@ -283,7 +283,7 @@ export default function AdminDashboard({ user, onLogout }: AdminDashboardProps) 
               </div>
               <Card>
                 <CardContent className="p-6">
-                  <h3 className="font-bold mb-4">Orders by Hour</h3>
+                  <h3 className="font-bold mb-4">When Are Events Busiest</h3>
                   <ResponsiveContainer width="100%" height={250}>
                     <BarChart data={adminHourlyData} id="admin-hour-chart">
                       <CartesianGrid key="grid" strokeDasharray="3 3" stroke="#e5e7eb" />
@@ -318,7 +318,7 @@ export default function AdminDashboard({ user, onLogout }: AdminDashboardProps) 
                 </Card>
                 <Card>
                   <CardContent className="p-6">
-                    <h3 className="font-bold mb-4">Vendor Sentiment Ranking</h3>
+                    <h3 className="font-bold mb-4">Vendor Satisfaction Ranking</h3>
                     <div className="space-y-3">
                       {sentimentByVendor.slice(0, 10).map((vendor: any, index: number) => (
                         <div key={index} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
@@ -365,7 +365,7 @@ export default function AdminDashboard({ user, onLogout }: AdminDashboardProps) 
               </div>
               <Card>
                 <CardContent className="p-6">
-                  <h3 className="font-bold mb-4">All Vendors — Customer Sentiment</h3>
+                  <h3 className="font-bold mb-4">All Vendors — Customer Satisfaction</h3>
                   <div className="space-y-3">
                     {sentimentByVendor.map((vendor: any, index: number) => (
                       <div key={index} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
@@ -393,7 +393,7 @@ export default function AdminDashboard({ user, onLogout }: AdminDashboardProps) 
             <TabsContent value="forecast" className="space-y-6">
               <Card>
                 <CardContent className="p-6">
-                  <h3 className="font-bold mb-2">Demand Forecast — Orders by Hour</h3>
+                  <h3 className="font-bold mb-2">Expected Orders by Hour</h3>
                   <p className="text-sm text-gray-500 mb-6">Current vs predicted orders per hour across all events</p>
                   <ResponsiveContainer width="100%" height={300}>
                     <BarChart data={predictions.demandForecast} id="admin-demand-chart">
@@ -411,7 +411,7 @@ export default function AdminDashboard({ user, onLogout }: AdminDashboardProps) 
               <div className="grid lg:grid-cols-2 gap-6">
                 <Card>
                   <CardContent className="p-6">
-                    <h3 className="font-bold mb-2">Cashless Adoption by Category</h3>
+                    <h3 className="font-bold mb-2">Cashless Payment Trends by Category</h3>
                     <p className="text-sm text-gray-500 mb-4">Current vs predicted cashless rate</p>
                     <div className="space-y-3">
                       {predictions.cashlessByCategory.map((cat: any, i: number) => (
@@ -434,7 +434,7 @@ export default function AdminDashboard({ user, onLogout }: AdminDashboardProps) 
                 </Card>
                 <Card>
                   <CardContent className="p-6">
-                    <h3 className="font-bold mb-2">Vendor Revenue Forecast</h3>
+                    <h3 className="font-bold mb-2">Expected Vendor Earnings</h3>
                     <p className="text-sm text-gray-500 mb-4">Projected revenue for top vendors</p>
                     <div className="space-y-3">
                       {predictions.adminVendorForecast.map((v: any, i: number) => (
