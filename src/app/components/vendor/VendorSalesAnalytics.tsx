@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import VendorNav from './VendorNav';
 import { User } from '../../App';
 import { Card, CardContent } from '../shared/card';
@@ -12,7 +13,45 @@ interface VendorSalesAnalyticsProps {
   onLogout: () => void;
 }
 
+// Normalised shape used in the Reviews tab
+interface NormReview {
+  id: string;
+  customer: string;
+  content: string;
+  rating: number;
+  sentiment: 'POSITIVE' | 'NEUTRAL' | 'NEGATIVE';
+  isLive: boolean; // submitted via customer portal
+  date?: string;
+}
+
+/** Collect every user-submitted review from localStorage (all stalls) */
+function getLiveReviews(): NormReview[] {
+  const out: NormReview[] = [];
+  try {
+    for (let i = 0; i < localStorage.length; i++) {
+      const key = localStorage.key(i);
+      if (!key?.startsWith('bazaario_reviews_')) continue;
+      const arr = JSON.parse(localStorage.getItem(key)!);
+      for (const r of arr) {
+        if (!r.id?.startsWith('user-')) continue; // skip seeded
+        const s = r.sentiment as string;
+        out.push({
+          id:       r.id,
+          customer: r.authorName ?? 'Customer',
+          content:  r.comment ?? '',
+          rating:   r.rating,
+          sentiment: s === 'positive' ? 'POSITIVE' : s === 'negative' ? 'NEGATIVE' : 'NEUTRAL',
+          isLive:   true,
+          date:     r.date,
+        });
+      }
+    }
+  } catch { /* localStorage unavailable */ }
+  return out;
+}
+
 export default function VendorSalesAnalytics({ user, onLogout }: VendorSalesAnalyticsProps) {
+  const liveReviews = useMemo(getLiveReviews, []);
   const salesData = [
     { id: 1, date: 'Mon', sales: 460, orders: 38 },
     { id: 2, date: 'Tue', sales: 520, orders: 43 },
@@ -274,59 +313,127 @@ export default function VendorSalesAnalytics({ user, onLogout }: VendorSalesAnal
 
           {/* ── Reviews Tab ── */}
           <TabsContent value="reviews" className="space-y-6">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              <Card><CardContent className="p-4 text-center">
-                <p className="text-sm text-gray-600 mb-1">Total Reviews</p>
-                <p className="text-2xl font-bold">{vendorOwnSentiment.totalReviews}</p>
-              </CardContent></Card>
-              <Card><CardContent className="p-4 text-center">
-                <p className="text-sm text-gray-600 mb-1">Average Rating</p>
-                <div className="flex items-center justify-center gap-1">
-                  <Star className="w-5 h-5 fill-yellow-500 text-yellow-500" />
-                  <p className="text-2xl font-bold">{vendorOwnSentiment.avgRating}</p>
-                </div>
-              </CardContent></Card>
-              <Card><CardContent className="p-4 text-center">
-                <p className="text-sm text-gray-600 mb-1">Positive</p>
-                <p className="text-2xl font-bold text-green-600">{vendorOwnSentiment.positivePct}%</p>
-              </CardContent></Card>
-              <Card><CardContent className="p-4 text-center">
-                <p className="text-sm text-gray-600 mb-1">Negative</p>
-                <p className="text-2xl font-bold text-red-500">{vendorOwnSentiment.negativePct}%</p>
-              </CardContent></Card>
-            </div>
-            <Card>
-              <CardContent className="p-6">
-                <h3 className="text-xl font-bold mb-6">Recent Customer Reviews</h3>
-                <div className="space-y-4">
-                  {vendorOwnReviews.slice(0, 10).map((review: any) => (
-                    <div key={review.id} className="p-4 bg-gray-50 rounded-lg">
-                      <div className="flex items-start justify-between mb-2">
-                        <div className="flex items-center gap-3">
-                          <div className="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center text-white font-bold text-sm">
-                            {review.customer[0]}
-                          </div>
-                          <div>
-                            <p className="font-medium text-gray-900">{review.customer}</p>
-                            <div className="flex items-center gap-1">
-                              {[...Array(5)].map((_, i) => (
-                                <Star key={i} className={`w-3 h-3 ${i < review.rating ? 'fill-yellow-500 text-yellow-500' : 'text-gray-300'}`} />
-                              ))}
-                            </div>
-                          </div>
-                        </div>
-                        <Badge className={review.sentiment === 'POSITIVE' ? 'bg-green-100 text-green-800 border-green-200' : 'bg-red-100 text-red-800 border-red-200'}>
-                          {review.sentiment === 'POSITIVE'
-                            ? <><ThumbsUp className="w-3 h-3 mr-1" /> Positive</>
-                            : <><ThumbsDown className="w-3 h-3 mr-1" /> Negative</>}
-                        </Badge>
+            {(() => {
+              // Normalise static reviews to NormReview shape
+              const staticNorm: NormReview[] = vendorOwnReviews.map((r: any) => ({
+                id:       String(r.id),
+                customer: r.customer,
+                content:  r.content,
+                rating:   r.rating,
+                sentiment: r.sentiment as 'POSITIVE' | 'NEGATIVE',
+                isLive:   false,
+              }));
+
+              // Live reviews first, then static
+              const allReviews: NormReview[] = [...liveReviews, ...staticNorm];
+              const total     = vendorOwnSentiment.totalReviews + liveReviews.length;
+              const livePos   = liveReviews.filter(r => r.sentiment === 'POSITIVE').length;
+              const liveNeg   = liveReviews.filter(r => r.sentiment === 'NEGATIVE').length;
+              const totalPos  = Math.round(vendorOwnSentiment.positivePct / 100 * vendorOwnSentiment.totalReviews) + livePos;
+              const totalNeg  = Math.round(vendorOwnSentiment.negativePct / 100 * vendorOwnSentiment.totalReviews) + liveNeg;
+              const positivePct = total > 0 ? ((totalPos / total) * 100).toFixed(1) : vendorOwnSentiment.positivePct;
+              const negativePct = total > 0 ? ((totalNeg / total) * 100).toFixed(1) : vendorOwnSentiment.negativePct;
+              const liveAvg  = liveReviews.length
+                ? liveReviews.reduce((s, r) => s + r.rating, 0) / liveReviews.length : 0;
+              const avgRating = liveReviews.length
+                ? ((vendorOwnSentiment.avgRating * vendorOwnSentiment.totalReviews + liveAvg * liveReviews.length) / total).toFixed(1)
+                : vendorOwnSentiment.avgRating;
+
+              const sentimentColor = (s: string) => {
+                if (s === 'POSITIVE') return 'bg-green-100 text-green-800 border-green-200';
+                if (s === 'NEGATIVE') return 'bg-red-100 text-red-800 border-red-200';
+                return 'bg-yellow-100 text-yellow-800 border-yellow-200';
+              };
+              const sentimentIcon = (s: string) =>
+                s === 'POSITIVE' ? <><ThumbsUp className="w-3 h-3 mr-1" />Positive</> :
+                s === 'NEGATIVE' ? <><ThumbsDown className="w-3 h-3 mr-1" />Negative</> :
+                                   <>😐 Neutral</>;
+
+              return (
+                <>
+                  {/* Stats */}
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <Card><CardContent className="p-4 text-center">
+                      <p className="text-sm text-gray-600 mb-1">Total Reviews</p>
+                      <p className="text-2xl font-bold">{total}</p>
+                      {liveReviews.length > 0 && (
+                        <p className="text-xs text-orange-500 mt-0.5">+{liveReviews.length} live</p>
+                      )}
+                    </CardContent></Card>
+                    <Card><CardContent className="p-4 text-center">
+                      <p className="text-sm text-gray-600 mb-1">Average Rating</p>
+                      <div className="flex items-center justify-center gap-1">
+                        <Star className="w-5 h-5 fill-yellow-500 text-yellow-500" />
+                        <p className="text-2xl font-bold">{avgRating}</p>
                       </div>
-                      <p className="text-sm text-gray-600 ml-11">{review.content}</p>
-                    </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
+                    </CardContent></Card>
+                    <Card><CardContent className="p-4 text-center">
+                      <p className="text-sm text-gray-600 mb-1">Positive</p>
+                      <p className="text-2xl font-bold text-green-600">{positivePct}%</p>
+                    </CardContent></Card>
+                    <Card><CardContent className="p-4 text-center">
+                      <p className="text-sm text-gray-600 mb-1">Negative</p>
+                      <p className="text-2xl font-bold text-red-500">{negativePct}%</p>
+                    </CardContent></Card>
+                  </div>
+
+                  {/* Sentiment breakdown bar */}
+                  <Card>
+                    <CardContent className="p-5">
+                      <h3 className="font-bold text-gray-900 mb-3">Sentiment Breakdown</h3>
+                      <div className="flex rounded-full overflow-hidden h-4 mb-2">
+                        <div className="bg-green-500 transition-all" style={{ width: `${positivePct}%` }} />
+                        <div className="bg-yellow-400 transition-all" style={{ width: `${100 - Number(positivePct) - Number(negativePct)}%` }} />
+                        <div className="bg-red-400 transition-all" style={{ width: `${negativePct}%` }} />
+                      </div>
+                      <div className="flex gap-4 text-xs text-gray-600">
+                        <span className="flex items-center gap-1"><span className="w-2.5 h-2.5 rounded-full bg-green-500 inline-block" />Positive {positivePct}%</span>
+                        <span className="flex items-center gap-1"><span className="w-2.5 h-2.5 rounded-full bg-yellow-400 inline-block" />Neutral {(100 - Number(positivePct) - Number(negativePct)).toFixed(1)}%</span>
+                        <span className="flex items-center gap-1"><span className="w-2.5 h-2.5 rounded-full bg-red-400 inline-block" />Negative {negativePct}%</span>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  {/* Review list */}
+                  <Card>
+                    <CardContent className="p-6">
+                      <h3 className="text-xl font-bold mb-5">Customer Reviews</h3>
+                      <div className="space-y-4">
+                        {allReviews.slice(0, 12).map(review => (
+                          <div key={review.id} className={`p-4 rounded-xl border ${review.isLive ? 'bg-orange-50 border-orange-200' : 'bg-gray-50 border-transparent'}`}>
+                            <div className="flex items-start justify-between mb-2 flex-wrap gap-2">
+                              <div className="flex items-center gap-3">
+                                <div className={`w-8 h-8 rounded-full flex items-center justify-center text-white font-bold text-sm ${review.isLive ? 'bg-orange-500' : 'bg-gray-400'}`}>
+                                  {review.customer[0]}
+                                </div>
+                                <div>
+                                  <div className="flex items-center gap-2">
+                                    <p className="font-medium text-gray-900 text-sm">{review.customer}</p>
+                                    {review.isLive && (
+                                      <span className="text-[10px] font-semibold bg-orange-500 text-white px-1.5 py-0.5 rounded-full">Live</span>
+                                    )}
+                                    {review.date && <span className="text-xs text-gray-400">{review.date}</span>}
+                                  </div>
+                                  <div className="flex items-center gap-0.5 mt-0.5">
+                                    {[...Array(5)].map((_, i) => (
+                                      <Star key={i} className={`w-3 h-3 ${i < review.rating ? 'fill-yellow-500 text-yellow-500' : 'text-gray-300'}`} />
+                                    ))}
+                                  </div>
+                                </div>
+                              </div>
+                              <Badge className={sentimentColor(review.sentiment)}>
+                                {sentimentIcon(review.sentiment)}
+                              </Badge>
+                            </div>
+                            <p className="text-sm text-gray-600 ml-11 leading-relaxed">{review.content}</p>
+                          </div>
+                        ))}
+                      </div>
+                    </CardContent>
+                  </Card>
+                </>
+              );
+            })()}
           </TabsContent>
 
           {/* ── Insights Tab ── */}

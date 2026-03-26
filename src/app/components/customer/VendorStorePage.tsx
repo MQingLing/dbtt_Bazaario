@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link, useParams, useNavigate } from 'react-router';
 import CustomerNav from './CustomerNav';
 import { User } from '../../App';
@@ -10,7 +10,7 @@ import { getEventVendors, Vendor, VendorItem } from '../../data/vendors';
 import { pasarMalamEvents, getEventStatus } from '../../data/pasarMalamData';
 import {
   ArrowLeft, Star, MapPin, Clock, ShoppingCart, Plus, Minus,
-  Bell, CheckCircle2, X, Phone, Mail, Package, Gamepad2, Map,
+  Bell, CheckCircle2, X, Phone, Mail, Package, Gamepad2, Map, MessageSquare,
 } from 'lucide-react';
 
 interface VendorStorePageProps {
@@ -65,6 +65,102 @@ function saveReminder(entry: RemindEntry) {
 function hasReminder(userId: string, vendorId: string, itemName: string): boolean {
   const list: RemindEntry[] = JSON.parse(localStorage.getItem(`bazaario_reminders_${userId}`) || '[]');
   return list.some(r => r.vendorId === vendorId && r.itemName === itemName);
+}
+
+// ── Reviews ──────────────────────────────────────────────────────────────────
+type Sentiment = 'positive' | 'neutral' | 'negative';
+
+interface Review {
+  id: string;
+  authorName: string;
+  rating: number;
+  comment: string;
+  date: string;
+  sentiment: Sentiment; // stored explicitly for downstream analysis
+}
+
+function deriveSentiment(rating: number): Sentiment {
+  if (rating >= 4) return 'positive';
+  if (rating === 3) return 'neutral';
+  return 'negative';
+}
+
+const SEED_NAMES = ['Sarah T.', 'Marcus L.', 'Priya K.', 'Jason W.', 'Mei Lin', 'Ravi S.', 'Adeline C.', 'Ben H.', 'Farah Z.', 'Kevin O.'];
+const SEED_COMMENTS: Record<number, string[]> = {
+  5: [
+    'Absolutely loved it! A must-try at this bazaar.',
+    'Best stall here, 10/10 — will come back every time.',
+    'Amazing quality and generous portions. Worth every cent!',
+    'Blown away by how good this was. Exceeded expectations!',
+    'Friendly service and the food was incredible. Top pick!',
+  ],
+  4: [
+    'Really enjoyable, highly recommend to anyone passing by.',
+    'Great food, the staff were really friendly too.',
+    'Tasty and well priced — solid choice.',
+    'Loved it overall. Slight wait but worth it.',
+    'Good stuff! Will order again next time.',
+  ],
+  3: [
+    'Decent. Nothing too special but not bad either.',
+    'Pretty good, though the queue was quite long.',
+    'Okay overall. Might give it another shot.',
+    'Average experience — food was fine, nothing standout.',
+  ],
+  2: [
+    'A bit underwhelming, expected more for the price.',
+    'Not my favourite. Might have been an off day.',
+  ],
+};
+
+/**
+ * Seed reviews whose ratings average to exactly `targetRating`.
+ * Ratings are split between floor and ceil of the target to hit the mean.
+ */
+function seedReviews(vendorId: string, targetRating: number): Review[] {
+  const count  = 3 + (hashStr(vendorId) % 3); // 3–5 reviews
+  const lo     = Math.floor(targetRating);
+  const hi     = Math.min(5, lo + 1);
+  // hiCount × hi + (count − hiCount) × lo = count × targetRating
+  const hiCount = Math.round(count * (targetRating - lo));
+  const ratings = [
+    ...Array(hiCount).fill(hi),
+    ...Array(count - hiCount).fill(lo),
+  ];
+  // Deterministic shuffle
+  ratings.sort((a, b) => hashStr(vendorId + a) - hashStr(vendorId + b));
+
+  return ratings.map((r, i) => {
+    const h    = hashStr(vendorId + i);
+    const pool = SEED_COMMENTS[r] ?? SEED_COMMENTS[4];
+    const daysAgo = 4 + i * 7 + (h % 6);
+    return {
+      id:         `seed-${i}`,
+      authorName: SEED_NAMES[h % SEED_NAMES.length],
+      rating:     r,
+      comment:    pool[h % pool.length],
+      sentiment:  deriveSentiment(r),
+      date:       new Date(Date.now() - daysAgo * 86400000)
+                    .toLocaleDateString('en-SG', { day: 'numeric', month: 'short', year: 'numeric' }),
+    };
+  });
+}
+
+function reviewsKey(vendorId: string) { return `bazaario_reviews_${vendorId}`; }
+
+function getReviews(vendorId: string, baseRating: number): Review[] {
+  try {
+    const stored: Review[] = JSON.parse(localStorage.getItem(reviewsKey(vendorId)) || '[]');
+    return [...stored, ...seedReviews(vendorId, baseRating)];
+  } catch { return seedReviews(vendorId, baseRating); }
+}
+
+function saveReview(vendorId: string, review: Review): void {
+  try {
+    const stored: Review[] = JSON.parse(localStorage.getItem(reviewsKey(vendorId)) || '[]');
+    stored.unshift(review);
+    localStorage.setItem(reviewsKey(vendorId), JSON.stringify(stored));
+  } catch {}
 }
 
 // ── Category colour helpers (shared with PasarMalamMap) ──────────────────────
@@ -154,6 +250,74 @@ function MiniStallMap({ vendors, currentStall, eventId }: { vendors: Vendor[]; c
   );
 }
 
+function AutoScrollReviews({ reviews, avatarPalette }: { reviews: Review[]; avatarPalette: string[] }) {
+  const ref = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    let paused = false;
+
+    const timer = setInterval(() => {
+      if (paused || el.scrollHeight <= el.clientHeight) return;
+      el.scrollTop += 1;
+      // Loop back to top with 2px tolerance
+      if (el.scrollTop + el.clientHeight >= el.scrollHeight - 2) {
+        el.scrollTop = 0;
+      }
+    }, 40); // ~25fps — visibly slow and smooth
+
+    const pause  = () => { paused = true; };
+    const resume = () => { paused = false; };
+
+    // Hold anywhere on the element to pause; release anywhere to resume
+    el.addEventListener('mousedown',  pause);
+    el.addEventListener('touchstart', pause,  { passive: true });
+    document.addEventListener('mouseup',   resume);
+    document.addEventListener('touchend',  resume);
+
+    return () => {
+      clearInterval(timer);
+      el.removeEventListener('mousedown',  pause);
+      el.removeEventListener('touchstart', pause);
+      document.removeEventListener('mouseup',  resume);
+      document.removeEventListener('touchend', resume);
+    };
+  }, [reviews]);
+
+  return (
+    <div ref={ref} className="overflow-y-auto space-y-2.5" style={{ maxHeight: 260 }}>
+      {reviews.map(r => {
+        const initials = r.authorName.split(' ').map(w => w[0]).join('').slice(0, 2).toUpperCase();
+        const bg = avatarPalette[hashStr(r.authorName) % avatarPalette.length];
+        return (
+          <div key={r.id} className="bg-gray-50 rounded-lg p-3 border border-gray-100">
+            <div className="flex items-center gap-2 mb-1">
+              <div className="w-6 h-6 rounded-full shrink-0 flex items-center justify-center text-white text-[10px] font-bold" style={{ backgroundColor: bg }}>
+                {initials}
+              </div>
+              <span className="text-xs font-semibold text-gray-800 truncate flex-1">{r.authorName}</span>
+              <span className={`text-[10px] font-semibold px-1.5 py-0.5 rounded-full shrink-0 ${
+                r.sentiment === 'positive' ? 'bg-green-100 text-green-700' :
+                r.sentiment === 'neutral'  ? 'bg-yellow-100 text-yellow-700' :
+                                             'bg-red-100 text-red-600'
+              }`}>
+                {r.sentiment === 'positive' ? '😊' : r.sentiment === 'neutral' ? '😐' : '😞'}
+              </span>
+            </div>
+            <div className="flex gap-0.5 mb-1">
+              {[1,2,3,4,5].map(n => (
+                <Star key={n} className={`w-3 h-3 ${n <= r.rating ? 'fill-yellow-400 text-yellow-400' : 'text-gray-200'}`} />
+              ))}
+            </div>
+            <p className="text-xs text-gray-600 leading-relaxed">{r.comment}</p>
+            {r.date && <p className="text-[10px] text-gray-400 mt-1">{r.date}</p>}
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
 export default function VendorStorePage({ user, onLogout }: VendorStorePageProps) {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
@@ -174,6 +338,10 @@ export default function VendorStorePage({ user, onLogout }: VendorStorePageProps
     if (Object.keys(cart).length) localStorage.setItem(cartKey, JSON.stringify(cart));
     else localStorage.removeItem(cartKey);
   }, [cart, cartKey]);
+  const [reviews, setReviews]             = useState<Review[]>(() => getReviews(id ?? '', vendor?.rating ?? 4));
+  const [showReviewForm, setShowReviewForm] = useState(false);
+  const [myRating, setMyRating]           = useState(5);
+  const [myComment, setMyComment]         = useState('');
   const [remindItem, setRemindItem]       = useState<VendorItem | null>(null);
   const [remindMethod, setRemindMethod]   = useState<'email' | 'phone'>('email');
   const [remindContact, setRemindContact] = useState('');
@@ -289,6 +457,7 @@ export default function VendorStorePage({ user, onLogout }: VendorStorePageProps
           </Card>
         )}
 
+        {/* ── Reviews (inline, below C&C) ── */}
         {/* Main layout: items (left) + sidebar (right) */}
         <div className="grid lg:grid-cols-3 gap-6">
 
@@ -415,6 +584,74 @@ export default function VendorStorePage({ user, onLogout }: VendorStorePageProps
                     </Badge>
                   </div>
                 </div>
+
+                {/* Divider */}
+                <hr className="my-4 border-gray-100" />
+
+                {/* Reviews section */}
+                <div className="flex items-center justify-between mb-3">
+                  <div className="flex items-center gap-1.5">
+                    <MessageSquare className="w-4 h-4" style={{ color: catColor }} />
+                    <span className="font-bold text-sm text-gray-900">Reviews</span>
+                    <span className="text-xs text-gray-400">({reviews.length})</span>
+                    <span className="text-xs font-semibold text-gray-700 ml-0.5">{vendor.rating.toFixed(1)}</span>
+                    <Star className="w-3 h-3 fill-yellow-400 text-yellow-400" />
+                  </div>
+                  <button
+                    onClick={() => setShowReviewForm(v => !v)}
+                    className="text-[11px] font-semibold px-2.5 py-1 rounded-full border-2 transition-colors"
+                    style={showReviewForm
+                      ? { backgroundColor: catColor, borderColor: catColor, color: '#fff' }
+                      : { borderColor: catColor, color: catColor }}
+                  >
+                    {showReviewForm ? 'Cancel' : '✏ Review'}
+                  </button>
+                </div>
+
+                {/* Write form */}
+                {showReviewForm && (
+                  <div className="mb-3 rounded-lg border p-3 space-y-2" style={{ borderColor: catColor + '40', backgroundColor: catColor + '06' }}>
+                    <div className="flex gap-0.5">
+                      {[1,2,3,4,5].map(n => (
+                        <button key={n} onClick={() => setMyRating(n)}>
+                          <Star className={`w-6 h-6 ${n <= myRating ? 'fill-yellow-400 text-yellow-400' : 'text-gray-300'}`} />
+                        </button>
+                      ))}
+                    </div>
+                    <textarea
+                      rows={2}
+                      placeholder="Share your experience…"
+                      value={myComment}
+                      onChange={e => setMyComment(e.target.value)}
+                      className="w-full border border-gray-200 rounded-lg px-2.5 py-1.5 text-xs resize-none focus:outline-none bg-white"
+                    />
+                    <Button
+                      disabled={!myComment.trim()}
+                      onClick={() => {
+                        const r: Review = {
+                          id: `user-${Date.now()}`,
+                          authorName: user.name ?? 'You',
+                          rating: myRating,
+                          comment: myComment.trim(),
+                          sentiment: deriveSentiment(myRating),
+                          date: new Date().toLocaleDateString('en-SG', { day: 'numeric', month: 'short', year: 'numeric' }),
+                        };
+                        saveReview(vendor.id, r);
+                        setReviews(prev => [r, ...prev]);
+                        setMyComment('');
+                        setShowReviewForm(false);
+                      }}
+                      className="w-full h-7 text-xs bg-gradient-to-r from-orange-500 to-pink-500 disabled:opacity-40"
+                    >
+                      Submit
+                    </Button>
+                  </div>
+                )}
+
+                <AutoScrollReviews
+                  reviews={reviews}
+                  avatarPalette={['#f97316','#3b82f6','#ec4899','#a855f7','#10b981','#f59e0b','#06b6d4','#8b5cf6']}
+                />
               </CardContent>
             </Card>
 
@@ -442,10 +679,12 @@ export default function VendorStorePage({ user, onLogout }: VendorStorePageProps
                 </CardContent>
               </Card>
             ) : null}
+
           </div>
 
         </div>
       </div>
+
 
       {/* Floating cart */}
       {totalItems > 0 && (

@@ -199,18 +199,24 @@ export default function EventDetails({ user, onLogout }: EventDetailsProps) {
 
               <TabsContent value="vendors" className="mt-6">
                 {(() => {
-                  const CATEGORY_ORDER = ['Hot Food', 'Snacks', 'Trendy Food', 'Drinks', 'Desserts', 'Household Items', 'Games & Entertainment'];
-                  const allCategories = [...new Set(vendors.map(v => v.category))].sort(
+                  const FOOD_CATS = ['Hot Food', 'Snacks', 'Trendy Food'];
+                  const CATEGORY_ORDER = ['Food', 'Drinks', 'Desserts', 'Household Items', 'Games & Entertainment'];
+                  const RAW_ORDER = [...FOOD_CATS, 'Drinks', 'Desserts', 'Household Items', 'Games & Entertainment'];
+
+                  // Map raw category → display group
+                  const toGroup = (cat: string) => FOOD_CATS.includes(cat) ? 'Food' : cat;
+
+                  const allCategories = [...new Set(vendors.map(v => toGroup(v.category)))].sort(
                     (a, b) => CATEGORY_ORDER.indexOf(a) - CATEGORY_ORDER.indexOf(b),
                   );
                   const filtered = vendors
                     .filter(v =>
-                      (!activeCategory || v.category === activeCategory) &&
+                      (!activeCategory || (activeCategory === 'Food' ? FOOD_CATS.includes(v.category) : v.category === activeCategory)) &&
                       (!vendorSearch || v.name.toLowerCase().includes(vendorSearch.toLowerCase()) ||
                         v.category.toLowerCase().includes(vendorSearch.toLowerCase()) ||
                         v.stall.toLowerCase().includes(vendorSearch.toLowerCase()))
                     )
-                    .sort((a, b) => CATEGORY_ORDER.indexOf(a.category) - CATEGORY_ORDER.indexOf(b.category));
+                    .sort((a, b) => RAW_ORDER.indexOf(a.category) - RAW_ORDER.indexOf(b.category));
 
                   return (
                     <>
@@ -241,22 +247,23 @@ export default function EventDetails({ user, onLogout }: EventDetailsProps) {
                         {allCategories.map(cat => {
                           const isActive = activeCategory === cat;
                           const colors: Record<string, { idle: string; active: string }> = {
-                            'Hot Food':             { idle: 'bg-orange-50 text-orange-600 border-orange-200 hover:bg-orange-100',   active: 'bg-orange-500 text-white border-orange-500'   },
-                            'Snacks':               { idle: 'bg-orange-50 text-orange-600 border-orange-200 hover:bg-orange-100',   active: 'bg-orange-500 text-white border-orange-500'   },
-                            'Trendy Food':          { idle: 'bg-orange-50 text-orange-600 border-orange-200 hover:bg-orange-100',   active: 'bg-orange-500 text-white border-orange-500'   },
-                            'Drinks':               { idle: 'bg-blue-50 text-blue-600 border-blue-200 hover:bg-blue-100',           active: 'bg-blue-500 text-white border-blue-500'         },
-                            'Desserts':             { idle: 'bg-pink-50 text-pink-600 border-pink-200 hover:bg-pink-100',           active: 'bg-pink-500 text-white border-pink-500'         },
-                            'Household Items':      { idle: 'bg-purple-50 text-purple-600 border-purple-200 hover:bg-purple-100',   active: 'bg-purple-500 text-white border-purple-500'   },
+                            'Food':                 { idle: 'bg-orange-50 text-orange-600 border-orange-200 hover:bg-orange-100',     active: 'bg-orange-500 text-white border-orange-500'   },
+                            'Drinks':               { idle: 'bg-blue-50 text-blue-600 border-blue-200 hover:bg-blue-100',             active: 'bg-blue-500 text-white border-blue-500'         },
+                            'Desserts':             { idle: 'bg-pink-50 text-pink-600 border-pink-200 hover:bg-pink-100',             active: 'bg-pink-500 text-white border-pink-500'         },
+                            'Household Items':      { idle: 'bg-purple-50 text-purple-600 border-purple-200 hover:bg-purple-100',     active: 'bg-purple-500 text-white border-purple-500'   },
                             'Games & Entertainment':{ idle: 'bg-emerald-50 text-emerald-600 border-emerald-200 hover:bg-emerald-100', active: 'bg-emerald-500 text-white border-emerald-500' },
                           };
                           const scheme = colors[cat] ?? { idle: 'bg-gray-100 text-gray-600 border-gray-200 hover:bg-gray-200', active: 'bg-gray-700 text-white border-gray-700' };
+                          const count = cat === 'Food'
+                            ? vendors.filter(v => FOOD_CATS.includes(v.category)).length
+                            : vendors.filter(v => v.category === cat).length;
                           return (
                             <button
                               key={cat}
                               onClick={() => setActiveCategory(isActive ? null : cat)}
                               className={`px-3 py-1.5 rounded-full text-xs font-medium border transition-colors ${isActive ? scheme.active : scheme.idle}`}
                             >
-                              {cat} ({vendors.filter(v => v.category === cat).length})
+                              {cat} ({count})
                             </button>
                           );
                         })}
