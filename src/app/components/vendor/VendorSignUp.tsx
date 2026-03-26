@@ -5,7 +5,8 @@ import { Input } from '../shared/input';
 import { Label } from '../shared/label';
 import { addUser, emailExists, hashPassword } from '../../services/authStore';
 import { User } from '../../App';
-import { ArrowLeft, Store, Eye, EyeOff } from 'lucide-react';
+import { ArrowLeft, Eye, EyeOff } from 'lucide-react';
+import appLogo from '../../../assets/app_logo.png';
 
 interface VendorSignUpProps {
   onSignUp: (user: User) => void;
@@ -57,34 +58,40 @@ export default function VendorSignUp({ onSignUp }: VendorSignUpProps) {
     const id = `vendor-${Date.now()}`;
     addUser({
       id,
-      name:              form.businessName,
-      email:             form.email,
-      passwordHash:      await hashPassword(form.password),
-      role:              'vendor',
-      isDefaultPassword: false,
-      createdAt:         new Date().toISOString(),
+      name:               form.businessName,
+      email:              form.email,
+      passwordHash:       await hashPassword(form.password),
+      role:               'vendor',
+      isDefaultPassword:  false,
+      createdAt:          new Date().toISOString(),
+      vendorTier:         'starter',
+      vendorCategory:     form.category,
+      verificationStatus: 'pending',
     });
     setIsLoading(false);
-    onSignUp({ id, name: form.businessName, email: form.email, role: 'vendor' });
+    onSignUp({ id, name: form.businessName, email: form.email, role: 'vendor', vendorTier: 'starter', vendorCategory: form.category, verificationStatus: 'pending' });
   };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-orange-500 via-pink-500 to-purple-600 flex items-center justify-center p-4">
       <div className="w-full max-w-lg">
-        <Link to="/" className="inline-flex items-center text-white mb-5 hover:text-white/80 text-sm">
+        <Link to="/" className="inline-flex items-center text-white mb-6 hover:text-white/80 text-sm">
           <ArrowLeft className="w-4 h-4 mr-1.5" /> Back to Sign In
         </Link>
 
+        <div className="text-center mb-8">
+          <div className="inline-flex items-center justify-center w-20 h-20 bg-white rounded-full mb-4 shadow-lg">
+            <img src={appLogo} alt="Bazaario" className="w-12 h-12 object-contain" />
+          </div>
+          <h1 className="text-4xl font-bold text-white mb-2">Register Your Stall</h1>
+          <p className="text-white/90">Join Bazaario and start selling today</p>
+        </div>
+
         <div className="bg-white rounded-2xl shadow-2xl p-8">
           {/* Header */}
-          <div className="flex items-center gap-3 mb-6">
-            <div className="w-11 h-11 bg-gradient-to-br from-orange-100 to-pink-100 rounded-xl flex items-center justify-center">
-              <Store className="w-5 h-5 text-orange-500" />
-            </div>
-            <div>
-              <h1 className="text-xl font-bold text-gray-900">Register Your Stall</h1>
-              <p className="text-sm text-gray-500">Join Bazaario as a vendor</p>
-            </div>
+          <div className="mb-6">
+            <h2 className="text-2xl font-bold text-gray-900">Create Account</h2>
+            <p className="text-sm text-gray-500 mt-1">Set up your vendor profile</p>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-4">

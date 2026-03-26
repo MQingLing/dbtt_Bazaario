@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Link, useParams } from 'react-router';
 import CustomerNav from './CustomerNav';
 import { User } from '../../App';
@@ -5,7 +6,7 @@ import { Card, CardContent } from '../shared/card';
 import { Badge } from '../shared/badge';
 import { Button } from '../shared/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '../shared/tabs';
-import { MapPin, Clock, Users, Star, Map, ArrowLeft, Calendar, Share2, Train, Music, ShoppingBag, Gamepad2 } from 'lucide-react';
+import { MapPin, Clock, Users, Star, Map, ArrowLeft, Calendar, Share2, Train, Music, ShoppingBag, Gamepad2, Check } from 'lucide-react';
 import { pasarMalamEvents, getEventStatus } from '../../data/pasarMalamData';
 import { getEventVendors, getEventConcert } from '../../data/vendors';
 
@@ -42,6 +43,13 @@ const CATEGORY_ICONS: Record<string, React.ReactNode> = {
 
 export default function EventDetails({ user, onLogout }: EventDetailsProps) {
   const { id } = useParams();
+  const [copied, setCopied] = useState(false);
+
+  const handleShare = () => {
+    navigator.clipboard.writeText(window.location.href);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
 
   const event = pasarMalamEvents.find(e => e.id === id);
 
@@ -121,9 +129,18 @@ export default function EventDetails({ user, onLogout }: EventDetailsProps) {
               View Interactive Map
             </Button>
           </Link>
-          <Button variant="outline" className="w-full h-12">
-            <Share2 className="w-5 h-5 mr-2" />
-            Share Event
+          <Button variant="outline" className="w-full h-12 relative" onClick={handleShare}>
+            {copied ? (
+              <>
+                <Check className="w-5 h-5 mr-2 text-green-600" />
+                <span className="text-green-600">Link Copied!</span>
+              </>
+            ) : (
+              <>
+                <Share2 className="w-5 h-5 mr-2" />
+                Share Event
+              </>
+            )}
           </Button>
         </div>
 

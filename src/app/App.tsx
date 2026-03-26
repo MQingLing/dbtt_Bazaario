@@ -16,18 +16,21 @@ import VendorDashboard from './components/vendor/VendorDashboard';
 import VendorSalesAnalytics from './components/vendor/VendorSalesAnalytics';
 import VendorOrderManagement from './components/vendor/VendorOrderManagement';
 import VendorProductManagement from './components/vendor/VendorProductManagement';
-import VendorApplyEvents from './components/vendor/VendorApplyEvents';
 import VendorEventApplication from './components/vendor/VendorEventApplication';
-import VendorMyApplications from './components/vendor/VendorMyApplications';
 import VendorSignUp from './components/vendor/VendorSignUp';
+import VendorSubscription from './components/vendor/VendorSubscription';
+import VendorEvents from './components/vendor/VendorEvents';
 import AdminDashboard from './components/admin/AdminDashboard';
 import AdminEventManagement from './components/admin/AdminEventManagement';
 import AdminVendorManagement from './components/admin/AdminVendorManagement';
 import AdminApplicationManagement from './components/admin/AdminApplicationManagement';
 import AdminEventStallConfig from './components/admin/AdminEventStallConfig';
 import AdminManageAdmins from './components/admin/AdminManageAdmins';
+import AdminVendorVerification from './components/admin/AdminVendorVerification';
+import VendorDocumentSubmission from './components/vendor/VendorDocumentSubmission';
 import ChangePasswordPage from './components/ChangePasswordPage';
 import GuidedTour from './components/GuidedTour';
+import { VendorTier, VendorVerificationStatus } from './services/authStore';
 
 export type UserRole = 'customer' | 'vendor' | 'admin' | null;
 
@@ -40,6 +43,10 @@ export interface User {
   walletBalance?: number;
   loyaltyStamps?: number;
   qrCode?: string;
+  vendorTier?: VendorTier;
+  vendorCategory?: string;
+  verificationStatus?: VendorVerificationStatus;
+  verificationRejectionReason?: string;
 }
 
 export default function App() {
@@ -61,6 +68,10 @@ export default function App() {
   const handlePasswordChanged = (updatedUser: User) => {
     setCurrentUser(updatedUser);
     setShowTour(true);
+  };
+
+  const handleUserUpdate = (updatedUser: User) => {
+    setCurrentUser(updatedUser);
   };
 
   // Force password change — renders over everything else
@@ -86,20 +97,22 @@ export default function App() {
           <Route path="/customer/events/:eventId/map" element={currentUser?.role === 'customer' ? <PasarMalamMap user={currentUser} onLogout={handleLogout} /> : <Navigate to="/" />} />
           <Route path="/customer/vendor/:id" element={currentUser?.role === 'customer' ? <VendorStorePage user={currentUser} onLogout={handleLogout} /> : <Navigate to="/" />} />
           <Route path="/customer/vendor/:vendorId/menu" element={currentUser?.role === 'customer' ? <MenuProductPage user={currentUser} onLogout={handleLogout} /> : <Navigate to="/" />} />
-          <Route path="/customer/wallet" element={currentUser?.role === 'customer' ? <CustomerWallet user={currentUser} onLogout={handleLogout} /> : <Navigate to="/" />} />
+          <Route path="/customer/wallet" element={currentUser?.role === 'customer' ? <CustomerWallet user={currentUser} onLogout={handleLogout} onUserUpdate={handleUserUpdate} /> : <Navigate to="/" />} />
           <Route path="/customer/qr-payment" element={currentUser?.role === 'customer' ? <QRCodePayment user={currentUser} onLogout={handleLogout} /> : <Navigate to="/" />} />
-          <Route path="/customer/loyalty" element={currentUser?.role === 'customer' ? <LoyaltyRewards user={currentUser} onLogout={handleLogout} /> : <Navigate to="/" />} />
-          <Route path="/customer/checkout" element={currentUser?.role === 'customer' ? <PreOrderCheckout user={currentUser} onLogout={handleLogout} /> : <Navigate to="/" />} />
+          <Route path="/customer/loyalty" element={currentUser?.role === 'customer' ? <LoyaltyRewards user={currentUser} onLogout={handleLogout} onUserUpdate={handleUserUpdate} /> : <Navigate to="/" />} />
+          <Route path="/customer/checkout" element={currentUser?.role === 'customer' ? <PreOrderCheckout user={currentUser} onLogout={handleLogout} onUserUpdate={handleUserUpdate} /> : <Navigate to="/" />} />
 
-          {/* Vendor Routes */}
-          <Route path="/vendor/dashboard" element={currentUser?.role === 'vendor' ? <VendorDashboard user={currentUser} onLogout={handleLogout} /> : <Navigate to="/" />} />
-          <Route path="/vendor/analytics" element={currentUser?.role === 'vendor' ? <VendorSalesAnalytics user={currentUser} onLogout={handleLogout} /> : <Navigate to="/" />} />
-          <Route path="/vendor/orders" element={currentUser?.role === 'vendor' ? <VendorOrderManagement user={currentUser} onLogout={handleLogout} /> : <Navigate to="/" />} />
-          <Route path="/vendor/products" element={currentUser?.role === 'vendor' ? <VendorProductManagement user={currentUser} onLogout={handleLogout} /> : <Navigate to="/" />} />
-          <Route path="/vendor/apply-events" element={currentUser?.role === 'vendor' ? <VendorApplyEvents user={currentUser} onLogout={handleLogout} /> : <Navigate to="/" />} />
-          <Route path="/vendor/apply-events/:eventId" element={currentUser?.role === 'vendor' ? <VendorEventApplication user={currentUser} onLogout={handleLogout} /> : <Navigate to="/" />} />
-          <Route path="/vendor/my-applications" element={currentUser?.role === 'vendor' ? <VendorMyApplications user={currentUser} onLogout={handleLogout} /> : <Navigate to="/" />} />
-          <Route path="/vendor/my-applications/:applicationId" element={currentUser?.role === 'vendor' ? <VendorMyApplications user={currentUser} onLogout={handleLogout} /> : <Navigate to="/" />} />
+          {/* Vendor verification gate */}
+          <Route path="/vendor/verification" element={currentUser?.role === 'vendor' ? <VendorDocumentSubmission user={currentUser} onLogout={handleLogout} onUserUpdate={handleUserUpdate} /> : <Navigate to="/" />} />
+
+          {/* Vendor Routes — only accessible when approved */}
+          <Route path="/vendor/dashboard" element={currentUser?.role === 'vendor' ? (currentUser.verificationStatus === 'approved' ? <VendorDashboard user={currentUser} onLogout={handleLogout} /> : <Navigate to="/vendor/verification" />) : <Navigate to="/" />} />
+          <Route path="/vendor/analytics" element={currentUser?.role === 'vendor' ? (currentUser.verificationStatus === 'approved' ? <VendorSalesAnalytics user={currentUser} onLogout={handleLogout} /> : <Navigate to="/vendor/verification" />) : <Navigate to="/" />} />
+          <Route path="/vendor/orders" element={currentUser?.role === 'vendor' ? (currentUser.verificationStatus === 'approved' ? <VendorOrderManagement user={currentUser} onLogout={handleLogout} /> : <Navigate to="/vendor/verification" />) : <Navigate to="/" />} />
+          <Route path="/vendor/products" element={currentUser?.role === 'vendor' ? (currentUser.verificationStatus === 'approved' ? <VendorProductManagement user={currentUser} onLogout={handleLogout} /> : <Navigate to="/vendor/verification" />) : <Navigate to="/" />} />
+          <Route path="/vendor/events" element={currentUser?.role === 'vendor' ? (currentUser.verificationStatus === 'approved' ? <VendorEvents user={currentUser} onLogout={handleLogout} /> : <Navigate to="/vendor/verification" />) : <Navigate to="/" />} />
+          <Route path="/vendor/apply-events/:eventId" element={currentUser?.role === 'vendor' ? (currentUser.verificationStatus === 'approved' ? <VendorEventApplication user={currentUser} onLogout={handleLogout} /> : <Navigate to="/vendor/verification" />) : <Navigate to="/" />} />
+          <Route path="/vendor/subscription" element={currentUser?.role === 'vendor' ? (currentUser.verificationStatus === 'approved' ? <VendorSubscription user={currentUser} onLogout={handleLogout} onUserUpdate={handleUserUpdate} /> : <Navigate to="/vendor/verification" />) : <Navigate to="/" />} />
 
           {/* Admin Routes */}
           <Route path="/admin/dashboard" element={currentUser?.role === 'admin' ? <AdminDashboard user={currentUser} onLogout={handleLogout} /> : <Navigate to="/" />} />
@@ -108,6 +121,7 @@ export default function App() {
           <Route path="/admin/vendors" element={currentUser?.role === 'admin' ? <AdminVendorManagement user={currentUser} onLogout={handleLogout} /> : <Navigate to="/" />} />
           <Route path="/admin/applications" element={currentUser?.role === 'admin' ? <AdminApplicationManagement user={currentUser} onLogout={handleLogout} /> : <Navigate to="/" />} />
           <Route path="/admin/manage-admins" element={currentUser?.role === 'admin' ? <AdminManageAdmins user={currentUser} onLogout={handleLogout} /> : <Navigate to="/" />} />
+          <Route path="/admin/vendor-verification" element={currentUser?.role === 'admin' ? <AdminVendorVerification user={currentUser} onLogout={handleLogout} /> : <Navigate to="/" />} />
         </Routes>
       </BrowserRouter>
     </>

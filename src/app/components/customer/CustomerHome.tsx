@@ -60,7 +60,7 @@ export default function CustomerHome({ user, onLogout }: CustomerHomeProps) {
                     <Gift className="w-5 h-5" />
                     <div>
                       <div className="text-xs text-white/80">Loyalty Stamps</div>
-                      <div className="font-bold">{user.loyaltyStamps} / 10</div>
+                      <div className="font-bold">{user.loyaltyStamps ?? 0} / 10</div>
                     </div>
                   </div>
                 </div>

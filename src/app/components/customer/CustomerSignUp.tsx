@@ -7,7 +7,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../sh
 import { Checkbox } from '../shared/checkbox';
 import { User } from '../../App';
 import { addUser, emailExists, hashPassword } from '../../services/authStore';
-import { Sparkles, ArrowLeft } from 'lucide-react';
+import { ArrowLeft } from 'lucide-react';
+import appLogo from '../../../assets/app_logo.png';
 
 interface CustomerSignUpProps {
   onSignUp: (user: User) => void;
@@ -74,7 +75,7 @@ export default function CustomerSignUp({ onSignUp }: CustomerSignUpProps) {
 
         <div className="text-center mb-8">
           <div className="inline-flex items-center justify-center w-20 h-20 bg-white rounded-full mb-4 shadow-lg">
-            <Sparkles className="w-10 h-10 text-orange-500" />
+            <img src={appLogo} alt="Bazaario" className="w-12 h-12 object-contain" />
           </div>
           <h1 className="text-4xl font-bold text-white mb-2">Join Pasar Malam</h1>
           <p className="text-white/90">Create your account and start exploring</p>

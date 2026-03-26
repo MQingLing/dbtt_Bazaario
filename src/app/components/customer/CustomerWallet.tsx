@@ -8,17 +8,25 @@ import { Badge } from '../shared/badge';
 import { Input } from '../shared/input';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '../shared/tabs';
 import { Wallet, Plus, ArrowUpRight, ArrowDownRight, CreditCard, QrCode, TrendingUp } from 'lucide-react';
+import { updateUser } from '../../services/authStore';
 
 interface CustomerWalletProps {
   user: User;
   onLogout: () => void;
+  onUserUpdate: (updatedUser: User) => void;
 }
 
-export default function CustomerWallet({ user, onLogout }: CustomerWalletProps) {
-  const [topUpAmount, setTopUpAmount] = useState('');
-  const [topUpMessage, setTopUpMessage] = useState('');
+export default function CustomerWallet({ user, onLogout, onUserUpdate }: CustomerWalletProps) {
+  const [selectedAmount, setSelectedAmount] = useState<number | null>(null);
+  const [customAmount,   setCustomAmount]   = useState('');
+  const [paymentMethod,  setPaymentMethod]  = useState<'card' | 'paynow' | null>(null);
+  const [topUpMessage,   setTopUpMessage]   = useState('');
 
   const quickTopUpAmounts = [10, 20, 50, 100];
+
+  // Resolved amount: quick selection takes precedence over custom input
+  const resolvedAmount = selectedAmount ?? (customAmount ? parseFloat(customAmount) : null);
+  const canConfirm = resolvedAmount !== null && resolvedAmount > 0 && paymentMethod !== null;
 
   const transactions = [
     { id: '1', type: 'spent', vendor: "Wong's Satay", amount: 15.00, date: 'Mar 5, 2026', time: '7:30 PM', status: 'completed' },
@@ -27,22 +35,19 @@ export default function CustomerWallet({ user, onLogout }: CustomerWalletProps) 
     { id: '4', type: 'spent', vendor: 'Golden Snacks', amount: 12.00, date: 'Mar 4, 2026', time: '7:45 PM', status: 'completed' },
     { id: '5', type: 'topup', vendor: 'PayNow', amount: 100.00, date: 'Mar 3, 2026', time: '5:00 PM', status: 'completed' },
     { id: '6', type: 'spent', vendor: 'Artisan Crafts', amount: 35.00, date: 'Mar 3, 2026', time: '8:30 PM', status: 'completed' },
-    { id: '7', type: 'refund', vendor: 'Order #1234', amount: 10.00, date: 'Mar 2, 2026', time: '2:00 PM', status: 'completed' },
   ];
 
-  const showTopUpSuccess = (amount: number) => {
-    setTopUpMessage(`$${amount.toFixed(2)} top-up initiated successfully!`);
+  const handleConfirmTopUp = () => {
+    if (!canConfirm || resolvedAmount === null) return;
+    const newBalance = (user.walletBalance ?? 0) + resolvedAmount;
+    const stored = updateUser(user.id, { walletBalance: newBalance });
+    if (stored) onUserUpdate({ ...user, walletBalance: stored.walletBalance });
+    const methodLabel = paymentMethod === 'card' ? 'Credit/Debit Card' : 'PayNow';
+    setTopUpMessage(`$${resolvedAmount.toFixed(2)} added via ${methodLabel} — new balance $${newBalance.toFixed(2)}`);
+    setSelectedAmount(null);
+    setCustomAmount('');
+    setPaymentMethod(null);
     setTimeout(() => setTopUpMessage(''), 3000);
-  };
-
-  const handleTopUp = (amount: number) => showTopUpSuccess(amount);
-
-  const handleCustomTopUp = () => {
-    const amount = parseFloat(topUpAmount);
-    if (topUpAmount && amount > 0) {
-      showTopUpSuccess(amount);
-      setTopUpAmount('');
-    }
   };
 
   return (
@@ -105,8 +110,12 @@ export default function CustomerWallet({ user, onLogout }: CustomerWalletProps) 
                       <Button
                         key={amount}
                         variant="outline"
-                        className="h-16 text-lg font-bold hover:border-orange-500 hover:text-orange-600"
-                        onClick={() => handleTopUp(amount)}
+                        className={`h-16 text-lg font-bold transition-colors ${
+                          selectedAmount === amount
+                            ? 'border-orange-500 bg-orange-50 text-orange-600'
+                            : 'hover:border-orange-500 hover:text-orange-600'
+                        }`}
+                        onClick={() => { setSelectedAmount(amount); setCustomAmount(''); }}
                       >
                         ${amount}
                       </Button>
@@ -116,40 +125,43 @@ export default function CustomerWallet({ user, onLogout }: CustomerWalletProps) 
 
                 <div className="space-y-3">
                   <p className="text-sm text-gray-600">Custom Amount</p>
-                  <div className="flex gap-3">
-                    <div className="relative flex-1">
-                      <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500">$</span>
-                      <Input
-                        type="number"
-                        placeholder="Enter amount"
-                        value={topUpAmount}
-                        onChange={(e) => setTopUpAmount(e.target.value)}
-                        className="pl-7 h-11"
-                        min="1"
-                        step="0.01"
-                      />
-                    </div>
-                    <Button 
-                      onClick={handleCustomTopUp}
-                      className="h-11 bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600"
-                    >
-                      <Plus className="w-4 h-4 mr-2" />
-                      Top Up
-                    </Button>
+                  <div className="relative">
+                    <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500">$</span>
+                    <Input
+                      type="number"
+                      placeholder="Enter amount"
+                      value={customAmount}
+                      onChange={(e) => { setCustomAmount(e.target.value); setSelectedAmount(null); }}
+                      className="pl-7 h-11"
+                      min="1"
+                      step="0.01"
+                    />
                   </div>
                 </div>
 
                 <div className="mt-6 pt-6 border-t">
                   <p className="text-sm text-gray-600 mb-3">Payment Methods</p>
                   <div className="space-y-2">
-                    <Button variant="outline" className="w-full justify-start h-12">
+                    <Button
+                      variant="outline"
+                      className={`w-full justify-start h-12 transition-colors ${
+                        paymentMethod === 'card' ? 'border-blue-500 bg-blue-50' : ''
+                      }`}
+                      onClick={() => setPaymentMethod(paymentMethod === 'card' ? null : 'card')}
+                    >
                       <CreditCard className="w-5 h-5 mr-3 text-blue-600" />
                       <div className="text-left">
                         <p className="font-medium">Credit/Debit Card</p>
                         <p className="text-xs text-gray-500">Visa, Mastercard, Amex</p>
                       </div>
                     </Button>
-                    <Button variant="outline" className="w-full justify-start h-12">
+                    <Button
+                      variant="outline"
+                      className={`w-full justify-start h-12 transition-colors ${
+                        paymentMethod === 'paynow' ? 'border-orange-500 bg-orange-50' : ''
+                      }`}
+                      onClick={() => setPaymentMethod(paymentMethod === 'paynow' ? null : 'paynow')}
+                    >
                       <div className="w-5 h-5 mr-3 bg-orange-500 rounded flex items-center justify-center text-white text-xs font-bold">
                         PN
                       </div>
@@ -159,6 +171,19 @@ export default function CustomerWallet({ user, onLogout }: CustomerWalletProps) 
                       </div>
                     </Button>
                   </div>
+                </div>
+
+                <div className="mt-6 pt-6 border-t">
+                  <Button
+                    onClick={handleConfirmTopUp}
+                    disabled={!canConfirm}
+                    className="w-full h-12 bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 disabled:opacity-40"
+                  >
+                    <Plus className="w-4 h-4 mr-2" />
+                    {resolvedAmount && resolvedAmount > 0
+                      ? `Top Up $${resolvedAmount.toFixed(2)}`
+                      : 'Select an amount and payment method'}
+                  </Button>
                 </div>
               </CardContent>
             </Card>
@@ -180,13 +205,10 @@ export default function CustomerWallet({ user, onLogout }: CustomerWalletProps) 
                       <div key={transaction.id} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
                         <div className="flex items-center gap-3">
                           <div className={`w-10 h-10 rounded-full flex items-center justify-center ${
-                            transaction.type === 'topup' ? 'bg-green-100' :
-                            transaction.type === 'refund' ? 'bg-blue-100' : 'bg-orange-100'
+                            transaction.type === 'topup' ? 'bg-green-100' : 'bg-orange-100'
                           }`}>
                             {transaction.type === 'topup' ? (
                               <ArrowDownRight className="w-5 h-5 text-green-600" />
-                            ) : transaction.type === 'refund' ? (
-                              <ArrowDownRight className="w-5 h-5 text-blue-600" />
                             ) : (
                               <ArrowUpRight className="w-5 h-5 text-orange-600" />
                             )}
@@ -198,9 +220,9 @@ export default function CustomerWallet({ user, onLogout }: CustomerWalletProps) 
                         </div>
                         <div className="text-right">
                           <p className={`font-bold ${
-                            transaction.type === 'topup' || transaction.type === 'refund' ? 'text-green-600' : 'text-gray-900'
+                            transaction.type === 'topup' ? 'text-green-600' : 'text-gray-900'
                           }`}>
-                            {transaction.type === 'topup' || transaction.type === 'refund' ? '+' : '-'}${transaction.amount.toFixed(2)}
+                            {transaction.type === 'topup' ? '+' : '-'}${transaction.amount.toFixed(2)}
                           </p>
                           <Badge variant="outline" className="text-xs">
                             {transaction.status}

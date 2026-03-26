@@ -57,9 +57,13 @@ export default function LoginPage({ onLogin }: LoginPageProps) {
       email:             stored.email,
       role:              stored.role,
       isDefaultPassword: stored.isDefaultPassword,
-      walletBalance:     stored.role === 'customer' ? 150.00 : undefined,
-      loyaltyStamps:     stored.role === 'customer' ? 8 : undefined,
-      qrCode:            stored.role === 'customer' ? `QR-${stored.id}` : undefined,
+      walletBalance:              stored.walletBalance,
+      loyaltyStamps:              stored.loyaltyStamps,
+      qrCode:                     stored.qrCode,
+      vendorTier:                 stored.vendorTier,
+      vendorCategory:             stored.vendorCategory,
+      verificationStatus:         stored.verificationStatus,
+      verificationRejectionReason: stored.verificationRejectionReason,
     });
     setIsLoading(false);
   };

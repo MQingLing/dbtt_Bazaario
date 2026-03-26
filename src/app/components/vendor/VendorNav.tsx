@@ -1,25 +1,41 @@
 import { Link, useLocation } from 'react-router';
-import { LayoutDashboard, TrendingUp, ShoppingBag, Package, LogOut, Calendar, FileText } from 'lucide-react';
+import { LayoutDashboard, TrendingUp, ShoppingBag, Package, LogOut, CalendarDays, CreditCard } from 'lucide-react';
+
 import { Button } from '../shared/button';
+import { Badge } from '../shared/badge';
 import { User } from '../../App';
+import { VendorTier } from '../../services/authStore';
 
 interface VendorNavProps {
   user: User;
   onLogout: () => void;
-  currentPage?: string; // Optional prop for compatibility
+  currentPage?: string;
 }
+
+const TIER_BADGE: Record<VendorTier, { label: string; class: string }> = {
+  starter: { label: 'Starter',  class: 'bg-white/20 text-white' },
+  growth:  { label: 'Growth',   class: 'bg-blue-200 text-blue-900' },
+  pro:     { label: 'Pro',      class: 'bg-orange-200 text-orange-900' },
+  anchor:  { label: 'Anchor',   class: 'bg-purple-200 text-purple-900' },
+};
 
 export default function VendorNav({ user, onLogout }: VendorNavProps) {
   const location = useLocation();
+  const tier = user.vendorTier ?? 'starter';
+  const tierBadge = TIER_BADGE[tier];
 
   const navItems = [
-    { path: '/vendor/dashboard', icon: LayoutDashboard, label: 'Dashboard' },
-    { path: '/vendor/analytics', icon: TrendingUp, label: 'Analytics' },
-    { path: '/vendor/orders', icon: ShoppingBag, label: 'Orders' },
-    { path: '/vendor/products', icon: Package, label: 'Products' },
-    { path: '/vendor/apply-events', icon: Calendar, label: 'Apply' },
-    { path: '/vendor/my-applications', icon: FileText, label: 'Applications' },
+    { path: '/vendor/dashboard',       icon: LayoutDashboard, label: 'Dashboard',    minTier: 'starter' },
+    { path: '/vendor/analytics',       icon: TrendingUp,       label: 'Analytics',   minTier: 'growth'  },
+    { path: '/vendor/orders',          icon: ShoppingBag,      label: 'Orders',      minTier: 'starter' },
+    { path: '/vendor/products',        icon: Package,          label: 'Products',    minTier: 'starter' },
+    { path: '/vendor/events',          icon: CalendarDays,     label: 'Events',      minTier: 'starter' },
+    { path: '/vendor/subscription',    icon: CreditCard,       label: 'Plan',        minTier: 'starter' },
   ];
+
+  const tierOrder: VendorTier[] = ['starter', 'growth', 'pro', 'anchor'];
+  const tierIndex = tierOrder.indexOf(tier);
+  const isLocked = (minTier: string) => tierOrder.indexOf(minTier as VendorTier) > tierIndex;
 
   return (
     <>
@@ -36,25 +52,31 @@ export default function VendorNav({ user, onLogout }: VendorNavProps) {
           <nav className="hidden md:flex items-center gap-1 flex-1 min-w-0">
             {navItems.map((item) => {
               const Icon = item.icon;
+              const locked = isLocked(item.minTier);
               return (
                 <Link
                   key={item.path}
-                  to={item.path}
+                  to={locked ? '/vendor/subscription' : item.path}
+                  title={locked ? `Requires ${item.minTier} plan` : undefined}
                   className={`px-3 py-1.5 rounded-lg transition-colors flex items-center gap-1.5 text-sm whitespace-nowrap ${
                     location.pathname === item.path
                       ? 'bg-white/20 font-medium'
+                      : locked
+                      ? 'opacity-50 hover:bg-white/10'
                       : 'hover:bg-white/10'
                   }`}
                 >
                   <Icon className="w-4 h-4 shrink-0" />
                   {item.label}
+                  {locked && <span className="text-xs opacity-70">🔒</span>}
                 </Link>
               );
             })}
           </nav>
 
-          {/* User + logout */}
+          {/* Tier badge + user + logout */}
           <div className="flex items-center gap-3 shrink-0">
+            <Badge className={`hidden md:flex ${tierBadge.class} text-xs`}>{tierBadge.label}</Badge>
             <div className="text-right hidden md:block">
               <div className="text-sm font-semibold leading-tight max-w-[140px] truncate">{user.name}</div>
               <div className="text-xs text-white/70 leading-tight">Vendor Account</div>
@@ -77,16 +99,17 @@ export default function VendorNav({ user, onLogout }: VendorNavProps) {
           {navItems.map((item) => {
             const Icon = item.icon;
             const isActive = location.pathname === item.path || location.pathname.startsWith(item.path);
+            const locked = isLocked(item.minTier);
             return (
               <Link
                 key={item.path}
-                to={item.path}
-                className={`flex flex-col items-center justify-center gap-1 ${
-                  isActive ? 'text-orange-500' : 'text-gray-500'
+                to={locked ? '/vendor/subscription' : item.path}
+                className={`flex flex-col items-center justify-center gap-0.5 ${
+                  isActive ? 'text-orange-500' : locked ? 'text-gray-300' : 'text-gray-500'
                 }`}
               >
                 <Icon className="w-5 h-5" />
-                <span className="text-xs">{item.label}</span>
+                <span className="text-[10px]">{item.label}</span>
               </Link>
             );
           })}

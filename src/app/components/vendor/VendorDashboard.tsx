@@ -5,15 +5,25 @@ import { VENDOR_STATS, ORDERS } from '../../data/mockData';
 import { Card, CardContent } from '../shared/card';
 import { Badge } from '../shared/badge';
 import { Button } from '../shared/button';
-import { DollarSign, ShoppingBag, TrendingUp, Users, Clock, CheckCircle2, AlertCircle, Package } from 'lucide-react';
+import { DollarSign, ShoppingBag, TrendingUp, Users, Clock, CheckCircle2, AlertCircle, Package, Lock } from 'lucide-react';
+import { VendorTier } from '../../services/authStore';
 
 interface VendorDashboardProps {
   user: User;
   onLogout: () => void;
 }
 
+const TIER_INFO: Record<VendorTier, { label: string; color: string; lockedMsg?: string }> = {
+  starter: { label: 'Starter (Free)', color: 'bg-gray-100 text-gray-700 border-gray-200', lockedMsg: 'Analytics & inventory management require Growth plan or above.' },
+  growth:  { label: 'Growth — $20/mo', color: 'bg-blue-50 text-blue-700 border-blue-200',  lockedMsg: 'Pre-order management & staff accounts require Pro plan.' },
+  pro:     { label: 'Pro',             color: 'bg-orange-50 text-orange-700 border-orange-200' },
+  anchor:  { label: 'Anchor',          color: 'bg-purple-50 text-purple-700 border-purple-200' },
+};
+
 export default function VendorDashboard({ user, onLogout }: VendorDashboardProps) {
   const stats = VENDOR_STATS;
+  const tier = user.vendorTier ?? 'starter';
+  const tierInfo = TIER_INFO[tier];
 
   const recentOrders = ORDERS.map(o => ({
     id: o.id,
@@ -51,8 +61,24 @@ export default function VendorDashboard({ user, onLogout }: VendorDashboardProps
 
       <div className="container mx-auto px-4 py-6 max-w-7xl">
         <div className="mb-6">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">Dashboard</h1>
+          <div className="flex items-center justify-between flex-wrap gap-3 mb-2">
+            <h1 className="text-3xl font-bold text-gray-900">Dashboard</h1>
+            <Link to="/vendor/subscription">
+              <Badge className={`border ${tierInfo.color} cursor-pointer hover:opacity-80 transition-opacity`}>
+                {tierInfo.label}
+              </Badge>
+            </Link>
+          </div>
           <p className="text-gray-600">Welcome back, {user.name}!</p>
+          {tierInfo.lockedMsg && (
+            <div className="mt-3 flex items-center gap-2 p-3 bg-amber-50 border border-amber-200 rounded-lg text-sm text-amber-800">
+              <Lock className="w-4 h-4 shrink-0 text-amber-500" />
+              <span>{tierInfo.lockedMsg}</span>
+              <Link to="/vendor/subscription" className="ml-auto shrink-0 font-medium underline underline-offset-2 hover:text-amber-900">
+                Upgrade
+              </Link>
+            </div>
+          )}
         </div>
 
         {/* Stats Grid */}

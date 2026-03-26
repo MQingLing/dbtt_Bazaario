@@ -1,3 +1,6 @@
+export type VendorTier = 'starter' | 'growth' | 'pro' | 'anchor';
+export type VendorVerificationStatus = 'pending' | 'submitted' | 'approved' | 'rejected';
+
 export interface StoredUser {
   id: string;
   name: string;
@@ -6,9 +9,18 @@ export interface StoredUser {
   role: 'customer' | 'vendor' | 'admin';
   isDefaultPassword: boolean;
   createdAt: string;
+  // Customer fields
+  walletBalance?: number;
+  loyaltyStamps?: number;
+  qrCode?: string;
+  // Vendor fields
+  vendorTier?: VendorTier;
+  vendorCategory?: string;
+  verificationStatus?: VendorVerificationStatus;
+  verificationRejectionReason?: string;
 }
 
-const STORAGE_KEY = 'bazaario_users_v2';
+const STORAGE_KEY = 'bazaario_users_v4';
 
 // Demo credentials loaded from .env (never committed to source control)
 const DEMO_SEED = [
@@ -36,6 +48,16 @@ async function seedUsers(): Promise<void> {
       role:              u.role,
       isDefaultPassword: u.isDefaultPassword,
       createdAt:         new Date().toISOString(),
+      // Role-specific defaults
+      ...(u.role === 'customer' && {
+        walletBalance: 150.00,
+        loyaltyStamps: 8,
+        qrCode: `QR-${u.id}`,
+      }),
+      ...(u.role === 'vendor' && {
+        vendorTier: 'starter' as VendorTier,
+        verificationStatus: 'approved' as VendorVerificationStatus,
+      }),
     }))
   );
   localStorage.setItem(STORAGE_KEY, JSON.stringify(users));
@@ -66,14 +88,17 @@ export function addUser(user: StoredUser): void {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(users));
 }
 
-export function updatePassword(id: string, hashedPassword: string): void {
+export function updateUser(id: string, patch: Partial<StoredUser>): StoredUser | null {
   const users = getUsers();
   const idx = users.findIndex((u) => u.id === id);
-  if (idx !== -1) {
-    users[idx].passwordHash      = hashedPassword;
-    users[idx].isDefaultPassword = false;
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(users));
-  }
+  if (idx === -1) return null;
+  users[idx] = { ...users[idx], ...patch };
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(users));
+  return users[idx];
+}
+
+export function updatePassword(id: string, hashedPassword: string): void {
+  updateUser(id, { passwordHash: hashedPassword, isDefaultPassword: false });
 }
 
 export function emailExists(email: string): boolean {

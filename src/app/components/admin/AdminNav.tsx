@@ -1,5 +1,5 @@
 import { Link, useLocation } from 'react-router';
-import { LayoutDashboard, Calendar, Users, LogOut, FileText, ShieldCheck } from 'lucide-react';
+import { LayoutDashboard, Calendar, Users, LogOut, FileText, ShieldCheck, BadgeCheck } from 'lucide-react';
 import { Button } from '../shared/button';
 import { User } from '../../App';
 
@@ -12,11 +12,12 @@ export default function AdminNav({ user, onLogout }: AdminNavProps) {
   const location = useLocation();
 
   const navItems = [
-    { path: '/admin/dashboard',     icon: LayoutDashboard, label: 'Dashboard'    },
-    { path: '/admin/events',        icon: Calendar,        label: 'Events'       },
-    { path: '/admin/vendors',       icon: Users,           label: 'Vendors'      },
-    { path: '/admin/applications',  icon: FileText,        label: 'Applications' },
-    { path: '/admin/manage-admins', icon: ShieldCheck,     label: 'Admins'       },
+    { path: '/admin/dashboard',           icon: LayoutDashboard, label: 'Dashboard'    },
+    { path: '/admin/events',              icon: Calendar,        label: 'Events'       },
+    { path: '/admin/vendors',             icon: Users,           label: 'Vendors'      },
+    { path: '/admin/applications',        icon: FileText,        label: 'Applications' },
+    { path: '/admin/vendor-verification', icon: BadgeCheck,      label: 'Verification' },
+    { path: '/admin/manage-admins',       icon: ShieldCheck,     label: 'Admins'       },
   ];
 
   return (
@@ -71,7 +72,7 @@ export default function AdminNav({ user, onLogout }: AdminNavProps) {
 
       {/* Mobile Bottom Navigation */}
       <div className="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 shadow-lg z-50">
-        <div className="grid grid-cols-5 h-16">
+        <div className="grid grid-cols-6 h-16">
           {navItems.map((item) => {
             const Icon = item.icon;
             const isActive = location.pathname === item.path;

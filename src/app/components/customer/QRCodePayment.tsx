@@ -5,12 +5,21 @@ import { Card, CardContent } from '../shared/card';
 import { Badge } from '../shared/badge';
 import { Wallet, CheckCircle2, Sparkles } from 'lucide-react';
 
+function getMemberStatus(stamps: number): { label: string; className: string } {
+  if (stamps >= 50) return { label: 'Gold Member',   className: 'bg-yellow-500 text-white' };
+  if (stamps >= 20) return { label: 'Silver Member', className: 'bg-gray-400 text-white' };
+  if (stamps >= 10) return { label: 'Member',        className: 'bg-gradient-to-r from-orange-500 to-pink-500 text-white' };
+  return               { label: 'New Member',       className: 'bg-gray-100 text-gray-600' };
+}
+
 interface QRCodePaymentProps {
   user: User;
   onLogout: () => void;
 }
 
 export default function QRCodePayment({ user, onLogout }: QRCodePaymentProps) {
+  const memberStatus = getMemberStatus(user.loyaltyStamps ?? 0);
+
   return (
     <div className="min-h-screen bg-gray-50 pb-20 md:pb-8">
       <CustomerNav user={user} onLogout={onLogout} />
@@ -96,7 +105,7 @@ export default function QRCodePayment({ user, onLogout }: QRCodePaymentProps) {
               </div>
               <div>
                 <p className="font-bold text-lg">{user.name}</p>
-                <Badge className="bg-gradient-to-r from-orange-500 to-pink-500">Premium Member</Badge>
+                <Badge className={memberStatus.className}>{memberStatus.label}</Badge>
               </div>
             </div>
 
