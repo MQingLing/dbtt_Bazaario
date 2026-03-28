@@ -239,11 +239,10 @@ export default function AdminDashboard({ user, onLogout }: AdminDashboardProps) 
         {/* ── Analytics Section ── */}
         <div className="mt-6">
           <Tabs defaultValue="analytics" className="space-y-6">
-            <TabsList className="grid w-full grid-cols-2 md:grid-cols-4">
+            <TabsList className="grid w-full grid-cols-3">
               <TabsTrigger value="analytics">Performance</TabsTrigger>
               <TabsTrigger value="vendors-rank">Vendor Rankings</TabsTrigger>
-              <TabsTrigger value="reviews">Customer Reviews</TabsTrigger>
-              <TabsTrigger value="forecast">Predictions</TabsTrigger>
+              <TabsTrigger value="forecast">Forecast</TabsTrigger>
             </TabsList>
 
             {/* Analytics */}
@@ -299,6 +298,24 @@ export default function AdminDashboard({ user, onLogout }: AdminDashboardProps) 
 
             {/* Vendors Ranking */}
             <TabsContent value="vendors-rank" className="space-y-6">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <Card><CardContent className="p-5 text-center">
+                  <p className="text-sm text-gray-600 mb-1">Total Reviews</p>
+                  <p className="text-3xl font-bold">{sentimentSummary.totalReviews}</p>
+                </CardContent></Card>
+                <Card><CardContent className="p-5 text-center">
+                  <p className="text-sm text-gray-600 mb-1">Avg Rating</p>
+                  <p className="text-3xl font-bold">{sentimentSummary.avgRating} <span className="text-base text-gray-400">/ 5</span></p>
+                </CardContent></Card>
+                <Card><CardContent className="p-5 text-center">
+                  <p className="text-sm text-gray-600 mb-1">Positive</p>
+                  <p className="text-3xl font-bold text-green-600">{sentimentSummary.positivePct}%</p>
+                </CardContent></Card>
+                <Card><CardContent className="p-5 text-center">
+                  <p className="text-sm text-gray-600 mb-1">Negative</p>
+                  <p className="text-3xl font-bold text-red-500">{sentimentSummary.negativePct}%</p>
+                </CardContent></Card>
+              </div>
               <div className="grid lg:grid-cols-2 gap-6">
                 <Card>
                   <CardContent className="p-6">
@@ -341,52 +358,6 @@ export default function AdminDashboard({ user, onLogout }: AdminDashboardProps) 
                   </CardContent>
                 </Card>
               </div>
-            </TabsContent>
-
-            {/* Reviews */}
-            <TabsContent value="reviews" className="space-y-6">
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <Card><CardContent className="p-5 text-center">
-                  <p className="text-sm text-gray-600 mb-1">Total Reviews</p>
-                  <p className="text-3xl font-bold">{sentimentSummary.totalReviews}</p>
-                </CardContent></Card>
-                <Card><CardContent className="p-5 text-center">
-                  <p className="text-sm text-gray-600 mb-1">Avg Rating</p>
-                  <p className="text-3xl font-bold">{sentimentSummary.avgRating} <span className="text-base text-gray-400">/ 5</span></p>
-                </CardContent></Card>
-                <Card><CardContent className="p-5 text-center">
-                  <p className="text-sm text-gray-600 mb-1">Positive</p>
-                  <p className="text-3xl font-bold text-green-600">{sentimentSummary.positivePct}%</p>
-                </CardContent></Card>
-                <Card><CardContent className="p-5 text-center">
-                  <p className="text-sm text-gray-600 mb-1">Negative</p>
-                  <p className="text-3xl font-bold text-red-500">{sentimentSummary.negativePct}%</p>
-                </CardContent></Card>
-              </div>
-              <Card>
-                <CardContent className="p-6">
-                  <h3 className="font-bold mb-4">All Vendors — Customer Satisfaction</h3>
-                  <div className="space-y-3">
-                    {sentimentByVendor.map((vendor: any, index: number) => (
-                      <div key={index} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
-                        <div className="flex items-center gap-3 flex-1">
-                          <span className="text-sm font-bold text-gray-400 w-6">#{index + 1}</span>
-                          <div>
-                            <p className="font-medium text-gray-900">{vendor.vendor}</p>
-                            <p className="text-xs text-gray-500">{vendor.totalReviews} reviews &middot; Avg {vendor.avgRating}/5</p>
-                          </div>
-                        </div>
-                        <div className="flex items-center gap-3">
-                          <div className="w-32 bg-gray-200 rounded-full h-2.5">
-                            <div className={`h-2.5 rounded-full ${vendor.positivePct >= 70 ? 'bg-green-500' : vendor.positivePct >= 50 ? 'bg-yellow-500' : 'bg-red-500'}`} style={{ width: `${vendor.positivePct}%` }} />
-                          </div>
-                          <span className={`text-sm font-bold w-14 text-right ${vendor.positivePct >= 70 ? 'text-green-600' : 'text-red-600'}`}>{vendor.positivePct}%</span>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
             </TabsContent>
 
             {/* Forecast */}

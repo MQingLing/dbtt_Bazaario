@@ -110,5 +110,10 @@ export function getAllUsers(): StoredUser[] {
   return getUsers();
 }
 
+export function deleteUser(id: string): void {
+  const users = getUsers().filter(u => u.id !== id);
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(users));
+}
+
 // Seed on import (async — resolves before any user interaction)
 void seedUsers();

@@ -27,7 +27,6 @@ import AdminVendorManagement from './components/admin/AdminVendorManagement';
 import AdminApplicationManagement from './components/admin/AdminApplicationManagement';
 import AdminEventStallConfig from './components/admin/AdminEventStallConfig';
 import AdminManageAdmins from './components/admin/AdminManageAdmins';
-import AdminVendorVerification from './components/admin/AdminVendorVerification';
 import VendorDocumentSubmission from './components/vendor/VendorDocumentSubmission';
 import ChangePasswordPage from './components/ChangePasswordPage';
 import GuidedTour from './components/GuidedTour';
@@ -124,7 +123,6 @@ export default function App() {
           <Route path="/admin/vendors" element={currentUser?.role === 'admin' ? <AdminVendorManagement user={currentUser} onLogout={handleLogout} /> : <Navigate to="/" />} />
           <Route path="/admin/applications" element={currentUser?.role === 'admin' ? <AdminApplicationManagement user={currentUser} onLogout={handleLogout} /> : <Navigate to="/" />} />
           <Route path="/admin/manage-admins" element={currentUser?.role === 'admin' ? <AdminManageAdmins user={currentUser} onLogout={handleLogout} /> : <Navigate to="/" />} />
-          <Route path="/admin/vendor-verification" element={currentUser?.role === 'admin' ? <AdminVendorVerification user={currentUser} onLogout={handleLogout} /> : <Navigate to="/" />} />
         </Routes>
       </BrowserRouter>
     </>

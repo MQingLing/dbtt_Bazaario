@@ -104,33 +104,48 @@ export default function VendorEventApplication({ user, onLogout }: VendorEventAp
 
   const eventStatus = event ? getEventStatus(event) : 'upcoming';
 
+  // ── Event duration (days) ─────────────────────────────────────────────────
+  const eventDays = useMemo(() => {
+    if (!event) return 1;
+    const ms = new Date(event.endDate).getTime() - new Date(event.startDate).getTime();
+    return Math.max(1, Math.round(ms / 86400000) + 1);
+  }, [event]);
+
   // ── Form state ────────────────────────────────────────────────────────────
   const [selectedCategory, setSelectedCategory] = useState('');
   const [selectedSize,     setSelectedSize]     = useState('');
   const [bidAmount,        setBidAmount]        = useState('');
   const [notes,            setNotes]            = useState('');
-  const [uploadedDocs,     setUploadedDocs]     = useState<string[]>([]);
+  const [docs,             setDocs]             = useState<Record<string, boolean>>({});
+  const [premiumIsFood,    setPremiumIsFood]    = useState(false);
   const [showSuccess,      setShowSuccess]      = useState(false);
 
-  const categoryData  = STALL_CATEGORIES.find(c => c.id === selectedCategory);
-  const sizeData      = categoryData?.sizes.find(s => s.id === selectedSize);
+  const categoryData = STALL_CATEGORIES.find(c => c.id === selectedCategory);
+  const sizeData     = categoryData?.sizes.find(s => s.id === selectedSize);
 
-  const baseAmount = categoryData
+  // Food stall: always food. Premium: depends on checkbox. Non-food: never.
+  const isFoodCategory = selectedCategory === 'food' || (selectedCategory === 'premium' && premiumIsFood);
+
+  // Per-day rate × days for fixed; base amount for bidding
+  const dailyRate = categoryData
     ? (pricingModel === 'fixed' ? categoryData.basePrice : categoryData.minBid)
     : 0;
+  const pricePerDay    = sizeData ? Math.round(dailyRate * sizeData.priceModifier) : 0;
+  const confirmedPrice = pricingModel === 'fixed' ? pricePerDay * eventDays : pricePerDay;
+  const minBidRequired = pricePerDay;
 
-  const confirmedPrice = sizeData ? Math.round(baseAmount * sizeData.priceModifier) : 0;
-  const minBidRequired = confirmedPrice; // minimum bid = base × modifier
+  const bidNum   = parseFloat(bidAmount) || 0;
+  const bidValid = bidNum >= minBidRequired && bidNum > 0;
 
-  const bidNum    = parseFloat(bidAmount) || 0;
-  const bidValid  = bidNum >= minBidRequired && bidNum > 0;
+  // Required docs: business licence + personal ID always; SFA for food vendors
+  const requiredDocs = ['businessLicence', 'personalId', ...(isFoodCategory ? ['sfaLicense'] : [])];
+  const docsComplete = requiredDocs.every(k => docs[k]);
 
-  const canSubmit = !!selectedCategory && !!selectedSize &&
+  const canSubmit = !!selectedCategory && !!selectedSize && docsComplete &&
     (pricingModel === 'fixed' || bidValid);
 
-  const handleFileUpload = () => {
-    setUploadedDocs(prev => [...prev, `document-${prev.length + 1}.pdf`]);
-  };
+  const toggleDoc = (key: string) =>
+    setDocs(prev => ({ ...prev, [key]: !prev[key] }));
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -299,7 +314,7 @@ export default function VendorEventApplication({ user, onLogout }: VendorEventAp
                     <button
                       key={cat.id}
                       type="button"
-                      onClick={() => { setSelectedCategory(cat.id); setSelectedSize(''); setBidAmount(''); }}
+                      onClick={() => { setSelectedCategory(cat.id); setSelectedSize(''); setBidAmount(''); setPremiumIsFood(false); setDocs({}); }}
                       className={`p-4 border-2 rounded-lg text-left transition-all ${
                         selectedCategory === cat.id
                           ? 'border-purple-500 bg-purple-50'
@@ -310,13 +325,34 @@ export default function VendorEventApplication({ user, onLogout }: VendorEventAp
                       <p className="text-sm text-gray-500 mb-2">{cat.description}</p>
                       <p className="text-sm font-semibold text-purple-600">
                         {pricingModel === 'fixed'
-                          ? `From $${cat.basePrice}`
+                          ? `From $${cat.basePrice}/day`
                           : `Min bid: $${cat.minBid}`}
                       </p>
                     </button>
                   ))}
                 </div>
               </div>
+
+              {/* Premium Corner — food stall checkbox */}
+              {selectedCategory === 'premium' && (
+                <div className="p-4 bg-purple-50 border border-purple-200 rounded-xl">
+                  <label className="flex items-start gap-3 cursor-pointer">
+                    <input
+                      type="checkbox"
+                      checked={premiumIsFood}
+                      onChange={e => { setPremiumIsFood(e.target.checked); setDocs({}); }}
+                      className="mt-0.5 w-4 h-4 accent-purple-600 shrink-0"
+                    />
+                    <div>
+                      <p className="font-medium text-purple-900 text-sm">This is a food stall</p>
+                      <p className="text-xs text-purple-600 mt-0.5">
+                        Check this if your Premium Corner stall will be selling food or beverages.
+                        An SFA Food Stall License will be required.
+                      </p>
+                    </div>
+                  </label>
+                </div>
+              )}
 
               {/* Stall Size */}
               {selectedCategory && categoryData && (
@@ -343,7 +379,7 @@ export default function VendorEventApplication({ user, onLogout }: VendorEventAp
                           <h3 className="font-semibold text-gray-800 mb-1">{size.name}</h3>
                           <p className="text-sm text-gray-500 mb-2">{size.dimensions}</p>
                           <p className="text-sm font-semibold text-purple-600">
-                            {pricingModel === 'fixed' ? `$${price}` : `Min: $${price}`}
+                            {pricingModel === 'fixed' ? `$${price}/day` : `Min: $${price}`}
                           </p>
                         </button>
                       );
@@ -353,17 +389,27 @@ export default function VendorEventApplication({ user, onLogout }: VendorEventAp
               )}
 
               {/* ── FIXED: price confirmation ── */}
-              {pricingModel === 'fixed' && selectedSize && confirmedPrice > 0 && (
+              {pricingModel === 'fixed' && selectedSize && pricePerDay > 0 && (
                 <div className="p-4 bg-blue-50 border border-blue-200 rounded-xl">
-                  <div className="flex items-center gap-2 mb-1">
+                  <div className="flex items-center gap-2 mb-2">
                     <DollarSign className="w-5 h-5 text-blue-600" />
-                    <p className="font-semibold text-blue-900">Rental Fee</p>
+                    <p className="font-semibold text-blue-900">Rental Fee Breakdown</p>
                   </div>
-                  <p className="text-3xl font-bold text-blue-700">${confirmedPrice}</p>
-                  <p className="text-sm text-blue-600 mt-1">
-                    This is the fixed rental fee for {categoryData?.name} · {sizeData?.name} ({sizeData?.dimensions}).
-                    You will be invoiced this amount within 48 hours of approval.
-                  </p>
+                  <div className="text-sm text-blue-700 space-y-1 mb-2">
+                    <div className="flex justify-between">
+                      <span>{categoryData?.name} · {sizeData?.name} ({sizeData?.dimensions})</span>
+                      <span className="font-medium">${pricePerDay}/day</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span>Duration</span>
+                      <span className="font-medium">{eventDays} day{eventDays !== 1 ? 's' : ''}</span>
+                    </div>
+                  </div>
+                  <div className="flex justify-between items-baseline border-t border-blue-200 pt-2">
+                    <span className="text-sm font-semibold text-blue-800">Total Rental Fee</span>
+                    <span className="text-2xl font-bold text-blue-700">${confirmedPrice}</span>
+                  </div>
+                  <p className="text-xs text-blue-500 mt-1">Invoiced within 48 hours of approval.</p>
                 </div>
               )}
 
@@ -425,33 +471,59 @@ export default function VendorEventApplication({ user, onLogout }: VendorEventAp
                 />
               </div>
 
-              {/* Document Upload */}
+              {/* Supporting Documents */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-gray-700 mb-1">
                   Supporting Documents
                 </label>
-                <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center">
-                  <Upload className="w-8 h-8 text-gray-400 mx-auto mb-2" />
-                  <p className="text-sm text-gray-600 mb-3">
-                    Upload certificates, licenses, and product photos
-                  </p>
-                  <button
-                    type="button"
-                    onClick={handleFileUpload}
-                    className="px-4 py-2 bg-purple-100 text-purple-700 rounded-lg hover:bg-purple-200 transition-colors"
-                  >
-                    Choose Files
-                  </button>
-                </div>
-                {uploadedDocs.length > 0 && (
-                  <div className="mt-3 space-y-2">
-                    {uploadedDocs.map((doc, idx) => (
-                      <div key={idx} className="flex items-center gap-2 text-sm text-gray-600">
-                        <FileText className="w-4 h-4 text-purple-500" />
-                        {doc}
+                <p className="text-xs text-gray-500 mb-3">
+                  Mark each document as uploaded. <span className="text-red-500 font-medium">Required</span> documents must be provided before submitting.
+                </p>
+                <div className="space-y-2">
+                  {[
+                    { key: 'businessLicence', label: 'Business Licence (ACRA)',        required: true  },
+                    { key: 'personalId',      label: 'Personal ID (NRIC / Passport)',  required: true  },
+                    ...(isFoodCategory
+                      ? [{ key: 'sfaLicense', label: 'SFA Food Stall License',         required: true  }]
+                      : []),
+                    { key: 'pastParticipation', label: 'Past Participation Proof',     required: false },
+                  ].map(({ key, label, required }) => {
+                    const uploaded = !!docs[key];
+                    return (
+                      <div
+                        key={key}
+                        className={`flex items-center justify-between p-3 rounded-lg border transition-colors ${
+                          uploaded ? 'bg-green-50 border-green-200' : 'bg-gray-50 border-gray-200'
+                        }`}
+                      >
+                        <div className="flex items-center gap-3 min-w-0">
+                          <FileText className={`w-4 h-4 shrink-0 ${uploaded ? 'text-green-500' : 'text-gray-400'}`} />
+                          <span className="text-sm text-gray-800 truncate">{label}</span>
+                          {required
+                            ? <span className="text-xs text-red-500 font-medium shrink-0">Required</span>
+                            : <span className="text-xs text-gray-400 shrink-0">Optional</span>}
+                        </div>
+                        <button
+                          type="button"
+                          onClick={() => toggleDoc(key)}
+                          className={`ml-3 shrink-0 flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-colors ${
+                            uploaded
+                              ? 'bg-green-100 text-green-700 hover:bg-green-200'
+                              : 'bg-purple-100 text-purple-700 hover:bg-purple-200'
+                          }`}
+                        >
+                          {uploaded ? (
+                            <><CheckCircle className="w-3.5 h-3.5" /> Uploaded</>
+                          ) : (
+                            <><Upload className="w-3.5 h-3.5" /> Upload</>
+                          )}
+                        </button>
                       </div>
-                    ))}
-                  </div>
+                    );
+                  })}
+                </div>
+                {!docsComplete && selectedCategory && (
+                  <p className="mt-2 text-xs text-red-500">Please upload all required documents to proceed.</p>
                 )}
               </div>
 
@@ -462,8 +534,12 @@ export default function VendorEventApplication({ user, onLogout }: VendorEventAp
                 className="w-full py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-lg hover:from-purple-700 hover:to-pink-700 transition-all shadow-lg hover:shadow-xl disabled:opacity-40 disabled:cursor-not-allowed"
               >
                 {pricingModel === 'fixed'
-                  ? canSubmit ? `Submit Application — $${confirmedPrice} rental fee` : 'Select stall category and size to continue'
-                  : canSubmit ? `Submit Bid — $${bidNum.toFixed(0)}` : 'Select stall and enter bid to continue'}
+                  ? canSubmit
+                    ? `Submit Application — $${pricePerDay}/day × ${eventDays} days = $${confirmedPrice}`
+                    : 'Select stall, upload required docs to continue'
+                  : canSubmit
+                    ? `Submit Bid — $${bidNum.toFixed(0)}`
+                    : 'Select stall, upload required docs and enter bid to continue'}
               </button>
             </form>
           </div>

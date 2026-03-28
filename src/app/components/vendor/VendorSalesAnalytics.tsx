@@ -149,7 +149,7 @@ export default function VendorSalesAnalytics({ user, onLogout }: VendorSalesAnal
             <TabsTrigger value="hourly">Peak Hours</TabsTrigger>
             <TabsTrigger value="trends">Trends</TabsTrigger>
             <TabsTrigger value="reviews">Reviews</TabsTrigger>
-            <TabsTrigger value="insights">Insights</TabsTrigger>
+            <TabsTrigger value="insights">Forecast</TabsTrigger>
           </TabsList>
 
           <TabsContent value="revenue" className="space-y-6">

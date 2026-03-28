@@ -239,6 +239,53 @@ export function getProductInStock(itemName: string): boolean {
   return p ? p.inStock : true;
 }
 
+// ── Event Compliance (SCDF / SFA / EMA) ──────────────────────────────────────
+
+export type PermitStatus = 'not_required' | 'pending' | 'submitted' | 'approved' | 'expired';
+
+export interface PermitRecord {
+  status: PermitStatus;
+  referenceNo?: string;
+  expiryDate?: string;
+  notes?: string;
+}
+
+export interface EventCompliance {
+  eventId: string;
+  scdf: PermitRecord;
+  sfa: PermitRecord;
+  ema: PermitRecord;
+  updatedAt: string;
+}
+
+const COMPLIANCE_KEY = 'bazaario_event_compliance';
+
+function getComplianceMap(): Record<string, EventCompliance> {
+  try { return JSON.parse(localStorage.getItem(COMPLIANCE_KEY) || '{}'); }
+  catch { return {}; }
+}
+
+export function hasEventCompliance(eventId: string): boolean {
+  return eventId in getComplianceMap();
+}
+
+export function getEventCompliance(eventId: string): EventCompliance {
+  const map = getComplianceMap();
+  return map[eventId] ?? {
+    eventId,
+    scdf: { status: 'pending' },
+    sfa:  { status: 'pending' },
+    ema:  { status: 'pending' },
+    updatedAt: new Date().toISOString(),
+  };
+}
+
+export function saveEventCompliance(record: EventCompliance): void {
+  const map = getComplianceMap();
+  map[record.eventId] = { ...record, updatedAt: new Date().toISOString() };
+  localStorage.setItem(COMPLIANCE_KEY, JSON.stringify(map));
+}
+
 // ── Orders ────────────────────────────────────────────────────────────────────
 
 const ORDERS_KEY = 'bazaario_orders';
