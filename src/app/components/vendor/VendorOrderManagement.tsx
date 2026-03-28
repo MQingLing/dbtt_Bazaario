@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import VendorNav from './VendorNav';
 import { User } from '../../App';
-import { ORDERS } from '../../data/mockData';
+import type { Order } from '../../data/mockData';
+import { getOrders, advanceOrderStatus } from '../../services/dataStore';
 import { Card, CardContent } from '../shared/card';
 import { Badge } from '../shared/badge';
 import { Button } from '../shared/button';
@@ -16,8 +17,12 @@ interface VendorOrderManagementProps {
 
 export default function VendorOrderManagement({ user, onLogout }: VendorOrderManagementProps) {
   const [searchQuery, setSearchQuery] = useState('');
+  const [orders, setOrders] = useState<Order[]>(() => getOrders());
 
-  const orders = ORDERS;
+  const handleAdvance = (id: string) => {
+    advanceOrderStatus(id);
+    setOrders(getOrders());
+  };
 
   const getStatusConfig = (status: string) => {
     switch (status) {
@@ -36,10 +41,14 @@ export default function VendorOrderManagement({ user, onLogout }: VendorOrderMan
     }
   };
 
-  const filteredOrders = orders.filter(order =>
-    order.id.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    order.customer.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  const STATUS_RANK: Record<string, number> = { pending: 0, preparing: 1, ready: 2, completed: 3, cancelled: 4 };
+
+  const filteredOrders = [...orders]
+    .sort((a, b) => (STATUS_RANK[a.status] ?? 5) - (STATUS_RANK[b.status] ?? 5))
+    .filter(order =>
+      order.id.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      order.customer.toLowerCase().includes(searchQuery.toLowerCase())
+    );
 
   const getOrdersByStatus = (status: string) => {
     if (status === 'all') return filteredOrders;
@@ -136,7 +145,7 @@ export default function VendorOrderManagement({ user, onLogout }: VendorOrderMan
                         <div className="flex md:flex-col gap-2">
                           {order.status === 'pending' && (
                             <>
-                              <Button className="flex-1 md:flex-none bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600">
+                              <Button className="flex-1 md:flex-none bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600" onClick={() => handleAdvance(order.id)}>
                                 Accept Order
                               </Button>
                               <Button variant="outline" className="flex-1 md:flex-none">
@@ -145,13 +154,13 @@ export default function VendorOrderManagement({ user, onLogout }: VendorOrderMan
                             </>
                           )}
                           {order.status === 'preparing' && (
-                            <Button className="flex-1 md:flex-none bg-green-600 hover:bg-green-700">
+                            <Button className="flex-1 md:flex-none bg-green-600 hover:bg-green-700" onClick={() => handleAdvance(order.id)}>
                               <CheckCircle2 className="w-4 h-4 mr-2" />
                               Mark Ready
                             </Button>
                           )}
                           {order.status === 'ready' && (
-                            <Button className="flex-1 md:flex-none bg-blue-600 hover:bg-blue-700">
+                            <Button className="flex-1 md:flex-none bg-blue-600 hover:bg-blue-700" onClick={() => handleAdvance(order.id)}>
                               Complete Order
                             </Button>
                           )}

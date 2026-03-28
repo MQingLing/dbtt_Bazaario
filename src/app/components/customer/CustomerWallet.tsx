@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { getTransactions } from '../../services/dataStore';
 import { Link } from 'react-router';
 import CustomerNav from './CustomerNav';
 import { User } from '../../App';
@@ -30,14 +31,7 @@ export default function CustomerWallet({ user, onLogout, onUserUpdate }: Custome
   const resolvedAmount = selectedAmount ?? (customAmount ? parseFloat(customAmount) : null);
   const canConfirm = resolvedAmount !== null && resolvedAmount > 0 && paymentMethod !== null;
 
-  const transactions = [
-    { id: '1', type: 'spent', vendor: "Wong's Satay",      amount: 15.00, date: 'Mar 5, 2026', time: '7:30 PM', status: 'completed' },
-    { id: '2', type: 'topup', vendor: 'Credit Card',        amount: 50.00, date: 'Mar 5, 2026', time: '6:00 PM', status: 'completed' },
-    { id: '3', type: 'spent', vendor: 'Bubble Tea Paradise', amount: 8.50, date: 'Mar 4, 2026', time: '8:15 PM', status: 'completed' },
-    { id: '4', type: 'spent', vendor: 'Golden Snacks',      amount: 12.00, date: 'Mar 4, 2026', time: '7:45 PM', status: 'completed' },
-    { id: '5', type: 'topup', vendor: 'PayNow',             amount: 100.00, date: 'Mar 3, 2026', time: '5:00 PM', status: 'completed' },
-    { id: '6', type: 'spent', vendor: 'Artisan Crafts',     amount: 35.00, date: 'Mar 3, 2026', time: '8:30 PM', status: 'completed' },
-  ];
+  const transactions = getTransactions(user.id);
 
   const now = new Date();
   const spentTxns = transactions.filter(t => t.type === 'spent');
@@ -235,6 +229,7 @@ export default function CustomerWallet({ user, onLogout, onUserUpdate }: Custome
                           <div>
                             <p className="font-medium">{transaction.vendor}</p>
                             <p className="text-sm text-gray-500">{transaction.date} • {transaction.time}</p>
+                            <span className="inline-block mt-0.5 text-xs px-1.5 py-0.5 rounded bg-gray-200 text-gray-600">{transaction.paymentMethod}</span>
                           </div>
                         </div>
                         <div className="text-right">
@@ -261,6 +256,7 @@ export default function CustomerWallet({ user, onLogout, onUserUpdate }: Custome
                           <div>
                             <p className="font-medium">{transaction.vendor}</p>
                             <p className="text-sm text-gray-500">{transaction.date} • {transaction.time}</p>
+                            <span className="inline-block mt-0.5 text-xs px-1.5 py-0.5 rounded bg-gray-200 text-gray-600">{transaction.paymentMethod}</span>
                           </div>
                         </div>
                         <p className="font-bold">-${transaction.amount.toFixed(2)}</p>
@@ -278,6 +274,7 @@ export default function CustomerWallet({ user, onLogout, onUserUpdate }: Custome
                           <div>
                             <p className="font-medium">{transaction.vendor}</p>
                             <p className="text-sm text-gray-500">{transaction.date} • {transaction.time}</p>
+                            <span className="inline-block mt-0.5 text-xs px-1.5 py-0.5 rounded bg-gray-200 text-gray-600">{transaction.paymentMethod}</span>
                           </div>
                         </div>
                         <p className="font-bold text-green-600">+${transaction.amount.toFixed(2)}</p>

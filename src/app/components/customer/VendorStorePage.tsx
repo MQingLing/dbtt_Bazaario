@@ -7,6 +7,7 @@ import { Badge } from '../shared/badge';
 import { Button } from '../shared/button';
 import { Input } from '../shared/input';
 import { getEventVendors, Vendor, VendorItem } from '../../data/vendors';
+import { getProductInStock } from '../../services/dataStore';
 import { pasarMalamEvents, getEventStatus } from '../../data/pasarMalamData';
 import {
   ArrowLeft, Star, MapPin, Clock, ShoppingCart, Plus, Minus,
@@ -24,7 +25,9 @@ function hashStr(s: string): number {
   for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 0x01000193) >>> 0; }
   return h;
 }
+const PINNED_VENDOR_IDS = new Set(['9-v0']);
 function isOutOfStock(vendorId: string, itemName: string): boolean {
+  if (PINNED_VENDOR_IDS.has(vendorId)) return !getProductInStock(itemName);
   return (hashStr(vendorId + itemName) % 7) === 0;
 }
 

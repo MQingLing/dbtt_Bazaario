@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import VendorNav from './VendorNav';
 import { User } from '../../App';
-import { PRODUCTS } from '../../data/mockData';
+import type { Product } from '../../data/mockData';
+import { getProducts, saveProducts } from '../../services/dataStore';
 import { Card, CardContent } from '../shared/card';
 import { Badge } from '../shared/badge';
 import { Button } from '../shared/button';
@@ -18,13 +19,18 @@ interface VendorProductManagementProps {
 }
 
 export default function VendorProductManagement({ user, onLogout }: VendorProductManagementProps) {
-  const [products, setProducts] = useState(PRODUCTS.map(p => ({ ...p })));
+  const [products, setProducts] = useState<Product[]>(() => getProducts());
 
-  const [editingProduct, setEditingProduct] = useState<any>(null);
+  const [editingProduct, setEditingProduct] = useState<Product | null>(null);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
 
+  const updateProducts = (next: Product[]) => {
+    setProducts(next);
+    saveProducts(next);
+  };
+
   const toggleStock = (id: string) => {
-    setProducts(products.map(p => p.id === id ? { ...p, inStock: !p.inStock } : p));
+    updateProducts(products.map(p => p.id === id ? { ...p, inStock: !p.inStock } : p));
   };
 
   const handleEdit = (product: any) => {
@@ -46,10 +52,11 @@ export default function VendorProductManagement({ user, onLogout }: VendorProduc
   };
 
   const handleSave = () => {
+    if (!editingProduct) return;
     if (editingProduct.id) {
-      setProducts(products.map(p => p.id === editingProduct.id ? editingProduct : p));
+      updateProducts(products.map(p => p.id === editingProduct.id ? editingProduct : p));
     } else {
-      setProducts([...products, { ...editingProduct, id: Date.now().toString() }]);
+      updateProducts([...products, { ...editingProduct, id: Date.now().toString() }]);
     }
     setIsDialogOpen(false);
     setEditingProduct(null);
@@ -57,7 +64,7 @@ export default function VendorProductManagement({ user, onLogout }: VendorProduc
 
   const handleDelete = (id: string) => {
     if (confirm('Are you sure you want to delete this product?')) {
-      setProducts(products.filter(p => p.id !== id));
+      updateProducts(products.filter(p => p.id !== id));
     }
   };
 

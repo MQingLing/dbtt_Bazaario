@@ -267,6 +267,29 @@ function stallLabel(rng: () => number, index: number): string {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
+// Pinned real vendors — injected into specific events
+// ─────────────────────────────────────────────────────────────────────────────
+const PINNED_VENDORS: Record<string, Vendor[]> = {
+  '9': [
+    {
+      id: '9-v0',
+      name: 'The Satay Corner',
+      category: 'Hot Food',
+      stall: 'A01',
+      rating: 4.8,
+      items: [
+        { name: 'Chicken Satay (10 sticks)', price: 8.00, description: 'Tender marinated chicken skewers grilled to perfection with our secret spice blend' },
+        { name: 'Beef Satay (10 sticks)',    price: 10.00, description: 'Premium beef marinated in aromatic spices, slow-grilled over charcoal' },
+        { name: 'Lamb Satay (10 sticks)',    price: 12.00, description: 'Succulent lamb with traditional Malay spices and a smoky finish' },
+        { name: 'Mixed Satay Platter (30 sticks)', price: 25.00, description: 'Assorted chicken, beef, and lamb satay served with peanut sauce, ketupat, and cucumber' },
+        { name: 'Satay Sauce (Extra)',       price: 2.00,  description: 'Our famous homemade peanut sauce — thick, rich, and perfectly spiced' },
+        { name: 'Ketupat (Rice Cakes)',      price: 3.00,  description: 'Traditional compressed rice cakes woven in coconut leaf, perfect with satay' },
+      ],
+    },
+  ],
+};
+
+// ─────────────────────────────────────────────────────────────────────────────
 // getEventVendors — deterministic from eventId
 // ─────────────────────────────────────────────────────────────────────────────
 export function getEventVendors(eventId: string): Vendor[] {
@@ -308,7 +331,18 @@ export function getEventVendors(eventId: string): Vendor[] {
     });
   }
 
-  return vendors;
+  const pinned = PINNED_VENDORS[eventId];
+  if (!pinned?.length) return vendors;
+
+  // Replace the first vendor whose category matches the pinned vendor's category
+  let injected = false;
+  return vendors.map(v => {
+    if (!injected && pinned.some(p => p.category === v.category)) {
+      injected = true;
+      return pinned[0];
+    }
+    return v;
+  });
 }
 
 function getItemPool(category: VendorCategory): VendorItem[] {

@@ -4,9 +4,9 @@
  * Seeded from mockData on first load; subsequent reads/writes go to localStorage.
  */
 
-import { APPLICATIONS, VendorApplication, ApplicationStatus } from '../data/mockData';
+import { APPLICATIONS, VendorApplication, ApplicationStatus, ORDERS, Order, OrderStatus, PRODUCTS, Product } from '../data/mockData';
 
-const APPLICATIONS_KEY = 'bazaario_applications';
+const APPLICATIONS_KEY = 'bazaario_applications_v2';
 
 // ── Seed ─────────────────────────────────────────────────────────────────────
 
@@ -180,4 +180,93 @@ export function doCheckIn(userId: string): CheckInRecord {
   const record: CheckInRecord = { lastDate: today, streak };
   localStorage.setItem(checkInKey(userId), JSON.stringify(record));
   return record;
+}
+
+// ── Transactions ──────────────────────────────────────────────────────────────
+
+export interface Transaction {
+  id: string;
+  type: 'spent' | 'topup';
+  vendor: string;
+  amount: number;
+  date: string;   // e.g. "Mar 5, 2026"
+  time: string;   // e.g. "7:30 PM"
+  status: 'completed';
+  paymentMethod: string;
+}
+
+function txKey(userId: string) { return `bazaario_transactions_${userId}`; }
+
+const SEED_TRANSACTIONS: Transaction[] = [
+  { id: '1', type: 'spent', vendor: "Wong's Satay",       amount: 15.00,  date: 'Mar 5, 2026', time: '7:30 PM', status: 'completed', paymentMethod: 'Wallet' },
+  { id: '2', type: 'topup', vendor: 'Credit Card',         amount: 50.00,  date: 'Mar 5, 2026', time: '6:00 PM', status: 'completed', paymentMethod: 'Credit / Debit Card' },
+  { id: '3', type: 'spent', vendor: 'Bubble Tea Paradise', amount: 8.50,   date: 'Mar 4, 2026', time: '8:15 PM', status: 'completed', paymentMethod: 'Cash' },
+  { id: '4', type: 'spent', vendor: 'Golden Snacks',       amount: 12.00,  date: 'Mar 4, 2026', time: '7:45 PM', status: 'completed', paymentMethod: 'Wallet' },
+  { id: '5', type: 'topup', vendor: 'PayNow',              amount: 100.00, date: 'Mar 3, 2026', time: '5:00 PM', status: 'completed', paymentMethod: 'PayNow' },
+  { id: '6', type: 'spent', vendor: 'Artisan Crafts',      amount: 35.00,  date: 'Mar 3, 2026', time: '8:30 PM', status: 'completed', paymentMethod: 'Wallet' },
+];
+
+export function getTransactions(userId: string): Transaction[] {
+  try {
+    const stored = localStorage.getItem(txKey(userId));
+    return stored ? JSON.parse(stored) : [...SEED_TRANSACTIONS];
+  } catch { return [...SEED_TRANSACTIONS]; }
+}
+
+export function addTransaction(userId: string, tx: Omit<Transaction, 'id'>): void {
+  const all = getTransactions(userId);
+  const newTx: Transaction = { ...tx, id: Date.now().toString() };
+  localStorage.setItem(txKey(userId), JSON.stringify([newTx, ...all]));
+}
+
+// ── Products ──────────────────────────────────────────────────────────────────
+
+const PRODUCTS_KEY = 'bazaario_products_vendor001';
+
+export function getProducts(): Product[] {
+  try {
+    const stored = localStorage.getItem(PRODUCTS_KEY);
+    return stored ? JSON.parse(stored) : PRODUCTS;
+  } catch { return [...PRODUCTS]; }
+}
+
+export function saveProducts(products: Product[]): void {
+  localStorage.setItem(PRODUCTS_KEY, JSON.stringify(products));
+}
+
+export function getProductInStock(itemName: string): boolean {
+  const p = getProducts().find(p => p.name === itemName);
+  return p ? p.inStock : true;
+}
+
+// ── Orders ────────────────────────────────────────────────────────────────────
+
+const ORDERS_KEY = 'bazaario_orders';
+
+function seedOrders() {
+  if (!localStorage.getItem(ORDERS_KEY)) {
+    localStorage.setItem(ORDERS_KEY, JSON.stringify(ORDERS));
+  }
+}
+
+export function getOrders(): Order[] {
+  seedOrders();
+  try { return JSON.parse(localStorage.getItem(ORDERS_KEY)!); }
+  catch { return []; }
+}
+
+export function addOrder(order: Order): void {
+  const orders = getOrders();
+  localStorage.setItem(ORDERS_KEY, JSON.stringify([order, ...orders]));
+}
+
+export function advanceOrderStatus(id: string): void {
+  const next: Record<string, OrderStatus> = {
+    pending: 'preparing',
+    preparing: 'ready',
+    ready: 'completed',
+  };
+  const orders = getOrders();
+  const updated = orders.map(o => next[o.status] ? (o.id === id ? { ...o, status: next[o.status] } : o) : o);
+  localStorage.setItem(ORDERS_KEY, JSON.stringify(updated));
 }

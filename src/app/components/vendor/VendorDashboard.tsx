@@ -1,7 +1,10 @@
+import { useState } from 'react';
 import { Link } from 'react-router';
 import VendorNav from './VendorNav';
 import { User } from '../../App';
-import { VENDOR_STATS, ORDERS } from '../../data/mockData';
+import { VENDOR_STATS } from '../../data/mockData';
+import { getOrders, advanceOrderStatus } from '../../services/dataStore';
+import type { Order } from '../../data/mockData';
 import { Card, CardContent } from '../shared/card';
 import { Badge } from '../shared/badge';
 import { Button } from '../shared/button';
@@ -25,13 +28,25 @@ export default function VendorDashboard({ user, onLogout }: VendorDashboardProps
   const tier = user.vendorTier ?? 'starter';
   const tierInfo = TIER_INFO[tier];
 
-  const recentOrders = ORDERS.map(o => ({
+  const [orders, setOrders] = useState<Order[]>(() => getOrders());
+
+  const handleAdvance = (id: string) => {
+    advanceOrderStatus(id);
+    setOrders(getOrders());
+  };
+
+  const STATUS_RANK: Record<string, number> = { pending: 0, preparing: 1, ready: 2, completed: 3, cancelled: 4 };
+
+  const recentOrders = [...orders]
+    .sort((a, b) => (STATUS_RANK[a.status] ?? 5) - (STATUS_RANK[b.status] ?? 5))
+    .slice(0, 6)
+    .map(o => ({
     id: o.id,
     customer: o.customer,
     items: o.items.map(i => `${i.qty}x ${i.name}`).join(', '),
     amount: o.total,
     time: o.time,
-    status: o.status
+    status: o.status,
   }));
 
   const popularItems = [
@@ -186,18 +201,18 @@ export default function VendorDashboard({ user, onLogout }: VendorDashboardProps
                       {order.status !== 'completed' && (
                         <div className="flex gap-2 mt-3">
                           {order.status === 'pending' && (
-                            <Button size="sm" className="flex-1 bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600">
+                            <Button size="sm" className="flex-1 bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600" onClick={() => handleAdvance(order.id)}>
                               Accept Order
                             </Button>
                           )}
                           {order.status === 'preparing' && (
-                            <Button size="sm" className="flex-1 bg-green-600 hover:bg-green-700">
+                            <Button size="sm" className="flex-1 bg-green-600 hover:bg-green-700" onClick={() => handleAdvance(order.id)}>
                               <CheckCircle2 className="w-4 h-4 mr-1" />
                               Mark Ready
                             </Button>
                           )}
                           {order.status === 'ready' && (
-                            <Button size="sm" className="flex-1 bg-blue-600 hover:bg-blue-700">
+                            <Button size="sm" className="flex-1 bg-blue-600 hover:bg-blue-700" onClick={() => handleAdvance(order.id)}>
                               Complete Order
                             </Button>
                           )}

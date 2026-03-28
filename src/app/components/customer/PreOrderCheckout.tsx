@@ -14,7 +14,7 @@ import {
   CheckCircle2, Star, Banknote, ArrowLeft, Calendar, Ticket,
 } from 'lucide-react';
 import { updateUser } from '../../services/authStore';
-import { getActiveVouchers, markVoucherUsed, Voucher } from '../../services/dataStore';
+import { getActiveVouchers, markVoucherUsed, Voucher, addOrder, addTransaction } from '../../services/dataStore';
 import paynowLogo from '../../../assets/paynow_logo.png';
 
 interface PreOrderCheckoutProps {
@@ -132,11 +132,11 @@ export default function PreOrderCheckout({ user, onLogout, onUserUpdate }: PreOr
   const discount    = selectedVoucher ? selectedVoucher.discount : 0;
   const isCash      = paymentMethod === 'cash';
 
-  // For cash: no platform fee to customer — round to nearest $0.10
-  const digitalTotal   = parseFloat((subtotal + platformFee - discount).toFixed(2));
-  const cashPreRound   = parseFloat((subtotal - discount).toFixed(2));
-  const cashTotal      = Math.round(cashPreRound * 10) / 10;
-  const cashRounding   = parseFloat((cashTotal - cashPreRound).toFixed(2));
+  // Platform fee applies to all payment methods (including on-site cash)
+  const beforeRound    = parseFloat((subtotal + platformFee - discount).toFixed(2));
+  const digitalTotal   = beforeRound;
+  // Cash: always round UP to nearest $0.10
+  const cashTotal      = Math.ceil(beforeRound * 10) / 10;
   const total          = isCash ? cashTotal : digitalTotal;
 
   const walletBalance     = user.walletBalance ?? 0;
@@ -155,6 +155,38 @@ export default function PreOrderCheckout({ user, onLogout, onUserUpdate }: PreOr
     if (stored) onUserUpdate({ ...user, walletBalance: stored.walletBalance, loyaltyStamps: stored.loyaltyStamps });
 
     if (selectedVoucher) markVoucherUsed(user.id, selectedVoucher.id);
+
+    // Record transaction in wallet history
+    const methodLabel: Record<string, string> = {
+      wallet: 'Wallet', cash: 'Cash', paynow: 'PayNow', card: 'Credit / Debit Card',
+    };
+    const now = new Date();
+    addTransaction(user.id, {
+      type: 'spent',
+      vendor: payload?.vendorName ?? 'Vendor',
+      amount: total,
+      date: now.toLocaleDateString('en-SG', { day: 'numeric', month: 'short', year: 'numeric' }),
+      time: now.toLocaleTimeString('en-SG', { hour: 'numeric', minute: '2-digit', hour12: true }),
+      status: 'completed',
+      paymentMethod: methodLabel[paymentMethod] ?? paymentMethod,
+    });
+
+    // Push order into vendor portal when ordering from a linked vendor
+    if (payload?.vendorId === '9-v0') {
+      const orderId = `#${Date.now().toString().slice(-4)}`;
+      addOrder({
+        id: orderId,
+        customer: user.name,
+        customerId: user.id,
+        phone: '',
+        items: cartItems.map(i => ({ name: i.name, qty: i.qty, price: i.price })),
+        total,
+        time: 'Just now',
+        status: 'pending',
+        pickupTime: pickupTime ?? '',
+      });
+    }
+
     if (payload) localStorage.removeItem(`bazaario_cart_${payload.vendorId}`);
     localStorage.removeItem('bazaario_checkout_cart');
     setStampsEarned(newStamps);
@@ -510,37 +542,15 @@ export default function PreOrderCheckout({ user, onLogout, onUserUpdate }: PreOr
                     <span className="text-gray-600">Subtotal</span>
                     <span className="font-medium">${subtotal.toFixed(2)}</span>
                   </div>
-                  {isCash ? (
-                    <>
-                      {selectedVoucher && (
-                        <div className="flex justify-between text-sm text-green-600">
-                          <span>Voucher ({selectedVoucher.name})</span>
-                          <span className="font-medium">-${discount.toFixed(2)}</span>
-                        </div>
-                      )}
-                      {cashRounding !== 0 && (
-                        <div className="flex justify-between text-sm text-gray-500">
-                          <span>Rounding adjustment</span>
-                          <span className="font-medium">{cashRounding > 0 ? '+' : ''}${cashRounding.toFixed(2)}</span>
-                        </div>
-                      )}
-                      <div className="p-2 bg-amber-50 border border-amber-200 rounded text-xs text-amber-700">
-                        Platform fee (${platformFee.toFixed(2)}) is deducted from the vendor's deposit — not charged to you.
-                      </div>
-                    </>
-                  ) : (
-                    <>
-                      <div className="flex justify-between text-sm">
-                        <span className="text-gray-600">Platform Fee (1%)</span>
-                        <span className="font-medium">${platformFee.toFixed(2)}</span>
-                      </div>
-                      {selectedVoucher && (
-                        <div className="flex justify-between text-sm text-green-600">
-                          <span>Voucher ({selectedVoucher.name})</span>
-                          <span className="font-medium">-${discount.toFixed(2)}</span>
-                        </div>
-                      )}
-                    </>
+                  <div className="flex justify-between text-sm">
+                    <span className="text-gray-600">Platform Fee (1%)</span>
+                    <span className="font-medium">${platformFee.toFixed(2)}</span>
+                  </div>
+                  {selectedVoucher && (
+                    <div className="flex justify-between text-sm text-green-600">
+                      <span>Voucher ({selectedVoucher.name})</span>
+                      <span className="font-medium">-${discount.toFixed(2)}</span>
+                    </div>
                   )}
                   <Separator />
                   <div className="flex justify-between text-lg font-bold">
