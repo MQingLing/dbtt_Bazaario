@@ -499,7 +499,7 @@ export default function VendorSalesAnalytics({ user, onLogout }: VendorSalesAnal
                   </BarChart>
                 </ResponsiveContainer>
                 <div className="mt-4 p-3 bg-orange-50 rounded-lg text-sm text-orange-800">
-                  This forecast is <strong>{Math.round(mlResults.revenueForecast.r2Score * 100)}% accurate</strong> based on your past sales patterns. Predictions may vary by ~${mlResults.revenueForecast.mae} per day. Weekends consistently show higher revenue.
+                  Based on your past sales patterns. <strong>Weekends consistently show higher revenue.</strong> Consider preparing extra stock for Friday to Sunday.
                 </div>
               </CardContent>
             </Card>
@@ -545,8 +545,8 @@ export default function VendorSalesAnalytics({ user, onLogout }: VendorSalesAnal
                     </div>
                     <div className="p-4 bg-green-50 rounded-lg">
                       <p className="text-sm text-green-800 mb-1">Revenue Forecast</p>
-                      <p className="text-2xl font-bold text-green-900">{Math.round(mlResults.revenueForecast.r2Score * 100)}% reliable</p>
-                      <p className="text-xs text-green-700 mt-1">Our daily revenue predictions are typically within ${mlResults.revenueForecast.mae} of your actual earnings</p>
+                      <p className="text-2xl font-bold text-green-900">Fri-Sun highest</p>
+                      <p className="text-xs text-green-700 mt-1">Weekends consistently earn more. Plan your stock and staffing accordingly.</p>
                     </div>
                     <div className="p-4 bg-purple-50 rounded-lg">
                       <p className="text-sm text-purple-800 mb-1">Review Analysis</p>

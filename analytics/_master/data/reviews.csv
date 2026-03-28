@@ -1,801 +1,801 @@
 review_id,customer_id,vendor_name,rating,content,sentiment
-1,C0291,Fun Zone,1,The chendol was stale and the service was slow.,NEGATIVE
-2,C0196,Mala Majik,5,Brought my whole family and everyone enjoyed the curry puff. Highly recommend!,POSITIVE
-3,C0411,Snack Attack,5,Brought my whole family and everyone enjoyed the ice kacang. Highly recommend!,POSITIVE
-4,C0204,Abang Burger,2,Disappointed with the bubble tea. Long wait and cold food.,NEGATIVE
-5,C0073,Coconut Grove,5,Love the atmosphere and the satay was delicious!,POSITIVE
-6,C0206,Cheese Me,2,Not worth the queue. The mee goreng didn't taste fresh at all.,NEGATIVE
-7,C0494,Ice Ice Baby,1,Worst nasi goreng I have ever tried. Complete waste of money.,NEGATIVE
-8,C0362,Abang Burger,4,Incredible quality at such affordable prices. The goreng pisang was outstanding.,POSITIVE
-9,C0270,Coconut Grove,5,The vendor was so friendly and the chendol was fresh and tasty.,POSITIVE
-10,C0104,Seoul Kitchen,4,The vendor was so friendly and the goreng pisang was fresh and tasty.,POSITIVE
-11,C0056,Tornado Bites,2,Worst teh tarik I have ever tried. Complete waste of money.,NEGATIVE
-12,C0017,Kueh Corner,2,Disappointed with the nasi goreng. Long wait and cold food.,NEGATIVE
-13,C0339,Seoul Kitchen,5,Incredible quality at such affordable prices. The bubble tea was outstanding.,POSITIVE
-14,C0319,Street Fusion,2,Not worth the queue. The nasi goreng didn't taste fresh at all.,NEGATIVE
-15,C0222,Lucky Strike,4,This is my go-to stall every time. Never disappoints with their goreng pisang.,POSITIVE
-16,C0205,Abang Burger,5,Great value for money. Will definitely come back for more nasi goreng.,POSITIVE
-17,C0249,Munchies Corner,4,Great value for money. Will definitely come back for more bubble tea.,POSITIVE
-18,C0141,Casa Living,4,This is my go-to stall every time. Never disappoints with their bubble tea.,POSITIVE
-19,C0279,Kueh Corner,5,Perfect night out. The ice kacang here is a must-try!,POSITIVE
-20,C0243,Munchies Corner,1,Overpriced corn dog for the quality. Would not return.,NEGATIVE
-21,C0105,Abang Burger,1,Terrible experience. The chendol was undercooked and tasteless.,NEGATIVE
-22,C0105,Cheese Me,2,Overpriced roti john for the quality. Would not return.,NEGATIVE
-23,C0070,Street Fusion,1,Overpriced teh tarik for the quality. Would not return.,NEGATIVE
-24,C0267,Sweet Spot,1,Terrible experience. The roti john was undercooked and tasteless.,NEGATIVE
-25,C0489,Fun Zone,5,Amazing food! Best goreng pisang I've had at a pasar malam.,POSITIVE
-26,C0445,Sweet Spot,2,Overpriced takoyaki for the quality. Would not return.,NEGATIVE
-27,C0274,Wok This Way,1,Overpriced satay for the quality. Would not return.,NEGATIVE
-28,C0068,K-Food Craze,5,Great value for money. Will definitely come back for more teh tarik.,POSITIVE
-29,C0220,Kopi Kaki,2,Disappointed with the chendol. Long wait and cold food.,NEGATIVE
-30,C0229,Kueh Corner,1,Terrible experience. The takoyaki was undercooked and tasteless.,NEGATIVE
-31,C0197,Win It Stall,1,Worst murtabak I have ever tried. Complete waste of money.,NEGATIVE
-32,C0075,Win It Stall,5,Great value for money. Will definitely come back for more goreng pisang.,POSITIVE
-33,C0062,Boba World,2,The chendol was stale and the service was slow.,NEGATIVE
-34,C0129,Crunch Time,2,The satay was stale and the service was slow.,NEGATIVE
-35,C0068,Everyday Essentials,2,Disappointed with the corn dog. Long wait and cold food.,NEGATIVE
-36,C0397,Crunch Time,4,Love the atmosphere and the curry puff was delicious!,POSITIVE
-37,C0469,Nasi Lemak Bros,5,Incredible quality at such affordable prices. The ice kacang was outstanding.,POSITIVE
-38,C0393,Munchies Corner,4,This is my go-to stall every time. Never disappoints with their corn dog.,POSITIVE
-39,C0066,Tornado Bites,1,Terrible experience. The curry puff was undercooked and tasteless.,NEGATIVE
-40,C0371,Coconut Grove,2,Disappointed with the nasi goreng. Long wait and cold food.,NEGATIVE
-41,C0299,Kampung Wok,2,Not worth the queue. The corn dog didn't taste fresh at all.,NEGATIVE
-42,C0366,Win It Stall,5,Perfect night out. The corn dog here is a must-try!,POSITIVE
-43,C0175,Sweet Spot,5,Great value for money. Will definitely come back for more goreng pisang.,POSITIVE
-44,C0500,K-Food Craze,4,Amazing food! Best curry puff I've had at a pasar malam.,POSITIVE
-45,C0398,Durian Heaven,1,Not worth the queue. The goreng pisang didn't taste fresh at all.,NEGATIVE
-46,C0284,Nasi Lemak Bros,4,Great value for money. Will definitely come back for more ice kacang.,POSITIVE
-47,C0020,Everyday Essentials,5,Perfect night out. The teh tarik here is a must-try!,POSITIVE
-48,C0156,Everyday Essentials,4,Incredible quality at such affordable prices. The nasi goreng was outstanding.,POSITIVE
-49,C0072,K-Food Craze,4,Love the atmosphere and the takoyaki was delicious!,POSITIVE
-50,C0478,Abang Burger,5,This is my go-to stall every time. Never disappoints with their laksa.,POSITIVE
-51,C0036,Snack Attack,1,Overpriced mee goreng for the quality. Would not return.,NEGATIVE
-52,C0461,Crunch Time,5,This is my go-to stall every time. Never disappoints with their roti john.,POSITIVE
-53,C0435,Crunch Time,2,Not worth the queue. The corn dog didn't taste fresh at all.,NEGATIVE
-54,C0266,Ice Ice Baby,4,This is my go-to stall every time. Never disappoints with their satay.,POSITIVE
-55,C0316,Ali's Kitchen,5,Brought my whole family and everyone enjoyed the curry puff. Highly recommend!,POSITIVE
-56,C0327,Street Fusion,5,Perfect night out. The nasi goreng here is a must-try!,POSITIVE
-57,C0479,Kampung Wok,4,Perfect night out. The corn dog here is a must-try!,POSITIVE
-58,C0317,Game On!,1,The ice kacang was stale and the service was slow.,NEGATIVE
-59,C0324,Win It Stall,5,Great value for money. Will definitely come back for more ice kacang.,POSITIVE
-60,C0002,Ali's Kitchen,4,Brought my whole family and everyone enjoyed the satay. Highly recommend!,POSITIVE
-61,C0025,Munchies Corner,4,Incredible quality at such affordable prices. The ice kacang was outstanding.,POSITIVE
-62,C0160,Game On!,5,Brought my whole family and everyone enjoyed the ice kacang. Highly recommend!,POSITIVE
-63,C0057,Mak Cik Stall,2,Overpriced ice kacang for the quality. Would not return.,NEGATIVE
-64,C0223,K-Food Craze,5,This is my go-to stall every time. Never disappoints with their satay.,POSITIVE
-65,C0084,Seoul Kitchen,5,Great value for money. Will definitely come back for more mee goreng.,POSITIVE
-66,C0242,Crunch Time,4,The vendor was so friendly and the curry puff was fresh and tasty.,POSITIVE
-67,C0003,Munchies Corner,1,The nasi goreng was stale and the service was slow.,NEGATIVE
-68,C0298,Sweet Spot,1,Worst corn dog I have ever tried. Complete waste of money.,NEGATIVE
-69,C0029,Lucky Strike,4,Great value for money. Will definitely come back for more satay.,POSITIVE
-70,C0075,Munchies Corner,2,Disappointed with the teh tarik. Long wait and cold food.,NEGATIVE
-71,C0078,Munchies Corner,2,Disappointed with the nasi goreng. Long wait and cold food.,NEGATIVE
-72,C0456,Nasi Lemak Bros,5,Brought my whole family and everyone enjoyed the roti john. Highly recommend!,POSITIVE
-73,C0201,Coconut Grove,1,Disappointed with the roti john. Long wait and cold food.,NEGATIVE
-74,C0101,Seoul Kitchen,5,Great value for money. Will definitely come back for more bubble tea.,POSITIVE
-75,C0356,Durian Heaven,1,Not worth the queue. The ice kacang didn't taste fresh at all.,NEGATIVE
-76,C0032,Boba World,5,Great value for money. Will definitely come back for more takoyaki.,POSITIVE
-77,C0186,Jelly Bliss,4,Perfect night out. The corn dog here is a must-try!,POSITIVE
-78,C0492,Crunch Time,5,Brought my whole family and everyone enjoyed the ice kacang. Highly recommend!,POSITIVE
-79,C0340,Munchies Corner,1,The murtabak was stale and the service was slow.,NEGATIVE
-80,C0498,Tornado Bites,1,The mee goreng was stale and the service was slow.,NEGATIVE
-81,C0482,Kampung Wok,4,Love the atmosphere and the takoyaki was delicious!,POSITIVE
-82,C0463,Dessert Alley,4,Great value for money. Will definitely come back for more corn dog.,POSITIVE
-83,C0174,The Satay Corner,4,Great value for money. Will definitely come back for more laksa.,POSITIVE
-84,C0353,Casa Living,1,Terrible experience. The satay was undercooked and tasteless.,NEGATIVE
-85,C0015,The Linen Store,1,The nasi goreng was stale and the service was slow.,NEGATIVE
-86,C0067,Crunch Time,1,Disappointed with the goreng pisang. Long wait and cold food.,NEGATIVE
-87,C0073,Uncle Razali Grill,2,Disappointed with the ice kacang. Long wait and cold food.,NEGATIVE
-88,C0046,Tornado Bites,5,Perfect night out. The ice kacang here is a must-try!,POSITIVE
-89,C0339,Kueh Corner,4,Love the atmosphere and the mee goreng was delicious!,POSITIVE
-90,C0018,Crunch Time,5,The vendor was so friendly and the curry puff was fresh and tasty.,POSITIVE
-91,C0216,Lucky Strike,4,This is my go-to stall every time. Never disappoints with their goreng pisang.,POSITIVE
-92,C0021,Seoul Kitchen,4,Great value for money. Will definitely come back for more bubble tea.,POSITIVE
-93,C0325,Casa Living,4,The vendor was so friendly and the murtabak was fresh and tasty.,POSITIVE
-94,C0022,Jelly Bliss,1,Not worth the queue. The teh tarik didn't taste fresh at all.,NEGATIVE
-95,C0121,Kueh Corner,2,Worst murtabak I have ever tried. Complete waste of money.,NEGATIVE
-96,C0276,Street Fusion,5,Great value for money. Will definitely come back for more nasi goreng.,POSITIVE
-97,C0307,Ice Ice Baby,4,Incredible quality at such affordable prices. The teh tarik was outstanding.,POSITIVE
-98,C0086,Munchies Corner,1,Disappointed with the takoyaki. Long wait and cold food.,NEGATIVE
-99,C0137,Fun Zone,4,Perfect night out. The teh tarik here is a must-try!,POSITIVE
-100,C0239,Everyday Essentials,5,Perfect night out. The chendol here is a must-try!,POSITIVE
-101,C0424,Kacang Queen,1,Not worth the queue. The murtabak didn't taste fresh at all.,NEGATIVE
-102,C0202,Boba World,4,Great value for money. Will definitely come back for more teh tarik.,POSITIVE
-103,C0360,Boba World,4,Love the atmosphere and the mee goreng was delicious!,POSITIVE
-104,C0161,Kacang Queen,4,Brought my whole family and everyone enjoyed the bubble tea. Highly recommend!,POSITIVE
-105,C0056,Home & More,2,The laksa was stale and the service was slow.,NEGATIVE
-106,C0459,The Satay Corner,2,The nasi goreng was stale and the service was slow.,NEGATIVE
-107,C0487,K-Food Craze,5,This is my go-to stall every time. Never disappoints with their takoyaki.,POSITIVE
-108,C0197,Game On!,4,This is my go-to stall every time. Never disappoints with their roti john.,POSITIVE
-109,C0208,Dessert Alley,4,This is my go-to stall every time. Never disappoints with their goreng pisang.,POSITIVE
-110,C0333,Crunch Time,1,Worst chendol I have ever tried. Complete waste of money.,NEGATIVE
-111,C0500,Sweet Spot,1,Not worth the queue. The mee goreng didn't taste fresh at all.,NEGATIVE
-112,C0493,Ali's Kitchen,4,Amazing food! Best murtabak I've had at a pasar malam.,POSITIVE
-113,C0120,Fun Zone,1,Not worth the queue. The murtabak didn't taste fresh at all.,NEGATIVE
-114,C0348,Kampung Wok,5,Love the atmosphere and the laksa was delicious!,POSITIVE
-115,C0288,Sugar Rush,5,Great value for money. Will definitely come back for more laksa.,POSITIVE
-116,C0231,Sweet Spot,5,Incredible quality at such affordable prices. The goreng pisang was outstanding.,POSITIVE
-117,C0337,Street Fusion,1,Terrible experience. The laksa was undercooked and tasteless.,NEGATIVE
-118,C0157,Casa Living,1,Worst corn dog I have ever tried. Complete waste of money.,NEGATIVE
-119,C0022,Seoul Kitchen,4,Perfect night out. The nasi goreng here is a must-try!,POSITIVE
-120,C0238,Nasi Lemak Bros,4,Brought my whole family and everyone enjoyed the roti john. Highly recommend!,POSITIVE
-121,C0243,The Satay Corner,4,Love the atmosphere and the teh tarik was delicious!,POSITIVE
-122,C0294,Jelly Bliss,5,Amazing food! Best corn dog I've had at a pasar malam.,POSITIVE
-123,C0076,Kueh Corner,4,Perfect night out. The corn dog here is a must-try!,POSITIVE
-124,C0201,Coconut Grove,5,Brought my whole family and everyone enjoyed the curry puff. Highly recommend!,POSITIVE
-125,C0469,Mak Cik Stall,1,Overpriced corn dog for the quality. Would not return.,NEGATIVE
-126,C0408,Abang Burger,2,Worst laksa I have ever tried. Complete waste of money.,NEGATIVE
-127,C0183,Win It Stall,2,Not worth the queue. The satay didn't taste fresh at all.,NEGATIVE
-128,C0101,Sweet Spot,4,Great value for money. Will definitely come back for more nasi goreng.,POSITIVE
-129,C0294,Win It Stall,2,Worst murtabak I have ever tried. Complete waste of money.,NEGATIVE
-130,C0309,Durian Heaven,2,The nasi goreng was stale and the service was slow.,NEGATIVE
-131,C0447,The Juice Lab,4,Incredible quality at such affordable prices. The mee goreng was outstanding.,POSITIVE
-132,C0445,Wok This Way,4,Amazing food! Best murtabak I've had at a pasar malam.,POSITIVE
-133,C0392,Home & More,5,Amazing food! Best goreng pisang I've had at a pasar malam.,POSITIVE
-134,C0280,Kueh Corner,4,This is my go-to stall every time. Never disappoints with their murtabak.,POSITIVE
-135,C0021,Jelly Bliss,2,The corn dog was stale and the service was slow.,NEGATIVE
-136,C0025,Jelly Bliss,4,Amazing food! Best ice kacang I've had at a pasar malam.,POSITIVE
-137,C0332,K-Food Craze,5,Perfect night out. The takoyaki here is a must-try!,POSITIVE
-138,C0151,Seoul Kitchen,5,The vendor was so friendly and the curry puff was fresh and tasty.,POSITIVE
-139,C0471,Jelly Bliss,2,Worst roti john I have ever tried. Complete waste of money.,NEGATIVE
-140,C0210,Uncle Razali Grill,4,Great value for money. Will definitely come back for more mee goreng.,POSITIVE
-141,C0033,Snack Attack,5,Amazing food! Best chendol I've had at a pasar malam.,POSITIVE
-142,C0310,Kacang Queen,5,Perfect night out. The laksa here is a must-try!,POSITIVE
-143,C0046,Crunch Time,5,Brought my whole family and everyone enjoyed the nasi goreng. Highly recommend!,POSITIVE
-144,C0294,Win It Stall,5,This is my go-to stall every time. Never disappoints with their chendol.,POSITIVE
-145,C0194,Mak Cik Stall,5,The vendor was so friendly and the nasi goreng was fresh and tasty.,POSITIVE
-146,C0027,Ali's Kitchen,2,Worst nasi goreng I have ever tried. Complete waste of money.,NEGATIVE
-147,C0052,Casa Living,1,Terrible experience. The bubble tea was undercooked and tasteless.,NEGATIVE
-148,C0259,Crunch Time,1,Terrible experience. The chendol was undercooked and tasteless.,NEGATIVE
-149,C0322,Ali's Kitchen,5,The vendor was so friendly and the goreng pisang was fresh and tasty.,POSITIVE
-150,C0044,Dessert Alley,5,Brought my whole family and everyone enjoyed the takoyaki. Highly recommend!,POSITIVE
-151,C0144,Kopi Kaki,5,This is my go-to stall every time. Never disappoints with their laksa.,POSITIVE
-152,C0379,Tornado Bites,2,Terrible experience. The takoyaki was undercooked and tasteless.,NEGATIVE
-153,C0310,Teh Tarik Station,5,Incredible quality at such affordable prices. The corn dog was outstanding.,POSITIVE
-154,C0190,The Linen Store,5,Great value for money. Will definitely come back for more chendol.,POSITIVE
-155,C0193,Home & More,5,This is my go-to stall every time. Never disappoints with their murtabak.,POSITIVE
-156,C0073,The Satay Corner,5,Love the atmosphere and the ice kacang was delicious!,POSITIVE
-157,C0138,The Juice Lab,1,Terrible experience. The curry puff was undercooked and tasteless.,NEGATIVE
-158,C0155,Snack Attack,4,Perfect night out. The corn dog here is a must-try!,POSITIVE
-159,C0277,Kueh Corner,4,This is my go-to stall every time. Never disappoints with their mee goreng.,POSITIVE
-160,C0114,Durian Heaven,1,Overpriced chendol for the quality. Would not return.,NEGATIVE
-161,C0015,Kueh Corner,5,Love the atmosphere and the corn dog was delicious!,POSITIVE
-162,C0271,Abang Burger,4,Love the atmosphere and the chendol was delicious!,POSITIVE
-163,C0460,Ice Ice Baby,5,Perfect night out. The chendol here is a must-try!,POSITIVE
-164,C0149,Nasi Lemak Bros,1,Worst laksa I have ever tried. Complete waste of money.,NEGATIVE
-165,C0363,Casa Living,2,Overpriced roti john for the quality. Would not return.,NEGATIVE
-166,C0083,Ice Ice Baby,4,Amazing food! Best takoyaki I've had at a pasar malam.,POSITIVE
-167,C0133,Ali's Kitchen,1,Disappointed with the bubble tea. Long wait and cold food.,NEGATIVE
-168,C0035,Jelly Bliss,4,This is my go-to stall every time. Never disappoints with their murtabak.,POSITIVE
-169,C0342,Dessert Alley,5,Perfect night out. The laksa here is a must-try!,POSITIVE
-170,C0262,Durian Heaven,1,Overpriced mee goreng for the quality. Would not return.,NEGATIVE
-171,C0197,Casa Living,5,Love the atmosphere and the murtabak was delicious!,POSITIVE
-172,C0411,Uncle Razali Grill,4,Great value for money. Will definitely come back for more takoyaki.,POSITIVE
-173,C0092,Lucky Strike,4,Perfect night out. The laksa here is a must-try!,POSITIVE
-174,C0354,Game On!,5,Incredible quality at such affordable prices. The chendol was outstanding.,POSITIVE
-175,C0013,Street Fusion,1,Disappointed with the nasi goreng. Long wait and cold food.,NEGATIVE
-176,C0275,Seoul Kitchen,5,Brought my whole family and everyone enjoyed the curry puff. Highly recommend!,POSITIVE
-177,C0115,Lucky Strike,4,Great value for money. Will definitely come back for more mee goreng.,POSITIVE
-178,C0219,Kopi Kaki,1,Worst nasi goreng I have ever tried. Complete waste of money.,NEGATIVE
-179,C0399,The Satay Corner,5,Amazing food! Best laksa I've had at a pasar malam.,POSITIVE
-180,C0112,Durian Heaven,4,Perfect night out. The roti john here is a must-try!,POSITIVE
-181,C0373,Ice Ice Baby,5,Perfect night out. The curry puff here is a must-try!,POSITIVE
-182,C0214,K-Food Craze,1,Terrible experience. The roti john was undercooked and tasteless.,NEGATIVE
-183,C0075,Tornado Bites,5,Great value for money. Will definitely come back for more murtabak.,POSITIVE
-184,C0492,Mala Majik,5,Brought my whole family and everyone enjoyed the teh tarik. Highly recommend!,POSITIVE
-185,C0064,Ali's Kitchen,4,Perfect night out. The chendol here is a must-try!,POSITIVE
-186,C0121,Snack Attack,2,Worst teh tarik I have ever tried. Complete waste of money.,NEGATIVE
-187,C0039,Boba World,5,Amazing food! Best bubble tea I've had at a pasar malam.,POSITIVE
-188,C0083,Uncle Razali Grill,2,The mee goreng was stale and the service was slow.,NEGATIVE
-189,C0419,Street Fusion,2,Terrible experience. The murtabak was undercooked and tasteless.,NEGATIVE
-190,C0054,Win It Stall,2,Worst nasi goreng I have ever tried. Complete waste of money.,NEGATIVE
-191,C0170,Fun Zone,2,Overpriced murtabak for the quality. Would not return.,NEGATIVE
-192,C0106,Cheese Me,5,Perfect night out. The goreng pisang here is a must-try!,POSITIVE
-193,C0352,Durian Heaven,1,Terrible experience. The satay was undercooked and tasteless.,NEGATIVE
-194,C0207,Abang Burger,5,Great value for money. Will definitely come back for more nasi goreng.,POSITIVE
-195,C0121,Mak Cik Stall,4,The vendor was so friendly and the nasi goreng was fresh and tasty.,POSITIVE
-196,C0369,Mala Majik,5,Great value for money. Will definitely come back for more nasi goreng.,POSITIVE
-197,C0018,Seoul Kitchen,4,Brought my whole family and everyone enjoyed the murtabak. Highly recommend!,POSITIVE
-198,C0302,Lucky Strike,1,Terrible experience. The bubble tea was undercooked and tasteless.,NEGATIVE
-199,C0336,Uncle Razali Grill,5,This is my go-to stall every time. Never disappoints with their nasi goreng.,POSITIVE
-200,C0256,Home & More,5,Great value for money. Will definitely come back for more teh tarik.,POSITIVE
-201,C0181,Fun Zone,4,Brought my whole family and everyone enjoyed the murtabak. Highly recommend!,POSITIVE
-202,C0212,Lucky Strike,5,This is my go-to stall every time. Never disappoints with their teh tarik.,POSITIVE
-203,C0099,Casa Living,4,Love the atmosphere and the bubble tea was delicious!,POSITIVE
-204,C0303,Ice Ice Baby,5,This is my go-to stall every time. Never disappoints with their corn dog.,POSITIVE
-205,C0029,Teh Tarik Station,1,Overpriced teh tarik for the quality. Would not return.,NEGATIVE
-206,C0017,Kampung Wok,5,Brought my whole family and everyone enjoyed the ice kacang. Highly recommend!,POSITIVE
-207,C0348,K-Food Craze,1,The satay was stale and the service was slow.,NEGATIVE
-208,C0247,Dessert Alley,4,This is my go-to stall every time. Never disappoints with their takoyaki.,POSITIVE
-209,C0483,Kampung Wok,5,Perfect night out. The ice kacang here is a must-try!,POSITIVE
-210,C0121,Dessert Alley,4,Perfect night out. The goreng pisang here is a must-try!,POSITIVE
-211,C0303,Crunch Time,4,Love the atmosphere and the laksa was delicious!,POSITIVE
-212,C0375,The Satay Corner,4,Love the atmosphere and the chendol was delicious!,POSITIVE
-213,C0065,Home & More,5,Incredible quality at such affordable prices. The teh tarik was outstanding.,POSITIVE
-214,C0190,Fun Zone,2,Disappointed with the bubble tea. Long wait and cold food.,NEGATIVE
-215,C0254,Kueh Corner,4,Love the atmosphere and the murtabak was delicious!,POSITIVE
-216,C0344,Snack Attack,4,Brought my whole family and everyone enjoyed the satay. Highly recommend!,POSITIVE
-217,C0335,Kopi Kaki,5,Perfect night out. The laksa here is a must-try!,POSITIVE
-218,C0400,Kueh Corner,5,Amazing food! Best laksa I've had at a pasar malam.,POSITIVE
-219,C0100,Munchies Corner,2,Worst bubble tea I have ever tried. Complete waste of money.,NEGATIVE
-220,C0286,Kopi Kaki,5,Brought my whole family and everyone enjoyed the goreng pisang. Highly recommend!,POSITIVE
-221,C0429,Sweet Spot,5,The vendor was so friendly and the mee goreng was fresh and tasty.,POSITIVE
-222,C0380,Lucky Strike,4,Brought my whole family and everyone enjoyed the ice kacang. Highly recommend!,POSITIVE
-223,C0438,The Satay Corner,5,Amazing food! Best teh tarik I've had at a pasar malam.,POSITIVE
-224,C0474,Sugar Rush,2,Disappointed with the corn dog. Long wait and cold food.,NEGATIVE
-225,C0170,Casa Living,2,Terrible experience. The curry puff was undercooked and tasteless.,NEGATIVE
-226,C0172,Mak Cik Stall,2,The ice kacang was stale and the service was slow.,NEGATIVE
-227,C0225,The Juice Lab,1,Overpriced mee goreng for the quality. Would not return.,NEGATIVE
-228,C0143,Wok This Way,2,Terrible experience. The satay was undercooked and tasteless.,NEGATIVE
-229,C0260,Kueh Corner,1,Worst nasi goreng I have ever tried. Complete waste of money.,NEGATIVE
-230,C0371,Casa Living,2,Terrible experience. The chendol was undercooked and tasteless.,NEGATIVE
-231,C0123,Uncle Razali Grill,5,Love the atmosphere and the bubble tea was delicious!,POSITIVE
-232,C0095,The Satay Corner,5,This is my go-to stall every time. Never disappoints with their bubble tea.,POSITIVE
-233,C0322,Home & More,5,Great value for money. Will definitely come back for more bubble tea.,POSITIVE
-234,C0252,Fun Zone,5,The vendor was so friendly and the ice kacang was fresh and tasty.,POSITIVE
-235,C0107,Tornado Bites,5,Brought my whole family and everyone enjoyed the nasi goreng. Highly recommend!,POSITIVE
-236,C0406,Wok This Way,1,Disappointed with the murtabak. Long wait and cold food.,NEGATIVE
-237,C0281,Boba World,5,Incredible quality at such affordable prices. The nasi goreng was outstanding.,POSITIVE
-238,C0045,Casa Living,1,Worst satay I have ever tried. Complete waste of money.,NEGATIVE
-239,C0155,Seoul Kitchen,5,Amazing food! Best goreng pisang I've had at a pasar malam.,POSITIVE
-240,C0128,Sweet Spot,1,Disappointed with the ice kacang. Long wait and cold food.,NEGATIVE
-241,C0181,Lucky Strike,1,Overpriced satay for the quality. Would not return.,NEGATIVE
-242,C0280,Munchies Corner,2,Overpriced bubble tea for the quality. Would not return.,NEGATIVE
-243,C0133,Home & More,1,Overpriced bubble tea for the quality. Would not return.,NEGATIVE
-244,C0426,Win It Stall,2,Disappointed with the satay. Long wait and cold food.,NEGATIVE
-245,C0021,The Juice Lab,4,Incredible quality at such affordable prices. The nasi goreng was outstanding.,POSITIVE
-246,C0233,Crunch Time,5,Perfect night out. The nasi goreng here is a must-try!,POSITIVE
-247,C0309,Nasi Lemak Bros,5,Great value for money. Will definitely come back for more mee goreng.,POSITIVE
-248,C0067,Munchies Corner,2,Terrible experience. The mee goreng was undercooked and tasteless.,NEGATIVE
-249,C0495,Abang Burger,4,Incredible quality at such affordable prices. The roti john was outstanding.,POSITIVE
-250,C0077,Ice Ice Baby,4,Great value for money. Will definitely come back for more laksa.,POSITIVE
-251,C0100,Tornado Bites,1,Terrible experience. The bubble tea was undercooked and tasteless.,NEGATIVE
-252,C0284,The Linen Store,5,This is my go-to stall every time. Never disappoints with their satay.,POSITIVE
-253,C0074,Fun Zone,2,Worst murtabak I have ever tried. Complete waste of money.,NEGATIVE
-254,C0444,The Linen Store,4,Amazing food! Best corn dog I've had at a pasar malam.,POSITIVE
-255,C0423,Abang Burger,4,The vendor was so friendly and the nasi goreng was fresh and tasty.,POSITIVE
-256,C0260,Ali's Kitchen,5,Great value for money. Will definitely come back for more satay.,POSITIVE
-257,C0189,Uncle Razali Grill,5,Incredible quality at such affordable prices. The murtabak was outstanding.,POSITIVE
-258,C0372,Crunch Time,2,Not worth the queue. The goreng pisang didn't taste fresh at all.,NEGATIVE
-259,C0047,Casa Living,1,The corn dog was stale and the service was slow.,NEGATIVE
-260,C0396,Kacang Queen,5,The vendor was so friendly and the ice kacang was fresh and tasty.,POSITIVE
-261,C0449,Mak Cik Stall,5,Amazing food! Best chendol I've had at a pasar malam.,POSITIVE
-262,C0095,Everyday Essentials,5,Perfect night out. The satay here is a must-try!,POSITIVE
-263,C0003,Abang Burger,4,This is my go-to stall every time. Never disappoints with their ice kacang.,POSITIVE
-264,C0020,Teh Tarik Station,1,Not worth the queue. The murtabak didn't taste fresh at all.,NEGATIVE
-265,C0258,Wok This Way,2,The takoyaki was stale and the service was slow.,NEGATIVE
-266,C0396,Sweet Spot,5,Incredible quality at such affordable prices. The roti john was outstanding.,POSITIVE
-267,C0332,Kueh Corner,5,Incredible quality at such affordable prices. The takoyaki was outstanding.,POSITIVE
-268,C0099,Durian Heaven,4,Great value for money. Will definitely come back for more ice kacang.,POSITIVE
-269,C0028,Home & More,4,Great value for money. Will definitely come back for more bubble tea.,POSITIVE
-270,C0075,Fun Zone,5,This is my go-to stall every time. Never disappoints with their goreng pisang.,POSITIVE
-271,C0492,Kampung Wok,5,Great value for money. Will definitely come back for more ice kacang.,POSITIVE
-272,C0250,Lucky Strike,5,Perfect night out. The bubble tea here is a must-try!,POSITIVE
-273,C0381,Ali's Kitchen,5,Love the atmosphere and the ice kacang was delicious!,POSITIVE
-274,C0368,Street Fusion,2,The teh tarik was stale and the service was slow.,NEGATIVE
-275,C0393,Uncle Razali Grill,5,Incredible quality at such affordable prices. The ice kacang was outstanding.,POSITIVE
-276,C0057,Fun Zone,5,Brought my whole family and everyone enjoyed the goreng pisang. Highly recommend!,POSITIVE
-277,C0219,Abang Burger,4,The vendor was so friendly and the bubble tea was fresh and tasty.,POSITIVE
-278,C0114,Home & More,2,Terrible experience. The laksa was undercooked and tasteless.,NEGATIVE
-279,C0145,Lucky Strike,2,Terrible experience. The corn dog was undercooked and tasteless.,NEGATIVE
-280,C0450,The Linen Store,1,Worst nasi goreng I have ever tried. Complete waste of money.,NEGATIVE
-281,C0107,Wok This Way,2,The teh tarik was stale and the service was slow.,NEGATIVE
-282,C0108,The Linen Store,4,Brought my whole family and everyone enjoyed the nasi goreng. Highly recommend!,POSITIVE
-283,C0039,Ali's Kitchen,1,Overpriced ice kacang for the quality. Would not return.,NEGATIVE
-284,C0169,Abang Burger,4,The vendor was so friendly and the ice kacang was fresh and tasty.,POSITIVE
-285,C0141,Ice Ice Baby,4,Perfect night out. The curry puff here is a must-try!,POSITIVE
-286,C0359,Teh Tarik Station,1,Worst goreng pisang I have ever tried. Complete waste of money.,NEGATIVE
-287,C0363,Snack Attack,2,Terrible experience. The satay was undercooked and tasteless.,NEGATIVE
-288,C0284,Nasi Lemak Bros,5,Great value for money. Will definitely come back for more laksa.,POSITIVE
-289,C0343,K-Food Craze,5,Brought my whole family and everyone enjoyed the ice kacang. Highly recommend!,POSITIVE
-290,C0052,Teh Tarik Station,5,Amazing food! Best nasi goreng I've had at a pasar malam.,POSITIVE
-291,C0306,Street Fusion,5,The vendor was so friendly and the bubble tea was fresh and tasty.,POSITIVE
-292,C0249,Abang Burger,4,Brought my whole family and everyone enjoyed the satay. Highly recommend!,POSITIVE
-293,C0092,Fun Zone,1,Terrible experience. The mee goreng was undercooked and tasteless.,NEGATIVE
-294,C0213,The Satay Corner,2,Overpriced laksa for the quality. Would not return.,NEGATIVE
-295,C0054,Abang Burger,5,Amazing food! Best laksa I've had at a pasar malam.,POSITIVE
-296,C0101,Sweet Spot,4,Perfect night out. The ice kacang here is a must-try!,POSITIVE
-297,C0365,Home & More,5,Incredible quality at such affordable prices. The takoyaki was outstanding.,POSITIVE
-298,C0295,Home & More,1,Terrible experience. The teh tarik was undercooked and tasteless.,NEGATIVE
-299,C0498,Jelly Bliss,1,Not worth the queue. The bubble tea didn't taste fresh at all.,NEGATIVE
-300,C0442,Lucky Strike,4,Great value for money. Will definitely come back for more ice kacang.,POSITIVE
-301,C0249,K-Food Craze,4,Brought my whole family and everyone enjoyed the corn dog. Highly recommend!,POSITIVE
-302,C0229,Mak Cik Stall,4,This is my go-to stall every time. Never disappoints with their chendol.,POSITIVE
-303,C0189,Coconut Grove,2,Worst laksa I have ever tried. Complete waste of money.,NEGATIVE
-304,C0223,Kacang Queen,1,Worst nasi goreng I have ever tried. Complete waste of money.,NEGATIVE
-305,C0087,Lucky Strike,4,Great value for money. Will definitely come back for more corn dog.,POSITIVE
-306,C0442,Crunch Time,5,Perfect night out. The teh tarik here is a must-try!,POSITIVE
-307,C0471,Uncle Razali Grill,1,Overpriced ice kacang for the quality. Would not return.,NEGATIVE
-308,C0257,Kopi Kaki,1,The curry puff was stale and the service was slow.,NEGATIVE
-309,C0212,Game On!,2,Disappointed with the laksa. Long wait and cold food.,NEGATIVE
-310,C0204,Fun Zone,5,The vendor was so friendly and the mee goreng was fresh and tasty.,POSITIVE
-311,C0201,Jelly Bliss,1,The roti john was stale and the service was slow.,NEGATIVE
-312,C0466,Uncle Razali Grill,4,Great value for money. Will definitely come back for more mee goreng.,POSITIVE
-313,C0185,Casa Living,5,This is my go-to stall every time. Never disappoints with their ice kacang.,POSITIVE
-314,C0362,Sweet Spot,5,This is my go-to stall every time. Never disappoints with their laksa.,POSITIVE
-315,C0413,Coconut Grove,2,The corn dog was stale and the service was slow.,NEGATIVE
-316,C0382,Win It Stall,4,Incredible quality at such affordable prices. The satay was outstanding.,POSITIVE
-317,C0249,Uncle Razali Grill,5,Perfect night out. The goreng pisang here is a must-try!,POSITIVE
-318,C0436,Home & More,4,Perfect night out. The curry puff here is a must-try!,POSITIVE
-319,C0014,Nasi Lemak Bros,1,Worst curry puff I have ever tried. Complete waste of money.,NEGATIVE
-320,C0499,Uncle Razali Grill,1,Terrible experience. The teh tarik was undercooked and tasteless.,NEGATIVE
-321,C0479,Kopi Kaki,1,The curry puff was stale and the service was slow.,NEGATIVE
-322,C0356,Abang Burger,4,Perfect night out. The ice kacang here is a must-try!,POSITIVE
-323,C0394,Game On!,4,The vendor was so friendly and the nasi goreng was fresh and tasty.,POSITIVE
-324,C0135,Dessert Alley,4,Brought my whole family and everyone enjoyed the nasi goreng. Highly recommend!,POSITIVE
-325,C0478,Game On!,4,Perfect night out. The nasi goreng here is a must-try!,POSITIVE
-326,C0300,The Satay Corner,4,Love the atmosphere and the laksa was delicious!,POSITIVE
-327,C0079,Munchies Corner,5,The vendor was so friendly and the mee goreng was fresh and tasty.,POSITIVE
-328,C0254,Everyday Essentials,4,Brought my whole family and everyone enjoyed the curry puff. Highly recommend!,POSITIVE
-329,C0133,Mala Majik,1,Worst chendol I have ever tried. Complete waste of money.,NEGATIVE
-330,C0425,Boba World,4,Incredible quality at such affordable prices. The roti john was outstanding.,POSITIVE
-331,C0130,Fun Zone,1,Terrible experience. The roti john was undercooked and tasteless.,NEGATIVE
-332,C0031,Street Fusion,1,Worst laksa I have ever tried. Complete waste of money.,NEGATIVE
-333,C0207,Durian Heaven,1,The roti john was stale and the service was slow.,NEGATIVE
-334,C0278,Lucky Strike,1,Overpriced ice kacang for the quality. Would not return.,NEGATIVE
-335,C0496,Home & More,2,Worst murtabak I have ever tried. Complete waste of money.,NEGATIVE
-336,C0024,The Linen Store,1,Disappointed with the ice kacang. Long wait and cold food.,NEGATIVE
-337,C0188,Ice Ice Baby,5,Great value for money. Will definitely come back for more takoyaki.,POSITIVE
-338,C0067,Nasi Lemak Bros,4,Great value for money. Will definitely come back for more takoyaki.,POSITIVE
-339,C0240,Tornado Bites,1,Worst mee goreng I have ever tried. Complete waste of money.,NEGATIVE
-340,C0338,Everyday Essentials,2,Terrible experience. The corn dog was undercooked and tasteless.,NEGATIVE
-341,C0173,Kacang Queen,1,Terrible experience. The chendol was undercooked and tasteless.,NEGATIVE
-342,C0091,The Linen Store,5,This is my go-to stall every time. Never disappoints with their bubble tea.,POSITIVE
-343,C0042,The Satay Corner,5,Perfect night out. The murtabak here is a must-try!,POSITIVE
-344,C0168,Coconut Grove,4,Amazing food! Best goreng pisang I've had at a pasar malam.,POSITIVE
-345,C0214,Seoul Kitchen,1,Overpriced curry puff for the quality. Would not return.,NEGATIVE
-346,C0449,Durian Heaven,4,The vendor was so friendly and the bubble tea was fresh and tasty.,POSITIVE
-347,C0377,Uncle Razali Grill,5,Great value for money. Will definitely come back for more satay.,POSITIVE
-348,C0380,Durian Heaven,5,Great value for money. Will definitely come back for more mee goreng.,POSITIVE
-349,C0475,Ice Ice Baby,2,Disappointed with the roti john. Long wait and cold food.,NEGATIVE
-350,C0495,Everyday Essentials,1,The mee goreng was stale and the service was slow.,NEGATIVE
-351,C0161,Durian Heaven,1,The mee goreng was stale and the service was slow.,NEGATIVE
-352,C0213,Uncle Razali Grill,4,The vendor was so friendly and the chendol was fresh and tasty.,POSITIVE
-353,C0201,Crunch Time,4,The vendor was so friendly and the bubble tea was fresh and tasty.,POSITIVE
-354,C0230,Casa Living,2,Not worth the queue. The satay didn't taste fresh at all.,NEGATIVE
-355,C0401,Kampung Wok,5,Love the atmosphere and the roti john was delicious!,POSITIVE
-356,C0494,Street Fusion,2,Not worth the queue. The corn dog didn't taste fresh at all.,NEGATIVE
-357,C0136,Abang Burger,1,Terrible experience. The takoyaki was undercooked and tasteless.,NEGATIVE
-358,C0238,Jelly Bliss,4,Brought my whole family and everyone enjoyed the murtabak. Highly recommend!,POSITIVE
-359,C0253,Lucky Strike,4,This is my go-to stall every time. Never disappoints with their corn dog.,POSITIVE
-360,C0293,Crunch Time,5,This is my go-to stall every time. Never disappoints with their chendol.,POSITIVE
-361,C0443,Casa Living,5,Amazing food! Best murtabak I've had at a pasar malam.,POSITIVE
-362,C0210,Uncle Razali Grill,4,Perfect night out. The bubble tea here is a must-try!,POSITIVE
-363,C0125,Ice Ice Baby,5,The vendor was so friendly and the chendol was fresh and tasty.,POSITIVE
-364,C0230,Snack Attack,5,Amazing food! Best laksa I've had at a pasar malam.,POSITIVE
-365,C0158,Everyday Essentials,5,Love the atmosphere and the takoyaki was delicious!,POSITIVE
-366,C0326,Home & More,4,This is my go-to stall every time. Never disappoints with their roti john.,POSITIVE
-367,C0090,Durian Heaven,1,Terrible experience. The ice kacang was undercooked and tasteless.,NEGATIVE
-368,C0453,Dessert Alley,5,This is my go-to stall every time. Never disappoints with their nasi goreng.,POSITIVE
-369,C0281,Crunch Time,4,Perfect night out. The teh tarik here is a must-try!,POSITIVE
-370,C0066,Seoul Kitchen,4,Amazing food! Best goreng pisang I've had at a pasar malam.,POSITIVE
-371,C0146,The Linen Store,5,Perfect night out. The corn dog here is a must-try!,POSITIVE
-372,C0478,Casa Living,4,Incredible quality at such affordable prices. The takoyaki was outstanding.,POSITIVE
-373,C0080,Cheese Me,4,Amazing food! Best curry puff I've had at a pasar malam.,POSITIVE
-374,C0354,Ali's Kitchen,2,Terrible experience. The takoyaki was undercooked and tasteless.,NEGATIVE
-375,C0381,Mala Majik,5,Brought my whole family and everyone enjoyed the satay. Highly recommend!,POSITIVE
-376,C0348,Kueh Corner,4,This is my go-to stall every time. Never disappoints with their mee goreng.,POSITIVE
-377,C0046,Game On!,1,The corn dog was stale and the service was slow.,NEGATIVE
-378,C0062,Uncle Razali Grill,4,The vendor was so friendly and the nasi goreng was fresh and tasty.,POSITIVE
-379,C0420,Sweet Spot,2,Terrible experience. The nasi goreng was undercooked and tasteless.,NEGATIVE
-380,C0409,Sweet Spot,5,Perfect night out. The laksa here is a must-try!,POSITIVE
-381,C0428,Kacang Queen,4,Amazing food! Best laksa I've had at a pasar malam.,POSITIVE
-382,C0427,Boba World,5,Amazing food! Best nasi goreng I've had at a pasar malam.,POSITIVE
-383,C0213,Coconut Grove,5,The vendor was so friendly and the satay was fresh and tasty.,POSITIVE
-384,C0246,Win It Stall,5,Brought my whole family and everyone enjoyed the murtabak. Highly recommend!,POSITIVE
-385,C0296,Kueh Corner,2,Worst corn dog I have ever tried. Complete waste of money.,NEGATIVE
-386,C0105,Casa Living,5,The vendor was so friendly and the roti john was fresh and tasty.,POSITIVE
-387,C0242,Lucky Strike,5,This is my go-to stall every time. Never disappoints with their roti john.,POSITIVE
-388,C0004,Boba World,1,The ice kacang was stale and the service was slow.,NEGATIVE
-389,C0362,Home & More,1,Terrible experience. The bubble tea was undercooked and tasteless.,NEGATIVE
-390,C0043,Coconut Grove,5,Brought my whole family and everyone enjoyed the curry puff. Highly recommend!,POSITIVE
-391,C0499,Kueh Corner,5,The vendor was so friendly and the bubble tea was fresh and tasty.,POSITIVE
-392,C0466,K-Food Craze,4,This is my go-to stall every time. Never disappoints with their curry puff.,POSITIVE
-393,C0151,Teh Tarik Station,1,The curry puff was stale and the service was slow.,NEGATIVE
-394,C0057,Crunch Time,1,Overpriced corn dog for the quality. Would not return.,NEGATIVE
-395,C0363,Snack Attack,4,Great value for money. Will definitely come back for more teh tarik.,POSITIVE
-396,C0204,The Satay Corner,1,Overpriced nasi goreng for the quality. Would not return.,NEGATIVE
-397,C0212,The Linen Store,1,Disappointed with the satay. Long wait and cold food.,NEGATIVE
-398,C0338,Kampung Wok,5,This is my go-to stall every time. Never disappoints with their bubble tea.,POSITIVE
-399,C0275,Crunch Time,2,Overpriced roti john for the quality. Would not return.,NEGATIVE
-400,C0217,Ali's Kitchen,5,This is my go-to stall every time. Never disappoints with their nasi goreng.,POSITIVE
-401,C0324,Kueh Corner,5,Incredible quality at such affordable prices. The satay was outstanding.,POSITIVE
-402,C0326,Crunch Time,4,Incredible quality at such affordable prices. The takoyaki was outstanding.,POSITIVE
-403,C0278,Win It Stall,5,Incredible quality at such affordable prices. The corn dog was outstanding.,POSITIVE
-404,C0310,Nasi Lemak Bros,5,Love the atmosphere and the takoyaki was delicious!,POSITIVE
-405,C0168,Crunch Time,4,Amazing food! Best murtabak I've had at a pasar malam.,POSITIVE
-406,C0260,Teh Tarik Station,5,Love the atmosphere and the chendol was delicious!,POSITIVE
-407,C0156,Kampung Wok,1,Not worth the queue. The satay didn't taste fresh at all.,NEGATIVE
-408,C0064,Boba World,1,Terrible experience. The murtabak was undercooked and tasteless.,NEGATIVE
-409,C0204,Snack Attack,4,Great value for money. Will definitely come back for more ice kacang.,POSITIVE
-410,C0045,Ice Ice Baby,5,The vendor was so friendly and the curry puff was fresh and tasty.,POSITIVE
-411,C0191,The Juice Lab,1,Worst chendol I have ever tried. Complete waste of money.,NEGATIVE
-412,C0108,Uncle Razali Grill,1,Disappointed with the satay. Long wait and cold food.,NEGATIVE
-413,C0268,Sweet Spot,4,Great value for money. Will definitely come back for more ice kacang.,POSITIVE
-414,C0089,Kacang Queen,1,The bubble tea was stale and the service was slow.,NEGATIVE
-415,C0208,Cheese Me,4,Amazing food! Best curry puff I've had at a pasar malam.,POSITIVE
-416,C0006,Crunch Time,2,Not worth the queue. The corn dog didn't taste fresh at all.,NEGATIVE
-417,C0283,Kacang Queen,1,Not worth the queue. The corn dog didn't taste fresh at all.,NEGATIVE
-418,C0309,Sugar Rush,5,Great value for money. Will definitely come back for more corn dog.,POSITIVE
-419,C0451,Sugar Rush,4,Great value for money. Will definitely come back for more murtabak.,POSITIVE
-420,C0160,Kueh Corner,5,Love the atmosphere and the bubble tea was delicious!,POSITIVE
-421,C0238,Abang Burger,4,This is my go-to stall every time. Never disappoints with their corn dog.,POSITIVE
-422,C0402,Munchies Corner,5,Perfect night out. The corn dog here is a must-try!,POSITIVE
-423,C0098,K-Food Craze,1,The teh tarik was stale and the service was slow.,NEGATIVE
-424,C0398,Fun Zone,1,Terrible experience. The goreng pisang was undercooked and tasteless.,NEGATIVE
-425,C0041,Mak Cik Stall,1,The nasi goreng was stale and the service was slow.,NEGATIVE
-426,C0315,The Satay Corner,4,The vendor was so friendly and the bubble tea was fresh and tasty.,POSITIVE
-427,C0299,Win It Stall,4,Love the atmosphere and the bubble tea was delicious!,POSITIVE
-428,C0061,Coconut Grove,4,This is my go-to stall every time. Never disappoints with their mee goreng.,POSITIVE
-429,C0218,Jelly Bliss,2,Worst bubble tea I have ever tried. Complete waste of money.,NEGATIVE
-430,C0341,Nasi Lemak Bros,2,Terrible experience. The chendol was undercooked and tasteless.,NEGATIVE
-431,C0059,Ice Ice Baby,1,Worst bubble tea I have ever tried. Complete waste of money.,NEGATIVE
-432,C0309,The Linen Store,5,This is my go-to stall every time. Never disappoints with their ice kacang.,POSITIVE
-433,C0271,Ali's Kitchen,5,Love the atmosphere and the teh tarik was delicious!,POSITIVE
-434,C0169,Fun Zone,5,Perfect night out. The chendol here is a must-try!,POSITIVE
-435,C0133,Dessert Alley,4,This is my go-to stall every time. Never disappoints with their mee goreng.,POSITIVE
-436,C0300,Sugar Rush,4,Brought my whole family and everyone enjoyed the teh tarik. Highly recommend!,POSITIVE
-437,C0019,Cheese Me,5,Love the atmosphere and the curry puff was delicious!,POSITIVE
-438,C0389,Seoul Kitchen,4,Love the atmosphere and the ice kacang was delicious!,POSITIVE
-439,C0433,Nasi Lemak Bros,5,Love the atmosphere and the corn dog was delicious!,POSITIVE
-440,C0448,The Juice Lab,5,Love the atmosphere and the corn dog was delicious!,POSITIVE
-441,C0030,Snack Attack,2,Terrible experience. The satay was undercooked and tasteless.,NEGATIVE
-442,C0225,Game On!,4,Brought my whole family and everyone enjoyed the chendol. Highly recommend!,POSITIVE
-443,C0028,Mak Cik Stall,4,Perfect night out. The satay here is a must-try!,POSITIVE
-444,C0234,Home & More,4,Brought my whole family and everyone enjoyed the ice kacang. Highly recommend!,POSITIVE
-445,C0014,Coconut Grove,1,Not worth the queue. The takoyaki didn't taste fresh at all.,NEGATIVE
-446,C0096,Sugar Rush,5,Incredible quality at such affordable prices. The corn dog was outstanding.,POSITIVE
-447,C0202,Game On!,2,The teh tarik was stale and the service was slow.,NEGATIVE
-448,C0302,Fun Zone,2,Disappointed with the mee goreng. Long wait and cold food.,NEGATIVE
-449,C0442,Abang Burger,5,Incredible quality at such affordable prices. The roti john was outstanding.,POSITIVE
-450,C0434,Dessert Alley,5,Brought my whole family and everyone enjoyed the mee goreng. Highly recommend!,POSITIVE
-451,C0436,Cheese Me,1,The goreng pisang was stale and the service was slow.,NEGATIVE
-452,C0323,Everyday Essentials,4,Great value for money. Will definitely come back for more nasi goreng.,POSITIVE
-453,C0256,Nasi Lemak Bros,2,Disappointed with the murtabak. Long wait and cold food.,NEGATIVE
-454,C0459,Fun Zone,2,Not worth the queue. The teh tarik didn't taste fresh at all.,NEGATIVE
-455,C0252,Sugar Rush,5,Amazing food! Best corn dog I've had at a pasar malam.,POSITIVE
-456,C0059,Seoul Kitchen,4,Amazing food! Best satay I've had at a pasar malam.,POSITIVE
-457,C0048,The Juice Lab,4,Brought my whole family and everyone enjoyed the satay. Highly recommend!,POSITIVE
-458,C0015,Kacang Queen,5,Great value for money. Will definitely come back for more bubble tea.,POSITIVE
-459,C0218,Snack Attack,4,Perfect night out. The curry puff here is a must-try!,POSITIVE
-460,C0333,The Satay Corner,4,Great value for money. Will definitely come back for more curry puff.,POSITIVE
-461,C0032,Kueh Corner,1,Not worth the queue. The murtabak didn't taste fresh at all.,NEGATIVE
-462,C0176,Kampung Wok,4,Great value for money. Will definitely come back for more takoyaki.,POSITIVE
-463,C0210,Kueh Corner,1,Disappointed with the goreng pisang. Long wait and cold food.,NEGATIVE
-464,C0150,Kueh Corner,4,The vendor was so friendly and the corn dog was fresh and tasty.,POSITIVE
-465,C0063,Kampung Wok,2,Terrible experience. The ice kacang was undercooked and tasteless.,NEGATIVE
-466,C0166,K-Food Craze,4,This is my go-to stall every time. Never disappoints with their takoyaki.,POSITIVE
-467,C0045,Kopi Kaki,4,Great value for money. Will definitely come back for more curry puff.,POSITIVE
-468,C0378,Kopi Kaki,5,Great value for money. Will definitely come back for more curry puff.,POSITIVE
-469,C0381,Sweet Spot,2,The chendol was stale and the service was slow.,NEGATIVE
-470,C0078,K-Food Craze,2,Terrible experience. The goreng pisang was undercooked and tasteless.,NEGATIVE
-471,C0211,Casa Living,2,The bubble tea was stale and the service was slow.,NEGATIVE
-472,C0185,Coconut Grove,1,Overpriced ice kacang for the quality. Would not return.,NEGATIVE
-473,C0437,K-Food Craze,4,This is my go-to stall every time. Never disappoints with their satay.,POSITIVE
-474,C0449,Durian Heaven,4,Brought my whole family and everyone enjoyed the mee goreng. Highly recommend!,POSITIVE
-475,C0179,Snack Attack,1,Disappointed with the ice kacang. Long wait and cold food.,NEGATIVE
-476,C0472,Mak Cik Stall,4,The vendor was so friendly and the curry puff was fresh and tasty.,POSITIVE
-477,C0187,Kueh Corner,4,Incredible quality at such affordable prices. The goreng pisang was outstanding.,POSITIVE
-478,C0262,Lucky Strike,5,Brought my whole family and everyone enjoyed the satay. Highly recommend!,POSITIVE
-479,C0014,Kampung Wok,4,Brought my whole family and everyone enjoyed the murtabak. Highly recommend!,POSITIVE
-480,C0251,Kopi Kaki,1,Not worth the queue. The goreng pisang didn't taste fresh at all.,NEGATIVE
-481,C0500,The Linen Store,1,Disappointed with the mee goreng. Long wait and cold food.,NEGATIVE
-482,C0430,Cheese Me,1,Terrible experience. The nasi goreng was undercooked and tasteless.,NEGATIVE
-483,C0005,The Satay Corner,2,The murtabak was stale and the service was slow.,NEGATIVE
-484,C0106,Dessert Alley,1,The bubble tea was stale and the service was slow.,NEGATIVE
-485,C0017,Boba World,2,Worst curry puff I have ever tried. Complete waste of money.,NEGATIVE
-486,C0083,Street Fusion,2,Worst nasi goreng I have ever tried. Complete waste of money.,NEGATIVE
-487,C0307,Fun Zone,2,Terrible experience. The goreng pisang was undercooked and tasteless.,NEGATIVE
-488,C0103,Boba World,4,Great value for money. Will definitely come back for more bubble tea.,POSITIVE
-489,C0460,Cheese Me,1,Overpriced goreng pisang for the quality. Would not return.,NEGATIVE
-490,C0209,Lucky Strike,2,Not worth the queue. The mee goreng didn't taste fresh at all.,NEGATIVE
-491,C0026,Lucky Strike,1,Not worth the queue. The teh tarik didn't taste fresh at all.,NEGATIVE
-492,C0055,Fun Zone,2,Terrible experience. The nasi goreng was undercooked and tasteless.,NEGATIVE
-493,C0115,The Linen Store,2,The chendol was stale and the service was slow.,NEGATIVE
-494,C0476,Lucky Strike,2,The corn dog was stale and the service was slow.,NEGATIVE
-495,C0314,Kopi Kaki,1,Terrible experience. The goreng pisang was undercooked and tasteless.,NEGATIVE
-496,C0068,Abang Burger,2,Not worth the queue. The ice kacang didn't taste fresh at all.,NEGATIVE
-497,C0126,Kueh Corner,5,The vendor was so friendly and the corn dog was fresh and tasty.,POSITIVE
-498,C0144,Dessert Alley,1,The nasi goreng was stale and the service was slow.,NEGATIVE
-499,C0343,Kueh Corner,1,Terrible experience. The bubble tea was undercooked and tasteless.,NEGATIVE
-500,C0263,Tornado Bites,2,Disappointed with the bubble tea. Long wait and cold food.,NEGATIVE
-501,C0353,Durian Heaven,5,The vendor was so friendly and the satay was fresh and tasty.,POSITIVE
-502,C0244,Kampung Wok,2,Not worth the queue. The takoyaki didn't taste fresh at all.,NEGATIVE
-503,C0157,Game On!,4,The vendor was so friendly and the murtabak was fresh and tasty.,POSITIVE
-504,C0138,Durian Heaven,5,Perfect night out. The goreng pisang here is a must-try!,POSITIVE
-505,C0474,The Satay Corner,4,Incredible quality at such affordable prices. The bubble tea was outstanding.,POSITIVE
-506,C0210,Win It Stall,4,Great value for money. Will definitely come back for more mee goreng.,POSITIVE
-507,C0387,Mala Majik,4,Incredible quality at such affordable prices. The corn dog was outstanding.,POSITIVE
-508,C0400,Kampung Wok,2,The chendol was stale and the service was slow.,NEGATIVE
-509,C0109,Tornado Bites,2,Not worth the queue. The corn dog didn't taste fresh at all.,NEGATIVE
-510,C0476,Tornado Bites,5,Perfect night out. The satay here is a must-try!,POSITIVE
-511,C0406,Ali's Kitchen,5,The vendor was so friendly and the nasi goreng was fresh and tasty.,POSITIVE
-512,C0495,Kueh Corner,2,The corn dog was stale and the service was slow.,NEGATIVE
-513,C0291,K-Food Craze,5,Perfect night out. The goreng pisang here is a must-try!,POSITIVE
-514,C0452,Durian Heaven,5,Amazing food! Best ice kacang I've had at a pasar malam.,POSITIVE
-515,C0482,Everyday Essentials,4,Great value for money. Will definitely come back for more chendol.,POSITIVE
-516,C0445,Mak Cik Stall,1,Not worth the queue. The nasi goreng didn't taste fresh at all.,NEGATIVE
-517,C0163,Abang Burger,1,Disappointed with the ice kacang. Long wait and cold food.,NEGATIVE
-518,C0003,Dessert Alley,1,Not worth the queue. The roti john didn't taste fresh at all.,NEGATIVE
-519,C0415,Coconut Grove,5,Love the atmosphere and the murtabak was delicious!,POSITIVE
-520,C0091,Ice Ice Baby,4,Incredible quality at such affordable prices. The bubble tea was outstanding.,POSITIVE
-521,C0385,Boba World,4,Great value for money. Will definitely come back for more roti john.,POSITIVE
-522,C0160,Boba World,2,Disappointed with the nasi goreng. Long wait and cold food.,NEGATIVE
-523,C0251,K-Food Craze,5,Perfect night out. The roti john here is a must-try!,POSITIVE
-524,C0029,Abang Burger,2,Not worth the queue. The curry puff didn't taste fresh at all.,NEGATIVE
-525,C0199,Cheese Me,2,Overpriced takoyaki for the quality. Would not return.,NEGATIVE
-526,C0118,Cheese Me,1,Terrible experience. The curry puff was undercooked and tasteless.,NEGATIVE
-527,C0452,Mala Majik,5,Brought my whole family and everyone enjoyed the laksa. Highly recommend!,POSITIVE
-528,C0336,Home & More,1,Terrible experience. The laksa was undercooked and tasteless.,NEGATIVE
-529,C0202,Casa Living,5,Perfect night out. The goreng pisang here is a must-try!,POSITIVE
-530,C0361,Durian Heaven,4,Brought my whole family and everyone enjoyed the ice kacang. Highly recommend!,POSITIVE
-531,C0105,Seoul Kitchen,4,This is my go-to stall every time. Never disappoints with their bubble tea.,POSITIVE
-532,C0076,Sugar Rush,5,Perfect night out. The goreng pisang here is a must-try!,POSITIVE
-533,C0416,Tornado Bites,4,This is my go-to stall every time. Never disappoints with their goreng pisang.,POSITIVE
-534,C0198,Cheese Me,5,Amazing food! Best satay I've had at a pasar malam.,POSITIVE
-535,C0017,The Linen Store,1,Terrible experience. The ice kacang was undercooked and tasteless.,NEGATIVE
-536,C0413,Dessert Alley,4,This is my go-to stall every time. Never disappoints with their mee goreng.,POSITIVE
-537,C0477,Game On!,5,Great value for money. Will definitely come back for more goreng pisang.,POSITIVE
-538,C0375,Kueh Corner,1,Overpriced ice kacang for the quality. Would not return.,NEGATIVE
-539,C0500,Fun Zone,4,Brought my whole family and everyone enjoyed the nasi goreng. Highly recommend!,POSITIVE
-540,C0409,Durian Heaven,5,Amazing food! Best chendol I've had at a pasar malam.,POSITIVE
-541,C0179,The Juice Lab,4,Love the atmosphere and the curry puff was delicious!,POSITIVE
-542,C0286,Munchies Corner,4,Brought my whole family and everyone enjoyed the murtabak. Highly recommend!,POSITIVE
-543,C0081,Kueh Corner,1,Disappointed with the chendol. Long wait and cold food.,NEGATIVE
-544,C0151,Coconut Grove,1,Worst chendol I have ever tried. Complete waste of money.,NEGATIVE
-545,C0144,The Juice Lab,1,Worst ice kacang I have ever tried. Complete waste of money.,NEGATIVE
-546,C0102,Sweet Spot,4,Perfect night out. The corn dog here is a must-try!,POSITIVE
-547,C0286,Mala Majik,5,Amazing food! Best curry puff I've had at a pasar malam.,POSITIVE
-548,C0466,Kacang Queen,5,Love the atmosphere and the goreng pisang was delicious!,POSITIVE
-549,C0147,Win It Stall,2,Not worth the queue. The bubble tea didn't taste fresh at all.,NEGATIVE
-550,C0198,Dessert Alley,4,Incredible quality at such affordable prices. The laksa was outstanding.,POSITIVE
-551,C0077,Dessert Alley,1,Disappointed with the nasi goreng. Long wait and cold food.,NEGATIVE
-552,C0365,Fun Zone,5,Perfect night out. The corn dog here is a must-try!,POSITIVE
-553,C0084,Boba World,1,Not worth the queue. The goreng pisang didn't taste fresh at all.,NEGATIVE
-554,C0203,Sweet Spot,5,Great value for money. Will definitely come back for more nasi goreng.,POSITIVE
-555,C0139,Teh Tarik Station,1,Disappointed with the satay. Long wait and cold food.,NEGATIVE
-556,C0385,Coconut Grove,5,Incredible quality at such affordable prices. The laksa was outstanding.,POSITIVE
-557,C0252,Home & More,5,Incredible quality at such affordable prices. The takoyaki was outstanding.,POSITIVE
-558,C0013,Uncle Razali Grill,4,Great value for money. Will definitely come back for more murtabak.,POSITIVE
-559,C0243,Durian Heaven,4,Perfect night out. The curry puff here is a must-try!,POSITIVE
-560,C0105,Boba World,4,Love the atmosphere and the roti john was delicious!,POSITIVE
-561,C0407,Kacang Queen,4,Incredible quality at such affordable prices. The bubble tea was outstanding.,POSITIVE
-562,C0420,Lucky Strike,4,The vendor was so friendly and the bubble tea was fresh and tasty.,POSITIVE
-563,C0183,The Linen Store,5,Love the atmosphere and the ice kacang was delicious!,POSITIVE
-564,C0030,Jelly Bliss,1,Terrible experience. The ice kacang was undercooked and tasteless.,NEGATIVE
-565,C0500,Tornado Bites,4,Incredible quality at such affordable prices. The curry puff was outstanding.,POSITIVE
-566,C0002,Jelly Bliss,4,Perfect night out. The bubble tea here is a must-try!,POSITIVE
-567,C0043,Mak Cik Stall,5,Incredible quality at such affordable prices. The ice kacang was outstanding.,POSITIVE
-568,C0148,Snack Attack,4,Incredible quality at such affordable prices. The satay was outstanding.,POSITIVE
-569,C0048,Casa Living,2,Worst nasi goreng I have ever tried. Complete waste of money.,NEGATIVE
-570,C0116,Coconut Grove,5,Incredible quality at such affordable prices. The teh tarik was outstanding.,POSITIVE
-571,C0452,Abang Burger,2,Overpriced bubble tea for the quality. Would not return.,NEGATIVE
-572,C0257,Dessert Alley,2,Terrible experience. The nasi goreng was undercooked and tasteless.,NEGATIVE
-573,C0187,Tornado Bites,1,Worst bubble tea I have ever tried. Complete waste of money.,NEGATIVE
-574,C0280,Street Fusion,4,Amazing food! Best chendol I've had at a pasar malam.,POSITIVE
-575,C0137,Abang Burger,4,Brought my whole family and everyone enjoyed the laksa. Highly recommend!,POSITIVE
-576,C0438,K-Food Craze,1,The roti john was stale and the service was slow.,NEGATIVE
-577,C0134,Seoul Kitchen,2,Overpriced laksa for the quality. Would not return.,NEGATIVE
-578,C0016,Coconut Grove,5,Brought my whole family and everyone enjoyed the corn dog. Highly recommend!,POSITIVE
-579,C0404,Ice Ice Baby,5,Amazing food! Best curry puff I've had at a pasar malam.,POSITIVE
-580,C0295,Snack Attack,5,This is my go-to stall every time. Never disappoints with their chendol.,POSITIVE
-581,C0023,Everyday Essentials,5,Amazing food! Best goreng pisang I've had at a pasar malam.,POSITIVE
-582,C0199,Kampung Wok,2,The mee goreng was stale and the service was slow.,NEGATIVE
-583,C0206,K-Food Craze,5,Perfect night out. The nasi goreng here is a must-try!,POSITIVE
-584,C0170,Dessert Alley,2,Not worth the queue. The takoyaki didn't taste fresh at all.,NEGATIVE
-585,C0112,Win It Stall,2,Overpriced satay for the quality. Would not return.,NEGATIVE
-586,C0295,Everyday Essentials,2,Not worth the queue. The roti john didn't taste fresh at all.,NEGATIVE
-587,C0142,Nasi Lemak Bros,5,Incredible quality at such affordable prices. The nasi goreng was outstanding.,POSITIVE
-588,C0496,Nasi Lemak Bros,5,Love the atmosphere and the mee goreng was delicious!,POSITIVE
-589,C0270,Win It Stall,4,Great value for money. Will definitely come back for more curry puff.,POSITIVE
-590,C0023,Everyday Essentials,4,This is my go-to stall every time. Never disappoints with their murtabak.,POSITIVE
-591,C0032,Ali's Kitchen,5,This is my go-to stall every time. Never disappoints with their murtabak.,POSITIVE
-592,C0467,Durian Heaven,5,The vendor was so friendly and the corn dog was fresh and tasty.,POSITIVE
-593,C0235,Cheese Me,4,Perfect night out. The laksa here is a must-try!,POSITIVE
-594,C0146,Sugar Rush,2,Disappointed with the nasi goreng. Long wait and cold food.,NEGATIVE
-595,C0143,Boba World,2,Overpriced bubble tea for the quality. Would not return.,NEGATIVE
-596,C0198,Win It Stall,5,Love the atmosphere and the laksa was delicious!,POSITIVE
-597,C0215,The Juice Lab,5,Great value for money. Will definitely come back for more takoyaki.,POSITIVE
-598,C0254,Kampung Wok,5,Incredible quality at such affordable prices. The roti john was outstanding.,POSITIVE
-599,C0322,Ice Ice Baby,5,Amazing food! Best takoyaki I've had at a pasar malam.,POSITIVE
-600,C0169,Crunch Time,5,The vendor was so friendly and the teh tarik was fresh and tasty.,POSITIVE
-601,C0304,Kampung Wok,4,The vendor was so friendly and the murtabak was fresh and tasty.,POSITIVE
-602,C0169,Casa Living,5,The vendor was so friendly and the mee goreng was fresh and tasty.,POSITIVE
-603,C0292,Wok This Way,2,Worst mee goreng I have ever tried. Complete waste of money.,NEGATIVE
-604,C0273,Wok This Way,2,Worst murtabak I have ever tried. Complete waste of money.,NEGATIVE
-605,C0043,Dessert Alley,1,Disappointed with the curry puff. Long wait and cold food.,NEGATIVE
-606,C0228,Mala Majik,2,Terrible experience. The murtabak was undercooked and tasteless.,NEGATIVE
-607,C0145,Casa Living,5,Brought my whole family and everyone enjoyed the bubble tea. Highly recommend!,POSITIVE
-608,C0049,Coconut Grove,2,The nasi goreng was stale and the service was slow.,NEGATIVE
-609,C0108,Tornado Bites,2,Not worth the queue. The laksa didn't taste fresh at all.,NEGATIVE
-610,C0380,Game On!,5,Amazing food! Best mee goreng I've had at a pasar malam.,POSITIVE
-611,C0051,Street Fusion,5,Incredible quality at such affordable prices. The roti john was outstanding.,POSITIVE
-612,C0326,Abang Burger,4,Love the atmosphere and the chendol was delicious!,POSITIVE
-613,C0376,Ali's Kitchen,2,Overpriced goreng pisang for the quality. Would not return.,NEGATIVE
-614,C0075,Boba World,2,Disappointed with the ice kacang. Long wait and cold food.,NEGATIVE
-615,C0145,Game On!,5,The vendor was so friendly and the goreng pisang was fresh and tasty.,POSITIVE
-616,C0453,K-Food Craze,1,The mee goreng was stale and the service was slow.,NEGATIVE
-617,C0111,Seoul Kitchen,5,This is my go-to stall every time. Never disappoints with their ice kacang.,POSITIVE
-618,C0364,Ali's Kitchen,5,Amazing food! Best curry puff I've had at a pasar malam.,POSITIVE
-619,C0306,Home & More,1,Overpriced ice kacang for the quality. Would not return.,NEGATIVE
-620,C0263,Nasi Lemak Bros,5,Incredible quality at such affordable prices. The ice kacang was outstanding.,POSITIVE
-621,C0447,Tornado Bites,1,Not worth the queue. The bubble tea didn't taste fresh at all.,NEGATIVE
-622,C0446,The Linen Store,1,Not worth the queue. The teh tarik didn't taste fresh at all.,NEGATIVE
-623,C0324,Teh Tarik Station,5,Amazing food! Best laksa I've had at a pasar malam.,POSITIVE
-624,C0060,Mala Majik,2,Disappointed with the laksa. Long wait and cold food.,NEGATIVE
-625,C0075,Kacang Queen,1,Disappointed with the mee goreng. Long wait and cold food.,NEGATIVE
-626,C0289,Fun Zone,2,The laksa was stale and the service was slow.,NEGATIVE
-627,C0261,Teh Tarik Station,5,Perfect night out. The goreng pisang here is a must-try!,POSITIVE
-628,C0405,Game On!,4,Incredible quality at such affordable prices. The teh tarik was outstanding.,POSITIVE
-629,C0121,Boba World,5,Brought my whole family and everyone enjoyed the murtabak. Highly recommend!,POSITIVE
-630,C0371,Casa Living,5,Great value for money. Will definitely come back for more nasi goreng.,POSITIVE
-631,C0184,Durian Heaven,4,Love the atmosphere and the corn dog was delicious!,POSITIVE
-632,C0005,Kueh Corner,1,Overpriced chendol for the quality. Would not return.,NEGATIVE
-633,C0256,Kacang Queen,2,Terrible experience. The corn dog was undercooked and tasteless.,NEGATIVE
-634,C0106,Coconut Grove,1,The ice kacang was stale and the service was slow.,NEGATIVE
-635,C0147,Dessert Alley,2,Not worth the queue. The murtabak didn't taste fresh at all.,NEGATIVE
-636,C0394,Home & More,5,Perfect night out. The murtabak here is a must-try!,POSITIVE
-637,C0264,Home & More,2,Worst mee goreng I have ever tried. Complete waste of money.,NEGATIVE
-638,C0413,Sweet Spot,5,The vendor was so friendly and the takoyaki was fresh and tasty.,POSITIVE
-639,C0103,Lucky Strike,1,Not worth the queue. The takoyaki didn't taste fresh at all.,NEGATIVE
-640,C0295,Snack Attack,4,Great value for money. Will definitely come back for more laksa.,POSITIVE
-641,C0255,Kampung Wok,4,This is my go-to stall every time. Never disappoints with their laksa.,POSITIVE
-642,C0160,Mala Majik,4,Perfect night out. The nasi goreng here is a must-try!,POSITIVE
-643,C0187,Home & More,5,Brought my whole family and everyone enjoyed the mee goreng. Highly recommend!,POSITIVE
-644,C0495,Win It Stall,2,The bubble tea was stale and the service was slow.,NEGATIVE
-645,C0025,Seoul Kitchen,5,Perfect night out. The roti john here is a must-try!,POSITIVE
-646,C0231,Crunch Time,1,The satay was stale and the service was slow.,NEGATIVE
-647,C0341,K-Food Craze,1,Overpriced laksa for the quality. Would not return.,NEGATIVE
-648,C0433,Kampung Wok,1,The chendol was stale and the service was slow.,NEGATIVE
-649,C0068,Win It Stall,1,Terrible experience. The roti john was undercooked and tasteless.,NEGATIVE
-650,C0481,Teh Tarik Station,4,Brought my whole family and everyone enjoyed the corn dog. Highly recommend!,POSITIVE
-651,C0258,Ice Ice Baby,2,Overpriced mee goreng for the quality. Would not return.,NEGATIVE
-652,C0461,Win It Stall,4,Amazing food! Best satay I've had at a pasar malam.,POSITIVE
-653,C0089,Game On!,4,Incredible quality at such affordable prices. The laksa was outstanding.,POSITIVE
-654,C0433,Boba World,4,Perfect night out. The chendol here is a must-try!,POSITIVE
-655,C0152,Cheese Me,4,Perfect night out. The satay here is a must-try!,POSITIVE
-656,C0235,Lucky Strike,1,Terrible experience. The mee goreng was undercooked and tasteless.,NEGATIVE
-657,C0097,Street Fusion,5,Brought my whole family and everyone enjoyed the curry puff. Highly recommend!,POSITIVE
-658,C0274,Ice Ice Baby,5,Incredible quality at such affordable prices. The chendol was outstanding.,POSITIVE
-659,C0440,Fun Zone,4,The vendor was so friendly and the nasi goreng was fresh and tasty.,POSITIVE
-660,C0411,Crunch Time,2,Not worth the queue. The curry puff didn't taste fresh at all.,NEGATIVE
-661,C0250,Teh Tarik Station,4,The vendor was so friendly and the teh tarik was fresh and tasty.,POSITIVE
-662,C0164,Sugar Rush,5,Perfect night out. The satay here is a must-try!,POSITIVE
-663,C0121,Jelly Bliss,1,The nasi goreng was stale and the service was slow.,NEGATIVE
-664,C0310,Kopi Kaki,1,Overpriced mee goreng for the quality. Would not return.,NEGATIVE
-665,C0017,The Linen Store,1,Not worth the queue. The teh tarik didn't taste fresh at all.,NEGATIVE
-666,C0026,Wok This Way,1,Disappointed with the laksa. Long wait and cold food.,NEGATIVE
-667,C0203,Uncle Razali Grill,2,Overpriced ice kacang for the quality. Would not return.,NEGATIVE
-668,C0126,Street Fusion,4,Great value for money. Will definitely come back for more roti john.,POSITIVE
-669,C0337,Wok This Way,1,Disappointed with the satay. Long wait and cold food.,NEGATIVE
-670,C0490,Lucky Strike,4,This is my go-to stall every time. Never disappoints with their mee goreng.,POSITIVE
-671,C0378,Durian Heaven,1,Not worth the queue. The ice kacang didn't taste fresh at all.,NEGATIVE
-672,C0323,Abang Burger,4,Perfect night out. The bubble tea here is a must-try!,POSITIVE
-673,C0047,Kopi Kaki,5,This is my go-to stall every time. Never disappoints with their satay.,POSITIVE
-674,C0426,Abang Burger,2,Terrible experience. The murtabak was undercooked and tasteless.,NEGATIVE
-675,C0078,Coconut Grove,4,Brought my whole family and everyone enjoyed the teh tarik. Highly recommend!,POSITIVE
-676,C0222,Coconut Grove,2,The teh tarik was stale and the service was slow.,NEGATIVE
-677,C0167,Teh Tarik Station,5,The vendor was so friendly and the chendol was fresh and tasty.,POSITIVE
-678,C0233,Crunch Time,5,Perfect night out. The roti john here is a must-try!,POSITIVE
-679,C0497,Uncle Razali Grill,2,Disappointed with the laksa. Long wait and cold food.,NEGATIVE
-680,C0463,Sugar Rush,5,Great value for money. Will definitely come back for more corn dog.,POSITIVE
-681,C0269,Ali's Kitchen,2,Worst satay I have ever tried. Complete waste of money.,NEGATIVE
-682,C0120,Nasi Lemak Bros,1,Not worth the queue. The corn dog didn't taste fresh at all.,NEGATIVE
-683,C0302,Uncle Razali Grill,4,This is my go-to stall every time. Never disappoints with their corn dog.,POSITIVE
-684,C0076,Uncle Razali Grill,2,Overpriced ice kacang for the quality. Would not return.,NEGATIVE
-685,C0362,Fun Zone,5,Incredible quality at such affordable prices. The ice kacang was outstanding.,POSITIVE
-686,C0284,Ice Ice Baby,1,Disappointed with the nasi goreng. Long wait and cold food.,NEGATIVE
-687,C0141,K-Food Craze,4,This is my go-to stall every time. Never disappoints with their murtabak.,POSITIVE
-688,C0425,Durian Heaven,4,Amazing food! Best roti john I've had at a pasar malam.,POSITIVE
-689,C0109,Sugar Rush,4,Love the atmosphere and the murtabak was delicious!,POSITIVE
-690,C0396,Win It Stall,2,Not worth the queue. The takoyaki didn't taste fresh at all.,NEGATIVE
-691,C0282,Sugar Rush,5,The vendor was so friendly and the ice kacang was fresh and tasty.,POSITIVE
-692,C0474,Durian Heaven,4,Brought my whole family and everyone enjoyed the ice kacang. Highly recommend!,POSITIVE
-693,C0145,Everyday Essentials,2,Overpriced corn dog for the quality. Would not return.,NEGATIVE
-694,C0307,Sugar Rush,5,Brought my whole family and everyone enjoyed the nasi goreng. Highly recommend!,POSITIVE
-695,C0463,Lucky Strike,1,Overpriced roti john for the quality. Would not return.,NEGATIVE
-696,C0390,Kampung Wok,5,Perfect night out. The nasi goreng here is a must-try!,POSITIVE
-697,C0029,Fun Zone,4,Love the atmosphere and the goreng pisang was delicious!,POSITIVE
-698,C0188,Sugar Rush,2,Terrible experience. The roti john was undercooked and tasteless.,NEGATIVE
-699,C0215,Tornado Bites,4,Brought my whole family and everyone enjoyed the goreng pisang. Highly recommend!,POSITIVE
-700,C0095,Durian Heaven,1,Not worth the queue. The ice kacang didn't taste fresh at all.,NEGATIVE
-701,C0141,Munchies Corner,1,Disappointed with the corn dog. Long wait and cold food.,NEGATIVE
-702,C0121,Lucky Strike,5,Love the atmosphere and the ice kacang was delicious!,POSITIVE
-703,C0074,Ali's Kitchen,5,Incredible quality at such affordable prices. The bubble tea was outstanding.,POSITIVE
-704,C0258,Kueh Corner,5,The vendor was so friendly and the teh tarik was fresh and tasty.,POSITIVE
-705,C0223,Ali's Kitchen,4,This is my go-to stall every time. Never disappoints with their roti john.,POSITIVE
-706,C0367,Durian Heaven,2,Overpriced curry puff for the quality. Would not return.,NEGATIVE
-707,C0359,Street Fusion,2,Disappointed with the murtabak. Long wait and cold food.,NEGATIVE
-708,C0248,Mak Cik Stall,1,Terrible experience. The chendol was undercooked and tasteless.,NEGATIVE
-709,C0103,Kopi Kaki,5,Perfect night out. The corn dog here is a must-try!,POSITIVE
-710,C0384,The Juice Lab,5,The vendor was so friendly and the roti john was fresh and tasty.,POSITIVE
-711,C0444,Boba World,1,Not worth the queue. The takoyaki didn't taste fresh at all.,NEGATIVE
-712,C0217,Ali's Kitchen,5,Love the atmosphere and the ice kacang was delicious!,POSITIVE
-713,C0179,Nasi Lemak Bros,1,Disappointed with the mee goreng. Long wait and cold food.,NEGATIVE
-714,C0307,Snack Attack,4,This is my go-to stall every time. Never disappoints with their chendol.,POSITIVE
-715,C0291,Fun Zone,4,Amazing food! Best teh tarik I've had at a pasar malam.,POSITIVE
-716,C0159,Crunch Time,5,This is my go-to stall every time. Never disappoints with their roti john.,POSITIVE
-717,C0247,Abang Burger,2,Terrible experience. The chendol was undercooked and tasteless.,NEGATIVE
-718,C0473,Wok This Way,4,Great value for money. Will definitely come back for more bubble tea.,POSITIVE
-719,C0074,Kampung Wok,4,Brought my whole family and everyone enjoyed the curry puff. Highly recommend!,POSITIVE
-720,C0213,Kopi Kaki,5,Brought my whole family and everyone enjoyed the roti john. Highly recommend!,POSITIVE
-721,C0484,Mak Cik Stall,4,Amazing food! Best murtabak I've had at a pasar malam.,POSITIVE
-722,C0497,Kampung Wok,4,Perfect night out. The bubble tea here is a must-try!,POSITIVE
-723,C0373,Durian Heaven,4,Love the atmosphere and the ice kacang was delicious!,POSITIVE
-724,C0172,Munchies Corner,1,Not worth the queue. The curry puff didn't taste fresh at all.,NEGATIVE
-725,C0485,Home & More,4,Love the atmosphere and the teh tarik was delicious!,POSITIVE
-726,C0162,Mala Majik,5,Brought my whole family and everyone enjoyed the mee goreng. Highly recommend!,POSITIVE
-727,C0299,Nasi Lemak Bros,5,Great value for money. Will definitely come back for more murtabak.,POSITIVE
-728,C0476,Wok This Way,2,Not worth the queue. The satay didn't taste fresh at all.,NEGATIVE
-729,C0003,Sweet Spot,2,Not worth the queue. The ice kacang didn't taste fresh at all.,NEGATIVE
-730,C0018,Casa Living,1,Overpriced goreng pisang for the quality. Would not return.,NEGATIVE
-731,C0482,Win It Stall,2,Disappointed with the laksa. Long wait and cold food.,NEGATIVE
-732,C0412,The Juice Lab,2,The takoyaki was stale and the service was slow.,NEGATIVE
-733,C0228,Nasi Lemak Bros,5,Love the atmosphere and the bubble tea was delicious!,POSITIVE
-734,C0177,The Juice Lab,2,The curry puff was stale and the service was slow.,NEGATIVE
-735,C0399,Tornado Bites,2,Disappointed with the chendol. Long wait and cold food.,NEGATIVE
-736,C0254,Crunch Time,1,The teh tarik was stale and the service was slow.,NEGATIVE
-737,C0173,Munchies Corner,1,Disappointed with the mee goreng. Long wait and cold food.,NEGATIVE
-738,C0205,Mak Cik Stall,5,The vendor was so friendly and the bubble tea was fresh and tasty.,POSITIVE
-739,C0062,Game On!,5,This is my go-to stall every time. Never disappoints with their bubble tea.,POSITIVE
-740,C0349,Mak Cik Stall,5,Incredible quality at such affordable prices. The takoyaki was outstanding.,POSITIVE
-741,C0127,Uncle Razali Grill,1,Terrible experience. The curry puff was undercooked and tasteless.,NEGATIVE
-742,C0497,Coconut Grove,5,Perfect night out. The curry puff here is a must-try!,POSITIVE
-743,C0345,Munchies Corner,5,The vendor was so friendly and the curry puff was fresh and tasty.,POSITIVE
-744,C0043,Fun Zone,1,Worst laksa I have ever tried. Complete waste of money.,NEGATIVE
-745,C0201,Casa Living,1,Terrible experience. The nasi goreng was undercooked and tasteless.,NEGATIVE
-746,C0055,Ali's Kitchen,1,Disappointed with the takoyaki. Long wait and cold food.,NEGATIVE
-747,C0029,Sugar Rush,1,Disappointed with the roti john. Long wait and cold food.,NEGATIVE
-748,C0341,Durian Heaven,1,Overpriced murtabak for the quality. Would not return.,NEGATIVE
-749,C0405,Home & More,2,Disappointed with the chendol. Long wait and cold food.,NEGATIVE
-750,C0082,Boba World,2,Disappointed with the mee goreng. Long wait and cold food.,NEGATIVE
-751,C0301,Ice Ice Baby,1,Not worth the queue. The mee goreng didn't taste fresh at all.,NEGATIVE
-752,C0384,Uncle Razali Grill,2,Not worth the queue. The teh tarik didn't taste fresh at all.,NEGATIVE
-753,C0298,Crunch Time,5,Great value for money. Will definitely come back for more corn dog.,POSITIVE
-754,C0330,Lucky Strike,4,Great value for money. Will definitely come back for more takoyaki.,POSITIVE
-755,C0354,Kampung Wok,2,Disappointed with the takoyaki. Long wait and cold food.,NEGATIVE
-756,C0478,Wok This Way,1,The bubble tea was stale and the service was slow.,NEGATIVE
-757,C0438,Boba World,2,The roti john was stale and the service was slow.,NEGATIVE
-758,C0418,Sugar Rush,4,Love the atmosphere and the corn dog was delicious!,POSITIVE
-759,C0118,Sugar Rush,4,Amazing food! Best corn dog I've had at a pasar malam.,POSITIVE
-760,C0052,Ice Ice Baby,2,Disappointed with the curry puff. Long wait and cold food.,NEGATIVE
-761,C0164,Fun Zone,4,Incredible quality at such affordable prices. The chendol was outstanding.,POSITIVE
-762,C0424,Home & More,5,Incredible quality at such affordable prices. The corn dog was outstanding.,POSITIVE
-763,C0128,Uncle Razali Grill,2,Terrible experience. The mee goreng was undercooked and tasteless.,NEGATIVE
-764,C0090,Nasi Lemak Bros,2,Disappointed with the bubble tea. Long wait and cold food.,NEGATIVE
-765,C0401,Snack Attack,4,This is my go-to stall every time. Never disappoints with their takoyaki.,POSITIVE
-766,C0210,Crunch Time,5,Amazing food! Best murtabak I've had at a pasar malam.,POSITIVE
-767,C0126,Fun Zone,4,Love the atmosphere and the mee goreng was delicious!,POSITIVE
-768,C0042,The Linen Store,4,The vendor was so friendly and the corn dog was fresh and tasty.,POSITIVE
-769,C0345,Win It Stall,5,Love the atmosphere and the bubble tea was delicious!,POSITIVE
-770,C0242,Kueh Corner,4,Incredible quality at such affordable prices. The teh tarik was outstanding.,POSITIVE
-771,C0365,Mak Cik Stall,5,The vendor was so friendly and the murtabak was fresh and tasty.,POSITIVE
-772,C0085,Tornado Bites,5,Amazing food! Best ice kacang I've had at a pasar malam.,POSITIVE
-773,C0087,Sweet Spot,4,Love the atmosphere and the satay was delicious!,POSITIVE
-774,C0261,Wok This Way,2,Worst roti john I have ever tried. Complete waste of money.,NEGATIVE
-775,C0107,Win It Stall,1,Not worth the queue. The takoyaki didn't taste fresh at all.,NEGATIVE
-776,C0474,Dessert Alley,1,Overpriced laksa for the quality. Would not return.,NEGATIVE
-777,C0219,Ice Ice Baby,5,Perfect night out. The corn dog here is a must-try!,POSITIVE
-778,C0216,Uncle Razali Grill,1,Not worth the queue. The ice kacang didn't taste fresh at all.,NEGATIVE
-779,C0101,Mala Majik,5,Great value for money. Will definitely come back for more goreng pisang.,POSITIVE
-780,C0360,Uncle Razali Grill,2,Terrible experience. The goreng pisang was undercooked and tasteless.,NEGATIVE
-781,C0380,Ali's Kitchen,5,Love the atmosphere and the teh tarik was delicious!,POSITIVE
-782,C0112,Ali's Kitchen,2,Overpriced curry puff for the quality. Would not return.,NEGATIVE
-783,C0137,Tornado Bites,5,Great value for money. Will definitely come back for more takoyaki.,POSITIVE
-784,C0268,Wok This Way,1,Not worth the queue. The teh tarik didn't taste fresh at all.,NEGATIVE
-785,C0074,Kueh Corner,2,Not worth the queue. The mee goreng didn't taste fresh at all.,NEGATIVE
-786,C0008,Jelly Bliss,5,The vendor was so friendly and the mee goreng was fresh and tasty.,POSITIVE
-787,C0441,Snack Attack,1,Overpriced takoyaki for the quality. Would not return.,NEGATIVE
-788,C0475,Munchies Corner,5,This is my go-to stall every time. Never disappoints with their bubble tea.,POSITIVE
-789,C0500,Mala Majik,2,The chendol was stale and the service was slow.,NEGATIVE
-790,C0378,K-Food Craze,4,Perfect night out. The murtabak here is a must-try!,POSITIVE
-791,C0127,Durian Heaven,5,Brought my whole family and everyone enjoyed the bubble tea. Highly recommend!,POSITIVE
-792,C0007,Abang Burger,2,Overpriced bubble tea for the quality. Would not return.,NEGATIVE
-793,C0040,Uncle Razali Grill,5,Brought my whole family and everyone enjoyed the teh tarik. Highly recommend!,POSITIVE
-794,C0145,Kampung Wok,4,Incredible quality at such affordable prices. The murtabak was outstanding.,POSITIVE
-795,C0398,Dessert Alley,2,Overpriced nasi goreng for the quality. Would not return.,NEGATIVE
-796,C0465,Fun Zone,2,Overpriced teh tarik for the quality. Would not return.,NEGATIVE
-797,C0227,Ice Ice Baby,1,Terrible experience. The roti john was undercooked and tasteless.,NEGATIVE
-798,C0036,Seoul Kitchen,2,Terrible experience. The curry puff was undercooked and tasteless.,NEGATIVE
-799,C0498,Durian Heaven,4,Incredible quality at such affordable prices. The mee goreng was outstanding.,POSITIVE
-800,C0021,Mala Majik,2,Worst bubble tea I have ever tried. Complete waste of money.,NEGATIVE
+1,C0420,Nasi Lemak Bros,5,This is my go-to stall every time. Never disappoints with their chendol.,POSITIVE
+2,C0428,Home & More,2,Disappointed with the bubble tea. Long wait and cold food.,NEGATIVE
+3,C0064,Lucky Strike,2,Terrible experience. The teh tarik was undercooked and tasteless.,NEGATIVE
+4,C0422,Lucky Strike,5,The vendor was so friendly and the chendol was fresh and tasty.,POSITIVE
+5,C0314,Fun Zone,5,Brought my whole family and everyone enjoyed the mee goreng. Highly recommend!,POSITIVE
+6,C0051,Game On!,4,Brought my whole family and everyone enjoyed the murtabak. Highly recommend!,POSITIVE
+7,C0142,Lucky Strike,1,Not worth the queue. The takoyaki didn't taste fresh at all.,NEGATIVE
+8,C0067,Uncle Razali Grill,5,Brought my whole family and everyone enjoyed the nasi goreng. Highly recommend!,POSITIVE
+9,C0342,Tornado Bites,5,Brought my whole family and everyone enjoyed the satay. Highly recommend!,POSITIVE
+10,C0119,Sugar Rush,1,Terrible experience. The curry puff was undercooked and tasteless.,NEGATIVE
+11,C0405,Crunch Time,1,Terrible experience. The satay was undercooked and tasteless.,NEGATIVE
+12,C0279,Kampung Wok,2,Overpriced roti john for the quality. Would not return.,NEGATIVE
+13,C0248,Ali's Kitchen,5,This is my go-to stall every time. Never disappoints with their roti john.,POSITIVE
+14,C0368,Everyday Essentials,5,Perfect night out. The satay here is a must-try!,POSITIVE
+15,C0430,Kopi Kaki,2,The goreng pisang was stale and the service was slow.,NEGATIVE
+16,C0315,Fun Zone,5,Perfect night out. The takoyaki here is a must-try!,POSITIVE
+17,C0133,Sugar Rush,5,Perfect night out. The roti john here is a must-try!,POSITIVE
+18,C0383,Kopi Kaki,2,Not worth the queue. The goreng pisang didn't taste fresh at all.,NEGATIVE
+19,C0168,Sugar Rush,5,Perfect night out. The murtabak here is a must-try!,POSITIVE
+20,C0192,Kueh Corner,5,This is my go-to stall every time. Never disappoints with their roti john.,POSITIVE
+21,C0312,The Juice Lab,2,Disappointed with the chendol. Long wait and cold food.,NEGATIVE
+22,C0083,Kacang Queen,2,Not worth the queue. The satay didn't taste fresh at all.,NEGATIVE
+23,C0057,Teh Tarik Station,4,Perfect night out. The laksa here is a must-try!,POSITIVE
+24,C0039,Dessert Alley,1,Disappointed with the ice kacang. Long wait and cold food.,NEGATIVE
+25,C0464,Snack Attack,5,Amazing food! Best corn dog I've had at a pasar malam.,POSITIVE
+26,C0392,Lucky Strike,5,Great value for money. Will definitely come back for more roti john.,POSITIVE
+27,C0481,Seoul Kitchen,1,Not worth the queue. The nasi goreng didn't taste fresh at all.,NEGATIVE
+28,C0254,Dessert Alley,2,Not worth the queue. The teh tarik didn't taste fresh at all.,NEGATIVE
+29,C0013,The Juice Lab,5,Perfect night out. The teh tarik here is a must-try!,POSITIVE
+30,C0269,Ali's Kitchen,4,Perfect night out. The takoyaki here is a must-try!,POSITIVE
+31,C0455,Kopi Kaki,4,Brought my whole family and everyone enjoyed the goreng pisang. Highly recommend!,POSITIVE
+32,C0314,Seoul Kitchen,2,Disappointed with the satay. Long wait and cold food.,NEGATIVE
+33,C0496,Mala Majik,2,Disappointed with the ice kacang. Long wait and cold food.,NEGATIVE
+34,C0164,Dessert Alley,1,The satay was stale and the service was slow.,NEGATIVE
+35,C0135,Dessert Alley,5,This is my go-to stall every time. Never disappoints with their goreng pisang.,POSITIVE
+36,C0298,The Satay Corner,4,Amazing food! Best goreng pisang I've had at a pasar malam.,POSITIVE
+37,C0286,Kopi Kaki,2,The curry puff was stale and the service was slow.,NEGATIVE
+38,C0246,The Linen Store,2,Terrible experience. The mee goreng was undercooked and tasteless.,NEGATIVE
+39,C0364,Wok This Way,5,Great value for money. Will definitely come back for more roti john.,POSITIVE
+40,C0121,Munchies Corner,4,The vendor was so friendly and the goreng pisang was fresh and tasty.,POSITIVE
+41,C0105,Crunch Time,5,Perfect night out. The chendol here is a must-try!,POSITIVE
+42,C0118,Fun Zone,4,Great value for money. Will definitely come back for more mee goreng.,POSITIVE
+43,C0455,Game On!,4,Love the atmosphere and the satay was delicious!,POSITIVE
+44,C0151,Casa Living,1,Worst bubble tea I have ever tried. Complete waste of money.,NEGATIVE
+45,C0040,Abang Burger,4,This is my go-to stall every time. Never disappoints with their bubble tea.,POSITIVE
+46,C0048,Lucky Strike,2,Disappointed with the mee goreng. Long wait and cold food.,NEGATIVE
+47,C0312,Wok This Way,5,Great value for money. Will definitely come back for more teh tarik.,POSITIVE
+48,C0491,Home & More,5,Love the atmosphere and the curry puff was delicious!,POSITIVE
+49,C0218,Kopi Kaki,5,Love the atmosphere and the takoyaki was delicious!,POSITIVE
+50,C0484,Durian Heaven,5,Amazing food! Best roti john I've had at a pasar malam.,POSITIVE
+51,C0473,Win It Stall,1,Disappointed with the murtabak. Long wait and cold food.,NEGATIVE
+52,C0400,Kampung Wok,1,Not worth the queue. The murtabak didn't taste fresh at all.,NEGATIVE
+53,C0183,Casa Living,2,Worst ice kacang I have ever tried. Complete waste of money.,NEGATIVE
+54,C0101,Ali's Kitchen,5,Brought my whole family and everyone enjoyed the roti john. Highly recommend!,POSITIVE
+55,C0115,Win It Stall,4,The vendor was so friendly and the teh tarik was fresh and tasty.,POSITIVE
+56,C0043,The Satay Corner,2,The takoyaki was stale and the service was slow.,NEGATIVE
+57,C0480,Win It Stall,4,Brought my whole family and everyone enjoyed the nasi goreng. Highly recommend!,POSITIVE
+58,C0306,Fun Zone,4,Perfect night out. The roti john here is a must-try!,POSITIVE
+59,C0128,Abang Burger,5,Amazing food! Best mee goreng I've had at a pasar malam.,POSITIVE
+60,C0163,Kacang Queen,2,Overpriced curry puff for the quality. Would not return.,NEGATIVE
+61,C0274,Uncle Razali Grill,4,Love the atmosphere and the murtabak was delicious!,POSITIVE
+62,C0118,Street Fusion,1,Worst corn dog I have ever tried. Complete waste of money.,NEGATIVE
+63,C0352,Ice Ice Baby,4,This is my go-to stall every time. Never disappoints with their satay.,POSITIVE
+64,C0477,Coconut Grove,5,Incredible quality at such affordable prices. The curry puff was outstanding.,POSITIVE
+65,C0262,Durian Heaven,4,This is my go-to stall every time. Never disappoints with their curry puff.,POSITIVE
+66,C0408,Home & More,5,Great value for money. Will definitely come back for more curry puff.,POSITIVE
+67,C0194,Teh Tarik Station,4,The vendor was so friendly and the laksa was fresh and tasty.,POSITIVE
+68,C0411,The Satay Corner,2,Worst goreng pisang I have ever tried. Complete waste of money.,NEGATIVE
+69,C0421,Munchies Corner,1,Overpriced laksa for the quality. Would not return.,NEGATIVE
+70,C0058,Durian Heaven,5,Perfect night out. The corn dog here is a must-try!,POSITIVE
+71,C0079,Abang Burger,1,Overpriced ice kacang for the quality. Would not return.,NEGATIVE
+72,C0348,The Linen Store,5,Love the atmosphere and the mee goreng was delicious!,POSITIVE
+73,C0462,Boba World,2,Terrible experience. The chendol was undercooked and tasteless.,NEGATIVE
+74,C0315,Ali's Kitchen,4,The vendor was so friendly and the teh tarik was fresh and tasty.,POSITIVE
+75,C0222,Munchies Corner,2,Not worth the queue. The goreng pisang didn't taste fresh at all.,NEGATIVE
+76,C0385,Snack Attack,1,Terrible experience. The roti john was undercooked and tasteless.,NEGATIVE
+77,C0453,Home & More,2,Disappointed with the roti john. Long wait and cold food.,NEGATIVE
+78,C0042,Casa Living,5,This is my go-to stall every time. Never disappoints with their takoyaki.,POSITIVE
+79,C0398,Durian Heaven,5,The vendor was so friendly and the curry puff was fresh and tasty.,POSITIVE
+80,C0350,Cheese Me,2,Overpriced nasi goreng for the quality. Would not return.,NEGATIVE
+81,C0319,Game On!,1,Disappointed with the goreng pisang. Long wait and cold food.,NEGATIVE
+82,C0381,Crunch Time,4,The vendor was so friendly and the roti john was fresh and tasty.,POSITIVE
+83,C0022,Casa Living,4,Great value for money. Will definitely come back for more curry puff.,POSITIVE
+84,C0264,K-Food Craze,1,The ice kacang was stale and the service was slow.,NEGATIVE
+85,C0463,Lucky Strike,2,The satay was stale and the service was slow.,NEGATIVE
+86,C0396,The Linen Store,2,Disappointed with the teh tarik. Long wait and cold food.,NEGATIVE
+87,C0081,Seoul Kitchen,4,The vendor was so friendly and the satay was fresh and tasty.,POSITIVE
+88,C0327,Cheese Me,4,Amazing food! Best ice kacang I've had at a pasar malam.,POSITIVE
+89,C0259,Kueh Corner,5,This is my go-to stall every time. Never disappoints with their bubble tea.,POSITIVE
+90,C0101,Nasi Lemak Bros,2,The murtabak was stale and the service was slow.,NEGATIVE
+91,C0112,Tornado Bites,4,This is my go-to stall every time. Never disappoints with their roti john.,POSITIVE
+92,C0031,Sweet Spot,1,Terrible experience. The roti john was undercooked and tasteless.,NEGATIVE
+93,C0108,Lucky Strike,5,The vendor was so friendly and the ice kacang was fresh and tasty.,POSITIVE
+94,C0162,Nasi Lemak Bros,2,Worst mee goreng I have ever tried. Complete waste of money.,NEGATIVE
+95,C0266,Nasi Lemak Bros,1,Disappointed with the murtabak. Long wait and cold food.,NEGATIVE
+96,C0051,Street Fusion,1,Overpriced goreng pisang for the quality. Would not return.,NEGATIVE
+97,C0062,Mak Cik Stall,5,Great value for money. Will definitely come back for more ice kacang.,POSITIVE
+98,C0182,K-Food Craze,5,Love the atmosphere and the takoyaki was delicious!,POSITIVE
+99,C0145,Everyday Essentials,2,Disappointed with the bubble tea. Long wait and cold food.,NEGATIVE
+100,C0465,Uncle Razali Grill,5,This is my go-to stall every time. Never disappoints with their murtabak.,POSITIVE
+101,C0151,Dessert Alley,4,This is my go-to stall every time. Never disappoints with their corn dog.,POSITIVE
+102,C0015,Uncle Razali Grill,2,Not worth the queue. The murtabak didn't taste fresh at all.,NEGATIVE
+103,C0487,Teh Tarik Station,4,Amazing food! Best corn dog I've had at a pasar malam.,POSITIVE
+104,C0476,Kueh Corner,1,Not worth the queue. The laksa didn't taste fresh at all.,NEGATIVE
+105,C0041,Snack Attack,1,Terrible experience. The takoyaki was undercooked and tasteless.,NEGATIVE
+106,C0206,Home & More,5,This is my go-to stall every time. Never disappoints with their bubble tea.,POSITIVE
+107,C0038,Munchies Corner,1,Overpriced goreng pisang for the quality. Would not return.,NEGATIVE
+108,C0141,Everyday Essentials,1,Not worth the queue. The roti john didn't taste fresh at all.,NEGATIVE
+109,C0170,Mak Cik Stall,1,Disappointed with the chendol. Long wait and cold food.,NEGATIVE
+110,C0367,Tornado Bites,1,Not worth the queue. The chendol didn't taste fresh at all.,NEGATIVE
+111,C0086,Game On!,1,Not worth the queue. The ice kacang didn't taste fresh at all.,NEGATIVE
+112,C0009,Snack Attack,2,Worst corn dog I have ever tried. Complete waste of money.,NEGATIVE
+113,C0162,Boba World,4,Love the atmosphere and the bubble tea was delicious!,POSITIVE
+114,C0046,Nasi Lemak Bros,4,Love the atmosphere and the murtabak was delicious!,POSITIVE
+115,C0394,Nasi Lemak Bros,5,Great value for money. Will definitely come back for more corn dog.,POSITIVE
+116,C0172,Home & More,2,Worst murtabak I have ever tried. Complete waste of money.,NEGATIVE
+117,C0248,Uncle Razali Grill,2,Disappointed with the chendol. Long wait and cold food.,NEGATIVE
+118,C0489,Coconut Grove,2,Terrible experience. The teh tarik was undercooked and tasteless.,NEGATIVE
+119,C0305,Kopi Kaki,4,Love the atmosphere and the corn dog was delicious!,POSITIVE
+120,C0474,Uncle Razali Grill,4,Perfect night out. The murtabak here is a must-try!,POSITIVE
+121,C0237,Casa Living,2,Overpriced ice kacang for the quality. Would not return.,NEGATIVE
+122,C0464,Boba World,4,Love the atmosphere and the corn dog was delicious!,POSITIVE
+123,C0123,Win It Stall,5,The vendor was so friendly and the satay was fresh and tasty.,POSITIVE
+124,C0208,Seoul Kitchen,2,Disappointed with the roti john. Long wait and cold food.,NEGATIVE
+125,C0074,Nasi Lemak Bros,2,Terrible experience. The ice kacang was undercooked and tasteless.,NEGATIVE
+126,C0052,Crunch Time,1,Not worth the queue. The satay didn't taste fresh at all.,NEGATIVE
+127,C0450,Wok This Way,4,Perfect night out. The ice kacang here is a must-try!,POSITIVE
+128,C0136,Sugar Rush,2,Disappointed with the curry puff. Long wait and cold food.,NEGATIVE
+129,C0260,Kacang Queen,5,Perfect night out. The roti john here is a must-try!,POSITIVE
+130,C0416,Kopi Kaki,2,Overpriced nasi goreng for the quality. Would not return.,NEGATIVE
+131,C0218,Mak Cik Stall,5,Love the atmosphere and the murtabak was delicious!,POSITIVE
+132,C0439,Jelly Bliss,4,This is my go-to stall every time. Never disappoints with their ice kacang.,POSITIVE
+133,C0203,Coconut Grove,4,Incredible quality at such affordable prices. The takoyaki was outstanding.,POSITIVE
+134,C0293,Boba World,4,Love the atmosphere and the mee goreng was delicious!,POSITIVE
+135,C0143,Teh Tarik Station,5,Perfect night out. The mee goreng here is a must-try!,POSITIVE
+136,C0075,Jelly Bliss,4,Great value for money. Will definitely come back for more chendol.,POSITIVE
+137,C0152,Mala Majik,4,Brought my whole family and everyone enjoyed the corn dog. Highly recommend!,POSITIVE
+138,C0052,Everyday Essentials,4,Perfect night out. The chendol here is a must-try!,POSITIVE
+139,C0184,Fun Zone,1,Worst takoyaki I have ever tried. Complete waste of money.,NEGATIVE
+140,C0132,The Juice Lab,4,Great value for money. Will definitely come back for more bubble tea.,POSITIVE
+141,C0469,Game On!,5,Perfect night out. The goreng pisang here is a must-try!,POSITIVE
+142,C0348,Durian Heaven,4,This is my go-to stall every time. Never disappoints with their laksa.,POSITIVE
+143,C0442,Home & More,4,Brought my whole family and everyone enjoyed the teh tarik. Highly recommend!,POSITIVE
+144,C0157,Kueh Corner,5,Incredible quality at such affordable prices. The murtabak was outstanding.,POSITIVE
+145,C0127,Ali's Kitchen,4,Brought my whole family and everyone enjoyed the roti john. Highly recommend!,POSITIVE
+146,C0087,Durian Heaven,2,Not worth the queue. The nasi goreng didn't taste fresh at all.,NEGATIVE
+147,C0406,Mak Cik Stall,4,Amazing food! Best nasi goreng I've had at a pasar malam.,POSITIVE
+148,C0319,Win It Stall,4,Love the atmosphere and the satay was delicious!,POSITIVE
+149,C0073,Lucky Strike,5,Incredible quality at such affordable prices. The goreng pisang was outstanding.,POSITIVE
+150,C0187,Uncle Razali Grill,4,The vendor was so friendly and the takoyaki was fresh and tasty.,POSITIVE
+151,C0195,Nasi Lemak Bros,5,The vendor was so friendly and the takoyaki was fresh and tasty.,POSITIVE
+152,C0188,Wok This Way,1,Overpriced mee goreng for the quality. Would not return.,NEGATIVE
+153,C0055,Street Fusion,2,Overpriced chendol for the quality. Would not return.,NEGATIVE
+154,C0026,Kacang Queen,2,Not worth the queue. The satay didn't taste fresh at all.,NEGATIVE
+155,C0193,Coconut Grove,4,This is my go-to stall every time. Never disappoints with their curry puff.,POSITIVE
+156,C0070,Crunch Time,1,The murtabak was stale and the service was slow.,NEGATIVE
+157,C0374,Uncle Razali Grill,5,The vendor was so friendly and the roti john was fresh and tasty.,POSITIVE
+158,C0364,Teh Tarik Station,2,Not worth the queue. The corn dog didn't taste fresh at all.,NEGATIVE
+159,C0196,Game On!,2,Overpriced takoyaki for the quality. Would not return.,NEGATIVE
+160,C0028,Wok This Way,2,Disappointed with the satay. Long wait and cold food.,NEGATIVE
+161,C0299,Ali's Kitchen,4,This is my go-to stall every time. Never disappoints with their takoyaki.,POSITIVE
+162,C0296,Kopi Kaki,1,Overpriced nasi goreng for the quality. Would not return.,NEGATIVE
+163,C0464,Ice Ice Baby,5,Great value for money. Will definitely come back for more satay.,POSITIVE
+164,C0200,K-Food Craze,5,Amazing food! Best roti john I've had at a pasar malam.,POSITIVE
+165,C0495,Dessert Alley,4,Great value for money. Will definitely come back for more teh tarik.,POSITIVE
+166,C0223,Ice Ice Baby,4,Love the atmosphere and the mee goreng was delicious!,POSITIVE
+167,C0470,Crunch Time,4,Love the atmosphere and the nasi goreng was delicious!,POSITIVE
+168,C0328,Everyday Essentials,2,The murtabak was stale and the service was slow.,NEGATIVE
+169,C0485,Wok This Way,5,Incredible quality at such affordable prices. The teh tarik was outstanding.,POSITIVE
+170,C0044,Snack Attack,1,Not worth the queue. The takoyaki didn't taste fresh at all.,NEGATIVE
+171,C0120,Durian Heaven,5,Love the atmosphere and the chendol was delicious!,POSITIVE
+172,C0075,The Satay Corner,5,The vendor was so friendly and the ice kacang was fresh and tasty.,POSITIVE
+173,C0087,Tornado Bites,2,Overpriced bubble tea for the quality. Would not return.,NEGATIVE
+174,C0214,The Juice Lab,4,Incredible quality at such affordable prices. The bubble tea was outstanding.,POSITIVE
+175,C0388,Kacang Queen,5,This is my go-to stall every time. Never disappoints with their nasi goreng.,POSITIVE
+176,C0205,Wok This Way,4,This is my go-to stall every time. Never disappoints with their chendol.,POSITIVE
+177,C0497,Crunch Time,2,Not worth the queue. The ice kacang didn't taste fresh at all.,NEGATIVE
+178,C0460,Dessert Alley,1,Overpriced bubble tea for the quality. Would not return.,NEGATIVE
+179,C0070,The Satay Corner,4,The vendor was so friendly and the ice kacang was fresh and tasty.,POSITIVE
+180,C0139,Tornado Bites,1,Overpriced teh tarik for the quality. Would not return.,NEGATIVE
+181,C0030,Lucky Strike,5,The vendor was so friendly and the bubble tea was fresh and tasty.,POSITIVE
+182,C0031,Teh Tarik Station,4,Great value for money. Will definitely come back for more curry puff.,POSITIVE
+183,C0493,Win It Stall,1,Not worth the queue. The murtabak didn't taste fresh at all.,NEGATIVE
+184,C0487,Cheese Me,5,Love the atmosphere and the murtabak was delicious!,POSITIVE
+185,C0427,Ali's Kitchen,4,Perfect night out. The takoyaki here is a must-try!,POSITIVE
+186,C0421,Crunch Time,2,Worst corn dog I have ever tried. Complete waste of money.,NEGATIVE
+187,C0292,Kacang Queen,4,Amazing food! Best chendol I've had at a pasar malam.,POSITIVE
+188,C0473,The Satay Corner,1,Not worth the queue. The goreng pisang didn't taste fresh at all.,NEGATIVE
+189,C0384,Boba World,1,The teh tarik was stale and the service was slow.,NEGATIVE
+190,C0462,Home & More,1,Overpriced goreng pisang for the quality. Would not return.,NEGATIVE
+191,C0188,Mak Cik Stall,4,Brought my whole family and everyone enjoyed the ice kacang. Highly recommend!,POSITIVE
+192,C0334,Fun Zone,4,Love the atmosphere and the teh tarik was delicious!,POSITIVE
+193,C0223,Fun Zone,1,Disappointed with the curry puff. Long wait and cold food.,NEGATIVE
+194,C0383,Teh Tarik Station,5,Great value for money. Will definitely come back for more mee goreng.,POSITIVE
+195,C0444,The Satay Corner,4,This is my go-to stall every time. Never disappoints with their nasi goreng.,POSITIVE
+196,C0124,Sweet Spot,2,Terrible experience. The mee goreng was undercooked and tasteless.,NEGATIVE
+197,C0163,Crunch Time,1,Not worth the queue. The takoyaki didn't taste fresh at all.,NEGATIVE
+198,C0390,Teh Tarik Station,4,Love the atmosphere and the mee goreng was delicious!,POSITIVE
+199,C0006,Sugar Rush,2,Overpriced mee goreng for the quality. Would not return.,NEGATIVE
+200,C0152,Jelly Bliss,4,Incredible quality at such affordable prices. The ice kacang was outstanding.,POSITIVE
+201,C0203,Uncle Razali Grill,1,The curry puff was stale and the service was slow.,NEGATIVE
+202,C0295,Home & More,1,The laksa was stale and the service was slow.,NEGATIVE
+203,C0096,Durian Heaven,2,Disappointed with the curry puff. Long wait and cold food.,NEGATIVE
+204,C0435,Kampung Wok,2,Overpriced ice kacang for the quality. Would not return.,NEGATIVE
+205,C0483,Dessert Alley,1,Overpriced ice kacang for the quality. Would not return.,NEGATIVE
+206,C0365,Durian Heaven,5,This is my go-to stall every time. Never disappoints with their corn dog.,POSITIVE
+207,C0015,The Juice Lab,4,This is my go-to stall every time. Never disappoints with their roti john.,POSITIVE
+208,C0064,Dessert Alley,1,Worst teh tarik I have ever tried. Complete waste of money.,NEGATIVE
+209,C0225,Win It Stall,1,Terrible experience. The curry puff was undercooked and tasteless.,NEGATIVE
+210,C0440,The Juice Lab,2,Terrible experience. The ice kacang was undercooked and tasteless.,NEGATIVE
+211,C0157,Home & More,2,Disappointed with the takoyaki. Long wait and cold food.,NEGATIVE
+212,C0367,Sugar Rush,1,Overpriced ice kacang for the quality. Would not return.,NEGATIVE
+213,C0089,Uncle Razali Grill,5,Amazing food! Best takoyaki I've had at a pasar malam.,POSITIVE
+214,C0445,Mak Cik Stall,2,Not worth the queue. The goreng pisang didn't taste fresh at all.,NEGATIVE
+215,C0404,Seoul Kitchen,4,Brought my whole family and everyone enjoyed the takoyaki. Highly recommend!,POSITIVE
+216,C0329,Fun Zone,5,Love the atmosphere and the goreng pisang was delicious!,POSITIVE
+217,C0020,Mala Majik,4,The vendor was so friendly and the curry puff was fresh and tasty.,POSITIVE
+218,C0366,Ice Ice Baby,2,The teh tarik was stale and the service was slow.,NEGATIVE
+219,C0420,The Linen Store,1,The curry puff was stale and the service was slow.,NEGATIVE
+220,C0352,Fun Zone,5,This is my go-to stall every time. Never disappoints with their corn dog.,POSITIVE
+221,C0457,Ali's Kitchen,5,Brought my whole family and everyone enjoyed the takoyaki. Highly recommend!,POSITIVE
+222,C0483,Cheese Me,5,This is my go-to stall every time. Never disappoints with their bubble tea.,POSITIVE
+223,C0348,Kacang Queen,1,The chendol was stale and the service was slow.,NEGATIVE
+224,C0299,Dessert Alley,4,Love the atmosphere and the ice kacang was delicious!,POSITIVE
+225,C0057,Uncle Razali Grill,4,Perfect night out. The bubble tea here is a must-try!,POSITIVE
+226,C0084,Durian Heaven,4,Love the atmosphere and the ice kacang was delicious!,POSITIVE
+227,C0417,Home & More,2,Overpriced chendol for the quality. Would not return.,NEGATIVE
+228,C0394,Abang Burger,2,Terrible experience. The curry puff was undercooked and tasteless.,NEGATIVE
+229,C0076,Ali's Kitchen,4,Amazing food! Best bubble tea I've had at a pasar malam.,POSITIVE
+230,C0092,The Juice Lab,2,Terrible experience. The teh tarik was undercooked and tasteless.,NEGATIVE
+231,C0234,Home & More,5,Brought my whole family and everyone enjoyed the bubble tea. Highly recommend!,POSITIVE
+232,C0039,Kacang Queen,4,Amazing food! Best murtabak I've had at a pasar malam.,POSITIVE
+233,C0269,Tornado Bites,5,Incredible quality at such affordable prices. The chendol was outstanding.,POSITIVE
+234,C0052,K-Food Craze,2,Terrible experience. The ice kacang was undercooked and tasteless.,NEGATIVE
+235,C0038,Crunch Time,1,Overpriced laksa for the quality. Would not return.,NEGATIVE
+236,C0334,Crunch Time,5,Amazing food! Best nasi goreng I've had at a pasar malam.,POSITIVE
+237,C0162,Crunch Time,4,Love the atmosphere and the nasi goreng was delicious!,POSITIVE
+238,C0479,The Juice Lab,4,This is my go-to stall every time. Never disappoints with their chendol.,POSITIVE
+239,C0454,Sweet Spot,5,Brought my whole family and everyone enjoyed the chendol. Highly recommend!,POSITIVE
+240,C0068,Teh Tarik Station,4,Love the atmosphere and the laksa was delicious!,POSITIVE
+241,C0005,Casa Living,2,Not worth the queue. The corn dog didn't taste fresh at all.,NEGATIVE
+242,C0086,Cheese Me,5,Love the atmosphere and the takoyaki was delicious!,POSITIVE
+243,C0267,Seoul Kitchen,1,The bubble tea was stale and the service was slow.,NEGATIVE
+244,C0479,Nasi Lemak Bros,2,Overpriced corn dog for the quality. Would not return.,NEGATIVE
+245,C0148,Kueh Corner,2,Not worth the queue. The goreng pisang didn't taste fresh at all.,NEGATIVE
+246,C0173,Snack Attack,2,Overpriced mee goreng for the quality. Would not return.,NEGATIVE
+247,C0072,Durian Heaven,5,Amazing food! Best goreng pisang I've had at a pasar malam.,POSITIVE
+248,C0305,Lucky Strike,5,Love the atmosphere and the roti john was delicious!,POSITIVE
+249,C0135,Coconut Grove,1,Terrible experience. The teh tarik was undercooked and tasteless.,NEGATIVE
+250,C0456,Nasi Lemak Bros,4,This is my go-to stall every time. Never disappoints with their bubble tea.,POSITIVE
+251,C0077,Mak Cik Stall,1,The corn dog was stale and the service was slow.,NEGATIVE
+252,C0202,The Juice Lab,5,Amazing food! Best satay I've had at a pasar malam.,POSITIVE
+253,C0482,Everyday Essentials,5,Amazing food! Best bubble tea I've had at a pasar malam.,POSITIVE
+254,C0071,Casa Living,5,Incredible quality at such affordable prices. The nasi goreng was outstanding.,POSITIVE
+255,C0185,Snack Attack,1,Overpriced laksa for the quality. Would not return.,NEGATIVE
+256,C0161,Munchies Corner,1,Not worth the queue. The mee goreng didn't taste fresh at all.,NEGATIVE
+257,C0171,Sugar Rush,5,Love the atmosphere and the mee goreng was delicious!,POSITIVE
+258,C0350,Sweet Spot,2,The corn dog was stale and the service was slow.,NEGATIVE
+259,C0260,Wok This Way,1,Terrible experience. The laksa was undercooked and tasteless.,NEGATIVE
+260,C0436,Mala Majik,4,This is my go-to stall every time. Never disappoints with their satay.,POSITIVE
+261,C0031,Ali's Kitchen,2,Terrible experience. The mee goreng was undercooked and tasteless.,NEGATIVE
+262,C0114,The Linen Store,5,Amazing food! Best murtabak I've had at a pasar malam.,POSITIVE
+263,C0474,The Juice Lab,2,The murtabak was stale and the service was slow.,NEGATIVE
+264,C0386,Wok This Way,5,Love the atmosphere and the satay was delicious!,POSITIVE
+265,C0465,Seoul Kitchen,5,Perfect night out. The ice kacang here is a must-try!,POSITIVE
+266,C0209,Uncle Razali Grill,5,Love the atmosphere and the mee goreng was delicious!,POSITIVE
+267,C0138,Street Fusion,5,Incredible quality at such affordable prices. The bubble tea was outstanding.,POSITIVE
+268,C0318,Game On!,1,Disappointed with the teh tarik. Long wait and cold food.,NEGATIVE
+269,C0325,Street Fusion,2,Overpriced laksa for the quality. Would not return.,NEGATIVE
+270,C0480,Game On!,1,Terrible experience. The takoyaki was undercooked and tasteless.,NEGATIVE
+271,C0343,Uncle Razali Grill,5,Great value for money. Will definitely come back for more nasi goreng.,POSITIVE
+272,C0181,Game On!,5,Amazing food! Best corn dog I've had at a pasar malam.,POSITIVE
+273,C0385,Cheese Me,5,Great value for money. Will definitely come back for more laksa.,POSITIVE
+274,C0233,Boba World,5,Brought my whole family and everyone enjoyed the teh tarik. Highly recommend!,POSITIVE
+275,C0181,K-Food Craze,5,Amazing food! Best bubble tea I've had at a pasar malam.,POSITIVE
+276,C0117,Game On!,5,Incredible quality at such affordable prices. The corn dog was outstanding.,POSITIVE
+277,C0105,Cheese Me,4,Incredible quality at such affordable prices. The bubble tea was outstanding.,POSITIVE
+278,C0008,Kacang Queen,1,The laksa was stale and the service was slow.,NEGATIVE
+279,C0270,Sugar Rush,2,Terrible experience. The chendol was undercooked and tasteless.,NEGATIVE
+280,C0122,Game On!,2,Worst satay I have ever tried. Complete waste of money.,NEGATIVE
+281,C0258,Lucky Strike,5,The vendor was so friendly and the laksa was fresh and tasty.,POSITIVE
+282,C0165,K-Food Craze,2,Overpriced teh tarik for the quality. Would not return.,NEGATIVE
+283,C0207,Street Fusion,2,Not worth the queue. The satay didn't taste fresh at all.,NEGATIVE
+284,C0446,Wok This Way,1,Terrible experience. The takoyaki was undercooked and tasteless.,NEGATIVE
+285,C0117,Crunch Time,5,Perfect night out. The corn dog here is a must-try!,POSITIVE
+286,C0166,Kacang Queen,4,Great value for money. Will definitely come back for more corn dog.,POSITIVE
+287,C0102,Win It Stall,4,Brought my whole family and everyone enjoyed the laksa. Highly recommend!,POSITIVE
+288,C0253,Boba World,1,Terrible experience. The mee goreng was undercooked and tasteless.,NEGATIVE
+289,C0125,Coconut Grove,5,Love the atmosphere and the laksa was delicious!,POSITIVE
+290,C0262,Boba World,1,The nasi goreng was stale and the service was slow.,NEGATIVE
+291,C0354,Game On!,2,Not worth the queue. The goreng pisang didn't taste fresh at all.,NEGATIVE
+292,C0431,Munchies Corner,4,Perfect night out. The ice kacang here is a must-try!,POSITIVE
+293,C0286,Sugar Rush,4,Incredible quality at such affordable prices. The laksa was outstanding.,POSITIVE
+294,C0101,Ali's Kitchen,5,Love the atmosphere and the takoyaki was delicious!,POSITIVE
+295,C0104,Casa Living,4,Incredible quality at such affordable prices. The satay was outstanding.,POSITIVE
+296,C0307,Dessert Alley,1,The satay was stale and the service was slow.,NEGATIVE
+297,C0457,Sugar Rush,1,Terrible experience. The ice kacang was undercooked and tasteless.,NEGATIVE
+298,C0388,The Linen Store,2,The curry puff was stale and the service was slow.,NEGATIVE
+299,C0339,The Satay Corner,5,Love the atmosphere and the nasi goreng was delicious!,POSITIVE
+300,C0229,Mak Cik Stall,4,Love the atmosphere and the curry puff was delicious!,POSITIVE
+301,C0360,Teh Tarik Station,5,Incredible quality at such affordable prices. The roti john was outstanding.,POSITIVE
+302,C0035,Kacang Queen,5,Perfect night out. The satay here is a must-try!,POSITIVE
+303,C0469,The Juice Lab,2,Worst goreng pisang I have ever tried. Complete waste of money.,NEGATIVE
+304,C0012,Ali's Kitchen,2,Worst mee goreng I have ever tried. Complete waste of money.,NEGATIVE
+305,C0003,The Linen Store,5,Brought my whole family and everyone enjoyed the ice kacang. Highly recommend!,POSITIVE
+306,C0151,Kampung Wok,1,Not worth the queue. The roti john didn't taste fresh at all.,NEGATIVE
+307,C0196,Nasi Lemak Bros,4,Great value for money. Will definitely come back for more laksa.,POSITIVE
+308,C0374,Sweet Spot,2,Worst corn dog I have ever tried. Complete waste of money.,NEGATIVE
+309,C0248,Teh Tarik Station,2,Overpriced teh tarik for the quality. Would not return.,NEGATIVE
+310,C0322,K-Food Craze,4,This is my go-to stall every time. Never disappoints with their mee goreng.,POSITIVE
+311,C0303,Snack Attack,4,This is my go-to stall every time. Never disappoints with their ice kacang.,POSITIVE
+312,C0106,Snack Attack,4,Incredible quality at such affordable prices. The mee goreng was outstanding.,POSITIVE
+313,C0114,Munchies Corner,2,Not worth the queue. The laksa didn't taste fresh at all.,NEGATIVE
+314,C0391,Wok This Way,4,Great value for money. Will definitely come back for more laksa.,POSITIVE
+315,C0055,Fun Zone,1,Not worth the queue. The murtabak didn't taste fresh at all.,NEGATIVE
+316,C0338,K-Food Craze,1,Worst roti john I have ever tried. Complete waste of money.,NEGATIVE
+317,C0115,The Satay Corner,5,Amazing food! Best takoyaki I've had at a pasar malam.,POSITIVE
+318,C0114,Seoul Kitchen,1,Terrible experience. The chendol was undercooked and tasteless.,NEGATIVE
+319,C0440,Kopi Kaki,4,Perfect night out. The takoyaki here is a must-try!,POSITIVE
+320,C0023,The Juice Lab,1,Disappointed with the chendol. Long wait and cold food.,NEGATIVE
+321,C0379,Durian Heaven,5,Amazing food! Best nasi goreng I've had at a pasar malam.,POSITIVE
+322,C0247,Teh Tarik Station,1,Terrible experience. The chendol was undercooked and tasteless.,NEGATIVE
+323,C0359,Dessert Alley,4,Great value for money. Will definitely come back for more chendol.,POSITIVE
+324,C0392,Sugar Rush,5,This is my go-to stall every time. Never disappoints with their bubble tea.,POSITIVE
+325,C0150,Ice Ice Baby,4,Perfect night out. The bubble tea here is a must-try!,POSITIVE
+326,C0167,Boba World,1,Terrible experience. The corn dog was undercooked and tasteless.,NEGATIVE
+327,C0219,The Juice Lab,2,Overpriced goreng pisang for the quality. Would not return.,NEGATIVE
+328,C0352,The Juice Lab,1,Terrible experience. The bubble tea was undercooked and tasteless.,NEGATIVE
+329,C0404,The Juice Lab,4,Great value for money. Will definitely come back for more curry puff.,POSITIVE
+330,C0120,Teh Tarik Station,4,Incredible quality at such affordable prices. The roti john was outstanding.,POSITIVE
+331,C0412,Casa Living,5,This is my go-to stall every time. Never disappoints with their takoyaki.,POSITIVE
+332,C0498,Seoul Kitchen,2,Worst bubble tea I have ever tried. Complete waste of money.,NEGATIVE
+333,C0338,Boba World,5,Brought my whole family and everyone enjoyed the corn dog. Highly recommend!,POSITIVE
+334,C0297,Coconut Grove,1,Overpriced corn dog for the quality. Would not return.,NEGATIVE
+335,C0367,Fun Zone,4,Love the atmosphere and the satay was delicious!,POSITIVE
+336,C0037,Nasi Lemak Bros,5,Brought my whole family and everyone enjoyed the corn dog. Highly recommend!,POSITIVE
+337,C0279,The Satay Corner,4,Incredible quality at such affordable prices. The murtabak was outstanding.,POSITIVE
+338,C0269,K-Food Craze,5,Incredible quality at such affordable prices. The teh tarik was outstanding.,POSITIVE
+339,C0447,K-Food Craze,1,Terrible experience. The satay was undercooked and tasteless.,NEGATIVE
+340,C0135,Boba World,4,Brought my whole family and everyone enjoyed the ice kacang. Highly recommend!,POSITIVE
+341,C0295,Everyday Essentials,4,The vendor was so friendly and the corn dog was fresh and tasty.,POSITIVE
+342,C0226,Kampung Wok,4,Great value for money. Will definitely come back for more roti john.,POSITIVE
+343,C0464,Teh Tarik Station,5,This is my go-to stall every time. Never disappoints with their roti john.,POSITIVE
+344,C0420,Snack Attack,4,Great value for money. Will definitely come back for more ice kacang.,POSITIVE
+345,C0098,Crunch Time,4,This is my go-to stall every time. Never disappoints with their chendol.,POSITIVE
+346,C0146,Wok This Way,1,The murtabak was stale and the service was slow.,NEGATIVE
+347,C0135,Uncle Razali Grill,5,The vendor was so friendly and the roti john was fresh and tasty.,POSITIVE
+348,C0034,Lucky Strike,5,Amazing food! Best murtabak I've had at a pasar malam.,POSITIVE
+349,C0199,Cheese Me,5,Brought my whole family and everyone enjoyed the corn dog. Highly recommend!,POSITIVE
+350,C0366,Kueh Corner,5,Love the atmosphere and the curry puff was delicious!,POSITIVE
+351,C0195,Home & More,5,Amazing food! Best takoyaki I've had at a pasar malam.,POSITIVE
+352,C0037,The Satay Corner,5,This is my go-to stall every time. Never disappoints with their corn dog.,POSITIVE
+353,C0292,Win It Stall,2,The takoyaki was stale and the service was slow.,NEGATIVE
+354,C0444,Lucky Strike,2,The laksa was stale and the service was slow.,NEGATIVE
+355,C0183,Dessert Alley,1,Worst teh tarik I have ever tried. Complete waste of money.,NEGATIVE
+356,C0095,K-Food Craze,1,Overpriced laksa for the quality. Would not return.,NEGATIVE
+357,C0374,Kampung Wok,5,The vendor was so friendly and the takoyaki was fresh and tasty.,POSITIVE
+358,C0275,Casa Living,4,Amazing food! Best roti john I've had at a pasar malam.,POSITIVE
+359,C0176,Everyday Essentials,4,This is my go-to stall every time. Never disappoints with their chendol.,POSITIVE
+360,C0473,Munchies Corner,4,Love the atmosphere and the ice kacang was delicious!,POSITIVE
+361,C0460,K-Food Craze,1,Overpriced chendol for the quality. Would not return.,NEGATIVE
+362,C0212,The Linen Store,5,Brought my whole family and everyone enjoyed the roti john. Highly recommend!,POSITIVE
+363,C0235,Game On!,5,Love the atmosphere and the nasi goreng was delicious!,POSITIVE
+364,C0019,Nasi Lemak Bros,1,Overpriced mee goreng for the quality. Would not return.,NEGATIVE
+365,C0228,Jelly Bliss,5,The vendor was so friendly and the ice kacang was fresh and tasty.,POSITIVE
+366,C0050,Kopi Kaki,2,Overpriced nasi goreng for the quality. Would not return.,NEGATIVE
+367,C0187,Boba World,1,Overpriced murtabak for the quality. Would not return.,NEGATIVE
+368,C0134,Boba World,5,This is my go-to stall every time. Never disappoints with their roti john.,POSITIVE
+369,C0483,Kacang Queen,4,Incredible quality at such affordable prices. The teh tarik was outstanding.,POSITIVE
+370,C0435,Uncle Razali Grill,2,Terrible experience. The teh tarik was undercooked and tasteless.,NEGATIVE
+371,C0248,Wok This Way,1,Not worth the queue. The mee goreng didn't taste fresh at all.,NEGATIVE
+372,C0474,Ali's Kitchen,2,Worst roti john I have ever tried. Complete waste of money.,NEGATIVE
+373,C0192,Cheese Me,2,Disappointed with the corn dog. Long wait and cold food.,NEGATIVE
+374,C0491,Crunch Time,5,This is my go-to stall every time. Never disappoints with their mee goreng.,POSITIVE
+375,C0481,Game On!,2,Overpriced mee goreng for the quality. Would not return.,NEGATIVE
+376,C0500,Wok This Way,4,Perfect night out. The bubble tea here is a must-try!,POSITIVE
+377,C0271,Tornado Bites,5,Perfect night out. The mee goreng here is a must-try!,POSITIVE
+378,C0072,K-Food Craze,4,Love the atmosphere and the takoyaki was delicious!,POSITIVE
+379,C0334,Seoul Kitchen,5,Perfect night out. The goreng pisang here is a must-try!,POSITIVE
+380,C0445,Durian Heaven,4,Amazing food! Best nasi goreng I've had at a pasar malam.,POSITIVE
+381,C0176,Win It Stall,2,Not worth the queue. The chendol didn't taste fresh at all.,NEGATIVE
+382,C0396,Kacang Queen,2,Overpriced curry puff for the quality. Would not return.,NEGATIVE
+383,C0287,Mala Majik,2,Not worth the queue. The roti john didn't taste fresh at all.,NEGATIVE
+384,C0210,Street Fusion,2,Overpriced ice kacang for the quality. Would not return.,NEGATIVE
+385,C0296,Game On!,4,Great value for money. Will definitely come back for more curry puff.,POSITIVE
+386,C0425,Casa Living,4,Amazing food! Best satay I've had at a pasar malam.,POSITIVE
+387,C0300,Mala Majik,4,Amazing food! Best mee goreng I've had at a pasar malam.,POSITIVE
+388,C0214,Sugar Rush,2,Overpriced nasi goreng for the quality. Would not return.,NEGATIVE
+389,C0398,The Satay Corner,4,Brought my whole family and everyone enjoyed the corn dog. Highly recommend!,POSITIVE
+390,C0357,Boba World,5,The vendor was so friendly and the mee goreng was fresh and tasty.,POSITIVE
+391,C0442,Casa Living,5,The vendor was so friendly and the laksa was fresh and tasty.,POSITIVE
+392,C0126,Durian Heaven,1,Disappointed with the takoyaki. Long wait and cold food.,NEGATIVE
+393,C0150,Mak Cik Stall,5,Brought my whole family and everyone enjoyed the teh tarik. Highly recommend!,POSITIVE
+394,C0347,Kampung Wok,4,Brought my whole family and everyone enjoyed the curry puff. Highly recommend!,POSITIVE
+395,C0059,Uncle Razali Grill,4,The vendor was so friendly and the murtabak was fresh and tasty.,POSITIVE
+396,C0003,Seoul Kitchen,2,Not worth the queue. The ice kacang didn't taste fresh at all.,NEGATIVE
+397,C0104,Mak Cik Stall,4,The vendor was so friendly and the teh tarik was fresh and tasty.,POSITIVE
+398,C0445,Sweet Spot,1,Disappointed with the murtabak. Long wait and cold food.,NEGATIVE
+399,C0168,Kopi Kaki,1,Terrible experience. The goreng pisang was undercooked and tasteless.,NEGATIVE
+400,C0268,Jelly Bliss,5,The vendor was so friendly and the corn dog was fresh and tasty.,POSITIVE
+401,C0228,Sweet Spot,1,Terrible experience. The nasi goreng was undercooked and tasteless.,NEGATIVE
+402,C0032,Everyday Essentials,5,Great value for money. Will definitely come back for more satay.,POSITIVE
+403,C0191,Munchies Corner,4,Amazing food! Best goreng pisang I've had at a pasar malam.,POSITIVE
+404,C0198,Win It Stall,4,Perfect night out. The takoyaki here is a must-try!,POSITIVE
+405,C0284,Lucky Strike,1,Worst laksa I have ever tried. Complete waste of money.,NEGATIVE
+406,C0468,Munchies Corner,4,Great value for money. Will definitely come back for more curry puff.,POSITIVE
+407,C0049,The Linen Store,4,Perfect night out. The goreng pisang here is a must-try!,POSITIVE
+408,C0004,Crunch Time,5,Incredible quality at such affordable prices. The takoyaki was outstanding.,POSITIVE
+409,C0430,Cheese Me,1,Worst laksa I have ever tried. Complete waste of money.,NEGATIVE
+410,C0330,Dessert Alley,1,Worst nasi goreng I have ever tried. Complete waste of money.,NEGATIVE
+411,C0187,Abang Burger,4,Brought my whole family and everyone enjoyed the ice kacang. Highly recommend!,POSITIVE
+412,C0379,Coconut Grove,4,Amazing food! Best chendol I've had at a pasar malam.,POSITIVE
+413,C0417,Ice Ice Baby,5,Love the atmosphere and the bubble tea was delicious!,POSITIVE
+414,C0455,Dessert Alley,1,Not worth the queue. The satay didn't taste fresh at all.,NEGATIVE
+415,C0262,Win It Stall,1,Overpriced roti john for the quality. Would not return.,NEGATIVE
+416,C0191,Kueh Corner,4,This is my go-to stall every time. Never disappoints with their nasi goreng.,POSITIVE
+417,C0267,Home & More,1,Overpriced goreng pisang for the quality. Would not return.,NEGATIVE
+418,C0396,Home & More,2,Worst murtabak I have ever tried. Complete waste of money.,NEGATIVE
+419,C0233,Tornado Bites,4,Incredible quality at such affordable prices. The chendol was outstanding.,POSITIVE
+420,C0466,Fun Zone,1,Not worth the queue. The satay didn't taste fresh at all.,NEGATIVE
+421,C0473,Sweet Spot,1,The chendol was stale and the service was slow.,NEGATIVE
+422,C0328,Cheese Me,4,Love the atmosphere and the goreng pisang was delicious!,POSITIVE
+423,C0211,Jelly Bliss,5,Love the atmosphere and the mee goreng was delicious!,POSITIVE
+424,C0399,Ice Ice Baby,5,Great value for money. Will definitely come back for more bubble tea.,POSITIVE
+425,C0151,Crunch Time,4,Perfect night out. The chendol here is a must-try!,POSITIVE
+426,C0169,Kueh Corner,2,Not worth the queue. The mee goreng didn't taste fresh at all.,NEGATIVE
+427,C0219,Ali's Kitchen,5,The vendor was so friendly and the roti john was fresh and tasty.,POSITIVE
+428,C0055,Cheese Me,4,Great value for money. Will definitely come back for more bubble tea.,POSITIVE
+429,C0225,Wok This Way,5,This is my go-to stall every time. Never disappoints with their curry puff.,POSITIVE
+430,C0015,Win It Stall,5,Incredible quality at such affordable prices. The chendol was outstanding.,POSITIVE
+431,C0264,The Satay Corner,5,Amazing food! Best curry puff I've had at a pasar malam.,POSITIVE
+432,C0202,Tornado Bites,5,Amazing food! Best ice kacang I've had at a pasar malam.,POSITIVE
+433,C0167,Wok This Way,4,Great value for money. Will definitely come back for more satay.,POSITIVE
+434,C0400,The Linen Store,5,Great value for money. Will definitely come back for more mee goreng.,POSITIVE
+435,C0024,Boba World,2,Disappointed with the laksa. Long wait and cold food.,NEGATIVE
+436,C0111,The Linen Store,4,Incredible quality at such affordable prices. The goreng pisang was outstanding.,POSITIVE
+437,C0315,Teh Tarik Station,2,Not worth the queue. The chendol didn't taste fresh at all.,NEGATIVE
+438,C0145,Uncle Razali Grill,1,Terrible experience. The bubble tea was undercooked and tasteless.,NEGATIVE
+439,C0370,Tornado Bites,5,Amazing food! Best teh tarik I've had at a pasar malam.,POSITIVE
+440,C0367,Sugar Rush,1,The ice kacang was stale and the service was slow.,NEGATIVE
+441,C0495,Kacang Queen,4,Amazing food! Best roti john I've had at a pasar malam.,POSITIVE
+442,C0488,Tornado Bites,4,Amazing food! Best bubble tea I've had at a pasar malam.,POSITIVE
+443,C0302,Home & More,2,Disappointed with the murtabak. Long wait and cold food.,NEGATIVE
+444,C0057,Sweet Spot,1,Terrible experience. The teh tarik was undercooked and tasteless.,NEGATIVE
+445,C0032,The Satay Corner,5,Perfect night out. The teh tarik here is a must-try!,POSITIVE
+446,C0099,Sweet Spot,4,This is my go-to stall every time. Never disappoints with their chendol.,POSITIVE
+447,C0344,Jelly Bliss,1,The takoyaki was stale and the service was slow.,NEGATIVE
+448,C0276,Kacang Queen,4,Great value for money. Will definitely come back for more teh tarik.,POSITIVE
+449,C0406,Dessert Alley,1,Terrible experience. The murtabak was undercooked and tasteless.,NEGATIVE
+450,C0043,Ali's Kitchen,1,Not worth the queue. The mee goreng didn't taste fresh at all.,NEGATIVE
+451,C0462,Durian Heaven,2,Disappointed with the bubble tea. Long wait and cold food.,NEGATIVE
+452,C0253,Munchies Corner,5,Great value for money. Will definitely come back for more laksa.,POSITIVE
+453,C0143,Coconut Grove,2,The curry puff was stale and the service was slow.,NEGATIVE
+454,C0207,Seoul Kitchen,4,Perfect night out. The curry puff here is a must-try!,POSITIVE
+455,C0374,Casa Living,5,Incredible quality at such affordable prices. The takoyaki was outstanding.,POSITIVE
+456,C0238,Cheese Me,5,The vendor was so friendly and the ice kacang was fresh and tasty.,POSITIVE
+457,C0226,Tornado Bites,5,Love the atmosphere and the bubble tea was delicious!,POSITIVE
+458,C0285,Lucky Strike,2,Terrible experience. The corn dog was undercooked and tasteless.,NEGATIVE
+459,C0236,Street Fusion,5,Love the atmosphere and the ice kacang was delicious!,POSITIVE
+460,C0493,Lucky Strike,4,Incredible quality at such affordable prices. The chendol was outstanding.,POSITIVE
+461,C0288,Kacang Queen,4,Incredible quality at such affordable prices. The laksa was outstanding.,POSITIVE
+462,C0102,Kueh Corner,1,Terrible experience. The roti john was undercooked and tasteless.,NEGATIVE
+463,C0202,Kopi Kaki,4,This is my go-to stall every time. Never disappoints with their laksa.,POSITIVE
+464,C0082,Boba World,1,Disappointed with the teh tarik. Long wait and cold food.,NEGATIVE
+465,C0325,K-Food Craze,5,Incredible quality at such affordable prices. The chendol was outstanding.,POSITIVE
+466,C0133,Sweet Spot,4,Brought my whole family and everyone enjoyed the takoyaki. Highly recommend!,POSITIVE
+467,C0125,Nasi Lemak Bros,1,Not worth the queue. The laksa didn't taste fresh at all.,NEGATIVE
+468,C0046,Ali's Kitchen,4,Love the atmosphere and the satay was delicious!,POSITIVE
+469,C0316,Sweet Spot,1,Worst murtabak I have ever tried. Complete waste of money.,NEGATIVE
+470,C0339,Kacang Queen,5,Great value for money. Will definitely come back for more curry puff.,POSITIVE
+471,C0003,Kueh Corner,5,This is my go-to stall every time. Never disappoints with their corn dog.,POSITIVE
+472,C0002,Kampung Wok,2,Terrible experience. The murtabak was undercooked and tasteless.,NEGATIVE
+473,C0413,Win It Stall,1,Worst satay I have ever tried. Complete waste of money.,NEGATIVE
+474,C0278,Sugar Rush,4,Incredible quality at such affordable prices. The chendol was outstanding.,POSITIVE
+475,C0310,Boba World,1,Disappointed with the nasi goreng. Long wait and cold food.,NEGATIVE
+476,C0204,Kopi Kaki,4,The vendor was so friendly and the laksa was fresh and tasty.,POSITIVE
+477,C0190,Tornado Bites,2,The curry puff was stale and the service was slow.,NEGATIVE
+478,C0361,Sugar Rush,1,Worst roti john I have ever tried. Complete waste of money.,NEGATIVE
+479,C0207,Mala Majik,4,Perfect night out. The goreng pisang here is a must-try!,POSITIVE
+480,C0334,Mala Majik,1,Overpriced mee goreng for the quality. Would not return.,NEGATIVE
+481,C0421,Wok This Way,5,Incredible quality at such affordable prices. The goreng pisang was outstanding.,POSITIVE
+482,C0164,K-Food Craze,1,Overpriced curry puff for the quality. Would not return.,NEGATIVE
+483,C0002,Sugar Rush,4,Love the atmosphere and the goreng pisang was delicious!,POSITIVE
+484,C0484,Abang Burger,4,Brought my whole family and everyone enjoyed the takoyaki. Highly recommend!,POSITIVE
+485,C0373,Wok This Way,1,Overpriced ice kacang for the quality. Would not return.,NEGATIVE
+486,C0285,Munchies Corner,2,The chendol was stale and the service was slow.,NEGATIVE
+487,C0278,Dessert Alley,1,Disappointed with the roti john. Long wait and cold food.,NEGATIVE
+488,C0365,Everyday Essentials,5,Amazing food! Best nasi goreng I've had at a pasar malam.,POSITIVE
+489,C0130,Wok This Way,5,The vendor was so friendly and the roti john was fresh and tasty.,POSITIVE
+490,C0009,Jelly Bliss,1,Worst corn dog I have ever tried. Complete waste of money.,NEGATIVE
+491,C0403,Home & More,1,Terrible experience. The corn dog was undercooked and tasteless.,NEGATIVE
+492,C0429,Tornado Bites,4,This is my go-to stall every time. Never disappoints with their nasi goreng.,POSITIVE
+493,C0202,Mala Majik,2,Terrible experience. The murtabak was undercooked and tasteless.,NEGATIVE
+494,C0389,Wok This Way,2,Overpriced takoyaki for the quality. Would not return.,NEGATIVE
+495,C0201,Mak Cik Stall,4,Incredible quality at such affordable prices. The curry puff was outstanding.,POSITIVE
+496,C0005,Lucky Strike,5,Perfect night out. The laksa here is a must-try!,POSITIVE
+497,C0337,Tornado Bites,5,The vendor was so friendly and the teh tarik was fresh and tasty.,POSITIVE
+498,C0325,Uncle Razali Grill,5,Love the atmosphere and the laksa was delicious!,POSITIVE
+499,C0284,Coconut Grove,1,Terrible experience. The roti john was undercooked and tasteless.,NEGATIVE
+500,C0269,Munchies Corner,2,The teh tarik was stale and the service was slow.,NEGATIVE
+501,C0389,Tornado Bites,1,Terrible experience. The goreng pisang was undercooked and tasteless.,NEGATIVE
+502,C0381,Wok This Way,4,This is my go-to stall every time. Never disappoints with their roti john.,POSITIVE
+503,C0082,Ice Ice Baby,1,Not worth the queue. The corn dog didn't taste fresh at all.,NEGATIVE
+504,C0087,Mala Majik,4,Brought my whole family and everyone enjoyed the corn dog. Highly recommend!,POSITIVE
+505,C0184,Uncle Razali Grill,1,Terrible experience. The corn dog was undercooked and tasteless.,NEGATIVE
+506,C0455,Coconut Grove,2,Overpriced ice kacang for the quality. Would not return.,NEGATIVE
+507,C0233,Teh Tarik Station,4,Amazing food! Best roti john I've had at a pasar malam.,POSITIVE
+508,C0121,Street Fusion,1,Not worth the queue. The nasi goreng didn't taste fresh at all.,NEGATIVE
+509,C0049,Ice Ice Baby,4,Amazing food! Best takoyaki I've had at a pasar malam.,POSITIVE
+510,C0047,Mala Majik,5,The vendor was so friendly and the chendol was fresh and tasty.,POSITIVE
+511,C0049,The Satay Corner,4,Perfect night out. The corn dog here is a must-try!,POSITIVE
+512,C0378,Ali's Kitchen,5,Amazing food! Best goreng pisang I've had at a pasar malam.,POSITIVE
+513,C0072,The Juice Lab,5,Great value for money. Will definitely come back for more laksa.,POSITIVE
+514,C0129,Coconut Grove,1,Disappointed with the roti john. Long wait and cold food.,NEGATIVE
+515,C0468,Seoul Kitchen,4,This is my go-to stall every time. Never disappoints with their laksa.,POSITIVE
+516,C0399,Uncle Razali Grill,1,The teh tarik was stale and the service was slow.,NEGATIVE
+517,C0466,Casa Living,4,Great value for money. Will definitely come back for more nasi goreng.,POSITIVE
+518,C0248,Ali's Kitchen,5,The vendor was so friendly and the teh tarik was fresh and tasty.,POSITIVE
+519,C0038,Kampung Wok,2,Overpriced corn dog for the quality. Would not return.,NEGATIVE
+520,C0292,Wok This Way,5,The vendor was so friendly and the teh tarik was fresh and tasty.,POSITIVE
+521,C0380,Game On!,5,Great value for money. Will definitely come back for more ice kacang.,POSITIVE
+522,C0018,Jelly Bliss,5,Great value for money. Will definitely come back for more nasi goreng.,POSITIVE
+523,C0074,K-Food Craze,5,Amazing food! Best ice kacang I've had at a pasar malam.,POSITIVE
+524,C0148,Cheese Me,4,The vendor was so friendly and the corn dog was fresh and tasty.,POSITIVE
+525,C0432,Wok This Way,4,Perfect night out. The corn dog here is a must-try!,POSITIVE
+526,C0021,Tornado Bites,4,Great value for money. Will definitely come back for more bubble tea.,POSITIVE
+527,C0083,Boba World,5,Love the atmosphere and the curry puff was delicious!,POSITIVE
+528,C0088,Mak Cik Stall,4,Incredible quality at such affordable prices. The nasi goreng was outstanding.,POSITIVE
+529,C0132,Teh Tarik Station,4,Incredible quality at such affordable prices. The goreng pisang was outstanding.,POSITIVE
+530,C0149,Win It Stall,2,The curry puff was stale and the service was slow.,NEGATIVE
+531,C0151,Uncle Razali Grill,4,The vendor was so friendly and the chendol was fresh and tasty.,POSITIVE
+532,C0406,Sweet Spot,1,The murtabak was stale and the service was slow.,NEGATIVE
+533,C0319,Snack Attack,5,The vendor was so friendly and the mee goreng was fresh and tasty.,POSITIVE
+534,C0199,Dessert Alley,2,Overpriced satay for the quality. Would not return.,NEGATIVE
+535,C0361,Sweet Spot,5,Brought my whole family and everyone enjoyed the takoyaki. Highly recommend!,POSITIVE
+536,C0500,Ice Ice Baby,4,The vendor was so friendly and the nasi goreng was fresh and tasty.,POSITIVE
+537,C0460,Dessert Alley,5,Great value for money. Will definitely come back for more ice kacang.,POSITIVE
+538,C0141,Street Fusion,1,Disappointed with the teh tarik. Long wait and cold food.,NEGATIVE
+539,C0383,Kopi Kaki,5,Love the atmosphere and the goreng pisang was delicious!,POSITIVE
+540,C0495,The Satay Corner,2,The teh tarik was stale and the service was slow.,NEGATIVE
+541,C0184,Everyday Essentials,5,Amazing food! Best goreng pisang I've had at a pasar malam.,POSITIVE
+542,C0078,Casa Living,1,Not worth the queue. The ice kacang didn't taste fresh at all.,NEGATIVE
+543,C0382,Boba World,1,Not worth the queue. The goreng pisang didn't taste fresh at all.,NEGATIVE
+544,C0399,Win It Stall,4,Brought my whole family and everyone enjoyed the corn dog. Highly recommend!,POSITIVE
+545,C0252,Seoul Kitchen,4,Great value for money. Will definitely come back for more curry puff.,POSITIVE
+546,C0118,Game On!,4,Incredible quality at such affordable prices. The satay was outstanding.,POSITIVE
+547,C0495,Home & More,5,Brought my whole family and everyone enjoyed the corn dog. Highly recommend!,POSITIVE
+548,C0140,Jelly Bliss,2,Terrible experience. The teh tarik was undercooked and tasteless.,NEGATIVE
+549,C0188,Sugar Rush,5,Perfect night out. The goreng pisang here is a must-try!,POSITIVE
+550,C0119,Seoul Kitchen,4,Brought my whole family and everyone enjoyed the ice kacang. Highly recommend!,POSITIVE
+551,C0340,Mala Majik,1,Worst satay I have ever tried. Complete waste of money.,NEGATIVE
+552,C0360,Munchies Corner,5,Amazing food! Best mee goreng I've had at a pasar malam.,POSITIVE
+553,C0273,Cheese Me,5,Perfect night out. The roti john here is a must-try!,POSITIVE
+554,C0179,Ice Ice Baby,4,Perfect night out. The teh tarik here is a must-try!,POSITIVE
+555,C0362,Mak Cik Stall,4,The vendor was so friendly and the teh tarik was fresh and tasty.,POSITIVE
+556,C0145,Tornado Bites,5,The vendor was so friendly and the takoyaki was fresh and tasty.,POSITIVE
+557,C0357,Dessert Alley,4,Love the atmosphere and the ice kacang was delicious!,POSITIVE
+558,C0361,Ali's Kitchen,5,This is my go-to stall every time. Never disappoints with their chendol.,POSITIVE
+559,C0148,Sweet Spot,1,Not worth the queue. The mee goreng didn't taste fresh at all.,NEGATIVE
+560,C0367,Durian Heaven,2,Worst mee goreng I have ever tried. Complete waste of money.,NEGATIVE
+561,C0392,The Satay Corner,2,Not worth the queue. The satay didn't taste fresh at all.,NEGATIVE
+562,C0482,Nasi Lemak Bros,5,Love the atmosphere and the satay was delicious!,POSITIVE
+563,C0223,The Satay Corner,4,This is my go-to stall every time. Never disappoints with their mee goreng.,POSITIVE
+564,C0169,Street Fusion,2,Disappointed with the chendol. Long wait and cold food.,NEGATIVE
+565,C0340,Munchies Corner,1,Not worth the queue. The nasi goreng didn't taste fresh at all.,NEGATIVE
+566,C0075,Abang Burger,1,Disappointed with the bubble tea. Long wait and cold food.,NEGATIVE
+567,C0190,Tornado Bites,2,Not worth the queue. The goreng pisang didn't taste fresh at all.,NEGATIVE
+568,C0097,Wok This Way,2,The goreng pisang was stale and the service was slow.,NEGATIVE
+569,C0078,Munchies Corner,1,Terrible experience. The laksa was undercooked and tasteless.,NEGATIVE
+570,C0445,The Satay Corner,4,This is my go-to stall every time. Never disappoints with their goreng pisang.,POSITIVE
+571,C0216,Lucky Strike,2,The ice kacang was stale and the service was slow.,NEGATIVE
+572,C0266,Mala Majik,1,The chendol was stale and the service was slow.,NEGATIVE
+573,C0348,Seoul Kitchen,5,Amazing food! Best satay I've had at a pasar malam.,POSITIVE
+574,C0433,Home & More,4,Brought my whole family and everyone enjoyed the ice kacang. Highly recommend!,POSITIVE
+575,C0351,Wok This Way,5,The vendor was so friendly and the laksa was fresh and tasty.,POSITIVE
+576,C0199,Game On!,2,Disappointed with the curry puff. Long wait and cold food.,NEGATIVE
+577,C0012,Abang Burger,5,This is my go-to stall every time. Never disappoints with their takoyaki.,POSITIVE
+578,C0329,Munchies Corner,1,Overpriced bubble tea for the quality. Would not return.,NEGATIVE
+579,C0009,Fun Zone,2,The mee goreng was stale and the service was slow.,NEGATIVE
+580,C0378,Everyday Essentials,4,Perfect night out. The bubble tea here is a must-try!,POSITIVE
+581,C0249,Boba World,1,Overpriced mee goreng for the quality. Would not return.,NEGATIVE
+582,C0148,Nasi Lemak Bros,1,Disappointed with the teh tarik. Long wait and cold food.,NEGATIVE
+583,C0008,Kopi Kaki,2,Not worth the queue. The ice kacang didn't taste fresh at all.,NEGATIVE
+584,C0034,Sweet Spot,1,Not worth the queue. The teh tarik didn't taste fresh at all.,NEGATIVE
+585,C0063,Tornado Bites,1,Not worth the queue. The bubble tea didn't taste fresh at all.,NEGATIVE
+586,C0394,Win It Stall,4,Love the atmosphere and the chendol was delicious!,POSITIVE
+587,C0142,Seoul Kitchen,5,Amazing food! Best teh tarik I've had at a pasar malam.,POSITIVE
+588,C0397,Crunch Time,5,The vendor was so friendly and the roti john was fresh and tasty.,POSITIVE
+589,C0449,Cheese Me,2,Terrible experience. The laksa was undercooked and tasteless.,NEGATIVE
+590,C0358,Casa Living,4,This is my go-to stall every time. Never disappoints with their curry puff.,POSITIVE
+591,C0009,Cheese Me,4,Amazing food! Best nasi goreng I've had at a pasar malam.,POSITIVE
+592,C0237,Teh Tarik Station,1,Terrible experience. The roti john was undercooked and tasteless.,NEGATIVE
+593,C0400,Kampung Wok,4,Incredible quality at such affordable prices. The ice kacang was outstanding.,POSITIVE
+594,C0435,Seoul Kitchen,5,The vendor was so friendly and the laksa was fresh and tasty.,POSITIVE
+595,C0047,Abang Burger,5,Love the atmosphere and the mee goreng was delicious!,POSITIVE
+596,C0313,Street Fusion,1,Worst murtabak I have ever tried. Complete waste of money.,NEGATIVE
+597,C0223,Uncle Razali Grill,1,Disappointed with the ice kacang. Long wait and cold food.,NEGATIVE
+598,C0325,Wok This Way,4,Incredible quality at such affordable prices. The bubble tea was outstanding.,POSITIVE
+599,C0485,Kueh Corner,5,Great value for money. Will definitely come back for more curry puff.,POSITIVE
+600,C0346,Coconut Grove,4,This is my go-to stall every time. Never disappoints with their curry puff.,POSITIVE
+601,C0137,Ice Ice Baby,4,Love the atmosphere and the ice kacang was delicious!,POSITIVE
+602,C0030,Durian Heaven,5,Incredible quality at such affordable prices. The mee goreng was outstanding.,POSITIVE
+603,C0046,Fun Zone,5,Perfect night out. The laksa here is a must-try!,POSITIVE
+604,C0232,Teh Tarik Station,5,This is my go-to stall every time. Never disappoints with their teh tarik.,POSITIVE
+605,C0155,Win It Stall,1,Overpriced murtabak for the quality. Would not return.,NEGATIVE
+606,C0054,Ali's Kitchen,5,The vendor was so friendly and the murtabak was fresh and tasty.,POSITIVE
+607,C0298,Jelly Bliss,2,Worst murtabak I have ever tried. Complete waste of money.,NEGATIVE
+608,C0401,The Juice Lab,2,Not worth the queue. The satay didn't taste fresh at all.,NEGATIVE
+609,C0240,The Linen Store,4,Great value for money. Will definitely come back for more laksa.,POSITIVE
+610,C0083,Nasi Lemak Bros,4,Perfect night out. The murtabak here is a must-try!,POSITIVE
+611,C0430,Win It Stall,5,The vendor was so friendly and the murtabak was fresh and tasty.,POSITIVE
+612,C0393,Kacang Queen,2,Overpriced laksa for the quality. Would not return.,NEGATIVE
+613,C0198,Durian Heaven,5,Incredible quality at such affordable prices. The corn dog was outstanding.,POSITIVE
+614,C0010,Tornado Bites,4,Love the atmosphere and the laksa was delicious!,POSITIVE
+615,C0486,Sweet Spot,1,Terrible experience. The laksa was undercooked and tasteless.,NEGATIVE
+616,C0117,Dessert Alley,4,Great value for money. Will definitely come back for more ice kacang.,POSITIVE
+617,C0086,Teh Tarik Station,1,Not worth the queue. The ice kacang didn't taste fresh at all.,NEGATIVE
+618,C0073,Sweet Spot,1,Worst roti john I have ever tried. Complete waste of money.,NEGATIVE
+619,C0215,Snack Attack,2,Not worth the queue. The mee goreng didn't taste fresh at all.,NEGATIVE
+620,C0317,The Linen Store,4,Perfect night out. The mee goreng here is a must-try!,POSITIVE
+621,C0360,Seoul Kitchen,2,Not worth the queue. The mee goreng didn't taste fresh at all.,NEGATIVE
+622,C0381,Durian Heaven,1,Disappointed with the ice kacang. Long wait and cold food.,NEGATIVE
+623,C0290,Home & More,2,Terrible experience. The satay was undercooked and tasteless.,NEGATIVE
+624,C0470,Everyday Essentials,5,Brought my whole family and everyone enjoyed the roti john. Highly recommend!,POSITIVE
+625,C0211,Tornado Bites,4,Amazing food! Best curry puff I've had at a pasar malam.,POSITIVE
+626,C0371,Kopi Kaki,5,Amazing food! Best ice kacang I've had at a pasar malam.,POSITIVE
+627,C0492,The Satay Corner,5,Brought my whole family and everyone enjoyed the goreng pisang. Highly recommend!,POSITIVE
+628,C0459,Nasi Lemak Bros,5,Love the atmosphere and the teh tarik was delicious!,POSITIVE
+629,C0239,Munchies Corner,5,Incredible quality at such affordable prices. The nasi goreng was outstanding.,POSITIVE
+630,C0494,Seoul Kitchen,5,Perfect night out. The murtabak here is a must-try!,POSITIVE
+631,C0074,Lucky Strike,5,Incredible quality at such affordable prices. The mee goreng was outstanding.,POSITIVE
+632,C0475,Kampung Wok,4,Incredible quality at such affordable prices. The mee goreng was outstanding.,POSITIVE
+633,C0018,Win It Stall,4,Love the atmosphere and the corn dog was delicious!,POSITIVE
+634,C0031,Uncle Razali Grill,4,Great value for money. Will definitely come back for more bubble tea.,POSITIVE
+635,C0432,Boba World,2,Disappointed with the bubble tea. Long wait and cold food.,NEGATIVE
+636,C0450,Seoul Kitchen,4,Perfect night out. The satay here is a must-try!,POSITIVE
+637,C0018,Mak Cik Stall,1,Terrible experience. The goreng pisang was undercooked and tasteless.,NEGATIVE
+638,C0040,Seoul Kitchen,4,Incredible quality at such affordable prices. The teh tarik was outstanding.,POSITIVE
+639,C0374,Win It Stall,2,The mee goreng was stale and the service was slow.,NEGATIVE
+640,C0463,Fun Zone,1,Disappointed with the takoyaki. Long wait and cold food.,NEGATIVE
+641,C0481,Ice Ice Baby,1,Worst chendol I have ever tried. Complete waste of money.,NEGATIVE
+642,C0318,Cheese Me,5,Incredible quality at such affordable prices. The goreng pisang was outstanding.,POSITIVE
+643,C0076,Uncle Razali Grill,1,Disappointed with the takoyaki. Long wait and cold food.,NEGATIVE
+644,C0090,Cheese Me,5,Great value for money. Will definitely come back for more mee goreng.,POSITIVE
+645,C0420,Ice Ice Baby,4,This is my go-to stall every time. Never disappoints with their goreng pisang.,POSITIVE
+646,C0485,Sugar Rush,5,Brought my whole family and everyone enjoyed the murtabak. Highly recommend!,POSITIVE
+647,C0138,Win It Stall,2,Overpriced nasi goreng for the quality. Would not return.,NEGATIVE
+648,C0100,Kacang Queen,1,Not worth the queue. The murtabak didn't taste fresh at all.,NEGATIVE
+649,C0100,Kampung Wok,4,Amazing food! Best teh tarik I've had at a pasar malam.,POSITIVE
+650,C0354,Durian Heaven,4,Great value for money. Will definitely come back for more ice kacang.,POSITIVE
+651,C0393,Teh Tarik Station,1,The roti john was stale and the service was slow.,NEGATIVE
+652,C0427,Ali's Kitchen,5,Great value for money. Will definitely come back for more mee goreng.,POSITIVE
+653,C0013,Cheese Me,4,The vendor was so friendly and the corn dog was fresh and tasty.,POSITIVE
+654,C0020,Kopi Kaki,1,Not worth the queue. The curry puff didn't taste fresh at all.,NEGATIVE
+655,C0310,Munchies Corner,4,Great value for money. Will definitely come back for more mee goreng.,POSITIVE
+656,C0128,Kacang Queen,2,Worst mee goreng I have ever tried. Complete waste of money.,NEGATIVE
+657,C0478,Win It Stall,2,The ice kacang was stale and the service was slow.,NEGATIVE
+658,C0363,The Satay Corner,2,The murtabak was stale and the service was slow.,NEGATIVE
+659,C0154,Kopi Kaki,2,Worst laksa I have ever tried. Complete waste of money.,NEGATIVE
+660,C0239,Mala Majik,5,This is my go-to stall every time. Never disappoints with their teh tarik.,POSITIVE
+661,C0107,Kampung Wok,4,Perfect night out. The takoyaki here is a must-try!,POSITIVE
+662,C0233,Kueh Corner,4,Perfect night out. The teh tarik here is a must-try!,POSITIVE
+663,C0394,Kacang Queen,5,Brought my whole family and everyone enjoyed the teh tarik. Highly recommend!,POSITIVE
+664,C0094,K-Food Craze,5,Amazing food! Best murtabak I've had at a pasar malam.,POSITIVE
+665,C0277,Sugar Rush,4,Amazing food! Best ice kacang I've had at a pasar malam.,POSITIVE
+666,C0403,Kopi Kaki,5,This is my go-to stall every time. Never disappoints with their goreng pisang.,POSITIVE
+667,C0428,Crunch Time,5,Love the atmosphere and the chendol was delicious!,POSITIVE
+668,C0291,The Linen Store,1,Overpriced roti john for the quality. Would not return.,NEGATIVE
+669,C0333,Mala Majik,1,Worst bubble tea I have ever tried. Complete waste of money.,NEGATIVE
+670,C0069,Coconut Grove,5,This is my go-to stall every time. Never disappoints with their bubble tea.,POSITIVE
+671,C0080,Wok This Way,2,Overpriced takoyaki for the quality. Would not return.,NEGATIVE
+672,C0136,Wok This Way,5,Love the atmosphere and the nasi goreng was delicious!,POSITIVE
+673,C0256,Fun Zone,4,Perfect night out. The goreng pisang here is a must-try!,POSITIVE
+674,C0349,Game On!,5,Great value for money. Will definitely come back for more goreng pisang.,POSITIVE
+675,C0466,Kampung Wok,4,Great value for money. Will definitely come back for more teh tarik.,POSITIVE
+676,C0042,Lucky Strike,4,Incredible quality at such affordable prices. The roti john was outstanding.,POSITIVE
+677,C0008,Win It Stall,4,Love the atmosphere and the corn dog was delicious!,POSITIVE
+678,C0405,The Juice Lab,4,Amazing food! Best corn dog I've had at a pasar malam.,POSITIVE
+679,C0170,Crunch Time,4,Great value for money. Will definitely come back for more takoyaki.,POSITIVE
+680,C0492,Kueh Corner,5,The vendor was so friendly and the takoyaki was fresh and tasty.,POSITIVE
+681,C0175,Seoul Kitchen,4,Perfect night out. The bubble tea here is a must-try!,POSITIVE
+682,C0052,Seoul Kitchen,4,This is my go-to stall every time. Never disappoints with their teh tarik.,POSITIVE
+683,C0420,Jelly Bliss,4,This is my go-to stall every time. Never disappoints with their mee goreng.,POSITIVE
+684,C0322,Dessert Alley,1,Disappointed with the curry puff. Long wait and cold food.,NEGATIVE
+685,C0234,Kacang Queen,2,Worst curry puff I have ever tried. Complete waste of money.,NEGATIVE
+686,C0161,Snack Attack,4,The vendor was so friendly and the curry puff was fresh and tasty.,POSITIVE
+687,C0221,Boba World,4,Incredible quality at such affordable prices. The goreng pisang was outstanding.,POSITIVE
+688,C0042,Munchies Corner,4,Incredible quality at such affordable prices. The corn dog was outstanding.,POSITIVE
+689,C0407,Teh Tarik Station,2,Worst satay I have ever tried. Complete waste of money.,NEGATIVE
+690,C0379,Kopi Kaki,1,The mee goreng was stale and the service was slow.,NEGATIVE
+691,C0013,The Juice Lab,1,The chendol was stale and the service was slow.,NEGATIVE
+692,C0129,The Juice Lab,4,Brought my whole family and everyone enjoyed the takoyaki. Highly recommend!,POSITIVE
+693,C0325,Abang Burger,2,Not worth the queue. The satay didn't taste fresh at all.,NEGATIVE
+694,C0254,Seoul Kitchen,5,Perfect night out. The nasi goreng here is a must-try!,POSITIVE
+695,C0375,Munchies Corner,5,This is my go-to stall every time. Never disappoints with their curry puff.,POSITIVE
+696,C0466,Street Fusion,4,This is my go-to stall every time. Never disappoints with their roti john.,POSITIVE
+697,C0325,Coconut Grove,5,Amazing food! Best takoyaki I've had at a pasar malam.,POSITIVE
+698,C0484,Boba World,1,The satay was stale and the service was slow.,NEGATIVE
+699,C0129,Coconut Grove,2,Disappointed with the satay. Long wait and cold food.,NEGATIVE
+700,C0242,Home & More,4,Great value for money. Will definitely come back for more laksa.,POSITIVE
+701,C0155,Ali's Kitchen,1,Terrible experience. The mee goreng was undercooked and tasteless.,NEGATIVE
+702,C0438,Uncle Razali Grill,4,Perfect night out. The bubble tea here is a must-try!,POSITIVE
+703,C0290,The Satay Corner,4,This is my go-to stall every time. Never disappoints with their nasi goreng.,POSITIVE
+704,C0158,Sweet Spot,5,Love the atmosphere and the ice kacang was delicious!,POSITIVE
+705,C0191,Mak Cik Stall,5,Great value for money. Will definitely come back for more satay.,POSITIVE
+706,C0494,The Satay Corner,5,Perfect night out. The satay here is a must-try!,POSITIVE
+707,C0172,Boba World,1,Worst nasi goreng I have ever tried. Complete waste of money.,NEGATIVE
+708,C0218,K-Food Craze,5,Brought my whole family and everyone enjoyed the laksa. Highly recommend!,POSITIVE
+709,C0135,Casa Living,1,The ice kacang was stale and the service was slow.,NEGATIVE
+710,C0481,The Satay Corner,4,Incredible quality at such affordable prices. The roti john was outstanding.,POSITIVE
+711,C0350,Kampung Wok,4,Great value for money. Will definitely come back for more murtabak.,POSITIVE
+712,C0252,Boba World,4,Perfect night out. The goreng pisang here is a must-try!,POSITIVE
+713,C0332,Boba World,5,Brought my whole family and everyone enjoyed the nasi goreng. Highly recommend!,POSITIVE
+714,C0031,Game On!,4,Perfect night out. The teh tarik here is a must-try!,POSITIVE
+715,C0001,Game On!,1,Overpriced roti john for the quality. Would not return.,NEGATIVE
+716,C0476,Snack Attack,5,Amazing food! Best goreng pisang I've had at a pasar malam.,POSITIVE
+717,C0459,Crunch Time,5,This is my go-to stall every time. Never disappoints with their bubble tea.,POSITIVE
+718,C0177,Kopi Kaki,4,Great value for money. Will definitely come back for more murtabak.,POSITIVE
+719,C0008,Game On!,4,Love the atmosphere and the ice kacang was delicious!,POSITIVE
+720,C0443,Boba World,5,The vendor was so friendly and the murtabak was fresh and tasty.,POSITIVE
+721,C0431,Cheese Me,4,Great value for money. Will definitely come back for more bubble tea.,POSITIVE
+722,C0480,Durian Heaven,1,Worst teh tarik I have ever tried. Complete waste of money.,NEGATIVE
+723,C0001,The Satay Corner,2,The mee goreng was stale and the service was slow.,NEGATIVE
+724,C0251,Kacang Queen,5,Love the atmosphere and the ice kacang was delicious!,POSITIVE
+725,C0221,Everyday Essentials,1,Disappointed with the corn dog. Long wait and cold food.,NEGATIVE
+726,C0352,Seoul Kitchen,5,Incredible quality at such affordable prices. The corn dog was outstanding.,POSITIVE
+727,C0426,Coconut Grove,5,Amazing food! Best ice kacang I've had at a pasar malam.,POSITIVE
+728,C0102,Lucky Strike,4,Great value for money. Will definitely come back for more mee goreng.,POSITIVE
+729,C0373,Kampung Wok,4,Great value for money. Will definitely come back for more bubble tea.,POSITIVE
+730,C0442,Wok This Way,2,Overpriced teh tarik for the quality. Would not return.,NEGATIVE
+731,C0369,Boba World,1,Worst roti john I have ever tried. Complete waste of money.,NEGATIVE
+732,C0409,Game On!,4,Incredible quality at such affordable prices. The teh tarik was outstanding.,POSITIVE
+733,C0302,Kacang Queen,4,This is my go-to stall every time. Never disappoints with their chendol.,POSITIVE
+734,C0079,Munchies Corner,2,The mee goreng was stale and the service was slow.,NEGATIVE
+735,C0224,Casa Living,4,This is my go-to stall every time. Never disappoints with their ice kacang.,POSITIVE
+736,C0469,Munchies Corner,1,Not worth the queue. The chendol didn't taste fresh at all.,NEGATIVE
+737,C0262,The Satay Corner,1,Disappointed with the mee goreng. Long wait and cold food.,NEGATIVE
+738,C0064,Wok This Way,4,Brought my whole family and everyone enjoyed the ice kacang. Highly recommend!,POSITIVE
+739,C0255,Jelly Bliss,1,The curry puff was stale and the service was slow.,NEGATIVE
+740,C0252,Jelly Bliss,5,Amazing food! Best nasi goreng I've had at a pasar malam.,POSITIVE
+741,C0078,Munchies Corner,2,Disappointed with the mee goreng. Long wait and cold food.,NEGATIVE
+742,C0307,Ali's Kitchen,5,This is my go-to stall every time. Never disappoints with their roti john.,POSITIVE
+743,C0104,The Satay Corner,4,The vendor was so friendly and the goreng pisang was fresh and tasty.,POSITIVE
+744,C0153,Home & More,2,Terrible experience. The chendol was undercooked and tasteless.,NEGATIVE
+745,C0110,The Linen Store,4,This is my go-to stall every time. Never disappoints with their goreng pisang.,POSITIVE
+746,C0309,Mak Cik Stall,4,Amazing food! Best laksa I've had at a pasar malam.,POSITIVE
+747,C0199,Ice Ice Baby,2,Disappointed with the satay. Long wait and cold food.,NEGATIVE
+748,C0009,Kampung Wok,4,Great value for money. Will definitely come back for more murtabak.,POSITIVE
+749,C0326,Fun Zone,4,Incredible quality at such affordable prices. The curry puff was outstanding.,POSITIVE
+750,C0264,Sweet Spot,5,The vendor was so friendly and the goreng pisang was fresh and tasty.,POSITIVE
+751,C0262,Home & More,1,Worst ice kacang I have ever tried. Complete waste of money.,NEGATIVE
+752,C0381,The Juice Lab,2,Not worth the queue. The mee goreng didn't taste fresh at all.,NEGATIVE
+753,C0157,Snack Attack,1,The teh tarik was stale and the service was slow.,NEGATIVE
+754,C0071,Uncle Razali Grill,4,Perfect night out. The mee goreng here is a must-try!,POSITIVE
+755,C0477,Kueh Corner,4,Amazing food! Best corn dog I've had at a pasar malam.,POSITIVE
+756,C0262,Everyday Essentials,5,Love the atmosphere and the takoyaki was delicious!,POSITIVE
+757,C0119,Mala Majik,2,Disappointed with the roti john. Long wait and cold food.,NEGATIVE
+758,C0085,Tornado Bites,5,This is my go-to stall every time. Never disappoints with their goreng pisang.,POSITIVE
+759,C0204,Seoul Kitchen,4,This is my go-to stall every time. Never disappoints with their curry puff.,POSITIVE
+760,C0088,Sweet Spot,2,Disappointed with the murtabak. Long wait and cold food.,NEGATIVE
+761,C0325,Win It Stall,2,Worst murtabak I have ever tried. Complete waste of money.,NEGATIVE
+762,C0424,Cheese Me,5,Incredible quality at such affordable prices. The murtabak was outstanding.,POSITIVE
+763,C0395,Ali's Kitchen,4,Amazing food! Best goreng pisang I've had at a pasar malam.,POSITIVE
+764,C0421,K-Food Craze,2,Not worth the queue. The nasi goreng didn't taste fresh at all.,NEGATIVE
+765,C0263,Casa Living,4,Great value for money. Will definitely come back for more teh tarik.,POSITIVE
+766,C0211,Ice Ice Baby,4,The vendor was so friendly and the mee goreng was fresh and tasty.,POSITIVE
+767,C0326,Crunch Time,4,Incredible quality at such affordable prices. The teh tarik was outstanding.,POSITIVE
+768,C0364,Street Fusion,4,Love the atmosphere and the laksa was delicious!,POSITIVE
+769,C0195,Fun Zone,5,The vendor was so friendly and the mee goreng was fresh and tasty.,POSITIVE
+770,C0457,Nasi Lemak Bros,1,Overpriced murtabak for the quality. Would not return.,NEGATIVE
+771,C0050,Nasi Lemak Bros,1,Worst goreng pisang I have ever tried. Complete waste of money.,NEGATIVE
+772,C0133,Fun Zone,4,Great value for money. Will definitely come back for more teh tarik.,POSITIVE
+773,C0213,Street Fusion,4,Perfect night out. The mee goreng here is a must-try!,POSITIVE
+774,C0409,Ali's Kitchen,4,Incredible quality at such affordable prices. The roti john was outstanding.,POSITIVE
+775,C0068,Seoul Kitchen,1,Not worth the queue. The chendol didn't taste fresh at all.,NEGATIVE
+776,C0389,Ali's Kitchen,5,This is my go-to stall every time. Never disappoints with their curry puff.,POSITIVE
+777,C0068,K-Food Craze,4,Amazing food! Best goreng pisang I've had at a pasar malam.,POSITIVE
+778,C0087,Mak Cik Stall,2,The takoyaki was stale and the service was slow.,NEGATIVE
+779,C0207,Everyday Essentials,1,The mee goreng was stale and the service was slow.,NEGATIVE
+780,C0303,Teh Tarik Station,1,Overpriced chendol for the quality. Would not return.,NEGATIVE
+781,C0165,Lucky Strike,1,The ice kacang was stale and the service was slow.,NEGATIVE
+782,C0256,Boba World,1,The teh tarik was stale and the service was slow.,NEGATIVE
+783,C0023,Home & More,5,Perfect night out. The laksa here is a must-try!,POSITIVE
+784,C0102,Cheese Me,2,Worst curry puff I have ever tried. Complete waste of money.,NEGATIVE
+785,C0192,Crunch Time,5,Incredible quality at such affordable prices. The corn dog was outstanding.,POSITIVE
+786,C0451,Durian Heaven,5,Great value for money. Will definitely come back for more laksa.,POSITIVE
+787,C0272,Game On!,1,Worst goreng pisang I have ever tried. Complete waste of money.,NEGATIVE
+788,C0122,Seoul Kitchen,2,Disappointed with the curry puff. Long wait and cold food.,NEGATIVE
+789,C0044,Kacang Queen,5,Brought my whole family and everyone enjoyed the murtabak. Highly recommend!,POSITIVE
+790,C0461,Kueh Corner,5,The vendor was so friendly and the corn dog was fresh and tasty.,POSITIVE
+791,C0470,Durian Heaven,4,Perfect night out. The takoyaki here is a must-try!,POSITIVE
+792,C0409,Cheese Me,4,Perfect night out. The satay here is a must-try!,POSITIVE
+793,C0149,Durian Heaven,1,Overpriced laksa for the quality. Would not return.,NEGATIVE
+794,C0265,Kacang Queen,4,Perfect night out. The takoyaki here is a must-try!,POSITIVE
+795,C0199,Street Fusion,5,Perfect night out. The mee goreng here is a must-try!,POSITIVE
+796,C0107,Lucky Strike,5,Amazing food! Best chendol I've had at a pasar malam.,POSITIVE
+797,C0224,Snack Attack,5,Perfect night out. The goreng pisang here is a must-try!,POSITIVE
+798,C0070,Mak Cik Stall,1,The corn dog was stale and the service was slow.,NEGATIVE
+799,C0142,Coconut Grove,4,Incredible quality at such affordable prices. The nasi goreng was outstanding.,POSITIVE
+800,C0420,Teh Tarik Station,4,The vendor was so friendly and the chendol was fresh and tasty.,POSITIVE
