@@ -161,7 +161,7 @@ export default function VendorEventApplication({ user, onLogout }: VendorEventAp
         <VendorNavBar user={user} onLogout={onLogout} currentPage="apply" />
         <div className="max-w-6xl mx-auto px-4 py-20 text-center">
           <h2 className="text-2xl font-bold text-gray-700 mb-4">Event not found</h2>
-          <Link to="/vendor/apply-events" className="text-purple-600 hover:underline">
+          <Link to="/vendor/events" className="text-purple-600 hover:underline">
             ← Back to events
           </Link>
         </div>
@@ -192,7 +192,7 @@ export default function VendorEventApplication({ user, onLogout }: VendorEventAp
       <div className="max-w-6xl mx-auto px-4 py-8">
         {/* Back */}
         <Link
-          to="/vendor/apply-events"
+          to="/vendor/events"
           className="inline-flex items-center gap-2 text-purple-600 hover:text-purple-700 mb-6"
         >
           <ArrowLeft className="w-4 h-4" />
