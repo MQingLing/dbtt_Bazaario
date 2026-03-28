@@ -1,11 +1,11 @@
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import VendorNav from './VendorNav';
 import { User } from '../../App';
 import { Card, CardContent } from '../shared/card';
 import { Badge } from '../shared/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '../shared/tabs';
 import { LineChart, Line, BarChart, Bar, PieChart, Pie, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
-import { TrendingUp, DollarSign, ShoppingBag, Users, ArrowUp, ArrowDown, Star, ThumbsUp, ThumbsDown } from 'lucide-react';
+import { TrendingUp, DollarSign, ShoppingBag, Users, ArrowUp, ArrowDown, Star, ThumbsUp, ThumbsDown, ChevronLeft, ChevronRight } from 'lucide-react';
 import { vendorOwnReviews, vendorOwnSentiment, mlResults, predictions } from '../../data/analyticsData';
 
 interface VendorSalesAnalyticsProps {
@@ -52,15 +52,38 @@ function getLiveReviews(): NormReview[] {
 
 export default function VendorSalesAnalytics({ user, onLogout }: VendorSalesAnalyticsProps) {
   const liveReviews = useMemo(getLiveReviews, []);
-  const salesData = [
-    { id: 1, date: 'Mon', sales: 460, orders: 38 },
-    { id: 2, date: 'Tue', sales: 520, orders: 43 },
-    { id: 3, date: 'Wed', sales: 490, orders: 41 },
-    { id: 4, date: 'Thu', sales: 580, orders: 48 },
-    { id: 5, date: 'Fri', sales: 800, orders: 67 },
-    { id: 6, date: 'Sat', sales: 960, orders: 80 },
-    { id: 7, date: 'Sun', sales: 839, orders: 70 }
-  ];
+  const [weekOffset, setWeekOffset] = useState(0); // 0 = this week, -1 = last week, etc.
+
+  // Generate deterministic weekly data based on offset
+  const salesData = useMemo(() => {
+    const BASE = [460, 520, 490, 580, 800, 960, 839];
+    const BASE_ORDERS = [38, 43, 41, 48, 67, 80, 70];
+    const DAYS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+    // Each past week scales by ~85-95% with deterministic per-day variation
+    const seed = Math.abs(weekOffset);
+    const scale = weekOffset === 0 ? 1 : Math.pow(0.88 + (seed % 3) * 0.04, seed);
+    return DAYS.map((day, i) => {
+      const variation = 1 + ((i * 7 + seed * 13) % 17 - 8) / 100;
+      return {
+        id: i + 1,
+        date: day,
+        sales: Math.round(BASE[i] * scale * variation),
+        orders: Math.round(BASE_ORDERS[i] * scale * variation),
+      };
+    });
+  }, [weekOffset]);
+
+  // Week label e.g. "Mar 22 – 28, 2026"
+  const weekLabel = useMemo(() => {
+    const monday = new Date();
+    const day = monday.getDay();
+    monday.setDate(monday.getDate() - ((day + 6) % 7) + weekOffset * 7);
+    const sunday = new Date(monday);
+    sunday.setDate(monday.getDate() + 6);
+    const fmt = (d: Date) => d.toLocaleDateString('en-SG', { day: 'numeric', month: 'short' });
+    const year = sunday.getFullYear();
+    return weekOffset === 0 ? 'This Week' : `${fmt(monday)} – ${fmt(sunday)}, ${year}`;
+  }, [weekOffset]);
 
   const productData = [
     { name: 'Chicken Satay', value: 880, count: 110 },
@@ -133,7 +156,18 @@ export default function VendorSalesAnalytics({ user, onLogout }: VendorSalesAnal
             {/* Sales Trend */}
             <Card>
               <CardContent className="p-6">
-                <h3 className="text-xl font-bold mb-6">Your Sales This Week</h3>
+                <div className="flex items-center justify-between mb-6">
+                  <h3 className="text-xl font-bold">Your Sales This Week</h3>
+                  <div className="flex items-center gap-2">
+                    <button onClick={() => setWeekOffset(w => w - 1)} className="p-1.5 rounded-lg border border-gray-200 hover:bg-gray-50 transition-colors">
+                      <ChevronLeft className="w-4 h-4 text-gray-600" />
+                    </button>
+                    <span className="text-sm font-medium text-gray-600 min-w-[120px] text-center">{weekLabel}</span>
+                    <button onClick={() => setWeekOffset(w => Math.min(0, w + 1))} disabled={weekOffset === 0} className="p-1.5 rounded-lg border border-gray-200 hover:bg-gray-50 transition-colors disabled:opacity-30 disabled:cursor-not-allowed">
+                      <ChevronRight className="w-4 h-4 text-gray-600" />
+                    </button>
+                  </div>
+                </div>
                 <ResponsiveContainer width="100%" height={300}>
                   <LineChart data={salesData} id="vendor-sales-chart">
                     <CartesianGrid key="grid" strokeDasharray="3 3" stroke="#e5e7eb" />
@@ -153,7 +187,18 @@ export default function VendorSalesAnalytics({ user, onLogout }: VendorSalesAnal
             {/* Orders Trend */}
             <Card>
               <CardContent className="p-6">
-                <h3 className="text-xl font-bold mb-6">Orders This Week</h3>
+                <div className="flex items-center justify-between mb-6">
+                  <h3 className="text-xl font-bold">Orders This Week</h3>
+                  <div className="flex items-center gap-2">
+                    <button onClick={() => setWeekOffset(w => w - 1)} className="p-1.5 rounded-lg border border-gray-200 hover:bg-gray-50 transition-colors">
+                      <ChevronLeft className="w-4 h-4 text-gray-600" />
+                    </button>
+                    <span className="text-sm font-medium text-gray-600 min-w-[120px] text-center">{weekLabel}</span>
+                    <button onClick={() => setWeekOffset(w => Math.min(0, w + 1))} disabled={weekOffset === 0} className="p-1.5 rounded-lg border border-gray-200 hover:bg-gray-50 transition-colors disabled:opacity-30 disabled:cursor-not-allowed">
+                      <ChevronRight className="w-4 h-4 text-gray-600" />
+                    </button>
+                  </div>
+                </div>
                 <ResponsiveContainer width="100%" height={300}>
                   <BarChart data={salesData} id="vendor-orders-chart">
                     <CartesianGrid key="grid" strokeDasharray="3 3" stroke="#e5e7eb" />
