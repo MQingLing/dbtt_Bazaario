@@ -1,7 +1,7 @@
 <div align="center">
   <img src="src/assets/app_logo.png" alt="Bazaario Logo" width="120" />
 
-  # 🛍️ Bazaario
+# 🛍️ Bazaario
 
   *Singapore's Digital Pasar Malam Marketplace*
 
@@ -14,6 +14,7 @@
   ![Python](https://img.shields.io/badge/Python-3.x-3776AB?style=flat&logo=python&logoColor=white)
   ![License](https://img.shields.io/badge/License-MIT-green?style=flat)
   ![Educational](https://img.shields.io/badge/Purpose-Educational-orange?style=flat)
+
 </div>
 
 ---
@@ -28,7 +29,7 @@ Built as an educational project to demonstrate full-stack UI design, role-based 
 
 ## Getting Started
 
-**Live Demo:** [https://gohsijing.github.io/dbtt_Bazaario/](https://gohsijing.github.io/dbtt_Bazaario/)
+**Live Demo:** [https://mqingling.github.io/dbtt_Bazaario/](https://mqingling.github.io/dbtt_Bazaario/)
 
 ```bash
 npm install       # Install dependencies
@@ -40,11 +41,11 @@ npm run build     # Production build → docs/
 
 ## Demo Accounts
 
-| Role     | Email                    | Password      |
-|----------|--------------------------|---------------|
-| Customer | customer@bazaario.com    | Customer@123  |
-| Vendor   | vendor@bazaario.com      | Vendor@123    |
-| Admin    | admin@bazaario.com       | Admin@123     |
+| Role     | Email                 | Password     |
+| -------- | --------------------- | ------------ |
+| Customer | customer@bazaario.com | Customer@123 |
+| Vendor   | vendor@bazaario.com   | Vendor@123   |
+| Admin    | admin@bazaario.com    | Admin@123    |
 
 > The default admin account is flagged `isDefaultPassword: true` and will be prompted to change their password on first login. This gate cannot be bypassed.
 
@@ -55,6 +56,7 @@ All accounts are seeded into `localStorage` on first load via `src/app/services/
 ## Features by Role
 
 ### Customer
+
 - Browse upcoming and ongoing pasar malam events
 - Interactive stall layout map per event
 - Visit vendor digital storefronts and menus
@@ -64,6 +66,7 @@ All accounts are seeded into `localStorage` on first load via `src/app/services/
 - New customer registration
 
 ### Vendor
+
 - Dashboard with today's sales, orders, revenue, and customer stats
 - Order management with status tracking (Pending → Preparing → Ready)
 - Product/menu management with sold-out toggling
@@ -74,6 +77,7 @@ All accounts are seeded into `localStorage` on first load via `src/app/services/
 - New vendor registration (auto-login after sign-up)
 
 ### Admin
+
 - Platform-wide dashboard with event and vendor overview
 - Create and manage events with stall layout configuration
 - Compliance tracking (SCDF, SFA, EMA permits) per event
@@ -86,16 +90,16 @@ All accounts are seeded into `localStorage` on first load via `src/app/services/
 
 ## Tech Stack
 
-| Layer         | Technology                                      |
-|---------------|-------------------------------------------------|
-| Framework     | React 18 + TypeScript                           |
-| Build Tool    | Vite 6                                          |
-| Styling       | Tailwind CSS v4                                 |
-| Routing       | React Router v7                                 |
-| UI Primitives | Radix UI (wrapped in `components/shared/`)      |
-| Icons         | Lucide React                                    |
-| Data          | `localStorage` (mock database, no backend)      |
-| Analytics     | Python 3 + scikit-learn + Jupyter Notebooks     |
+| Layer         | Technology                                   |
+| ------------- | -------------------------------------------- |
+| Framework     | React 18 + TypeScript                        |
+| Build Tool    | Vite 6                                       |
+| Styling       | Tailwind CSS v4                              |
+| Routing       | React Router v7                              |
+| UI Primitives | Radix UI (wrapped in `components/shared/`) |
+| Icons         | Lucide React                                 |
+| Data          | `localStorage` (mock database, no backend) |
+| Analytics     | Python 3 + scikit-learn + Jupyter Notebooks  |
 
 ---
 
@@ -147,6 +151,7 @@ analytics/
 ```
 
 Each notebook outputs:
+
 - **`output/`** — trained model file (`.pkl`)
 - **`report/`** — evaluation results and metrics
 
