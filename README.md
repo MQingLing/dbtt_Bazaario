@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="src/assets/app_logo.png" alt="Bazaario Logo" width="120" />
+  <img src="src/assets/app_logo.png" alt="Bazaario Logo" width="240" />
 
 # 🛍️ Bazaario
 
