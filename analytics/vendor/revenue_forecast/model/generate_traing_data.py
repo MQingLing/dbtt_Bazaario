@@ -5,7 +5,7 @@ import random
 # parameters
 
 NUM_SAMPLES = 5000
-OUTPUT_FILE = "pasar_malam_training_data.csv"
+OUTPUT_FILE = "../data/pasar_malam_training_data.csv"
 RANDOM_SEED = 42
 
 # baselines

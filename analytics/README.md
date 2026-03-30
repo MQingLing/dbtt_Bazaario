@@ -1,6 +1,23 @@
-# Bazaario — Analytics Pipelines
+<div align="center">
+  <img src="../src/assets/app_logo.png" alt="Bazaario Logo" width="100" />
 
-This folder contains all synthetic datasets, trained models, and machine learning pipelines for the **Bazaario Pasar Malam Marketplace** analytics system.
+  # 📊 Bazaario — Analytics Pipelines
+
+  *Machine learning models powering the Bazaario admin and vendor dashboards*
+
+  ![Python](https://img.shields.io/badge/Python-3.8+-3776AB?style=flat&logo=python&logoColor=white)
+  ![scikit-learn](https://img.shields.io/badge/scikit--learn-ML-F7931E?style=flat&logo=scikitlearn&logoColor=white)
+  ![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-F37626?style=flat&logo=jupyter&logoColor=white)
+  ![Educational](https://img.shields.io/badge/Purpose-Educational-orange?style=flat)
+</div>
+
+---
+
+## About
+
+This folder contains all synthetic datasets, trained models, and machine learning pipelines for the **Bazaario Pasar Malam Marketplace** analytics system. Each notebook is fully self-contained — it generates its own training data, trains a model, evaluates it, and saves the outputs.
+
+---
 
 ## Folder Structure
 
@@ -25,9 +42,9 @@ analytics/
 │
 └── vendor/
     ├── revenue_forecast/
-    │   ├── data/       vendor_revenue_data.csv (450 daily records, 5 vendors)
-    │   ├── model/      revenue_forecast.ipynb
-    │   ├── output/     vendor_revenue_models.pkl
+    │   ├── data/       pasar_malam_training_data.csv
+    │   ├── model/      revenue_forecast.ipynb, generate_traing_data.py, train_revenue_model.py, predict_revenue.py
+    │   ├── output/     revenue_model.pkl
     │   └── report/     evaluation_report.json
     └── sentiment_analysis/
         ├── data/       reviews_data.csv (800 reviews, 4 weeks)
@@ -35,6 +52,8 @@ analytics/
         ├── output/     sentiment_model.pkl
         └── report/     evaluation_report.json
 ```
+
+---
 
 ## Models
 
@@ -45,6 +64,8 @@ analytics/
 | **Cashless Adoption** | Logistic Regression | `admin/cashless_adoption/` | Accuracy = 87.5% |
 | **Vendor Revenue Forecast** | Multiple Linear Regression | `vendor/revenue_forecast/` | R² = 0.887 (overall) |
 | **Vendor Sentiment Analysis** | Keyword-based NLP | `vendor/sentiment_analysis/` | Accuracy = 100% |
+
+---
 
 ## Each Notebook
 
@@ -57,6 +78,8 @@ Every `.ipynb` contains 5 sequential sections:
 5. **Test** — runs inference on sample inputs
 
 Run cells top-to-bottom to fully regenerate all outputs.
+
+---
 
 ## Quick Start
 
@@ -71,6 +94,8 @@ analytics/vendor/sentiment_analysis/model/sentiment_analysis.ipynb
 ```
 
 Requires **Python 3.8+**. No external libraries — all models use Python stdlib only (`csv`, `json`, `math`, `random`, `pickle`).
+
+---
 
 ## Frontend Integration
 

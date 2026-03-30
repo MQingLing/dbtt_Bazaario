@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { getTransactions } from '../../services/dataStore';
+import { getTransactions, addTransaction } from '../../services/dataStore';
 import { Link } from 'react-router';
 import CustomerNav from './CustomerNav';
 import { User } from '../../App';
@@ -57,7 +57,17 @@ export default function CustomerWallet({ user, onLogout, onUserUpdate }: Custome
     const newBalance = (user.walletBalance ?? 0) + resolvedAmount;
     const stored = updateUser(user.id, { walletBalance: newBalance });
     if (stored) onUserUpdate({ ...user, walletBalance: stored.walletBalance });
-    const methodLabel = paymentMethod === 'card' ? 'Credit/Debit Card' : 'PayNow';
+    const methodLabel = paymentMethod === 'card' ? 'Credit / Debit Card' : 'PayNow';
+    const now = new Date();
+    addTransaction(user.id, {
+      type: 'topup',
+      vendor: methodLabel,
+      amount: resolvedAmount,
+      date: now.toLocaleDateString('en-SG', { day: 'numeric', month: 'short', year: 'numeric' }),
+      time: now.toLocaleTimeString('en-SG', { hour: 'numeric', minute: '2-digit', hour12: true }),
+      status: 'completed',
+      paymentMethod: methodLabel,
+    });
     setTopUpMessage(`$${resolvedAmount.toFixed(2)} added via ${methodLabel} — new balance $${newBalance.toFixed(2)}`);
     setSelectedAmount(null);
     setCustomAmount('');

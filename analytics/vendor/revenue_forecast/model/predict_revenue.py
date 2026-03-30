@@ -3,7 +3,7 @@ import pandas as pd
 
 # find model
 
-MODEL_FILE = "revenue_model.pkl"
+MODEL_FILE = "../output/revenue_model.pkl"
 
 with open(MODEL_FILE, "rb") as f:
     model = pickle.load(f)

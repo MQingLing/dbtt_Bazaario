@@ -21,6 +21,7 @@ import VendorEventApplication from './components/vendor/VendorEventApplication';
 import VendorSignUp from './components/vendor/VendorSignUp';
 import VendorSubscription from './components/vendor/VendorSubscription';
 import VendorEvents from './components/vendor/VendorEvents';
+import VendorMyApplications from './components/vendor/VendorMyApplications';
 import AdminDashboard from './components/admin/AdminDashboard';
 import AdminEventManagement from './components/admin/AdminEventManagement';
 import AdminVendorManagement from './components/admin/AdminVendorManagement';
@@ -114,6 +115,7 @@ export default function App() {
           <Route path="/vendor/products" element={currentUser?.role === 'vendor' ? (currentUser.verificationStatus === 'approved' ? <VendorProductManagement user={currentUser} onLogout={handleLogout} /> : <Navigate to="/vendor/verification" />) : <Navigate to="/" />} />
           <Route path="/vendor/events" element={currentUser?.role === 'vendor' ? (currentUser.verificationStatus === 'approved' ? <VendorEvents user={currentUser} onLogout={handleLogout} /> : <Navigate to="/vendor/verification" />) : <Navigate to="/" />} />
           <Route path="/vendor/apply-events/:eventId" element={currentUser?.role === 'vendor' ? (currentUser.verificationStatus === 'approved' ? <VendorEventApplication user={currentUser} onLogout={handleLogout} /> : <Navigate to="/vendor/verification" />) : <Navigate to="/" />} />
+          <Route path="/vendor/my-applications" element={currentUser?.role === 'vendor' ? (currentUser.verificationStatus === 'approved' ? <VendorMyApplications user={currentUser} onLogout={handleLogout} /> : <Navigate to="/vendor/verification" />) : <Navigate to="/" />} />
           <Route path="/vendor/subscription" element={currentUser?.role === 'vendor' ? (currentUser.verificationStatus === 'approved' ? <VendorSubscription user={currentUser} onLogout={handleLogout} onUserUpdate={handleUserUpdate} /> : <Navigate to="/vendor/verification" />) : <Navigate to="/" />} />
 
           {/* Admin Routes */}

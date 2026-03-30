@@ -178,7 +178,7 @@ export default function VendorMyApplications({ user, onLogout }: VendorMyApplica
             <p className="text-gray-600">Track the status of your stall applications</p>
           </div>
           <Link
-            to="/vendor/apply-events"
+            to="/vendor/events"
             className="px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-lg hover:from-purple-700 hover:to-pink-700 transition-all shadow-lg"
           >
             Apply for Event
@@ -349,7 +349,7 @@ export default function VendorMyApplications({ user, onLogout }: VendorMyApplica
                 : 'Start by applying for an upcoming event'}
             </p>
             <Link
-              to="/vendor/apply-events"
+              to="/vendor/events"
               className="inline-block px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-lg hover:from-purple-700 hover:to-pink-700 transition-all"
             >
               Browse Events

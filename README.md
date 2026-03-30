@@ -1,15 +1,39 @@
-# Bazaario — Singapore Pasar Malam Marketplace
+<div align="center">
+  <img src="src/assets/app_logo.png" alt="Bazaario Logo" width="120" />
 
-A digital platform connecting customers, vendors, and event organisers for Singapore's night market scene. Customers can browse events, pre-order from vendor stalls, and earn loyalty stamps. Vendors manage orders, menus, and event applications. Admins oversee the platform, manage events, and review vendor applications.
+  # 🛍️ Bazaario
+
+  *Singapore's Digital Pasar Malam Marketplace*
+
+  A digital platform connecting customers, vendors, and event organisers for Singapore's vibrant night market scene — enabling pre-orders, stall discovery, loyalty rewards, and seamless event management.
+
+  ![React](https://img.shields.io/badge/React-18-61DAFB?style=flat&logo=react&logoColor=white)
+  ![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?style=flat&logo=typescript&logoColor=white)
+  ![Vite](https://img.shields.io/badge/Vite-6-646CFF?style=flat&logo=vite&logoColor=white)
+  ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4-06B6D4?style=flat&logo=tailwindcss&logoColor=white)
+  ![Python](https://img.shields.io/badge/Python-3.x-3776AB?style=flat&logo=python&logoColor=white)
+  ![License](https://img.shields.io/badge/License-MIT-green?style=flat)
+  ![Educational](https://img.shields.io/badge/Purpose-Educational-orange?style=flat)
+</div>
+
+---
+
+## About
+
+Bazaario is a prototype marketplace platform built for Singapore's pasar malam (night market) ecosystem. It simulates three distinct portals — **Customer**, **Vendor**, and **Admin** — each with full role-based functionality, powered entirely by `localStorage` as a mock backend with no server required.
+
+Built as an educational project to demonstrate full-stack UI design, role-based access control, and machine learning integration in a realistic product setting.
 
 ---
 
 ## Getting Started
 
+**Live Demo:** [https://gohsijing.github.io/dbtt_Bazaario/](https://gohsijing.github.io/dbtt_Bazaario/)
+
 ```bash
 npm install       # Install dependencies
 npm run dev       # Start development server (http://localhost:5173)
-npm run build     # Production build
+npm run build     # Production build → docs/
 ```
 
 ---
@@ -45,20 +69,37 @@ All accounts are seeded into `localStorage` on first load via `src/app/services/
 - Product/menu management with sold-out toggling
 - Sales analytics with revenue trends and top products
 - Browse and apply for upcoming pasar malam events
-- Track application status
+- Track event application status
+- Document submission and verification flow
 - New vendor registration (auto-login after sign-up)
 
 ### Admin
 - Platform-wide dashboard with event and vendor overview
 - Create and manage events with stall layout configuration
-- Vendor account management (approve, suspend, monitor)
+- Compliance tracking (SCDF, SFA, EMA permits) per event
+- Vendor account management and verification (approve, suspend, monitor)
 - Review and approve/reject vendor event applications
 - Add new administrator accounts with auto-generated default passwords
 - Generated passwords shown once — new admins must change on first login
 
 ---
 
-## Auth System
+## Tech Stack
+
+| Layer         | Technology                                      |
+|---------------|-------------------------------------------------|
+| Framework     | React 18 + TypeScript                           |
+| Build Tool    | Vite 6                                          |
+| Styling       | Tailwind CSS v4                                 |
+| Routing       | React Router v7                                 |
+| UI Primitives | Radix UI (wrapped in `components/shared/`)      |
+| Icons         | Lucide React                                    |
+| Data          | `localStorage` (mock database, no backend)      |
+| Analytics     | Python 3 + scikit-learn + Jupyter Notebooks     |
+
+---
+
+## Authentication
 
 Authentication is handled client-side using `localStorage` as a mock database (`src/app/services/authStore.ts`).
 
@@ -66,20 +107,6 @@ Authentication is handled client-side using `localStorage` as a mock database (`
 - **`User`** (React state) has no password field
 - **Force password change** — any account with `isDefaultPassword: true` sees `ChangePasswordPage` before `BrowserRouter`, making it impossible to navigate away
 - **Guided tour** — shown once per role after login, state persisted in `localStorage` (`bazaario_tour_seen_{role}`)
-
----
-
-## Tech Stack
-
-| Layer       | Technology                                      |
-|-------------|-------------------------------------------------|
-| Framework   | React 18 + TypeScript                           |
-| Build tool  | Vite 6                                          |
-| Styling     | Tailwind CSS v4                                 |
-| Routing     | React Router v7                                 |
-| UI primitives | Radix UI (wrapped in `components/shared/`)    |
-| Icons       | Lucide React                                    |
-| Data        | `localStorage` (mock database, no backend)      |
 
 ---
 
@@ -104,7 +131,7 @@ src/app/
 
 ---
 
-## Analytics
+## Analytics (ML Models)
 
 Five ML models are implemented as self-contained Jupyter notebooks. Each notebook generates synthetic data, trains a model, evaluates it, and saves the trained model and evaluation report.
 
@@ -112,10 +139,10 @@ Five ML models are implemented as self-contained Jupyter notebooks. Each noteboo
 analytics/
 ├── admin/
 │   ├── revenue_forecast/model/revenue_forecast.ipynb    # Multiple Linear Regression  (R² = 0.824)
-│   ├── demand_forecast/model/demand_forecast.ipynb      # Polynomial Regression       (R² = 0.977)
+│   ├── demand_forecast/model/demand_forecast.ipynb      # Multiple Linear Regression  (R² = 0.977)
 │   └── cashless_adoption/model/cashless_adoption.ipynb  # Logistic Regression         (Acc = 87.5%)
 └── vendor/
-    ├── revenue_forecast/model/revenue_forecast.ipynb    # Per-vendor Linear Regression (R² = 0.887)
+    ├── revenue_forecast/model/revenue_forecast.ipynb    # Per-vendor Gradient Boosting  (R² = 0.887)
     └── sentiment_analysis/model/sentiment_analysis.ipynb # Keyword NLP                (Acc = 100%)
 ```
 
@@ -124,3 +151,16 @@ Each notebook outputs:
 - **`report/`** — evaluation results and metrics
 
 Run any notebook top-to-bottom in Jupyter or VS Code to reproduce the full pipeline.
+
+---
+
+## Deployment
+
+The project deploys to GitHub Pages via the `docs/` folder (`outDir: 'docs'` in `vite.config.ts`).
+
+```bash
+npm run build     # Outputs to docs/
+git add docs/
+git commit -m "Rebuild docs"
+git push
+```
