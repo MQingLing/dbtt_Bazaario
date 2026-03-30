@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="../src/assets/app_logo.png" alt="Bazaario Logo" width="100" />
+  <img src="../src/assets/app_logo.png" alt="Bazaario Logo" width="480" />
 
   # 📊 Bazaario — Analytics Pipelines
 
